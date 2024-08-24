@@ -1,12 +1,7 @@
+import Hero from '@/components/Hero/Hero'
+
 const HomePage = () => {
-  return (
-    <div>
-      <p>
-        A starter template that use React, Tailwind CSS + Daisy UI, Typescript, React Router and
-        another pre-configuration
-      </p>
-    </div>
-  )
+  return <Hero />
 }
 
 export default HomePage
