@@ -1,4 +1,5 @@
 import DepositSection from '@/components/DepositSection/DepositSection'
+import Footer from '@/components/Footer/Footer'
 import Hero from '@/components/Hero/Hero'
 
 const HomePage = () => {
@@ -6,6 +7,7 @@ const HomePage = () => {
     <>
       <Hero />
       <DepositSection />
+      <Footer />
     </>
   )
 }
