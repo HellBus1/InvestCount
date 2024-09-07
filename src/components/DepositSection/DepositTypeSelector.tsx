@@ -14,21 +14,21 @@ const DepositTypeSelector = () => {
       <div role='tablist' className='tabs tabs-lifted'>
         <button
           role='tab'
-          className={`tab ${selectedOption === DepositType.NONARO ? 'tab-active' : ''} font-bold`}
+          className={`tab ${selectedOption === DepositType.NONARO ? 'tab-active' : ''} font-bold text-jess`}
           onClick={() => setSelectedOption(DepositType.NONARO)}
         >
           {DepositType.NONARO}
         </button>
         <button
           role='tab'
-          className={`tab ${selectedOption === DepositType.ARO ? 'tab-active' : ''} font-bold`}
+          className={`tab ${selectedOption === DepositType.ARO ? 'tab-active' : ''} font-bold text-jess`}
           onClick={() => setSelectedOption(DepositType.ARO)}
         >
           {DepositType.ARO}
         </button>
         <button
           role='tab'
-          className={`tab ${selectedOption === DepositType.AROPLUS ? 'tab-active' : ''} font-bold`}
+          className={`tab ${selectedOption === DepositType.AROPLUS ? 'tab-active' : ''} font-bold text-jess`}
           onClick={() => setSelectedOption(DepositType.AROPLUS)}
         >
           {DepositType.AROPLUS}

@@ -1,11 +1,17 @@
 import { useState } from 'react'
 
-const DepositInputSection = () => {
+interface DepositInputSectionProps {
+  setInterest: (interest: number) => void
+  taxRate: string
+  setTaxRate: (taxRate: string) => void
+  holdingMonths: string
+  setHoldingMonths: (holdingMonths: string) => void
+}
+
+const DepositInputSection = (props: DepositInputSectionProps) => {
+  const { setInterest, taxRate, setTaxRate, holdingMonths, setHoldingMonths } = props
   const [amount, setAmount] = useState('')
   const [interestRate, setInterestRate] = useState('')
-  const [taxRate, setTaxRate] = useState('')
-  const [holdingMonths, setHoldingMonths] = useState('')
-  const [interest, setInterest] = useState('')
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(e.target.value)
@@ -55,14 +61,9 @@ const DepositInputSection = () => {
 
   const calculateInterest = () => {
     if (amount && interestRate && taxRate && holdingMonths) {
-      console.log('inputs')
-      console.log(amount, interestRate, taxRate, holdingMonths)
       const year = new Date().getFullYear()
       const holdingDays = getTotalHoldingDays(year, parseInt(holdingMonths))
       const daysInYear = isLeapYear(year) ? DAYS_IN_LEAP_YEAR : DAYS_IN_COMMON_YEAR
-
-      console.log('parsed inputs')
-      console.log(holdingDays, daysInYear)
 
       const interest =
         parseFloat(amount) *
@@ -70,69 +71,71 @@ const DepositInputSection = () => {
         (holdingDays / daysInYear) *
         (1 - parseFloat(taxRate) / PERCENTAGE_DIVISOR)
 
-      setInterest(interest.toFixed(2))
+      setInterest(interest)
     }
   }
 
   return (
-    <div className='card shadow-xl mt-8'>
-      <div className='card-body'>
-        <div className='mb-4'>
+    <div>
+      <div className='mb-4'>
+        <label className='label'>
+          <span className='label-text text-charter-blue-600 font-bold'>Deposit Amount (IDR)</span>
+        </label>
+        <input
+          type='number'
+          value={amount}
+          onChange={handleAmountChange}
+          className='input input-bordered w-full rounded'
+          placeholder='Minimun 1,000,000 IDR'
+        />
+      </div>
+      <div className='mb-4 flex flex-row space-x-10'>
+        <div className='flex-1'>
           <label className='label'>
-            <span className='label-text'>Deposit Amount (IDR)</span>
+            <span className='label-text text-charter-blue-600 font-bold'>
+              Annual Interest Rate (%)
+            </span>
           </label>
           <input
-            type='number'
-            value={amount}
-            onChange={handleAmountChange}
+            type='text'
+            value={interestRate}
+            onChange={handleInterestRateChange}
             className='input input-bordered w-full rounded'
-            placeholder='Enter amount (min 1,000,000 IDR)'
+            placeholder='Eg 10'
           />
         </div>
-        <div className='mb-4 flex flex-row space-x-10'>
-          <div className='flex-1'>
-            <label className='label'>
-              <span className='label-text'>Annual Interest Rate (%)</span>
-            </label>
-            <input
-              type='text'
-              value={interestRate}
-              onChange={handleInterestRateChange}
-              className='input input-bordered w-full rounded'
-              placeholder='Enter interest rate'
-            />
-          </div>
-          <div className='flex-1'>
-            <label className='label'>
-              <span className='label-text'>Tax Rate (%)</span>
-            </label>
-            <input
-              type='text'
-              value={taxRate}
-              onChange={handleTaxRateChange}
-              className='input input-bordered w-full rounded'
-              placeholder='Enter tax rate'
-            />
-          </div>
-        </div>
-        <div className='mb-6'>
+        <div className='flex-1'>
           <label className='label'>
-            <span className='label-text'>Number of Months</span>
+            <span className='label-text text-charter-blue-600 font-bold'>Tax Rate (%)</span>
           </label>
           <input
-            type='number'
-            value={holdingMonths}
-            onChange={handleMonthsChange}
+            type='text'
+            value={taxRate}
+            onChange={handleTaxRateChange}
             className='input input-bordered w-full rounded'
-            placeholder='Enter number of months (min 1 month)'
+            placeholder='Eg 20'
           />
         </div>
-        <div className='card-actions justify-end'>
-          <button onClick={calculateInterest} className='btn btn-primary'>
-            Calculate
-          </button>
-        </div>
-        <div>Calculated interest : {interest}</div>
+      </div>
+      <div className='mb-6'>
+        <label className='label'>
+          <span className='label-text text-charter-blue-600 font-bold'>Number of Months</span>
+        </label>
+        <input
+          type='number'
+          value={holdingMonths}
+          onChange={handleMonthsChange}
+          className='input input-bordered w-full rounded'
+          placeholder='Minimum 1 month'
+        />
+      </div>
+      <div className='card-actions justify-end'>
+        <button onClick={calculateInterest} className='btn btn-primary'>
+          <p className='text-[#ffffff]'>Calculate</p>
+        </button>
+        <button onClick={calculateInterest} className='btn btn-primary'>
+          <p className='text-[#ffffff]'>Reset</p>
+        </button>
       </div>
     </div>
   )
