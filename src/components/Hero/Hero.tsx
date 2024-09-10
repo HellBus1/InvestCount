@@ -14,7 +14,9 @@ const Hero = () => {
           <p className='py-2 text-lg text-gray-600'>
             Calculate deposits after tax deductions easily and grow your wealth.
           </p>
-          <button className='btn btn-primary max-w-[200px]'>Get Started</button>
+          <button className='btn btn-primary max-w-[200px]'>
+            <p className='text-[#ffffff]'>Get Started</p>
+          </button>
         </div>
       </div>
     </div>
