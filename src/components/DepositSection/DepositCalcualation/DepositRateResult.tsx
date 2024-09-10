@@ -20,7 +20,7 @@ const DepositRateResult = (props: DepositRateResultProps) => {
         months
       </div>
       <div className='text-charter-blue-600 font-bold text-xs'>
-        *Calculated with an interest rate of {props.tax}% p.a., net of tax.
+        *Calculated with an interest rate of {props.interest ? props.tax : 0}% p.a., net of tax.
       </div>
     </div>
   )

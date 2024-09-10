@@ -16,7 +16,7 @@ const DepositCalculation = () => {
     <div className='card shadow-xl border-s-8 border-charter-blue'>
       <div className='card-body'>
         <div className='flex flex-row items-top space-x-8'>
-          <div className='flex-1'>
+          <div className='flex-[1.2]'>
             <DepositInputSection
               setInterest={setInterest}
               taxRate={taxRate}
@@ -25,7 +25,8 @@ const DepositCalculation = () => {
               setHoldingMonths={setHoldingMonths}
             />
           </div>
-          <div className='flex-1'>
+          <div className='mx-4'></div>
+          <div className='flex-[1]'>
             <DepositRateResult
               interest={interest}
               tax={getZeroFromEmptyNumberString(taxRate)}

@@ -12,6 +12,12 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
   const { setInterest, taxRate, setTaxRate, holdingMonths, setHoldingMonths } = props
   const [amount, setAmount] = useState('')
   const [interestRate, setInterestRate] = useState('')
+  const [errors, setErrors] = useState({
+    amount: '',
+    interestRate: '',
+    taxRate: '',
+    holdingMonths: ''
+  })
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(e.target.value)
@@ -27,6 +33,47 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
 
   const handleMonthsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setHoldingMonths(e.target.value)
+  }
+
+  const validateFields = () => {
+    const newErrors = {
+      amount: '',
+      interestRate: '',
+      taxRate: '',
+      holdingMonths: ''
+    }
+    let isValid = true
+    const isNumberAndDecimalRegex = /^\d+(\.\d+)?$/
+
+    // Check if all fields are filled
+    if (!amount) {
+      newErrors.amount = 'Deposit Amount is required'
+      isValid = false
+    }
+
+    if (!interestRate) {
+      newErrors.interestRate = 'Annual Interest Rate is required'
+      isValid = false
+    } else if (!isNumberAndDecimalRegex.test(interestRate)) {
+      newErrors.interestRate = 'Annual Interest Rate should be a valid number'
+      isValid = false
+    }
+
+    if (!taxRate) {
+      newErrors.taxRate = 'Tax Rate is required'
+      isValid = false
+    } else if (!isNumberAndDecimalRegex.test(interestRate)) {
+      newErrors.interestRate = 'Tax Rate should be a valid number'
+      isValid = false
+    }
+
+    if (!holdingMonths) {
+      newErrors.holdingMonths = 'Number of Months is required'
+      isValid = false
+    }
+
+    setErrors(newErrors)
+    return isValid
   }
 
   const DAYS_IN_COMMON_YEAR = 365
@@ -60,19 +107,34 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
   }
 
   const calculateInterest = () => {
-    if (amount && interestRate && taxRate && holdingMonths) {
+    if (validateFields()) {
+      const taxRateInNumber = parseFloat(taxRate)
+      const interestRateInNumber = parseFloat(interestRate)
       const year = new Date().getFullYear()
       const holdingDays = getTotalHoldingDays(year, parseInt(holdingMonths))
       const daysInYear = isLeapYear(year) ? DAYS_IN_LEAP_YEAR : DAYS_IN_COMMON_YEAR
 
       const interest =
         parseFloat(amount) *
-        (parseFloat(interestRate) / PERCENTAGE_DIVISOR) *
+        (interestRateInNumber / PERCENTAGE_DIVISOR) *
         (holdingDays / daysInYear) *
-        (1 - parseFloat(taxRate) / PERCENTAGE_DIVISOR)
+        (1 - taxRateInNumber / PERCENTAGE_DIVISOR)
 
       setInterest(interest)
     }
+  }
+
+  const clearInput = () => {
+    setAmount('')
+    setInterestRate('')
+    setTaxRate('')
+    setHoldingMonths('')
+    setErrors({
+      amount: '',
+      interestRate: '',
+      taxRate: '',
+      holdingMonths: ''
+    })
   }
 
   return (
@@ -88,6 +150,7 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
           className='input input-bordered w-full rounded'
           placeholder='Minimun 1,000,000 IDR'
         />
+        {errors.amount && <div className='label text-red text-xs font-medium'>{errors.amount}</div>}
       </div>
       <div className='mb-4 flex flex-row space-x-10'>
         <div className='flex-1'>
@@ -101,8 +164,11 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
             value={interestRate}
             onChange={handleInterestRateChange}
             className='input input-bordered w-full rounded'
-            placeholder='Eg 10'
+            placeholder='Eg 10 or 8.5'
           />
+          {errors.interestRate && (
+            <div className='label text-red text-xs font-medium'>{errors.interestRate}</div>
+          )}
         </div>
         <div className='flex-1'>
           <label className='label'>
@@ -113,8 +179,11 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
             value={taxRate}
             onChange={handleTaxRateChange}
             className='input input-bordered w-full rounded'
-            placeholder='Eg 20'
+            placeholder='Eg 20 or 5.8'
           />
+          {errors.taxRate && (
+            <div className='label text-red text-xs font-medium'>{errors.taxRate}</div>
+          )}
         </div>
       </div>
       <div className='mb-6'>
@@ -128,12 +197,15 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
           className='input input-bordered w-full rounded'
           placeholder='Minimum 1 month'
         />
+        {errors.holdingMonths && (
+          <div className='label text-red text-xs font-medium'>{errors.holdingMonths}</div>
+        )}
       </div>
       <div className='card-actions justify-end'>
         <button onClick={calculateInterest} className='btn btn-primary'>
           <p className='text-[#ffffff]'>Calculate</p>
         </button>
-        <button onClick={calculateInterest} className='btn btn-primary'>
+        <button onClick={clearInput} className='btn btn-primary'>
           <p className='text-[#ffffff]'>Reset</p>
         </button>
       </div>
