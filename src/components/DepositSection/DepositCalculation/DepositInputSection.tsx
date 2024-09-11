@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import InputField from './InputField'
 
 interface DepositInputSectionProps {
   setInterest: (interest: number) => void
@@ -19,20 +20,16 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
     holdingMonths: ''
   })
 
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(e.target.value)
-  }
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    setField: (value: string) => void,
+    fieldName: string
+  ) => {
+    const value = e.target.value
+    setField(value)
 
-  const handleInterestRateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInterestRate(e.target.value)
-  }
-
-  const handleTaxRateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTaxRate(e.target.value)
-  }
-
-  const handleMonthsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setHoldingMonths(e.target.value)
+    // Reset error on field change
+    setErrors((prev) => ({ ...prev, [fieldName]: '' }))
   }
 
   const validateFields = () => {
@@ -49,13 +46,16 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
     if (!amount) {
       newErrors.amount = 'Deposit Amount is required'
       isValid = false
+    } else if (parseFloat(amount) < 1000000) {
+      newErrors.amount = 'Deposit Amount must be greater than 1000000'
+      isValid = false
     }
 
     if (!interestRate) {
-      newErrors.interestRate = 'Annual Interest Rate is required'
+      newErrors.interestRate = 'Interest Rate is required'
       isValid = false
     } else if (!isNumberAndDecimalRegex.test(interestRate)) {
-      newErrors.interestRate = 'Annual Interest Rate should be a valid number'
+      newErrors.interestRate = 'Interest Rate should be a valid number'
       isValid = false
     }
 
@@ -69,6 +69,9 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
 
     if (!holdingMonths) {
       newErrors.holdingMonths = 'Number of Months is required'
+      isValid = false
+    } else if (parseFloat(holdingMonths) < 1) {
+      newErrors.amount = 'Number of Months must be greater than equals 1'
       isValid = false
     }
 
@@ -139,74 +142,52 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
 
   return (
     <div>
-      <div className='mb-4'>
-        <label className='label'>
-          <span className='label-text text-charter-blue-600 font-bold'>Deposit Amount (IDR)</span>
-        </label>
-        <input
-          type='number'
-          value={amount}
-          onChange={handleAmountChange}
-          className='input input-bordered w-full rounded'
-          placeholder='Minimun 1,000,000 IDR'
-        />
-        {errors.amount && <div className='label text-red text-xs font-medium'>{errors.amount}</div>}
-      </div>
-      <div className='mb-4 flex flex-row space-x-10'>
+      <InputField
+        label='Deposit Amount (IDR)'
+        value={amount}
+        onChange={(e) => handleInputChange(e, setAmount, 'amount')}
+        placeholder='Minimum 1,000,000 IDR'
+        error={errors.amount}
+        type='number'
+        min={1000000}
+      />
+      <div className='flex space-x-10'>
         <div className='flex-1'>
-          <label className='label'>
-            <span className='label-text text-charter-blue-600 font-bold'>
-              Annual Interest Rate (%)
-            </span>
-          </label>
-          <input
-            type='text'
+          <InputField
+            label='Interest Rate (%)'
             value={interestRate}
-            onChange={handleInterestRateChange}
-            className='input input-bordered w-full rounded'
+            onChange={(e) => handleInputChange(e, setInterestRate, 'interestRate')}
             placeholder='Eg 10 or 8.5'
+            error={errors.interestRate}
+            type='text'
           />
-          {errors.interestRate && (
-            <div className='label text-red text-xs font-medium'>{errors.interestRate}</div>
-          )}
         </div>
         <div className='flex-1'>
-          <label className='label'>
-            <span className='label-text text-charter-blue-600 font-bold'>Tax Rate (%)</span>
-          </label>
-          <input
-            type='text'
+          <InputField
+            label='Tax Rate (%)'
             value={taxRate}
-            onChange={handleTaxRateChange}
-            className='input input-bordered w-full rounded'
+            onChange={(e) => handleInputChange(e, setTaxRate, 'taxRate')}
             placeholder='Eg 20 or 5.8'
+            error={errors.taxRate}
+            type='text'
           />
-          {errors.taxRate && (
-            <div className='label text-red text-xs font-medium'>{errors.taxRate}</div>
-          )}
         </div>
       </div>
-      <div className='mb-6'>
-        <label className='label'>
-          <span className='label-text text-charter-blue-600 font-bold'>Number of Months</span>
-        </label>
-        <input
-          type='number'
-          value={holdingMonths}
-          onChange={handleMonthsChange}
-          className='input input-bordered w-full rounded'
-          placeholder='Minimum 1 month'
-        />
-        {errors.holdingMonths && (
-          <div className='label text-red text-xs font-medium'>{errors.holdingMonths}</div>
-        )}
-      </div>
+      <InputField
+        label='Number of Months'
+        value={holdingMonths}
+        onChange={(e) => handleInputChange(e, setHoldingMonths, 'holdingMonths')}
+        placeholder='Minimum 1 month'
+        error={errors.holdingMonths}
+        type='number'
+        min={1}
+      />
       <div className='card-actions justify-end'>
-        <button onClick={calculateInterest} className='btn btn-primary'>
-          <p className='text-[#ffffff]'>Calculate</p>
+        <button onClick={calculateInterest} className='btn btn-primary text-[#ffffff]'>
+          Calculate
         </button>
-        <button onClick={clearInput} className='btn btn-primary'>
-          <p className='text-[#ffffff]'>Reset</p>
+        <button onClick={clearInput} className='btn btn-primary text-[#ffffff]'>
+          Reset
         </button>
       </div>
     </div>

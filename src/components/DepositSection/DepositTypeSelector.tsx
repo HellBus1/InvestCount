@@ -37,7 +37,7 @@ const DepositTypeSelector = () => {
 
       <div className='p-10'>
         {selectedOption === DepositType.NONARO && (
-          <p>
+          <p className='text-base'>
             <strong>Simple Interest:</strong> Get your interest paid out directly.
             <br />
             <br />
@@ -46,7 +46,7 @@ const DepositTypeSelector = () => {
           </p>
         )}
         {selectedOption === DepositType.ARO && (
-          <p>
+          <p className='text-base'>
             <strong>Smart Saver:</strong> Watch your savings grow automatically as interest is added
             to your savings account and your deposit continues to be reinvested.
             <br />
@@ -57,7 +57,7 @@ const DepositTypeSelector = () => {
           </p>
         )}
         {selectedOption === DepositType.AROPLUS && (
-          <p>
+          <p className='text-base'>
             <strong>Maximize Your Returns:</strong> Enjoy the power of compounding interest as your
             savings grow exponentially.
             <br />

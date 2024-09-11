@@ -13,7 +13,7 @@ const DepositRateResult = (props: DepositRateResultProps) => {
   }
 
   return (
-    <div>
+    <div className='mt-12 md:mt-0'>
       <div className='text-charter-blue-600 font-bold text-lg mb-2'>
         Estimated earnings on your deposit:{' '}
         <span className='text-jess'>{getRupiahFormat(props.interest)}</span> for {props.month}{' '}

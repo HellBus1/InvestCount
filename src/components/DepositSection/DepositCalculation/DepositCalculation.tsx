@@ -15,7 +15,7 @@ const DepositCalculation = () => {
   return (
     <div className='card shadow-xl border-s-8 border-charter-blue'>
       <div className='card-body'>
-        <div className='flex flex-row items-top space-x-8'>
+        <div className='flex flex-col md:flex-row items-top md:space-x-8'>
           <div className='flex-[1.2]'>
             <DepositInputSection
               setInterest={setInterest}
