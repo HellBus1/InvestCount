@@ -4,7 +4,7 @@ import IcTwitter from '@/assets/ic-twitter.svg'
 
 const Footer = () => {
   return (
-    <footer className='footer bg-base-300 text-neutral-content items-center p-4'>
+    <footer className='footer bg-base-200 text-neutral-content items-center p-4'>
       <aside>
         <p className='text-neutral font-medium'>
           Copyright © {new Date().getFullYear()} - All right reserved

@@ -8,7 +8,7 @@ const Hero = (props: HeroProps) => {
   const { onScrollToDepositClick } = props
 
   return (
-    <div className='hero bg-base-200 min-h-screen px-10'>
+    <div className='hero bg-base-200 min-h-screen px-10 py-10'>
       <div className='hero-content flex-col lg:flex-row-reverse gap-4 items-center'>
         <HeroImage />
         <div className='flex flex-col justify-start gap-4'>
