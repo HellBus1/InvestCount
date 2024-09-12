@@ -1,44 +1,28 @@
-# Lightweight React JS + Vite Starter Kit Template
+# InvestCount – Maximize Your Savings and Financial Growth
 
-<https://github.com/user-attachments/assets/2ee04f33-57dd-42d0-80d7-bc173aa76b2e>
+<https://github.com/user-attachments/assets/2ee04f33-57dd-42d0-80d7-bc173aa76b2e> [WIP]
 
-<div align="center">
-  <!-- <img alt="GitHub release" src="https://img.shields.io/github/v/release//HellBus1/ts-react-tailwind-starter?include_prereleases"> -->
-  <img alt="GitHub react version" src="https://img.shields.io/github/package-json/dependency-version/HellBus1/ts-react-tailwind-starter/react?style=flat">
-</div>
+## Description [WIP]
 
-## Description
+InvestCount is a powerful deposit calculator designed to help you optimize your savings and accelerate financial growth. Built with React.js and powered by Vite, this project delivers a fast and efficient user experience. With essential modern libraries pre-configured, it's ready for customization and deployment, whether you're tracking personal savings or managing large financial portfolios.
 
-A React.js template with Vite ⚡ is super simple and ready to go. It comes packed with all the essential libraries you need for modern frontend development.
+## Features [WIP]
 
-### Why Vite?
+Responsive Design: Works seamlessly on any device.
 
-Here is several things that made vite is better bundler out there :
+Dynamic Deposit Calculation: Calculate interest rates, tax deductions, and holding periods in real-time.
 
-1. **Instant Server Start**: No more waiting around—start your server instantly.
-2. **Lightning Fast HMR**: Hot Module Replacement that's truly fast.
-3. **Create React App Best Alternative**: Skip the unecessary clutter of Create React App 🙂.
-4. **And More**: There are plenty of other reasons to love Vite!
-
-If you’re curious to explore Vite further, check out the [link](https://vitejs.dev/)
-
-## Features
-
-Here is the building blocks of this repository
-
-- 📟 **Navigation**: Configured with [React Router DOM](https://reactrouter.com/en/main) for dynamic routing.
-- 🔋 **CSS Frameworks**: [Tailwind CSS](https://tailwindcss.com/) and [Daisy UI](https://daisyui.com/) for rapid UI development with minimal custom styling.
-- 📊 **Code Formatting**: [Prettier](https://prettier.io/) is integrated to ensure consistent code style across the project.
-- 🗂️ **Linting**: [ESLint](https://eslint.org/) is set up to enforce coding standards and best practices.
-- 📮 **Pre-commit Hooks**: [Husky](https://github.com/lint-staged/lint-staged) is utilized to run automated checks before code is committed.
-- 🛠️ **Lint-Staged**: Paired with Husky, [lint-staged](https://github.com/lint-staged/lint-staged) handles formatting and linting for all staged changes.
+Optimized Performance: Built using Vite for lightning-fast builds and development.
+Modular and Extensible: Easily customize and extend with additional features.
+TypeScript Support: Strong typing for enhanced development speed and reliability.
+Tailwind CSS Integration: Style with ease using the power of utility-first CSS.
 
 ## Getting Started
 
 1. **Clone the repository** :
 ```shell
-git clone https://github.com/HellBus1/ts-react-tailwind-starter.git
-cd ts-react-tailwind-starter
+git clone git@github.com:HellBus1/InvestCount.git
+cd InvestCount
 ```
 
 2. **Install dependencies** :
