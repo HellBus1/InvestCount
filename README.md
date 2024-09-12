@@ -1,6 +1,6 @@
 # InvestCount – Maximize Your Savings and Financial Growth
 
-<https://github.com/user-attachments/assets/2ee04f33-57dd-42d0-80d7-bc173aa76b2e> [WIP]
+![screencapture-localhost-5173-2024-09-12-12_55_14](https://github.com/user-attachments/assets/1e5077fb-da81-4e49-84cc-e8bc40a5639d)
 
 ## Description
 
