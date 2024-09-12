@@ -1,44 +1,32 @@
-# Lightweight React JS + Vite Starter Kit Template
+# InvestCount – Maximize Your Savings and Financial Growth
 
-<https://github.com/user-attachments/assets/2ee04f33-57dd-42d0-80d7-bc173aa76b2e>
-
-<div align="center">
-  <!-- <img alt="GitHub release" src="https://img.shields.io/github/v/release//HellBus1/ts-react-tailwind-starter?include_prereleases"> -->
-  <img alt="GitHub react version" src="https://img.shields.io/github/package-json/dependency-version/HellBus1/ts-react-tailwind-starter/react?style=flat">
-</div>
+![screencapture-localhost-5173-2024-09-12-12_55_14](https://github.com/user-attachments/assets/1e5077fb-da81-4e49-84cc-e8bc40a5639d)
 
 ## Description
 
-A React.js template with Vite ⚡ is super simple and ready to go. It comes packed with all the essential libraries you need for modern frontend development.
+**InvestCount** is your go-to tool for boosting your savings and growing your wealth, effortlessly! Just enter your deposit amount, interest rate, tax rate, and holding period (in months) – and voilà, you get your interest calculated instantly. 🎯💰
 
-### Why Vite?
-
-Here is several things that made vite is better bundler out there :
-
-1. **Instant Server Start**: No more waiting around—start your server instantly.
-2. **Lightning Fast HMR**: Hot Module Replacement that's truly fast.
-3. **Create React App Best Alternative**: Skip the unecessary clutter of Create React App 🙂.
-4. **And More**: There are plenty of other reasons to love Vite!
-
-If you’re curious to explore Vite further, check out the [link](https://vitejs.dev/)
+Start making smart financial decisions with real-time insights, and watch your savings grow! 🚀
 
 ## Features
 
-Here is the building blocks of this repository
+1. **Responsive Design:** Enjoy a seamless experience on any device, whether you're on mobile, tablet, or desktop. 📱💻
 
-- 📟 **Navigation**: Configured with [React Router DOM](https://reactrouter.com/en/main) for dynamic routing.
-- 🔋 **CSS Frameworks**: [Tailwind CSS](https://tailwindcss.com/) and [Daisy UI](https://daisyui.com/) for rapid UI development with minimal custom styling.
-- 📊 **Code Formatting**: [Prettier](https://prettier.io/) is integrated to ensure consistent code style across the project.
-- 🗂️ **Linting**: [ESLint](https://eslint.org/) is set up to enforce coding standards and best practices.
-- 📮 **Pre-commit Hooks**: [Husky](https://github.com/lint-staged/lint-staged) is utilized to run automated checks before code is committed.
-- 🛠️ **Lint-Staged**: Paired with Husky, [lint-staged](https://github.com/lint-staged/lint-staged) handles formatting and linting for all staged changes.
+2. **Real-time Deposit Calculation:** Effortlessly calculate interest rates, tax deductions, and holding periods with live results as you type. 💻🔢
+
+3. **Modern User Interface:** A sleek, intuitive design that makes complex calculations feel simple and engaging. 🎨✨
+
+4. **Easy-to-Use:** Start calculating in seconds—no need to be a financial expert! 😉
+
+5. **Deposit Growth Predictions (Coming Soon):** Visualize your long-term savings growth with a customizable forecast table for up to 5 or 10 years. 📊📈
+
 
 ## Getting Started
 
 1. **Clone the repository** :
 ```shell
-git clone https://github.com/HellBus1/ts-react-tailwind-starter.git
-cd ts-react-tailwind-starter
+git clone git@github.com:HellBus1/InvestCount.git
+cd InvestCount
 ```
 
 2. **Install dependencies** :
@@ -59,6 +47,10 @@ npm run build
 ## Getting Started
 
 Contributions are welcome! Please open an issue or submit a pull request.
+
+## Powered By 🛠️
+1. React JS Template: [ts-react-tailwind-starter](https://github.com/HellBus1/ts-react-tailwind-starter)
+2. ChatGPT and Other Generative AI Tools 🤖✨
 
 ## Supports Me
 Want to see more free, high-quality code and articles? Buy me a coffee and make it happen! 
