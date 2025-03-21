@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import InputField from './InputField'
+import { calculateInterest } from '@/services/depositServices'
 
 interface DepositInputSectionProps {
   setInterest: (interest: number) => void
@@ -79,50 +80,9 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
     return isValid
   }
 
-  const DAYS_IN_COMMON_YEAR = 365
-  const DAYS_IN_LEAP_YEAR = 366
-  const MONTHS_IN_YEAR = 12
-  const CENTURY_YEAR_DIVISOR = 100
-  const CENTURY_LEAP_YEAR_DIVISOR = 400
-  const LEAP_YEAR_DIVISOR = 4
-  const PERCENTAGE_DIVISOR = 100
-  const REAL_MONTH_NUMBER_INDEX_INCREMENT = 1
-
-  const getTotalHoldingDays = (currentYear: number, months: number) => {
-    let totalDays = 0
-    for (let monthIndex = 0; monthIndex < months; monthIndex++) {
-      const yearOffset = Math.floor(monthIndex / MONTHS_IN_YEAR)
-      const year = currentYear + yearOffset
-      const monthOffset = monthIndex % MONTHS_IN_YEAR
-      const month = monthOffset + REAL_MONTH_NUMBER_INDEX_INCREMENT
-      const numberOfDaysInCurrentMonth = new Date(year, month, 0).getDate()
-      totalDays += numberOfDaysInCurrentMonth
-    }
-
-    return totalDays
-  }
-
-  const isLeapYear = (year: number) => {
-    return (
-      (year % LEAP_YEAR_DIVISOR === 0 && year % CENTURY_YEAR_DIVISOR !== 0) ||
-      year % CENTURY_LEAP_YEAR_DIVISOR === 0
-    )
-  }
-
-  const calculateInterest = () => {
+  const doCalculateInterest = () => {
     if (validateFields()) {
-      const taxRateInNumber = parseFloat(taxRate)
-      const interestRateInNumber = parseFloat(interestRate)
-      const year = new Date().getFullYear()
-      const holdingDays = getTotalHoldingDays(year, parseInt(holdingMonths))
-      const daysInYear = isLeapYear(year) ? DAYS_IN_LEAP_YEAR : DAYS_IN_COMMON_YEAR
-
-      const interest =
-        parseFloat(amount) *
-        (interestRateInNumber / PERCENTAGE_DIVISOR) *
-        (holdingDays / daysInYear) *
-        (1 - taxRateInNumber / PERCENTAGE_DIVISOR)
-
+      const interest = calculateInterest(amount, taxRate, interestRate, holdingMonths)
       setInterest(interest)
     }
   }
@@ -183,7 +143,7 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
         min={1}
       />
       <div className='card-actions justify-end'>
-        <button onClick={calculateInterest} className='btn btn-primary text-[#ffffff]'>
+        <button onClick={doCalculateInterest} className='btn btn-primary text-[#ffffff]'>
           Calculate
         </button>
         <button onClick={clearInput} className='btn btn-primary text-[#ffffff]'>
