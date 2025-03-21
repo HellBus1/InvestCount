@@ -14,57 +14,52 @@ const DepositTypeSelector = () => {
       <div role='tablist' className='tabs tabs-lifted'>
         <button
           role='tab'
-          className={`tab ${selectedOption === DepositType.NONARO ? 'tab-active' : ''} font-bold text-jess`}
+          className={`tab ${selectedOption === DepositType.NONARO ? 'tab-active' : ''} font-bold text-charter-blue`}
           onClick={() => setSelectedOption(DepositType.NONARO)}
         >
           {DepositType.NONARO}
         </button>
         <button
           role='tab'
-          className={`tab ${selectedOption === DepositType.ARO ? 'tab-active' : ''} font-bold text-jess`}
+          className={`tab ${selectedOption === DepositType.ARO ? 'tab-active' : ''} font-bold text-charter-blue`}
           onClick={() => setSelectedOption(DepositType.ARO)}
         >
           {DepositType.ARO}
         </button>
         <button
           role='tab'
-          className={`tab ${selectedOption === DepositType.AROPLUS ? 'tab-active' : ''} font-bold text-jess`}
+          className={`tab ${selectedOption === DepositType.AROPLUS ? 'tab-active' : ''} font-bold text-charter-blue`}
           onClick={() => setSelectedOption(DepositType.AROPLUS)}
         >
           {DepositType.AROPLUS}
         </button>
       </div>
 
-      <div className='p-10'>
+      <div className='p-4 md:p-10'>
         {selectedOption === DepositType.NONARO && (
-          <p className='text-base'>
-            <strong>Simple Interest:</strong> Get your interest paid out directly.
+          <p className='text-base md:text-lg text-charter-blue'>
+            <strong>Simple Interest:</strong> Receive interest directly.
             <br />
             <br />
-            For example, on a IDR 10,000,000 deposit with a 5% annual interest rate, you'll receive
-            IDR 500,000 in interest.
+            For example, a IDR 10,000,000 deposit at 5% annual interest earns IDR 500,000.
           </p>
         )}
         {selectedOption === DepositType.ARO && (
-          <p className='text-base'>
-            <strong>Smart Saver:</strong> Watch your savings grow automatically as interest is added
-            to your savings account and your deposit continues to be reinvested.
+          <p className='text-base md:text-lg text-charter-blue'>
+            <strong>Smart Saver:</strong> Interest is added to your savings and reinvested.
             <br />
             <br />
-            For example, on a IDR 10,000,000 deposit with a 5% annual interest rate, IDR 500,000 in
-            interest will be added to your savings account, and the IDR 10,000,000 deposit will
-            continue to earn interest.
+            For example, a IDR 10,000,000 deposit at 5% annual interest adds IDR 500,000 to your
+            savings.
           </p>
         )}
         {selectedOption === DepositType.AROPLUS && (
-          <p className='text-base'>
-            <strong>Maximize Your Returns:</strong> Enjoy the power of compounding interest as your
-            savings grow exponentially.
+          <p className='text-base md:text-lg text-charter-blue'>
+            <strong>Maximize Returns:</strong> Enjoy compounding interest.
             <br />
             <br />
-            For example, on a IDR 10,000,000 deposit with a 5% annual interest rate, IDR 500,000 in
-            interest will be added to your savings account, and the new total (IDR 10,500,000) will
-            continue to earn interest in the next period.
+            For example, a IDR 10,000,000 deposit at 5% annual interest grows to IDR 10,500,000,
+            which continues to earn interest.
           </p>
         )}
       </div>
