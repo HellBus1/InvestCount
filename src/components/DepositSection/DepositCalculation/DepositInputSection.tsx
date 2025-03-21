@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import InputField from './InputField'
 import { calculateInterest } from '@/services/depositServices'
 
@@ -11,15 +11,26 @@ interface DepositInputSectionProps {
 }
 
 const DepositInputSection = (props: DepositInputSectionProps) => {
+  const EMPTY_STRING = ''
   const { setInterest, taxRate, setTaxRate, holdingMonths, setHoldingMonths } = props
-  const [amount, setAmount] = useState('')
-  const [interestRate, setInterestRate] = useState('')
+  const [amount, setAmount] = useState(EMPTY_STRING)
+  const [interestRate, setInterestRate] = useState(EMPTY_STRING)
   const [errors, setErrors] = useState({
-    amount: '',
-    interestRate: '',
-    taxRate: '',
-    holdingMonths: ''
+    amount: EMPTY_STRING,
+    interestRate: EMPTY_STRING,
+    taxRate: EMPTY_STRING,
+    holdingMonths: EMPTY_STRING
   })
+  const [isFormValid, setIsFormValid] = useState(false)
+
+  useEffect(() => {
+    setIsFormValid(
+      amount !== EMPTY_STRING &&
+        interestRate !== EMPTY_STRING &&
+        taxRate !== EMPTY_STRING &&
+        holdingMonths !== EMPTY_STRING
+    )
+  }, [amount, interestRate, taxRate, holdingMonths])
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -30,15 +41,15 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
     setField(value)
 
     // Reset error on field change
-    setErrors((prev) => ({ ...prev, [fieldName]: '' }))
+    setErrors((prev) => ({ ...prev, [fieldName]: EMPTY_STRING }))
   }
 
   const validateFields = () => {
     const newErrors = {
-      amount: '',
-      interestRate: '',
-      taxRate: '',
-      holdingMonths: ''
+      amount: EMPTY_STRING,
+      interestRate: EMPTY_STRING,
+      taxRate: EMPTY_STRING,
+      holdingMonths: EMPTY_STRING
     }
     let isValid = true
     const isNumberAndDecimalRegex = /^\d+(\.\d+)?$/
@@ -48,7 +59,7 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
       newErrors.amount = 'Deposit Amount is required'
       isValid = false
     } else if (parseFloat(amount) < 1000000) {
-      newErrors.amount = 'Deposit Amount must be greater than 1000000'
+      newErrors.amount = 'Deposit Amount must be greater than 1,000,000'
       isValid = false
     }
 
@@ -63,8 +74,8 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
     if (!taxRate) {
       newErrors.taxRate = 'Tax Rate is required'
       isValid = false
-    } else if (!isNumberAndDecimalRegex.test(interestRate)) {
-      newErrors.interestRate = 'Tax Rate should be a valid number'
+    } else if (!isNumberAndDecimalRegex.test(taxRate)) {
+      newErrors.taxRate = 'Tax Rate should be a valid number'
       isValid = false
     }
 
@@ -72,7 +83,7 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
       newErrors.holdingMonths = 'Number of Months is required'
       isValid = false
     } else if (parseFloat(holdingMonths) < 1) {
-      newErrors.amount = 'Number of Months must be greater than equals 1'
+      newErrors.holdingMonths = 'Number of Months must be greater than or equal to 1'
       isValid = false
     }
 
@@ -83,20 +94,21 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
   const doCalculateInterest = () => {
     if (validateFields()) {
       const interest = calculateInterest(amount, taxRate, interestRate, holdingMonths)
-      setInterest(interest)
+      setInterest(parseFloat(interest))
     }
   }
 
   const clearInput = () => {
-    setAmount('')
-    setInterestRate('')
-    setTaxRate('')
-    setHoldingMonths('')
+    setAmount(EMPTY_STRING)
+    setInterestRate(EMPTY_STRING)
+    setTaxRate(EMPTY_STRING)
+    setHoldingMonths(EMPTY_STRING)
+    setInterest(0)
     setErrors({
-      amount: '',
-      interestRate: '',
-      taxRate: '',
-      holdingMonths: ''
+      amount: EMPTY_STRING,
+      interestRate: EMPTY_STRING,
+      taxRate: EMPTY_STRING,
+      holdingMonths: EMPTY_STRING
     })
   }
 
@@ -111,7 +123,7 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
         type='number'
         min={1000000}
       />
-      <div className='flex space-x-10'>
+      <div className='flex flex-col md:flex-row md:space-x-10 space-y-4 md:space-y-0'>
         <div className='flex-1'>
           <InputField
             label='Interest Rate (%)'
@@ -143,10 +155,14 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
         min={1}
       />
       <div className='card-actions justify-end'>
-        <button onClick={doCalculateInterest} className='btn btn-primary text-[#ffffff]'>
+        <button
+          onClick={doCalculateInterest}
+          className={`btn btn-primary text-[#ffffff] ${!isFormValid ? 'opacity-50 cursor-not-allowed' : ''}`}
+          disabled={!isFormValid}
+        >
           Calculate
         </button>
-        <button onClick={clearInput} className='btn btn-primary text-[#ffffff]'>
+        <button onClick={clearInput} className='btn btn-secondary text-[#ffffff]'>
           Reset
         </button>
       </div>
