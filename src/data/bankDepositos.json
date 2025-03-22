@@ -1,147 +1,133 @@
 [
   {
     "bankName": "Jenius by Bank SMBC Indonesia",
-    "logoUrl": "/logos/jenius.png",
+    "logoUrl": "/assets/banks/jenius.svg",
     "website": "https://www.jenius.com/app/save/maxi-saver",
     "minBalance": 250000000,
     "rates": { "1": 5.0, "3": 5.0, "6": 5.25, "12": 5.5 }
   },
   {
     "bankName": "Jenius by Bank SMBC Indonesia",
-    "logoUrl": "/logos/jenius.png",
+    "logoUrl": "/assets/banks/jenius.svg",
     "website": "https://www.jenius.com/app/save/maxi-saver",
     "minBalance": 100000000,
     "rates": { "1": 4.0, "3": 4.0, "6": 4.25, "12": 4.5 }
   },
   {
     "bankName": "Jenius by Bank SMBC Indonesia",
-    "logoUrl": "/logos/jenius.png",
+    "logoUrl": "/assets/banks/jenius.svg",
     "website": "https://www.jenius.com/app/save/maxi-saver",
     "minBalance": 10000000,
     "rates": { "1": 3.75, "3": 3.75, "6": 4.0, "12": 4.25 }
   },
   {
     "bankName": "blu by BCA Digital",
-    "logoUrl": "/logos/blu.png",
+    "logoUrl": "/assets/banks/blu.svg",
     "website": "https://blubybcadigital.id/fitur/tabungan/bludeposit",
     "minBalance": 1000000000000,
     "rates": { "1": 4.75, "3": 4, "6": 4, "12": 4 }
   },
   {
     "bankName": "blu by BCA Digital",
-    "logoUrl": "/logos/blu.png",
+    "logoUrl": "/assets/banks/blu.svg",
     "website": "https://blubybcadigital.id/fitur/tabungan/bludeposit",
     "minBalance": 500000000,
     "rates": { "1": 4.5, "3": 4, "6": 4, "12": 4 }
   },
   {
     "bankName": "blu by BCA Digital",
-    "logoUrl": "/logos/blu.png",
+    "logoUrl": "/assets/banks/blu.svg",
     "website": "https://blubybcadigital.id/fitur/tabungan/bludeposit",
     "minBalance": 100000000,
     "rates": { "1": 4.25, "3": 4, "6": 4, "12": 4 }
   },
   {
     "bankName": "blu by BCA Digital",
-    "logoUrl": "/logos/blu.png",
+    "logoUrl": "/assets/banks/blu.svg",
     "website": "https://blubybcadigital.id/fitur/tabungan/bludeposit",
     "minBalance": 10000000,
     "rates": { "1": 3.75, "3": 3.5, "6": 3.5, "12": 3.5 }
   },
   {
     "bankName": "Line Bank by Hana Bank",
-    "logoUrl": "/logos/linebank.png",
+    "logoUrl": "/assets/banks/line.svg",
     "website": "https://linebank.co.id/en/time-deposit",
     "minBalance": 10000000,
     "rates": { "1": 5.5, "3": 6.0, "6": 6.5, "12": 7.0 }
   },
   {
     "bankName": "NeoBank by Bank Neo Commerce",
-    "logoUrl": "/logos/neobank.png",
+    "logoUrl": "/assets/banks/bnc.svg",
     "website": "https://www.bankneocommerce.co.id/id/personal/savings/neo-wow-flexi#Fitur",
     "minBalance": 10000000,
     "rates": { "1": 6.0, "3": 6.5, "6": 6.75, "12": 7.5 }
   },
   {
     "bankName": "Krom by Krom Bank",
-    "logoUrl": "/logos/krom.png",
+    "logoUrl": "/assets/banks/krom.svg",
     "website": "https://krom.id/#produk",
     "minBalance": 10000000,
     "rates": { "1": 7.25, "3": 8.5, "6": 8.75, "12": 8.75 }
   },
   {
     "bankName": "SeaBank by SeaBank Indonesia",
-    "logoUrl": "/logos/seabank.png",
+    "logoUrl": "/assets/banks/seabank.svg",
     "website": "https://www.seabank.co.id/pusat-bantuan/artikel/10080-berapa-bunga-dan-tenor-deposito-yang-ditawarkan-oleh-seabank",
     "minBalance": 10000000,
     "rates": { "1": 4.5, "3": 5.25, "6": 5.75, "12": 6.0 }
   },
   {
     "bankName": "Jago by Bank Artos",
-    "logoUrl": "/logos/jago.png",
+    "logoUrl": "/assets/banks/jago.svg",
     "website": "https://www.jago.com/id/jago/support/faq/menggunakan-jago/deposito/pertanyaan-seputar-deposito",
     "minBalance": 250000000,
     "rates": { "1": 5.75, "3": 6.0, "6": 6.0, "12": 6.0 }
   },
   {
     "bankName": "Jago by Bank Artos",
-    "logoUrl": "/logos/jago.png",
+    "logoUrl": "/assets/banks/jago.svg",
     "website": "https://www.jago.com/id/jago/support/faq/menggunakan-jago/deposito/pertanyaan-seputar-deposito",
     "minBalance": 100000000,
     "rates": { "1": 5.0, "3": 5.5, "6": 5.75, "12": 5.75 }
   },
   {
     "bankName": "Jago by Bank Artos",
-    "logoUrl": "/logos/jago.png",
+    "logoUrl": "/assets/banks/jago.svg",
     "website": "https://www.jago.com/id/jago/support/faq/menggunakan-jago/deposito/pertanyaan-seputar-deposito",
     "minBalance": 10000000,
     "rates": { "1": 5.0, "3": 5.5, "6": 5.5, "12": 5.5 }
   },
   {
-    "bankName": "Saqu by Bank Saqu",
-    "logoUrl": "/logos/saqu.png",
-    "website": "https://banksaqu.co.id/blog/bunga-deposito-reguler-bank-saqu",
-    "minBalance": 500000000,
-    "rates": { "1": 4.5, "3": 5.75, "6": 6.0, "12": 6.0 }
-  },
-  {
-    "bankName": "Saqu by Bank Saqu",
-    "logoUrl": "/logos/saqu.png",
-    "website": "https://banksaqu.co.id/blog/bunga-deposito-reguler-bank-saqu",
-    "minBalance": 10000000,
-    "rates": { "1": 4.25, "3": 4.75, "6": 5.25, "12": 5.25 }
-  },
-  {
     "bankName": "SuperBank by Bank SuperBank",
-    "logoUrl": "/logos/superbank.png",
+    "logoUrl": "/assets/banks/superbank.svg",
     "website": "https://www.superbank.id/produk-layanan/tabungan/deposito",
     "minBalance": 1000000000000,
     "rates": { "1": 6.5, "3": 6.5, "6": 6.5, "12": 6.5 }
   },
   {
     "bankName": "SuperBank by Bank SuperBank",
-    "logoUrl": "/logos/superbank.png",
+    "logoUrl": "/assets/banks/superbank.svg",
     "website": "https://www.superbank.id/produk-layanan/tabungan/deposito",
     "minBalance": 10000000,
     "rates": { "1": 7.5, "3": 7.5, "6": 7.5, "12": 7.5 }
   },
   {
     "bankName": "OctoBank by CIMB Niaga",
-    "logoUrl": "/logos/octobank.png",
+    "logoUrl": "/assets/banks/octo.svg",
     "website": "https://branchlessbanking.cimbniaga.co.id/deposito-berjangka/",
     "minBalance": 100000000,
     "rates": { "1": 2.75, "3": 3.25, "6": 3.5, "12": 3.75 }
   },
   {
     "bankName": "OctoBank by CIMB Niaga",
-    "logoUrl": "/logos/octobank.png",
+    "logoUrl": "/assets/banks/octo.svg",
     "website": "https://branchlessbanking.cimbniaga.co.id/deposito-berjangka/",
     "minBalance": 10000000,
     "rates": { "1": 2.5, "3": 2.8, "6": 3.1, "12": 3.3 }
   },
   {
     "bankName": "TMRW by UOB",
-    "logoUrl": "/logos/tmrw.png",
+    "logoUrl": "/assets/banks/uob.svg",
     "website": "https://www.tmrwbyuob.com/id/id/products/tmrw-powersaver.html",
     "minBalance": 10000000,
     "rates": { "1": 4.0, "3": 4.25, "6": 5.5, "12": 4.0 }
