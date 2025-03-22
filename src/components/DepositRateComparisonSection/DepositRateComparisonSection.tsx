@@ -87,9 +87,12 @@ const DepositRateComparisonSection = () => {
         Compare the deposit rates of different Indonesian banks based on the selected tenure and
         minimum balance. Select a tenure and minimum balance to see the corresponding rates.
       </p>
-      <div className='mb-8 flex space-x-4 justify-center'>
+      <div className='mb-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center items-center'>
         <div>
-          <label htmlFor='tenure' className='mr-2 text-charter-blue'>
+          <label
+            htmlFor='tenure'
+            className='mr-2 text-charter-blue text-base md:text-lg font-medium'
+          >
             Select Tenure:
           </label>
           <select
@@ -97,7 +100,7 @@ const DepositRateComparisonSection = () => {
             value={tenure}
             onChange={handleTenureChange}
             aria-label='Select Tenure'
-            className='border border-charter-blue select'
+            className='border border-charter-blue p-2 rounded text-base md:text-lg'
           >
             <option value='1'>1 Month</option>
             <option value='3'>3 Months</option>
@@ -106,7 +109,10 @@ const DepositRateComparisonSection = () => {
           </select>
         </div>
         <div>
-          <label htmlFor='minBalance' className='mr-2 text-charter-blue'>
+          <label
+            htmlFor='minBalance'
+            className='mr-2 text-charter-blue text-base md:text-lg font-medium'
+          >
             Select Minimum Balance:
           </label>
           <select
@@ -114,7 +120,7 @@ const DepositRateComparisonSection = () => {
             value={minBalance}
             onChange={handleMinBalanceChange}
             aria-label='Select Minimum Balance'
-            className='border border-charter-blue select'
+            className='border border-charter-blue p-2 rounded text-base md:text-lg'
           >
             <option value='0'>All</option>
             <option value='10000000'>10M</option>
@@ -130,21 +136,37 @@ const DepositRateComparisonSection = () => {
       ) : error ? (
         <p className='text-red-500'>{error}</p>
       ) : (
-        <ResponsiveContainer width='100%' height={600} className={''}>
-          <BarChart
-            data={data}
-            layout='vertical'
-            margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-          >
-            <XAxis type='number' label={{ value: EMPTY_STRING }} />
-            <YAxis type='category' dataKey='bank' width={200} />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey='interest' fill='#20B486'>
-              <LabelList dataKey='interest' position='right' />
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
+        <div className='mx-4 md:mx-20 lg:mx-36 mb-16'>
+          <ResponsiveContainer width='100%' height={600} className={''}>
+            <BarChart
+              data={data}
+              layout='vertical'
+              margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+            >
+              <XAxis
+                type='number'
+                label={{ value: EMPTY_STRING }}
+                tick={{ fontSize: 14, fontWeight: 'bold' }}
+              />
+              <YAxis
+                type='category'
+                dataKey='bank'
+                tick={{ fontSize: 14, fontWeight: 'bold' }}
+                width={80}
+              />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey='interest' fill='#20B486'>
+                <LabelList
+                  dataKey='interest'
+                  position='right'
+                  fontSize={14}
+                  fontWeight={'medium'}
+                />
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
       )}
     </div>
   )
