@@ -54,6 +54,8 @@ const DepositRateComparisonSection = () => {
   const [error, setError] = useState('')
   const EMPTY_STRING = ''
 
+  console.log(data)
+
   useEffect(() => {
     // Simulate data fetching
     setTimeout(() => {
@@ -77,15 +79,15 @@ const DepositRateComparisonSection = () => {
   }
 
   return (
-    <div className='p-4 space-y-6'>
-      <h1 className='text-2xl md:text-3xl font-bold text-charter-blue mb-4'>
+    <div className='py-10 bg-base-200 min-h-screen w-full'>
+      <h1 className='text-center text-2xl md:text-3xl font-bold text-charter-blue mt-8 mb-4'>
         Deposit Rate Comparison
       </h1>
-      <p className='text-base md:text-lg text-charter-blue mb-4'>
+      <p className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mb-16'>
         Compare the deposit rates of different Indonesian banks based on the selected tenure and
         minimum balance. Select a tenure and minimum balance to see the corresponding rates.
       </p>
-      <div className='mb-4 flex space-x-4'>
+      <div className='mb-8 flex space-x-4 justify-center'>
         <div>
           <label htmlFor='tenure' className='mr-2 text-charter-blue'>
             Select Tenure:
@@ -95,7 +97,7 @@ const DepositRateComparisonSection = () => {
             value={tenure}
             onChange={handleTenureChange}
             aria-label='Select Tenure'
-            className='p-2 border border-charter-blue rounded'
+            className='border border-charter-blue select'
           >
             <option value='1'>1 Month</option>
             <option value='3'>3 Months</option>
@@ -112,7 +114,7 @@ const DepositRateComparisonSection = () => {
             value={minBalance}
             onChange={handleMinBalanceChange}
             aria-label='Select Minimum Balance'
-            className='p-2 border border-charter-blue rounded'
+            className='border border-charter-blue select'
           >
             <option value='0'>All</option>
             <option value='10000000'>10M</option>
@@ -128,7 +130,7 @@ const DepositRateComparisonSection = () => {
       ) : error ? (
         <p className='text-red-500'>{error}</p>
       ) : (
-        <ResponsiveContainer width='100%' height={600}>
+        <ResponsiveContainer width='100%' height={600} className={''}>
           <BarChart
             data={data}
             layout='vertical'
@@ -138,8 +140,8 @@ const DepositRateComparisonSection = () => {
             <YAxis type='category' dataKey='bank' width={200} />
             <Tooltip />
             <Legend />
-            <Bar dataKey='interest' fill='#4A90E2'>
-              <LabelList dataKey='interest' position='insideRight' />
+            <Bar dataKey='interest' fill='#20B486'>
+              <LabelList dataKey='interest' position='right' />
             </Bar>
           </BarChart>
         </ResponsiveContainer>

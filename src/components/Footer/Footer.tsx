@@ -4,7 +4,7 @@ import IcTwitter from '@/assets/ic-twitter.svg'
 
 const Footer = () => {
   return (
-    <footer className='footer bg-base-200 text-neutral-content items-center p-4 flex flex-col md:flex-row justify-between'>
+    <footer className='footer bg-base-300 text-neutral-content items-center p-4 flex flex-col md:flex-row justify-between'>
       <aside className='md:mb-0'>
         <p className='text-charter-blue font-medium'>
           Copyright © {new Date().getFullYear()} - All rights reserved
