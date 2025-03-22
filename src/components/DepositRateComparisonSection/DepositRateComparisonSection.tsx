@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import {
   BarChart,
   Bar,
@@ -10,14 +10,7 @@ import {
   LabelList
 } from 'recharts'
 import bankDepositoDatas from '../../data/bankDepositos.json'
-
-interface Bank {
-  bankName: string
-  logoUrl: string
-  website: string
-  minBalance: number
-  rates: { [key: string]: number }
-}
+import { Bank, CustomYAxisProps, CustomTooltipProps } from './depositRateComparisonProps'
 
 const processData = (banks: Bank[], tenure: string, minBalance: number) => {
   const groupedBanks: { [key: string]: Bank[] } = {}
@@ -37,8 +30,10 @@ const processData = (banks: Bank[], tenure: string, minBalance: number) => {
         prev.minBalance < curr.minBalance ? prev : curr
       )
       return {
-        bank: minBalanceBank.bankName.substring(0, minBalanceBank.bankName.indexOf('by')),
-        interest: minBalanceBank.rates[tenure]
+        bank: minBalanceBank.bankName.substring(0, minBalanceBank.bankName.indexOf('by')).trim(),
+        interest: minBalanceBank.rates[tenure],
+        logo: minBalanceBank.logoUrl,
+        website: minBalanceBank.website
       }
     })
     .filter((item) => item !== null)
@@ -49,34 +44,85 @@ const processData = (banks: Bank[], tenure: string, minBalance: number) => {
 const DepositRateComparisonSection = () => {
   const [tenure, setTenure] = useState('1')
   const [minBalance, setMinBalance] = useState(0)
-  const [data, setData] = useState<{ bank: string; interest: number }[]>([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
   const EMPTY_STRING = ''
+  const CHARTER_BLUE = '#536E96'
+  const JESS = '#20B486'
 
-  console.log(data)
+  const data = useMemo(
+    () => processData(bankDepositoDatas, tenure, minBalance),
+    [tenure, minBalance]
+  )
 
   useEffect(() => {
-    // Simulate data fetching
-    setTimeout(() => {
-      try {
-        const processedData = processData(bankDepositoDatas, tenure, minBalance)
-        setData(processedData)
-        setLoading(false)
-      } catch (err) {
-        setError('Failed to load data')
-        setLoading(false)
-      }
-    }, 1000)
-  }, [tenure, minBalance])
+    setLoading(false)
+  }, [data])
 
-  const handleTenureChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleTenureChange = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
     setTenure(event.target.value)
+  }, [])
+
+  const handleMinBalanceChange = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
+    setMinBalance(parseInt(event.target.value, 10))
+  }, [])
+
+  const getImagePath = (basePath: string) => {
+    return `${window.location.origin}${basePath}`
   }
 
-  const handleMinBalanceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setMinBalance(parseInt(event.target.value, 10))
-  }
+  const renderCustomYAxisTick = useCallback(
+    (props: CustomYAxisProps) => {
+      const { payload, x, y } = props
+      const bank = data.find((item) => item.bank === payload.value)
+
+      if (!bank) {
+        return <></>
+      }
+
+      return (
+        <g transform={`translate(${x},${y})`}>
+          <image href={getImagePath(bank.logo)} x={-35} y={-18} width={32} height={32} />
+          <a
+            href={bank.website}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='link link-primary link-hover'
+          >
+            <text
+              x={-45}
+              y={0}
+              dy={4}
+              textAnchor='end'
+              fill={CHARTER_BLUE}
+              className='text-xs md:text-sm lg:text-base font-bold'
+            >
+              {payload.value}
+            </text>
+          </a>
+        </g>
+      )
+    },
+    [data]
+  )
+
+  const renderCustomTooltip = useCallback((props: CustomTooltipProps) => {
+    const { payload, active } = props
+
+    if (!active || !payload || payload.length === 0) {
+      return <></>
+    }
+
+    const bank = payload[0].payload
+
+    return (
+      <div className='card bg-base-100 shadow-lg'>
+        <div className='card-body'>
+          <p className='font-bold text-lg text-charter-blue'>{bank.bank}</p>
+          <p className='text-sm text-charter-blue-400'>Interest Rate: {bank.interest}%</p>
+        </div>
+      </div>
+    )
+  }, [])
 
   return (
     <div className='py-10 bg-base-200 min-h-screen w-full'>
@@ -93,14 +139,14 @@ const DepositRateComparisonSection = () => {
             htmlFor='tenure'
             className='mr-2 text-charter-blue text-base md:text-lg font-medium'
           >
-            Select Tenure:
+            Tenure:
           </label>
           <select
             id='tenure'
             value={tenure}
             onChange={handleTenureChange}
-            aria-label='Select Tenure'
-            className='border border-charter-blue p-2 rounded text-base md:text-lg'
+            aria-label='Tenure'
+            className='select border border-charter-blue text-base md:text-lg'
           >
             <option value='1'>1 Month</option>
             <option value='3'>3 Months</option>
@@ -113,14 +159,14 @@ const DepositRateComparisonSection = () => {
             htmlFor='minBalance'
             className='mr-2 text-charter-blue text-base md:text-lg font-medium'
           >
-            Select Minimum Balance:
+            Minimum Balance:
           </label>
           <select
             id='minBalance'
             value={minBalance}
             onChange={handleMinBalanceChange}
-            aria-label='Select Minimum Balance'
-            className='border border-charter-blue p-2 rounded text-base md:text-lg'
+            aria-label='Minimum Balance'
+            className='select border border-charter-blue text-base md:text-lg'
           >
             <option value='0'>All</option>
             <option value='10000000'>10M</option>
@@ -133,8 +179,6 @@ const DepositRateComparisonSection = () => {
       </div>
       {loading ? (
         <p className='text-charter-blue'>Loading...</p>
-      ) : error ? (
-        <p className='text-red-500'>{error}</p>
       ) : (
         <div className='mx-4 md:mx-20 lg:mx-36 mb-16'>
           <ResponsiveContainer width='100%' height={600} className={''}>
@@ -146,17 +190,14 @@ const DepositRateComparisonSection = () => {
               <XAxis
                 type='number'
                 label={{ value: EMPTY_STRING }}
-                tick={{ fontSize: 14, fontWeight: 'bold' }}
+                tick={{ fontSize: 14, fontWeight: 'bold', fill: CHARTER_BLUE, dy: 5 }}
               />
-              <YAxis
-                type='category'
-                dataKey='bank'
-                tick={{ fontSize: 14, fontWeight: 'bold' }}
-                width={80}
-              />
-              <Tooltip />
+              <YAxis type='category' dataKey='bank' tick={renderCustomYAxisTick} width={120} />
+              {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+              {/* @ts-ignore */}
+              <Tooltip content={renderCustomTooltip} />
               <Legend />
-              <Bar dataKey='interest' fill='#20B486'>
+              <Bar dataKey='interest' fill={JESS}>
                 <LabelList
                   dataKey='interest'
                   position='right'
