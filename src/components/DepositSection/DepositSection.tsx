@@ -10,7 +10,7 @@ const DepositSection = (props: DepositSectionProps) => {
 
   return (
     <div className='w-full py-10' ref={depositSectionRef}>
-      <h1 className='text-center text-2xl md:text-3xl font-bold text-charter-blue mt-8'>
+      <h1 className='text-center text-2xl md:text-3xl font-bold text-charter-blue mt-8 mb-4'>
         Calculate Your Deposit Growth
       </h1>
       <p className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-10'>

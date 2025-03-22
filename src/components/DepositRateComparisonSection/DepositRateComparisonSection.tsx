@@ -1,0 +1,175 @@
+import React, { useState, useEffect } from 'react'
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  LabelList
+} from 'recharts'
+import bankDepositoDatas from '../../data/bankDepositos.json'
+
+interface Bank {
+  bankName: string
+  logoUrl: string
+  website: string
+  minBalance: number
+  rates: { [key: string]: number }
+}
+
+const processData = (banks: Bank[], tenure: string, minBalance: number) => {
+  const groupedBanks: { [key: string]: Bank[] } = {}
+
+  banks.forEach((bank) => {
+    if (!groupedBanks[bank.bankName]) {
+      groupedBanks[bank.bankName] = []
+    }
+    groupedBanks[bank.bankName].push(bank)
+  })
+
+  const data = Object.keys(groupedBanks)
+    .map((bankName) => {
+      const bankGroup = groupedBanks[bankName].filter((bank) => bank.minBalance >= minBalance)
+      if (bankGroup.length === 0) return null
+      const minBalanceBank = bankGroup.reduce((prev, curr) =>
+        prev.minBalance < curr.minBalance ? prev : curr
+      )
+      return {
+        bank: minBalanceBank.bankName.substring(0, minBalanceBank.bankName.indexOf('by')),
+        interest: minBalanceBank.rates[tenure]
+      }
+    })
+    .filter((item) => item !== null)
+
+  return data
+}
+
+const DepositRateComparisonSection = () => {
+  const [tenure, setTenure] = useState('1')
+  const [minBalance, setMinBalance] = useState(0)
+  const [data, setData] = useState<{ bank: string; interest: number }[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
+  const EMPTY_STRING = ''
+
+  console.log(data)
+
+  useEffect(() => {
+    // Simulate data fetching
+    setTimeout(() => {
+      try {
+        const processedData = processData(bankDepositoDatas, tenure, minBalance)
+        setData(processedData)
+        setLoading(false)
+      } catch (err) {
+        setError('Failed to load data')
+        setLoading(false)
+      }
+    }, 1000)
+  }, [tenure, minBalance])
+
+  const handleTenureChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setTenure(event.target.value)
+  }
+
+  const handleMinBalanceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setMinBalance(parseInt(event.target.value, 10))
+  }
+
+  return (
+    <div className='py-10 bg-base-200 min-h-screen w-full'>
+      <h1 className='text-center text-2xl md:text-3xl font-bold text-charter-blue mt-8 mb-4'>
+        Deposit Rate Comparison
+      </h1>
+      <p className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mb-16'>
+        Compare the deposit rates of different Indonesian banks based on the selected tenure and
+        minimum balance. Select a tenure and minimum balance to see the corresponding rates.
+      </p>
+      <div className='mb-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center items-center'>
+        <div>
+          <label
+            htmlFor='tenure'
+            className='mr-2 text-charter-blue text-base md:text-lg font-medium'
+          >
+            Select Tenure:
+          </label>
+          <select
+            id='tenure'
+            value={tenure}
+            onChange={handleTenureChange}
+            aria-label='Select Tenure'
+            className='border border-charter-blue p-2 rounded text-base md:text-lg'
+          >
+            <option value='1'>1 Month</option>
+            <option value='3'>3 Months</option>
+            <option value='6'>6 Months</option>
+            <option value='12'>12 Months</option>
+          </select>
+        </div>
+        <div>
+          <label
+            htmlFor='minBalance'
+            className='mr-2 text-charter-blue text-base md:text-lg font-medium'
+          >
+            Select Minimum Balance:
+          </label>
+          <select
+            id='minBalance'
+            value={minBalance}
+            onChange={handleMinBalanceChange}
+            aria-label='Select Minimum Balance'
+            className='border border-charter-blue p-2 rounded text-base md:text-lg'
+          >
+            <option value='0'>All</option>
+            <option value='10000000'>10M</option>
+            <option value='100000000'>100M</option>
+            <option value='250000000'>250M</option>
+            <option value='1000000000'>1B</option>
+            <option value='1000000000000'>1T</option>
+          </select>
+        </div>
+      </div>
+      {loading ? (
+        <p className='text-charter-blue'>Loading...</p>
+      ) : error ? (
+        <p className='text-red-500'>{error}</p>
+      ) : (
+        <div className='mx-4 md:mx-20 lg:mx-36 mb-16'>
+          <ResponsiveContainer width='100%' height={600} className={''}>
+            <BarChart
+              data={data}
+              layout='vertical'
+              margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+            >
+              <XAxis
+                type='number'
+                label={{ value: EMPTY_STRING }}
+                tick={{ fontSize: 14, fontWeight: 'bold' }}
+              />
+              <YAxis
+                type='category'
+                dataKey='bank'
+                tick={{ fontSize: 14, fontWeight: 'bold' }}
+                width={80}
+              />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey='interest' fill='#20B486'>
+                <LabelList
+                  dataKey='interest'
+                  position='right'
+                  fontSize={14}
+                  fontWeight={'medium'}
+                />
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default DepositRateComparisonSection
