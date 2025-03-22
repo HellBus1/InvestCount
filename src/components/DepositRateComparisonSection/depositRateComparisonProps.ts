@@ -15,6 +15,7 @@ interface FilteredBank {
   interest: number
   logo: string
   website: string
+  bankName: string
 }
 
 interface CustomYAxisProps extends YAxisProps {

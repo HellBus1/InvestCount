@@ -29,8 +29,10 @@ const processData = (banks: Bank[], tenure: string, minBalance: number) => {
       const minBalanceBank = bankGroup.reduce((prev, curr) =>
         prev.minBalance < curr.minBalance ? prev : curr
       )
+      const splittedBankName = minBalanceBank.bankName.split('by')
       return {
-        bank: minBalanceBank.bankName.substring(0, minBalanceBank.bankName.indexOf('by')).trim(),
+        bank: splittedBankName[0].trim(),
+        bankName: splittedBankName[splittedBankName.length - 1].trim(),
         interest: minBalanceBank.rates[tenure],
         logo: minBalanceBank.logoUrl,
         website: minBalanceBank.website
@@ -117,7 +119,7 @@ const DepositRateComparisonSection = () => {
     return (
       <div className='card bg-base-100 shadow-lg'>
         <div className='card-body'>
-          <p className='font-bold text-lg text-charter-blue'>{bank.bank}</p>
+          <p className='font-bold text-lg text-charter-blue'>{`${bank.bank} (${bank.bankName})`}</p>
           <p className='text-sm text-charter-blue-400'>Interest Rate: {bank.interest}%</p>
         </div>
       </div>
@@ -126,7 +128,7 @@ const DepositRateComparisonSection = () => {
 
   return (
     <div className='py-10 bg-base-200 min-h-screen w-full'>
-      <h1 className='text-center text-2xl md:text-3xl font-bold text-charter-blue mt-8 mb-4'>
+      <h1 className='text-center text-2xl md:text-3xl font-bold text-charter-blue-600 mt-8 mb-4'>
         Deposit Rate Comparison
       </h1>
       <p className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mb-16'>
@@ -180,7 +182,7 @@ const DepositRateComparisonSection = () => {
       {loading ? (
         <p className='text-charter-blue'>Loading...</p>
       ) : (
-        <div className='mx-4 md:mx-20 lg:mx-36 mb-16'>
+        <div className='mx-4 md:mx-20 lg:mx-36 mb-10'>
           <ResponsiveContainer width='100%' height={600} className={''}>
             <BarChart
               data={data}
