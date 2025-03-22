@@ -15,7 +15,7 @@ const Hero = (props: HeroProps) => {
         </div>
         <div className='flex flex-col justify-start gap-4'>
           <p className='py-2 text-xl md:text-2xl text-jess font-medium'>InvestCount</p>
-          <h1 className='leading-[48px] md:leading-[72px] py-2 text-4xl md:text-6xl font-semibold'>
+          <h1 className='leading-[48px] md:leading-[72px] py-2 text-4xl md:text-6xl font-semibold text-charter-blue-800'>
             Get Accurate Insights to <span className='text-jess'>Maximize</span> Your Savings and{' '}
             <span className='text-jess'>Financial Growth</span>
           </h1>

@@ -2,6 +2,7 @@ import DepositRateComparisonSection from '@/components/DepositRateComparisonSect
 import DepositSection from '@/components/DepositSection/DepositSection'
 import Footer from '@/components/Footer/Footer'
 import Hero from '@/components/Hero/Hero'
+import LPSSection from '@/components/LPSSection/LPSSection'
 import { useRef } from 'react'
 
 const HomePage = () => {
@@ -18,6 +19,7 @@ const HomePage = () => {
       <Hero onScrollToDepositClick={handleScrollToDeposit} />
       <DepositSection depositSectionRef={depositSectionRef} />
       <DepositRateComparisonSection />
+      <LPSSection />
       <Footer />
     </>
   )
