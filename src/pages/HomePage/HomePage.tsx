@@ -1,3 +1,4 @@
+import DepositRateComparisonSection from '@/components/DepositRateComparisonSection/DepositRateComparisonSection'
 import DepositSection from '@/components/DepositSection/DepositSection'
 import Footer from '@/components/Footer/Footer'
 import Hero from '@/components/Hero/Hero'
@@ -16,6 +17,7 @@ const HomePage = () => {
     <>
       <Hero onScrollToDepositClick={handleScrollToDeposit} />
       <DepositSection depositSectionRef={depositSectionRef} />
+      <DepositRateComparisonSection />
       <Footer />
     </>
   )
