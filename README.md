@@ -20,6 +20,11 @@ Start making smart financial decisions with real-time insights, and watch your s
 
 5. **Deposit Growth Predictions (Coming Soon):** Visualize your long-term savings growth with a customizable forecast table for up to 5 or 10 years. 📊📈
 
+## What's New in Version 1.1.1
+Deposit graphs that display all deposit rates for banks in Indonesia (especially digital banks), helping users decide where to invest their deposits.
+
+![screencapture-investcount-pages-dev-2025-03-23-06_07_56 (2)](https://github.com/user-attachments/assets/428ee904-c1e9-4369-a8b9-0fa69e78a697)
+
 
 ## Getting Started
 
