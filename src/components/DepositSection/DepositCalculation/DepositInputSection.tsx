@@ -32,13 +32,24 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
     )
   }, [amount, interestRate, taxRate, holdingMonths])
 
+  const formatNumberWithCommas = (value: string) => {
+    const numericValue = value.replace(/,/g, '') // Remove existing commas
+    if (isNaN(Number(numericValue))) return value // Return as is if not a valid number
+    return parseFloat(numericValue).toLocaleString('en-US') // Format with commas
+  }
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     setField: (value: string) => void,
     fieldName: string
   ) => {
     const value = e.target.value
-    setField(value)
+    if (fieldName === 'amount') {
+      const formattedValue = formatNumberWithCommas(value)
+      setField(formattedValue)
+    } else {
+      setField(value)
+    }
 
     // Reset error on field change
     setErrors((prev) => ({ ...prev, [fieldName]: EMPTY_STRING }))
@@ -58,7 +69,7 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
     if (!amount) {
       newErrors.amount = 'Deposit Amount is required'
       isValid = false
-    } else if (parseFloat(amount) < 1000000) {
+    } else if (parseFloat(amount.replace(/,/g, '')) < 1000000) {
       newErrors.amount = 'Deposit Amount must be greater than 1,000,000'
       isValid = false
     }
@@ -93,7 +104,8 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
 
   const doCalculateInterest = () => {
     if (validateFields()) {
-      const interest = calculateInterest(amount, taxRate, interestRate, holdingMonths)
+      const stringAmount = amount.replace(/,/g, '')
+      const interest = calculateInterest(stringAmount, taxRate, interestRate, holdingMonths)
       setInterest(parseFloat(interest))
     }
   }
@@ -120,8 +132,7 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
         onChange={(e) => handleInputChange(e, setAmount, 'amount')}
         placeholder='Minimum 1,000,000 IDR'
         error={errors.amount}
-        type='number'
-        min={1000000}
+        type='text' // Changed to text to allow formatting
       />
       <div className='flex flex-col md:flex-row md:space-x-10 space-y-4 md:space-y-0'>
         <div className='flex-1'>

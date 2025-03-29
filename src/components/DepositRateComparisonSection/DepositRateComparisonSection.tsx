@@ -12,7 +12,7 @@ import {
 import bankDepositoDatas from '../../data/bankDepositos.json'
 import { Bank, CustomYAxisProps, CustomTooltipProps } from './depositRateComparisonProps'
 
-const processData = (banks: Bank[], tenure: string, minBalance: number) => {
+const processData = (banks: Bank[], tenure: string, minBalance: number, sortBy: string) => {
   const groupedBanks: { [key: string]: Bank[] } = {}
 
   banks.forEach((bank) => {
@@ -22,7 +22,7 @@ const processData = (banks: Bank[], tenure: string, minBalance: number) => {
     groupedBanks[bank.bankName].push(bank)
   })
 
-  const data = Object.keys(groupedBanks)
+  let data = Object.keys(groupedBanks)
     .map((bankName) => {
       const bankGroup = groupedBanks[bankName].filter((bank) => bank.minBalance >= minBalance)
       if (bankGroup.length === 0) return null
@@ -40,25 +40,47 @@ const processData = (banks: Bank[], tenure: string, minBalance: number) => {
     })
     .filter((item) => item !== null)
 
+  // Sort data based on sortBy
+  if (sortBy === 'name') {
+    data = data.sort((a, b) => a.bank.localeCompare(b.bank))
+  } else if (sortBy === 'rate') {
+    data = data.sort((a, b) => b.interest - a.interest)
+  }
+
   return data
 }
 
 const DepositRateComparisonSection = () => {
   const [tenure, setTenure] = useState('1')
   const [minBalance, setMinBalance] = useState(0)
+  const [sortBy, setSortBy] = useState('name') // Default sort by name
   const [loading, setLoading] = useState(true)
+  const [isSmallScreen, setIsSmallScreen] = useState(false)
   const EMPTY_STRING = ''
   const CHARTER_BLUE = '#536E96'
   const JESS = '#20B486'
 
   const data = useMemo(
-    () => processData(bankDepositoDatas, tenure, minBalance),
-    [tenure, minBalance]
+    () => processData(bankDepositoDatas, tenure, minBalance, sortBy),
+    [tenure, minBalance, sortBy]
   )
 
   useEffect(() => {
     setLoading(false)
   }, [data])
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768) // Small screen if width is less than 768px
+    }
+
+    handleResize() // Check on initial render
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   const handleTenureChange = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
     setTenure(event.target.value)
@@ -66,6 +88,10 @@ const DepositRateComparisonSection = () => {
 
   const handleMinBalanceChange = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
     setMinBalance(parseInt(event.target.value, 10))
+  }, [])
+
+  const handleSortChange = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSortBy(event.target.value)
   }, [])
 
   const getImagePath = (basePath: string) => {
@@ -178,6 +204,24 @@ const DepositRateComparisonSection = () => {
             <option value='1000000000000'>1T</option>
           </select>
         </div>
+        <div>
+          <label
+            htmlFor='sortBy'
+            className='mr-2 text-charter-blue text-base md:text-lg font-medium'
+          >
+            Sort By:
+          </label>
+          <select
+            id='sortBy'
+            value={sortBy}
+            onChange={handleSortChange}
+            aria-label='Sort By'
+            className='select border border-charter-blue text-base md:text-lg'
+          >
+            <option value='name'>Name</option>
+            <option value='rate'>Rate</option>
+          </select>
+        </div>
       </div>
       {loading ? (
         <p className='text-charter-blue'>Loading...</p>
@@ -194,10 +238,10 @@ const DepositRateComparisonSection = () => {
                 label={{ value: EMPTY_STRING }}
                 tick={{ fontSize: 14, fontWeight: 'bold', fill: CHARTER_BLUE, dy: 5 }}
               />
-              <YAxis type='category' dataKey='bank' tick={renderCustomYAxisTick} width={120} />
+              <YAxis type='category' dataKey='bank' tick={renderCustomYAxisTick} width={125} />
               {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
               {/* @ts-ignore */}
-              <Tooltip content={renderCustomTooltip} />
+              {!isSmallScreen && <Tooltip content={renderCustomTooltip} />}
               <Legend />
               <Bar dataKey='interest' fill={JESS}>
                 <LabelList
