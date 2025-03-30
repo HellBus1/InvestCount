@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion' // Import Framer Motion
 import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import {
   BarChart,
@@ -153,15 +154,42 @@ const DepositRateComparisonSection = () => {
   }, [])
 
   return (
-    <div className='py-10 bg-base-200 min-h-screen w-full'>
-      <h1 className='text-center text-2xl md:text-3xl font-bold text-charter-blue-600 mt-8 mb-4'>
+    <motion.div
+      className='py-10 bg-base-200 min-h-screen w-full'
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true, amount: 0.2 }}
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.8, staggerChildren: 0.2 } }
+      }}
+    >
+      <motion.h1
+        className='text-center text-2xl md:text-3xl font-bold text-charter-blue-600 mt-8 mb-4'
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+        }}
+      >
         Deposit Rate Comparison
-      </h1>
-      <p className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mb-16'>
+      </motion.h1>
+      <motion.p
+        className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mb-16'
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+        }}
+      >
         Compare the deposit rates of different Indonesian banks based on the selected tenure and
         minimum balance. Select a tenure and minimum balance to see the corresponding rates.
-      </p>
-      <div className='mb-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center items-center'>
+      </motion.p>
+      <motion.div
+        className='mb-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center items-center'
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+        }}
+      >
         <div>
           <label
             htmlFor='tenure'
@@ -222,11 +250,25 @@ const DepositRateComparisonSection = () => {
             <option value='rate'>Rate</option>
           </select>
         </div>
-      </div>
+      </motion.div>
       {loading ? (
-        <p className='text-charter-blue'>Loading...</p>
+        <motion.p
+          className='text-charter-blue'
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { duration: 0.6 } }
+          }}
+        >
+          Loading...
+        </motion.p>
       ) : (
-        <div className='mx-4 md:mx-20 lg:mx-36 mb-10'>
+        <motion.div
+          className='mx-4 md:mx-20 lg:mx-36 mb-10'
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+          }}
+        >
           <ResponsiveContainer width='100%' height={600}>
             <BarChart
               data={data}
@@ -253,9 +295,9 @@ const DepositRateComparisonSection = () => {
               </Bar>
             </BarChart>
           </ResponsiveContainer>
-        </div>
+        </motion.div>
       )}
-    </div>
+    </motion.div>
   )
 }
 
