@@ -6,9 +6,19 @@ interface InputFieldProps {
   error?: string
   type: string
   min?: number
+  disabled?: boolean | false
 }
 
-const InputField = ({ label, value, onChange, placeholder, error, type, min }: InputFieldProps) => (
+const InputField = ({
+  label,
+  value,
+  onChange,
+  placeholder,
+  error,
+  type,
+  min,
+  disabled
+}: InputFieldProps) => (
   <div className='mb-4'>
     <label className='label'>
       <span className='label-text text-charter-blue-600 font-bold'>{label}</span>
@@ -20,8 +30,9 @@ const InputField = ({ label, value, onChange, placeholder, error, type, min }: I
       className='input input-bordered w-full rounded'
       placeholder={placeholder}
       min={min}
+      disabled={disabled}
     />
-    {error && <div className='text-red-600 text-xs'>{error}</div>}
+    {error && <div className='text-red-600 text-xs fieldset-label'>{error}</div>}
   </div>
 )
 

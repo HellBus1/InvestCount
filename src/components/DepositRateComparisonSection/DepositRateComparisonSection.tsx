@@ -227,7 +227,7 @@ const DepositRateComparisonSection = () => {
         <p className='text-charter-blue'>Loading...</p>
       ) : (
         <div className='mx-4 md:mx-20 lg:mx-36 mb-10'>
-          <ResponsiveContainer width='100%' height={600} className={''}>
+          <ResponsiveContainer width='100%' height={600}>
             <BarChart
               data={data}
               layout='vertical'
@@ -236,7 +236,7 @@ const DepositRateComparisonSection = () => {
               <XAxis
                 type='number'
                 label={{ value: EMPTY_STRING }}
-                tick={{ fontSize: 14, fontWeight: 'bold', fill: CHARTER_BLUE, dy: 5 }}
+                tick={{ fontSize: 14, fontWeight: 'bold', fill: CHARTER_BLUE, dy: 6 }}
               />
               <YAxis type='category' dataKey='bank' tick={renderCustomYAxisTick} width={125} />
               {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
