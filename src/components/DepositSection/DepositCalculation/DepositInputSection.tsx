@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import InputField from './InputField'
 import { calculateInterest } from '@/services/depositServices'
+import { motion } from 'motion/react'
 
 interface DepositInputSectionProps {
   setInterest: (interest: number) => void
@@ -21,21 +22,24 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
     taxRate: EMPTY_STRING,
     holdingMonths: EMPTY_STRING
   })
-  const [isFormValid, setIsFormValid] = useState(false)
+  const [, setIsFormValid] = useState(false)
+
+  // Set default tax rate to 20
+  useEffect(() => {
+    setTaxRate('20')
+  }, [setTaxRate])
 
   useEffect(() => {
     setIsFormValid(
-      amount !== EMPTY_STRING &&
-        interestRate !== EMPTY_STRING &&
-        taxRate !== EMPTY_STRING &&
-        holdingMonths !== EMPTY_STRING
+      amount !== EMPTY_STRING && interestRate !== EMPTY_STRING && holdingMonths !== EMPTY_STRING
     )
-  }, [amount, interestRate, taxRate, holdingMonths])
+  }, [amount, interestRate, holdingMonths])
 
   const formatNumberWithCommas = (value: string) => {
-    const numericValue = value.replace(/,/g, '') // Remove existing commas
-    if (isNaN(Number(numericValue))) return value // Return as is if not a valid number
-    return parseFloat(numericValue).toLocaleString('en-US') // Format with commas
+    if (value === EMPTY_STRING) return value
+    const numericValue = value.replace(/,/g, '')
+    if (isNaN(Number(numericValue))) return value
+    return parseFloat(numericValue).toLocaleString('en-US')
   }
 
   const handleInputChange = (
@@ -82,14 +86,6 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
       isValid = false
     }
 
-    if (!taxRate) {
-      newErrors.taxRate = 'Tax Rate is required'
-      isValid = false
-    } else if (!isNumberAndDecimalRegex.test(taxRate)) {
-      newErrors.taxRate = 'Tax Rate should be a valid number'
-      isValid = false
-    }
-
     if (!holdingMonths) {
       newErrors.holdingMonths = 'Number of Months is required'
       isValid = false
@@ -105,15 +101,30 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
   const doCalculateInterest = () => {
     if (validateFields()) {
       const stringAmount = amount.replace(/,/g, '')
-      const interest = calculateInterest(stringAmount, taxRate, interestRate, holdingMonths)
+      const interest = calculateInterest(stringAmount, '20', interestRate, holdingMonths)
       setInterest(parseFloat(interest))
     }
   }
 
+  const isInterestRateEnabled = amount.length !== 0 && !errors.amount
+  const isTaxRateEnabled = interestRate.length !== 0 && !errors.interestRate
+  const isNumberOfMonthsEnabled =
+    isInterestRateEnabled && isTaxRateEnabled && taxRate.length !== 0 && !errors.taxRate
+  const isHoldingMonthsEnabled = holdingMonths.length !== 0 && !errors.holdingMonths
+
+  useEffect(() => {
+    if (isHoldingMonthsEnabled) {
+      if (isInterestRateEnabled || isTaxRateEnabled) {
+        doCalculateInterest()
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [holdingMonths, interestRate, amount])
+
   const clearInput = () => {
     setAmount(EMPTY_STRING)
     setInterestRate(EMPTY_STRING)
-    setTaxRate(EMPTY_STRING)
+    setTaxRate('20') // Reset tax rate to default
     setHoldingMonths(EMPTY_STRING)
     setInterest(0)
     setErrors({
@@ -126,16 +137,26 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
 
   return (
     <div>
-      <InputField
-        label='Deposit Amount (IDR)'
-        value={amount}
-        onChange={(e) => handleInputChange(e, setAmount, 'amount')}
-        placeholder='Minimum 1,000,000 IDR'
-        error={errors.amount}
-        type='text' // Changed to text to allow formatting
-      />
-      <div className='flex flex-col md:flex-row md:space-x-10 space-y-4 md:space-y-0'>
-        <div className='flex-1'>
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <InputField
+          label='Deposit Amount (IDR)'
+          value={amount}
+          onChange={(e) => handleInputChange(e, setAmount, 'amount')}
+          placeholder='Minimum 1,000,000 IDR'
+          error={errors.amount}
+          type='text'
+        />
+      </motion.div>
+      {isInterestRateEnabled && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
           <InputField
             label='Interest Rate (%)'
             value={interestRate}
@@ -144,36 +165,44 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
             error={errors.interestRate}
             type='text'
           />
-        </div>
-        <div className='flex-1'>
+        </motion.div>
+      )}
+      {isTaxRateEnabled && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
           <InputField
             label='Tax Rate (%)'
-            value={taxRate}
+            value='20'
             onChange={(e) => handleInputChange(e, setTaxRate, 'taxRate')}
-            placeholder='Eg 20 or 5.8'
+            placeholder='Eg 20'
             error={errors.taxRate}
             type='text'
+            disabled={true}
           />
-        </div>
-      </div>
-      <InputField
-        label='Number of Months'
-        value={holdingMonths}
-        onChange={(e) => handleInputChange(e, setHoldingMonths, 'holdingMonths')}
-        placeholder='Minimum 1 month'
-        error={errors.holdingMonths}
-        type='number'
-        min={1}
-      />
-      <div className='card-actions justify-end'>
-        <button
-          onClick={doCalculateInterest}
-          className={`btn btn-primary text-[#ffffff] ${!isFormValid ? 'opacity-50 cursor-not-allowed' : ''}`}
-          disabled={!isFormValid}
+        </motion.div>
+      )}
+      {isNumberOfMonthsEnabled && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
         >
-          Calculate
-        </button>
-        <button onClick={clearInput} className='btn btn-secondary text-[#ffffff]'>
+          <InputField
+            label='Number of Months'
+            value={holdingMonths}
+            onChange={(e) => handleInputChange(e, setHoldingMonths, 'holdingMonths')}
+            placeholder='Minimum 1 month'
+            error={errors.holdingMonths}
+            type='number'
+            min={1}
+          />
+        </motion.div>
+      )}
+      <div className='card-actions justify-end'>
+        <button onClick={clearInput} className='btn btn-primary text-[#ffffff]'>
           Reset
         </button>
       </div>
