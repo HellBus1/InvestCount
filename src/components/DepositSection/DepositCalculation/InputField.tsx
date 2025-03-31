@@ -19,10 +19,8 @@ const InputField = ({
   min,
   disabled
 }: InputFieldProps) => (
-  <div className='mb-4'>
-    <label className='label'>
-      <span className='label-text text-charter-blue-600 font-bold'>{label}</span>
-    </label>
+  <fieldset className='mb-4'>
+    <legend className='text-charter-blue-600 font-bold fieldset-legend mb-2'>{label}</legend>
     <input
       type={type}
       value={value}
@@ -32,8 +30,8 @@ const InputField = ({
       min={min}
       disabled={disabled}
     />
-    {error && <div className='text-red-600 text-xs fieldset-label'>{error}</div>}
-  </div>
+    {error && <p className='text-red-600 text-xs fieldset-label mt-3'>{error}</p>}
+  </fieldset>
 )
 
 export default InputField

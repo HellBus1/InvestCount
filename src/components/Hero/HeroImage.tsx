@@ -1,10 +1,8 @@
+import { getImagePath } from '@/services/inputServices'
+
 const HeroImage = () => {
   const GROW_MONEY_IMAGE = '/assets/images/grow_money.jpg'
   const GROW_MONEY_IMAGE_BACK = '/assets/images/grow_money_back.jpg'
-
-  const getImagePath = (basePath: string) => {
-    return `${window.location.origin}${basePath}`
-  }
 
   return (
     <div className='relative my-10'>
