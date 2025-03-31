@@ -12,6 +12,7 @@ import {
 } from 'recharts'
 import bankDepositoDatas from '../../data/bankDepositos.json'
 import { Bank, CustomYAxisProps, CustomTooltipProps } from './depositRateComparisonProps'
+import { getImagePath, getProductName } from '@/services/inputServices'
 
 const processData = (banks: Bank[], tenure: string, minBalance: number, sortBy: string) => {
   const groupedBanks: { [key: string]: Bank[] } = {}
@@ -30,10 +31,12 @@ const processData = (banks: Bank[], tenure: string, minBalance: number, sortBy: 
       const minBalanceBank = bankGroup.reduce((prev, curr) =>
         prev.minBalance < curr.minBalance ? prev : curr
       )
-      const splittedBankName = minBalanceBank.bankName.split('by')
+
+      const { bank, productName } = getProductName(minBalanceBank.bankName)
+
       return {
-        bank: splittedBankName[0].trim(),
-        bankName: splittedBankName[splittedBankName.length - 1].trim(),
+        bank: bank,
+        bankName: productName,
         interest: minBalanceBank.rates[tenure],
         logo: minBalanceBank.logoUrl,
         website: minBalanceBank.website
@@ -94,10 +97,6 @@ const DepositRateComparisonSection = () => {
   const handleSortChange = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
     setSortBy(event.target.value)
   }, [])
-
-  const getImagePath = (basePath: string) => {
-    return `${window.location.origin}${basePath}`
-  }
 
   const renderCustomYAxisTick = useCallback(
     (props: CustomYAxisProps) => {

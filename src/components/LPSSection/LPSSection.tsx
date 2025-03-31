@@ -33,7 +33,7 @@ const LPSSection = () => {
 
   return (
     <motion.div
-      className='py-10 w-full mb-10'
+      className='pt-10 pb-20 w-full bg-base-200'
       initial='hidden'
       whileInView='visible' // Trigger animation when in view
       viewport={{ once: true, amount: 0.2 }} // Animate only once when 20% of the section is visible

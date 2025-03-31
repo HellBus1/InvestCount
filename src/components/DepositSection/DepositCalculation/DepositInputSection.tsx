@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import InputField from './InputField'
 import { calculateInterest } from '@/services/depositServices'
 import { motion } from 'motion/react'
+import { formatNumberWithCommas, parseAmountInputFromCommas } from '@/services/inputServices'
 
 interface DepositInputSectionProps {
   setInterest: (interest: number) => void
@@ -35,13 +36,6 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
     )
   }, [amount, interestRate, holdingMonths])
 
-  const formatNumberWithCommas = (value: string) => {
-    if (value === EMPTY_STRING) return value
-    const numericValue = value.replace(/,/g, '')
-    if (isNaN(Number(numericValue))) return value
-    return parseFloat(numericValue).toLocaleString('en-US')
-  }
-
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     setField: (value: string) => void,
@@ -73,7 +67,10 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
     if (!amount) {
       newErrors.amount = 'Deposit Amount is required'
       isValid = false
-    } else if (parseFloat(amount.replace(/,/g, '')) < 1000000) {
+    } else if (!isNumberAndDecimalRegex.test(parseAmountInputFromCommas(amount))) {
+      newErrors.amount = 'Deposit Amount should be a valid number'
+      isValid = false
+    } else if (parseFloat(parseAmountInputFromCommas(amount)) < 1000000) {
       newErrors.amount = 'Deposit Amount must be greater than 1,000,000'
       isValid = false
     }

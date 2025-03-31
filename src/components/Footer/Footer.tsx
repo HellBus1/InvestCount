@@ -1,10 +1,8 @@
+import { getImagePath } from '@/services/inputServices'
+
 const Footer = () => {
   const IC_GITHUB = '/assets/ic-github.svg'
   const IC_LINKEDIN = '/assets/ic-linkedin.svg'
-
-  const getImagePath = (basePath: string) => {
-    return `${window.location.origin}${basePath}`
-  }
 
   return (
     <footer className='footer bg-base-300 text-neutral-content items-center p-4 flex flex-col md:flex-row justify-between'>

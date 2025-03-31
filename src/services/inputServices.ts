@@ -1,0 +1,24 @@
+const formatNumberWithCommas = (value: string) => {
+  const EMPTY_STRING = ''
+  if (value === EMPTY_STRING) return value
+  const numericValue = value.replace(/,/g, '')
+  if (isNaN(Number(numericValue))) return value
+  return parseFloat(numericValue).toLocaleString('en-US')
+}
+
+const getImagePath = (basePath: string) => {
+  return `${window.location.origin}${basePath}`
+}
+
+const parseAmountInputFromCommas = (amount: string) => {
+  return amount.replace(/,/g, '')
+}
+
+const getProductName = (bankNameAndProduct: string) => {
+  const splittedBankName = bankNameAndProduct.split('by')
+  const bank = splittedBankName[0].trim()
+  const productName = splittedBankName[splittedBankName.length - 1].trim()
+  return { bank, productName }
+}
+
+export { formatNumberWithCommas, getImagePath, parseAmountInputFromCommas, getProductName }
