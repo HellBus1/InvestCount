@@ -1,3 +1,5 @@
+import { getRupiahFormat } from '@/services/inputServices'
+
 interface DepositRateResultProps {
   interest: number
   month: number
@@ -5,13 +7,6 @@ interface DepositRateResultProps {
 }
 
 const DepositRateResult = (props: DepositRateResultProps) => {
-  const getRupiahFormat = (interest: number) => {
-    return new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR'
-    }).format(interest)
-  }
-
   return (
     <div className='mt-12 md:mt-0'>
       <div className='text-charter-blue-600 font-bold text-base md:text-lg mb-2'>

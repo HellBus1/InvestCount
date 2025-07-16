@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion' // Import Framer Motion
 import DepositCalculation from './DepositCalculation/DepositCalculation'
 import DepositTypeSelector from './DepositTypeSelector'
+import { useState } from 'react'
+import { DepositType } from '@/constants/DepositType'
 
 interface DepositSectionProps {
   depositSectionRef: React.MutableRefObject<HTMLDivElement | null>
@@ -8,6 +10,7 @@ interface DepositSectionProps {
 
 const DepositSection = (props: DepositSectionProps) => {
   const { depositSectionRef } = props
+  const [selectedOption, setSelectedOption] = useState(DepositType.NONARO)
 
   // Animation variants for the section
   const containerVariants = {
@@ -45,21 +48,18 @@ const DepositSection = (props: DepositSectionProps) => {
       >
         Choose the deposit option that suits you best and see how your savings can grow over time.
       </motion.p>
-      <motion.div
-        className='flex flex-col mb-16'
-        variants={childVariants} // Animate the container for child components
-      >
-        <motion.div
-          className='mx-4 md:mx-20 lg:mx-36 mt-10'
-          variants={childVariants} // Animate the DepositTypeSelector
-        >
-          <DepositTypeSelector />
+      <motion.div className='flex flex-col mb-16' variants={childVariants}>
+        <motion.div className='mx-4 md:mx-20 lg:mx-36 mt-10' variants={childVariants}>
+          <DepositTypeSelector
+            selectedOption={selectedOption}
+            setSelectedOption={(value) => setSelectedOption(value)}
+          />
         </motion.div>
         <motion.div
           className='mx-4 md:mx-20 lg:mx-36 mt-8'
           variants={childVariants} // Animate the DepositCalculation
         >
-          <DepositCalculation />
+          <DepositCalculation selectedOption={selectedOption} />
         </motion.div>
       </motion.div>
     </motion.div>

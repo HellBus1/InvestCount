@@ -10,13 +10,25 @@ interface DepositInputSectionProps {
   setTaxRate: (taxRate: string) => void
   holdingMonths: string
   setHoldingMonths: (holdingMonths: string) => void
+  amount: string
+  setAmount: (amount: string) => void
+  interestRate: string
+  setInterestRate: (interestRate: string) => void
 }
 
 const DepositInputSection = (props: DepositInputSectionProps) => {
   const EMPTY_STRING = ''
-  const { setInterest, taxRate, setTaxRate, holdingMonths, setHoldingMonths } = props
-  const [amount, setAmount] = useState(EMPTY_STRING)
-  const [interestRate, setInterestRate] = useState(EMPTY_STRING)
+  const {
+    setInterest,
+    taxRate,
+    setTaxRate,
+    holdingMonths,
+    setHoldingMonths,
+    amount,
+    setAmount,
+    interestRate,
+    setInterestRate
+  } = props
   const [errors, setErrors] = useState({
     amount: EMPTY_STRING,
     interestRate: EMPTY_STRING,
@@ -105,8 +117,7 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
 
   const isInterestRateEnabled = amount.length !== 0 && !errors.amount
   const isTaxRateEnabled = interestRate.length !== 0 && !errors.interestRate
-  const isNumberOfMonthsEnabled =
-    isInterestRateEnabled && isTaxRateEnabled && taxRate.length !== 0 && !errors.taxRate
+  isInterestRateEnabled && isTaxRateEnabled && taxRate.length !== 0 && !errors.taxRate
   const isHoldingMonthsEnabled = holdingMonths.length !== 0 && !errors.holdingMonths
 
   useEffect(() => {
@@ -146,58 +157,56 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
           placeholder='Minimum 1,000,000 IDR'
           error={errors.amount}
           type='text'
+          required={true}
         />
       </motion.div>
-      {isInterestRateEnabled && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <InputField
-            label='Interest Rate (%)'
-            value={interestRate}
-            onChange={(e) => handleInputChange(e, setInterestRate, 'interestRate')}
-            placeholder='Eg 10 or 8.5'
-            error={errors.interestRate}
-            type='text'
-          />
-        </motion.div>
-      )}
-      {isTaxRateEnabled && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <InputField
-            label='Tax Rate (%)'
-            value='20'
-            onChange={(e) => handleInputChange(e, setTaxRate, 'taxRate')}
-            placeholder='Eg 20'
-            error={errors.taxRate}
-            type='text'
-            disabled={true}
-          />
-        </motion.div>
-      )}
-      {isNumberOfMonthsEnabled && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <InputField
-            label='Number of Months'
-            value={holdingMonths}
-            onChange={(e) => handleInputChange(e, setHoldingMonths, 'holdingMonths')}
-            placeholder='Minimum 1 month'
-            error={errors.holdingMonths}
-            type='number'
-            min={1}
-          />
-        </motion.div>
-      )}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <InputField
+          label='Interest Rate (%)'
+          value={interestRate}
+          onChange={(e) => handleInputChange(e, setInterestRate, 'interestRate')}
+          placeholder='Eg 10 or 8.5'
+          error={errors.interestRate}
+          type='text'
+          required={true}
+        />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <InputField
+          label='Tax Rate (%)'
+          value='20'
+          onChange={(e) => handleInputChange(e, setTaxRate, 'taxRate')}
+          placeholder='Eg 20'
+          error={errors.taxRate}
+          type='text'
+          disabled={true}
+          required={true}
+        />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <InputField
+          label='Number of Months'
+          value={holdingMonths}
+          onChange={(e) => handleInputChange(e, setHoldingMonths, 'holdingMonths')}
+          placeholder='Minimum 1 month'
+          error={errors.holdingMonths}
+          type='number'
+          min={1}
+          required={true}
+        />
+      </motion.div>
       <div className='card-actions justify-end'>
         <button onClick={clearInput} className='btn btn-primary text-[#ffffff]'>
           Reset
