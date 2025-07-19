@@ -49,7 +49,7 @@ const NetWorthSimulationModal = (props: NetWorthSimulationModalProps) => {
   return (
     <dialog className='modal modal-open'>
       <form method='dialog' className='modal-box bg-base-100 rounded-2xl shadow-2xl p-8 max-w-xl'>
-        <h3 className='font-bold text-2xl text-charter-blue mb-4'>Net Worth Growth Simulation</h3>
+        <h3 className='font-bold text-2xl text-charter-blue mb-4'>Growth Simulation</h3>
         <div className='divider my-2'></div>
         {/* Layer 1: Initial money and year selector */}
         <div className='flex flex-row items-center gap-8 mb-6'>
@@ -82,6 +82,10 @@ const NetWorthSimulationModal = (props: NetWorthSimulationModalProps) => {
           <div>
             <span className='text-gray-500'>Growth</span>
             <div className='font-bold text-xl text-charter-blue'>{growthPercent}%</div>
+          </div>
+          <div>
+            <span className='text-gray-500'>Interest Rate</span>
+            <div className='font-bold text-xl text-charter-blue'>{interestRate}%</div>
           </div>
           <div>
             <span className='text-gray-500'>Total Interest</span>

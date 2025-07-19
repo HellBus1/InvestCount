@@ -54,6 +54,13 @@ const DepositCalculation = (props: DepositCalculationProps) => {
                 <button
                   className='btn btn-primary text-[#ffffff] mt-4'
                   onClick={() => setShowModal(true)}
+                  disabled={
+                    interest <= 0 ||
+                    amount.length === 0 ||
+                    interestRate.length === 0 ||
+                    taxRate.length === 0 ||
+                    holdingMonths.length === 0
+                  }
                 >
                   Show Net Worth Simulation
                 </button>
