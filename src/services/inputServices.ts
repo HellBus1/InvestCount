@@ -21,4 +21,17 @@ const getProductName = (bankNameAndProduct: string) => {
   return { bank, productName }
 }
 
-export { formatNumberWithCommas, getImagePath, parseAmountInputFromCommas, getProductName }
+const getRupiahFormat = (amount: number) => {
+  return new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR'
+  }).format(amount)
+}
+
+export {
+  formatNumberWithCommas,
+  getImagePath,
+  parseAmountInputFromCommas,
+  getProductName,
+  getRupiahFormat
+}

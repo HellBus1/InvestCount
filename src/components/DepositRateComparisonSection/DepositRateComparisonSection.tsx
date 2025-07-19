@@ -109,7 +109,7 @@ const DepositRateComparisonSection = () => {
 
       return (
         <g transform={`translate(${x},${y})`}>
-          <image href={getImagePath(bank.logo)} x={-35} y={-18} width={32} height={32} />
+          <image href={getImagePath(bank.logo)} x={-35} y={-18} width={30} height={32} />
           <a
             href={bank.website}
             target='_blank'
@@ -122,7 +122,7 @@ const DepositRateComparisonSection = () => {
               dy={4}
               textAnchor='end'
               fill={CHARTER_BLUE}
-              className='text-xs md:text-sm lg:text-base font-bold'
+              className='text-xs md:text-sm font-bold'
             >
               {payload.value}
             </text>
@@ -145,12 +145,23 @@ const DepositRateComparisonSection = () => {
     return (
       <div className='card bg-base-100 shadow-lg'>
         <div className='card-body'>
-          <p className='font-bold text-lg text-charter-blue'>{`${bank.bank} (${bank.bankName})`}</p>
+          <div className='flex flex-row items-center space-x-4 mb-2'>
+            <img
+              src={getImagePath(bank.logo)}
+              alt={`${bank.bank} logo`}
+              height={32}
+              width={32}
+              className='object-contain'
+            />
+            <p className='font-bold text-lg text-charter-blue'>{`${bank.bank} (${bank.bankName})`}</p>
+          </div>
           <p className='text-sm text-charter-blue-400'>Interest Rate: {bank.interest}%</p>
         </div>
       </div>
     )
   }, [])
+
+  const lastModified = '2025-07-19'
 
   return (
     <motion.div
@@ -160,14 +171,14 @@ const DepositRateComparisonSection = () => {
       viewport={{ once: true, amount: 0.2 }}
       variants={{
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, staggerChildren: 0.2 } }
+        visible: { opacity: 1, y: 0, transition: { duration: 0.3, staggerChildren: 0.1 } }
       }}
     >
       <motion.h1
         className='text-center text-2xl md:text-3xl font-bold text-charter-blue-600 mt-8 mb-4'
         variants={{
           hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+          visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
         }}
       >
         Deposit Rate Comparison
@@ -176,7 +187,7 @@ const DepositRateComparisonSection = () => {
         className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mb-16'
         variants={{
           hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+          visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
         }}
       >
         Compare the deposit rates of different Indonesian banks based on the selected tenure and
@@ -186,7 +197,7 @@ const DepositRateComparisonSection = () => {
         className='mb-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center items-center'
         variants={{
           hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+          visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
         }}
       >
         <div>
@@ -228,7 +239,8 @@ const DepositRateComparisonSection = () => {
             <option value='100000000'>100M</option>
             <option value='250000000'>250M</option>
             <option value='1000000000'>1B</option>
-            <option value='1000000000000'>1T</option>
+            <option value='2000000000'>2B</option>
+            <option value='5000000000'>5B</option>
           </select>
         </div>
         <div>
@@ -255,7 +267,7 @@ const DepositRateComparisonSection = () => {
           className='text-charter-blue'
           variants={{
             hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { duration: 0.6 } }
+            visible: { opacity: 1, transition: { duration: 0.3 } }
           }}
         >
           Loading...
@@ -265,7 +277,7 @@ const DepositRateComparisonSection = () => {
           className='mx-4 md:mx-20 lg:mx-36 mb-10'
           variants={{
             hidden: { opacity: 0, y: 20 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+            visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
           }}
         >
           <ResponsiveContainer width='100%' height={600}>
@@ -294,6 +306,17 @@ const DepositRateComparisonSection = () => {
               </Bar>
             </BarChart>
           </ResponsiveContainer>
+
+          <div className='flex justify-center mt-10'>
+            <span className='badge badge-outline badge-lg bg-base-100 text-charter-blue-600 font-semibold px-4 py-2 rounded-full shadow'>
+              Last updated:{' '}
+              {new Date(lastModified).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </span>
+          </div>
         </motion.div>
       )}
     </motion.div>

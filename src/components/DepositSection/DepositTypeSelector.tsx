@@ -1,13 +1,12 @@
-import { useState } from 'react'
+import { DepositType } from '@/constants/DepositType'
 
-const DepositType = {
-  ARO: 'ARO',
-  NONARO: 'Non-Aro',
-  AROPLUS: 'ARO+'
+interface DepositTypeSelectorProps {
+  selectedOption: string
+  setSelectedOption: (option: string) => void
 }
 
-const DepositTypeSelector = () => {
-  const [selectedOption, setSelectedOption] = useState(DepositType.NONARO)
+const DepositTypeSelector = (props: DepositTypeSelectorProps) => {
+  const { selectedOption, setSelectedOption } = props
 
   return (
     <div className='mt-8'>
@@ -40,26 +39,22 @@ const DepositTypeSelector = () => {
           <p className='text-base md:text-lg text-charter-blue'>
             <strong>Simple Interest:</strong> Receive interest directly.
             <br />
-            <br />
-            For example, a IDR 10,000,000 deposit at 5% annual interest earns IDR 500,000.
+            <br />a IDR 10,000,000 deposit at 5% annual interest earns IDR 500,000.
           </p>
         )}
         {selectedOption === DepositType.ARO && (
           <p className='text-base md:text-lg text-charter-blue'>
             <strong>Smart Saver:</strong> Interest is added to your savings and reinvested.
             <br />
-            <br />
-            For example, a IDR 10,000,000 deposit at 5% annual interest adds IDR 500,000 to your
-            savings.
+            <br />a IDR 10,000,000 deposit at 5% annual interest adds IDR 500,000 to your savings.
           </p>
         )}
         {selectedOption === DepositType.AROPLUS && (
           <p className='text-base md:text-lg text-charter-blue'>
             <strong>Maximize Returns:</strong> Enjoy compounding interest.
             <br />
-            <br />
-            For example, a IDR 10,000,000 deposit at 5% annual interest grows to IDR 10,500,000,
-            which continues to earn interest.
+            <br />a IDR 10,000,000 deposit at 5% annual interest grows to IDR 10,500,000, which
+            continues to earn.
           </p>
         )}
       </div>
