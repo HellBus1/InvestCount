@@ -1,12 +1,24 @@
 import { useState } from 'react'
 import DepositInputSection from './DepositInputSection'
 import DepositRateResult from './DepositRateResult'
+import { DepositType } from '@/constants/DepositType'
+import NetWorthSimulationModal from '../NetWorthSimulationModal/NetWorthSimulationModal'
 
-const DepositCalculation = () => {
+interface DepositCalculationProps {
+  selectedOption: string
+}
+
+const DepositCalculation = (props: DepositCalculationProps) => {
+  const EMPTY_STRING = ''
   const [interest, setInterest] = useState(0)
-  const [taxRate, setTaxRate] = useState('')
-  const [holdingMonths, setHoldingMonths] = useState('')
+  const [interestRate, setInterestRate] = useState(EMPTY_STRING)
+  const [taxRate, setTaxRate] = useState(EMPTY_STRING)
+  const [holdingMonths, setHoldingMonths] = useState(EMPTY_STRING)
+  const [showModal, setShowModal] = useState(false)
+  const [amount, setAmount] = useState(EMPTY_STRING)
+  const { selectedOption } = props
 
+  // Helper to get number from string or 0
   const getZeroFromEmptyNumberString = (numberString: string) => {
     const ZERO = 0
     return numberString.length <= ZERO ? ZERO : parseFloat(numberString)
@@ -23,6 +35,10 @@ const DepositCalculation = () => {
               setTaxRate={setTaxRate}
               holdingMonths={holdingMonths}
               setHoldingMonths={setHoldingMonths}
+              amount={amount}
+              setAmount={setAmount}
+              interestRate={interestRate}
+              setInterestRate={setInterestRate}
             />
           </div>
           <div className='mx-4'></div>
@@ -32,6 +48,27 @@ const DepositCalculation = () => {
               tax={getZeroFromEmptyNumberString(taxRate)}
               month={getZeroFromEmptyNumberString(holdingMonths)}
             />
+
+            {selectedOption === DepositType.AROPLUS && (
+              <>
+                <button
+                  className='btn btn-primary text-[#ffffff] mt-4'
+                  onClick={() => setShowModal(true)}
+                >
+                  Show Net Worth Simulation
+                </button>
+
+                {showModal && (
+                  <NetWorthSimulationModal
+                    amount={amount}
+                    interestRate={interestRate}
+                    taxRate={taxRate}
+                    holdingMonths={holdingMonths}
+                    setShowModal={setShowModal}
+                  />
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>

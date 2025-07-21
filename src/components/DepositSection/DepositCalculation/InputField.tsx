@@ -7,6 +7,7 @@ interface InputFieldProps {
   type: string
   min?: number
   disabled?: boolean | false
+  required?: boolean
 }
 
 const InputField = ({
@@ -17,7 +18,8 @@ const InputField = ({
   error,
   type,
   min,
-  disabled
+  disabled,
+  required = false
 }: InputFieldProps) => (
   <fieldset className='mb-4'>
     <legend className='text-charter-blue-600 font-bold fieldset-legend mb-2'>{label}</legend>
@@ -29,8 +31,16 @@ const InputField = ({
       placeholder={placeholder}
       min={min}
       disabled={disabled}
+      required={required}
     />
-    {error && <p className='text-red-600 text-xs fieldset-label mt-3'>{error}</p>}
+    <p
+      className={`text-xs fieldset-label mt-3 transition-all duration-200 ${
+        error ? 'text-red-600 opacity-100' : 'opacity-0'
+      }`}
+      aria-live='polite'
+    >
+      {error || '‎'}
+    </p>
   </fieldset>
 )
 
