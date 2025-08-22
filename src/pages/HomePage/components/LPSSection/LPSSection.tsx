@@ -43,13 +43,14 @@ const LPSSection = () => {
         className='text-center text-2xl md:text-3xl font-bold text-charter-blue-600 mt-8 mb-4'
         variants={childVariants} // Animate the title
       >
-        LPS Protection
+        Perlindungan LPS (Lembaga Penjamin Simpanan)
       </motion.h2>
       <motion.p
         className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mb-16'
         variants={childVariants} // Animate the description
       >
-        The maximum deposit amount that will be protected is IDR 2 billion per depositor per bank.
+        Dana deposito Anda dijamin oleh LPS hingga Rp2 miliar per nasabah per bank. Selama bunga
+        sesuai ketentuan LPS, simpanan Anda aman dan terlindungi.
       </motion.p>
       <motion.div
         className='flex flex-col md:flex-row justify-center items-center gap-6'
