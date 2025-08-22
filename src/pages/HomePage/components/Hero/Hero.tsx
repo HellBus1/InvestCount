@@ -64,7 +64,7 @@ const Hero = (props: HeroProps) => {
             variants={childVariants} // Animate each child
           >
             Temukan bank dengan bunga terbaik dan rencanakan pertumbuhan finansial <br />
-            Anda dengan mudah.
+            Kamu dengan mudah.
           </motion.p>
           <motion.button
             className='btn btn-primary max-w-[200px]'
