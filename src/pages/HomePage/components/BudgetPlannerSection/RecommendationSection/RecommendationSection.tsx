@@ -5,7 +5,7 @@ interface RecommendationSectionProps {
 const RecommendationSection = (props: RecommendationSectionProps) => {
   const { recommendation } = props
 
-  const isPositive = recommendation.toLowerCase().includes('have')
+  const isPositive = recommendation.toLowerCase().includes('sisa')
 
   const handleExportToTxt = () => {
     const element = document.createElement('a')
@@ -20,15 +20,15 @@ const RecommendationSection = (props: RecommendationSectionProps) => {
   return (
     <div className='mt-8'>
       <div
-        className={`flex flex flex-col sm:flex-row justify-between alert shadow-lg whitespace-pre-line p-6 rounded-lg ${
+        className={`flex flex-col alert shadow-lg whitespace-pre-line p-6 rounded-lg ${
           isPositive
             ? 'bg-green-100 border-green-500 text-green-800'
             : 'bg-red-100 border-red-500 text-red-800'
         }`}
       >
-        <span className='text-lg text-left font-medium'>{recommendation}</span>
+        <div className='text-lg text-left font-medium'>{recommendation}</div>
         <button onClick={handleExportToTxt} className='mt-4 btn btn-primary text-sm text-[#ffffff]'>
-          Download
+          Unduh
         </button>
       </div>
     </div>

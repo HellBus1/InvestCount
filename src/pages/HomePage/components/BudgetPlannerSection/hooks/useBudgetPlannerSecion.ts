@@ -1,7 +1,7 @@
 import { calculateInterest } from '@/services/depositServices'
 import { useState, useMemo, useEffect } from 'react'
 import bankDepositoDatas from '../../../../../data/bankDepositos.json'
-import { parseAmountInputFromCommas } from '@/services/inputServices'
+import { getRupiahFormat, parseAmountInputFromCommas } from '@/services/inputServices'
 
 interface Need {
   need: string
@@ -42,13 +42,13 @@ const useBudgetPlannerSection = () => {
     const totalDeposits = Number(parseAmountInputFromCommas(depositInput))
 
     if (totalDeposits === 0 || isNaN(totalDeposits)) {
-      setRecommendation('Please enter a valid deposit amount to get recommendations.')
+      setRecommendation('Mohon masukkan jumlah deposit yang valid.')
       return
     }
 
     const selectedBankData = bankDepositoDatas.find((bank) => bank.bankName === bankName)
     if (!selectedBankData) {
-      setRecommendation('Please select a valid bank to calculate the deposit return.')
+      setRecommendation('Pilih bank yang valid untuk deposit.')
       return
     }
 
@@ -69,14 +69,14 @@ const useBudgetPlannerSection = () => {
     )
     const remainingNeeds = totalNeeds - monthlyReturn
 
-    let recommendationMessage = `1. Your total deposits is ${totalDeposits.toLocaleString()} IDR\n`
-    recommendationMessage += `2. Your total needs is ${totalNeeds.toLocaleString()} IDR\n`
-    recommendationMessage += `3. Monthly return from ${selectedBankData.bankName}: ${monthlyReturn.toLocaleString()} IDR.\n`
+    let recommendationMessage = `1. Total deposit kamu ${getRupiahFormat(totalDeposits)}\n`
+    recommendationMessage += `2. Kebutuhan kamu ${getRupiahFormat(totalNeeds)}\n`
+    recommendationMessage += `3. Bunga yang kamu dapat dalam sebulan dari ${selectedBankData.bankName.split('by')[1]}: ${getRupiahFormat(monthlyReturn)}\n`
 
     if (remainingNeeds > 0) {
-      recommendationMessage += `4. You still need ${remainingNeeds.toLocaleString()} IDR to cover your needs.`
+      recommendationMessage += `4. Kamu masih membutuhkan ${getRupiahFormat(remainingNeeds)} untuk memenuhi kebutuhanmu.`
     } else {
-      recommendationMessage += `5. You have ${Math.abs(remainingNeeds).toLocaleString()} IDR remaining.`
+      recommendationMessage += `5. Kamu memiliki sisa ${getRupiahFormat(Math.abs(remainingNeeds))}.`
     }
 
     setRecommendation(recommendationMessage)
