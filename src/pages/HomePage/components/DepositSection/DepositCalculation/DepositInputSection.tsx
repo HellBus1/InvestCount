@@ -151,10 +151,10 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
         transition={{ duration: 0.3 }}
       >
         <InputField
-          label='Deposit Amount (IDR)'
+          label='Jumlah Deposito (Rp)'
           value={amount}
           onChange={(e) => handleInputChange(e, setAmount, 'amount')}
-          placeholder='Minimum 1,000,000 IDR'
+          placeholder='Minimal Rp1.000.000'
           error={errors.amount}
           type='text'
           required={true}
@@ -166,10 +166,10 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
         transition={{ duration: 0.3 }}
       >
         <InputField
-          label='Interest Rate (%)'
+          label='Suku Bunga (%)'
           value={interestRate}
           onChange={(e) => handleInputChange(e, setInterestRate, 'interestRate')}
-          placeholder='Eg 10 or 8.5'
+          placeholder='Misal 5 atau 6.5'
           error={errors.interestRate}
           type='text'
           required={true}
@@ -181,10 +181,10 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
         transition={{ duration: 0.3 }}
       >
         <InputField
-          label='Tax Rate (%)'
+          label='Pajak Deposito (%)'
           value='20'
           onChange={(e) => handleInputChange(e, setTaxRate, 'taxRate')}
-          placeholder='Eg 20'
+          placeholder='Pajak bunga deposito umumnya 20% sesuai aturan di Indonesia'
           error={errors.taxRate}
           type='text'
           disabled={true}
@@ -197,10 +197,10 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
         transition={{ duration: 0.3 }}
       >
         <InputField
-          label='Number of Months'
+          label='Lama Deposito (bulan)'
           value={holdingMonths}
           onChange={(e) => handleInputChange(e, setHoldingMonths, 'holdingMonths')}
-          placeholder='Minimum 1 month'
+          placeholder='Minimal 1 bulan'
           error={errors.holdingMonths}
           type='number'
           min={1}
@@ -209,7 +209,7 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
       </motion.div>
       <div className='card-actions justify-end'>
         <button onClick={clearInput} className='btn btn-primary text-[#ffffff]'>
-          Reset
+          Atur Ulang
         </button>
       </div>
     </div>
