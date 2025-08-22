@@ -1,6 +1,6 @@
 import { calculateInterest } from '@/services/depositServices'
 import { useState, useMemo, useEffect } from 'react'
-import bankDepositoDatas from '../../../data/bankDepositos.json'
+import bankDepositoDatas from '../../../../../data/bankDepositos.json'
 import { parseAmountInputFromCommas } from '@/services/inputServices'
 
 interface Need {

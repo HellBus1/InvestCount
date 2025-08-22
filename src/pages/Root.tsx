@@ -1,4 +1,4 @@
-import MetaTagController from '@/components/MetaTagController/MetaTagController'
+import MetaTagController from '@/pages/HomePage/components/MetaTagController/MetaTagController'
 import { Outlet } from 'react-router-dom'
 
 const Root = () => {

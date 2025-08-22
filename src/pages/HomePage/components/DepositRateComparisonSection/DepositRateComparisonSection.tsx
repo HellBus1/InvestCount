@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
   LabelList
 } from 'recharts'
-import bankDepositoDatas from '../../data/bankDepositos.json'
+import bankDepositoDatas from '../../../../data/bankDepositos.json'
 import { Bank, CustomYAxisProps, CustomTooltipProps } from './depositRateComparisonProps'
 import { getImagePath, getProductName } from '@/services/inputServices'
 
