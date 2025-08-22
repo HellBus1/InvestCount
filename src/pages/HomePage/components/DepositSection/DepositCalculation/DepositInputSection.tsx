@@ -77,29 +77,29 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
 
     // Check if all fields are filled
     if (!amount) {
-      newErrors.amount = 'Deposit Amount is required'
+      newErrors.amount = 'Jumlah Deposito Wajib Diisi'
       isValid = false
     } else if (!isNumberAndDecimalRegex.test(parseAmountInputFromCommas(amount))) {
-      newErrors.amount = 'Deposit Amount should be a valid number'
+      newErrors.amount = 'Jumlah Deposito Harus Berupa Angka'
       isValid = false
     } else if (parseFloat(parseAmountInputFromCommas(amount)) < 1000000) {
-      newErrors.amount = 'Deposit Amount must be greater than 1,000,000'
+      newErrors.amount = 'Jumlah Deposito Minimal Rp1.000.000'
       isValid = false
     }
 
     if (!interestRate) {
-      newErrors.interestRate = 'Interest Rate is required'
+      newErrors.interestRate = 'Suku Bunga Wajib Diisi'
       isValid = false
     } else if (!isNumberAndDecimalRegex.test(interestRate)) {
-      newErrors.interestRate = 'Interest Rate should be a valid number'
+      newErrors.interestRate = 'Suku Bunga Harus Berupa Angka'
       isValid = false
     }
 
     if (!holdingMonths) {
-      newErrors.holdingMonths = 'Number of Months is required'
+      newErrors.holdingMonths = 'Total Bulan Wajib Diisi'
       isValid = false
     } else if (parseFloat(holdingMonths) < 1) {
-      newErrors.holdingMonths = 'Number of Months must be greater than or equal to 1'
+      newErrors.holdingMonths = 'Total Bulan Harus Lebih Dari 0'
       isValid = false
     }
 

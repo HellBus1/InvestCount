@@ -43,7 +43,7 @@ const DepositSection = (props: DepositSectionProps) => {
         Hitung Pertumbuhan Deposito Kamu
       </motion.h1>
       <motion.p
-        className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-10'
+        className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36'
         variants={childVariants} // Animate the description
       >
         Pilih jenis deposito (Non-ARO, ARO, atau ARO+) dan lihat bagaimana tabungan Kamu berkembang
