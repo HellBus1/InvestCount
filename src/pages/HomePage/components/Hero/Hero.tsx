@@ -56,14 +56,15 @@ const Hero = (props: HeroProps) => {
             className='leading-[48px] md:leading-[72px] py-2 text-4xl md:text-6xl font-semibold text-charter-blue-800'
             variants={childVariants} // Animate each child
           >
-            Get Accurate Insights to <span className='text-jess'>Maximize</span> Your Savings and{' '}
-            <span className='text-jess'>Financial Growth</span>
+            Hitung <span className='text-jess'>Bunga Deposito Bank</span> di Indonesia dan
+            Maksimalkan <span className='text-jess'>Tabungan Kamu</span>
           </motion.h1>
           <motion.p
             className='py-2 mb-2 text-base md:text-lg font-medium text-charter-blue'
             variants={childVariants} // Animate each child
           >
-            Calculate deposits after tax deductions easily and grow your wealth.
+            Temukan bank dengan bunga terbaik dan rencanakan pertumbuhan finansial <br />
+            Kamu dengan mudah.
           </motion.p>
           <motion.button
             className='btn btn-primary max-w-[200px]'
@@ -72,7 +73,7 @@ const Hero = (props: HeroProps) => {
             whileHover={{ scale: 1.05 }} // Add hover effect
             whileTap={{ scale: 0.95 }} // Add tap effect
           >
-            <p className='text-[#ffffff]'>Get Started</p>
+            <p className='text-[#ffffff]'>Coba Sekarang Gratis</p>
           </motion.button>
         </motion.div>
       </div>

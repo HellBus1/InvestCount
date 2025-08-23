@@ -23,10 +23,10 @@ const DepositDropdownSection = (props: DepositDropdownSectionProps) => {
 
   return (
     <div className='mt-4'>
-      <h3 className='text-lg font-semibold text-charter-blue-600 mb-2'>Select a Bank:</h3>
+      <h3 className='text-lg font-semibold text-charter-blue-600 mb-2'>Pilih Bank untuk Deposit</h3>
       <div className='dropdown'>
         <div tabIndex={0} role='button' className='btn btn-primary text-[#ffffff]'>
-          Select a bank
+          Pilih Bank
         </div>
         <div
           tabIndex={0}
