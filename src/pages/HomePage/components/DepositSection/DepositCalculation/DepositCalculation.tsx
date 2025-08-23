@@ -42,29 +42,34 @@ const DepositCalculation = (props: DepositCalculationProps) => {
             />
           </div>
           <div className='mx-4'></div>
+
           <div className='flex-[1]'>
             <DepositRateResult
               interest={interest}
-              tax={getZeroFromEmptyNumberString(taxRate)}
               month={getZeroFromEmptyNumberString(holdingMonths)}
             />
 
+            <button
+              className='btn btn-primary text-[#ffffff] mt-4 mb-2'
+              onClick={() => setShowModal(true)}
+              disabled={
+                interest <= 0 ||
+                amount.length === 0 ||
+                interestRate.length === 0 ||
+                taxRate.length === 0 ||
+                holdingMonths.length === 0 ||
+                selectedOption !== DepositType.AROPLUS
+              }
+            >
+              Lihat Simulasi Kekayaan Bersih
+            </button>
+
+            <div className='text-charter-blue-600 font-semibold text-xs md:text-sm mb-4'>
+              *(Pilih ARO+ untuk melihat simulasi)
+            </div>
+
             {selectedOption === DepositType.AROPLUS && (
               <>
-                <button
-                  className='btn btn-primary text-[#ffffff] mt-4'
-                  onClick={() => setShowModal(true)}
-                  disabled={
-                    interest <= 0 ||
-                    amount.length === 0 ||
-                    interestRate.length === 0 ||
-                    taxRate.length === 0 ||
-                    holdingMonths.length === 0
-                  }
-                >
-                  Show Net Worth Simulation
-                </button>
-
                 {showModal && (
                   <NetWorthSimulationModal
                     amount={amount}

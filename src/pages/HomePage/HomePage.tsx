@@ -1,9 +1,9 @@
-import BudgetPlannerSection from '@/components/BudgetPlannerSection/BudgetPlannerSection'
-import DepositRateComparisonSection from '@/components/DepositRateComparisonSection/DepositRateComparisonSection'
-import DepositSection from '@/components/DepositSection/DepositSection'
-import Footer from '@/components/Footer/Footer'
-import Hero from '@/components/Hero/Hero'
-import LPSSection from '@/components/LPSSection/LPSSection'
+import BudgetPlannerSection from '@/pages/HomePage/components/BudgetPlannerSection/BudgetPlannerSection'
+import DepositRateComparisonSection from '@/pages/HomePage/components/DepositRateComparisonSection/DepositRateComparisonSection'
+import DepositSection from '@/pages/HomePage/components/DepositSection/DepositSection'
+import Footer from '@/pages/HomePage/components/Footer/Footer'
+import Hero from '@/pages/HomePage/components/Hero/Hero'
+import LPSSection from '@/pages/HomePage/components/LPSSection/LPSSection'
 import { useRef } from 'react'
 
 const HomePage = () => {

@@ -8,12 +8,12 @@ const HeroImage = () => {
     <div className='relative my-10'>
       <img
         src={getImagePath(GROW_MONEY_IMAGE)}
-        className='max-w-sm rounded-lg w-74'
+        className='max-w-sm rounded-lg w-72'
         alt='Grow Money'
       />
       <img
         src={getImagePath(GROW_MONEY_IMAGE_BACK)}
-        className='max-w-sm rounded-lg shadow-2xl w-74 absolute top-0 z-[-99] rotate-12'
+        className='max-w-sm rounded-lg shadow-2xl w-74 absolute top-0 z-[-99] rotate-12 w-72'
         alt='Grow Money'
       />
     </div>

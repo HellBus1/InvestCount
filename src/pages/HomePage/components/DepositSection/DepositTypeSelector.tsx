@@ -37,24 +37,30 @@ const DepositTypeSelector = (props: DepositTypeSelectorProps) => {
       <div className='p-4 md:p-10'>
         {selectedOption === DepositType.NONARO && (
           <p className='text-base md:text-lg text-charter-blue'>
-            <strong>Simple Interest:</strong> Receive interest directly.
+            <strong>Tanpa Perpanjangan Otomatis</strong> Bunga deposito dibayarkan langsung ke
+            rekening Anda.
             <br />
-            <br />a IDR 10,000,000 deposit at 5% annual interest earns IDR 500,000.
+            <br />
+            Contoh: Rp10.000.000 dengan bunga 5% setahun menghasilkan Rp500.000 (sebelum pajak).
           </p>
         )}
         {selectedOption === DepositType.ARO && (
           <p className='text-base md:text-lg text-charter-blue'>
-            <strong>Smart Saver:</strong> Interest is added to your savings and reinvested.
+            <strong>Perpanjangan Otomatis</strong> Bunga deposito ditambahkan ke saldo pokok, lalu
+            diperpanjang otomatis di periode berikutnya.
             <br />
-            <br />a IDR 10,000,000 deposit at 5% annual interest adds IDR 500,000 to your savings.
+            <br />
+            Contoh: Rp10.000.000 dengan bunga 5% menambah Rp500.000 ke saldo Anda.
           </p>
         )}
         {selectedOption === DepositType.AROPLUS && (
           <p className='text-base md:text-lg text-charter-blue'>
-            <strong>Maximize Returns:</strong> Enjoy compounding interest.
+            <strong>Bunga Berbunga / Compounding</strong> Nikmati keuntungan bunga berbunga karena
+            pokok + bunga terus diperpanjang
             <br />
-            <br />a IDR 10,000,000 deposit at 5% annual interest grows to IDR 10,500,000, which
-            continues to earn.
+            <br />
+            Contoh: Rp10.000.000 dengan bunga 5% tumbuh jadi Rp10.500.000, lalu terus menghasilkan
+            bunga di periode berikutnya.
           </p>
         )}
       </div>

@@ -49,20 +49,20 @@ const NetWorthSimulationModal = (props: NetWorthSimulationModalProps) => {
   return (
     <dialog className='modal modal-open'>
       <form method='dialog' className='modal-box bg-base-100 rounded-2xl shadow-2xl p-8 max-w-xl'>
-        <h3 className='font-bold text-2xl text-charter-blue mb-4'>Growth Simulation</h3>
+        <h3 className='font-bold text-2xl text-charter-blue mb-4'>Simulasi Pertumbuhan Deposito</h3>
         <div className='divider my-2'></div>
         {/* Layer 1: Initial money and year selector */}
         <div className='flex flex-row items-center gap-8 mb-6'>
           <div className='flex-1'>
-            <label className='block text-sm font-semibold text-charter-blue mb-1'>
-              Initial Money
-            </label>
+            <label className='block text-sm font-semibold text-charter-blue mb-1'>Modal Awal</label>
             <p className='text-lg font-mono text-gray-700 bg-base-200 rounded px-3 py-2'>
               {getRupiahFormat(initialMoney)}
             </p>
           </div>
           <div className='flex-1'>
-            <label className='block text-sm font-semibold text-charter-blue mb-1'>Years</label>
+            <label className='block text-sm font-semibold text-charter-blue mb-1'>
+              Lama Waktu (Tahun)
+            </label>
             <select
               className='select select-bordered w-full bg-base-200'
               value={years}
@@ -80,15 +80,15 @@ const NetWorthSimulationModal = (props: NetWorthSimulationModalProps) => {
         {/* Layer 2: Growth summary */}
         <div className='mb-6 flex justify-between items-center bg-base-200 rounded-lg px-4 py-3 shadow'>
           <div>
-            <span className='text-gray-500'>Growth</span>
+            <span className='text-gray-500 text-sm'>Pertumbuhan (%)</span>
             <div className='font-bold text-xl text-charter-blue'>{growthPercent}%</div>
           </div>
           <div>
-            <span className='text-gray-500'>Interest Rate</span>
+            <span className='text-gray-500 text-sm'>Suku Bunga (%)</span>
             <div className='font-bold text-xl text-charter-blue'>{interestRate}%</div>
           </div>
           <div>
-            <span className='text-gray-500'>Total Interest</span>
+            <span className='text-gray-500 text-sm'>Total Bunga (Rp)</span>
             <div className='font-bold text-xl text-success'>
               {totalInterest.toLocaleString(undefined, { maximumFractionDigits: 2 })}
             </div>
@@ -102,8 +102,8 @@ const NetWorthSimulationModal = (props: NetWorthSimulationModalProps) => {
           <table className='table w-full'>
             <thead>
               <tr className='bg-base-200 text-base-content'>
-                <th className='font-semibold'>Year</th>
-                <th className='font-semibold'>Net Worth</th>
+                <th className='font-semibold'>Tahun</th>
+                <th className='font-semibold'>Saldo Akhir (Rp)</th>
               </tr>
             </thead>
             <tbody>
@@ -121,7 +121,7 @@ const NetWorthSimulationModal = (props: NetWorthSimulationModalProps) => {
             className='btn btn-primary text-[#ffffff] hover:bg-charter-blue/90 border-0 rounded-lg px-6 shadow'
             onClick={() => setShowModal(false)}
           >
-            Close
+            Tutup
           </button>
         </div>
       </form>

@@ -13,7 +13,7 @@ const NeedsSection = (props: NeedsSectionProps) => {
 
   return (
     <div className='mt-8'>
-      <h3 className='text-lg font-semibold text-charter-blue-600 mb-2'>Your Needs:</h3>
+      <h3 className='text-lg font-semibold text-charter-blue-600 mb-2'>Daftar Kebutuhan Anda</h3>
       <div className='flex flex-wrap gap-2'>
         {needs.map((item, index) => (
           <div

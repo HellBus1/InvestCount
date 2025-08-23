@@ -77,29 +77,29 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
 
     // Check if all fields are filled
     if (!amount) {
-      newErrors.amount = 'Deposit Amount is required'
+      newErrors.amount = 'Jumlah Deposito Wajib Diisi'
       isValid = false
     } else if (!isNumberAndDecimalRegex.test(parseAmountInputFromCommas(amount))) {
-      newErrors.amount = 'Deposit Amount should be a valid number'
+      newErrors.amount = 'Jumlah Deposito Harus Berupa Angka'
       isValid = false
     } else if (parseFloat(parseAmountInputFromCommas(amount)) < 1000000) {
-      newErrors.amount = 'Deposit Amount must be greater than 1,000,000'
+      newErrors.amount = 'Jumlah Deposito Minimal Rp1.000.000'
       isValid = false
     }
 
     if (!interestRate) {
-      newErrors.interestRate = 'Interest Rate is required'
+      newErrors.interestRate = 'Suku Bunga Wajib Diisi'
       isValid = false
     } else if (!isNumberAndDecimalRegex.test(interestRate)) {
-      newErrors.interestRate = 'Interest Rate should be a valid number'
+      newErrors.interestRate = 'Suku Bunga Harus Berupa Angka'
       isValid = false
     }
 
     if (!holdingMonths) {
-      newErrors.holdingMonths = 'Number of Months is required'
+      newErrors.holdingMonths = 'Total Bulan Wajib Diisi'
       isValid = false
     } else if (parseFloat(holdingMonths) < 1) {
-      newErrors.holdingMonths = 'Number of Months must be greater than or equal to 1'
+      newErrors.holdingMonths = 'Total Bulan Harus Lebih Dari 0'
       isValid = false
     }
 
@@ -151,10 +151,10 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
         transition={{ duration: 0.3 }}
       >
         <InputField
-          label='Deposit Amount (IDR)'
+          label='Jumlah Deposito (Rp)'
           value={amount}
           onChange={(e) => handleInputChange(e, setAmount, 'amount')}
-          placeholder='Minimum 1,000,000 IDR'
+          placeholder='Minimal Rp1.000.000'
           error={errors.amount}
           type='text'
           required={true}
@@ -166,10 +166,10 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
         transition={{ duration: 0.3 }}
       >
         <InputField
-          label='Interest Rate (%)'
+          label='Suku Bunga (%)'
           value={interestRate}
           onChange={(e) => handleInputChange(e, setInterestRate, 'interestRate')}
-          placeholder='Eg 10 or 8.5'
+          placeholder='Misal 5 atau 6.5'
           error={errors.interestRate}
           type='text'
           required={true}
@@ -181,10 +181,10 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
         transition={{ duration: 0.3 }}
       >
         <InputField
-          label='Tax Rate (%)'
+          label='Pajak Deposito (%)'
           value='20'
           onChange={(e) => handleInputChange(e, setTaxRate, 'taxRate')}
-          placeholder='Eg 20'
+          placeholder='Pajak bunga deposito umumnya 20% sesuai aturan di Indonesia'
           error={errors.taxRate}
           type='text'
           disabled={true}
@@ -197,10 +197,10 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
         transition={{ duration: 0.3 }}
       >
         <InputField
-          label='Number of Months'
+          label='Lama Deposito (bulan)'
           value={holdingMonths}
           onChange={(e) => handleInputChange(e, setHoldingMonths, 'holdingMonths')}
-          placeholder='Minimum 1 month'
+          placeholder='Minimal 1 bulan'
           error={errors.holdingMonths}
           type='number'
           min={1}
@@ -209,7 +209,7 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
       </motion.div>
       <div className='card-actions justify-end'>
         <button onClick={clearInput} className='btn btn-primary text-[#ffffff]'>
-          Reset
+          Atur Ulang
         </button>
       </div>
     </div>
