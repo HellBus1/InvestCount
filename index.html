@@ -10,6 +10,8 @@
     <meta name="description" content="Hitung bunga deposito dan estimasi keuntungan bersih (setelah pajak) dari berbagai bank di Indonesia. Bandingkan tenor, suku bunga, dan ARO. Gratis & cepat." />
     <meta name="author" content="Syubban Fakhriya" />
 
+    <meta name="robots" content="index,follow" />
+
     <!-- Open Graph for social sharing -->
     <meta property="og:title" content="Kalkulator Deposito Bank Indonesia" />
     <meta property="og:description" content="Hitung bunga deposito, pajak 20%, dan hasil bersih. Bandingkan suku bunga & tenor berbagai bank di Indonesia." />
@@ -21,6 +23,74 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://investcount.mattrmost.com" />
+
+        <!-- Structured Data: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "InvestCount",
+      "url": "https://investcount.mattrmost.com/",
+      "inLanguage": "id-ID",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://investcount.mattrmost.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: SoftwareApplication (menjelaskan app kalkulator web) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Kalkulator Deposito InvestCount",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "url": "https://investcount.mattrmost.com/",
+      "price": "0",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "IDR"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: FAQ (bantu rich results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Bagaimana cara menghitung bunga deposito?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Masukkan modal, tenor, dan suku bunga. InvestCount menghitung bunga kotor, pajak deposito (20%), dan hasil bersih. Anda juga dapat mengaktifkan simulasi ARO untuk compounding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Berapa pajak deposito di Indonesia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pajak bunga deposito umumnya 20% sesuai ketentuan yang berlaku untuk nominal tertentu. Hasil perhitungan InvestCount sudah memperhitungkan pajak ini."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah InvestCount mendukung ARO (perpanjangan otomatis)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ya. Aktifkan opsi ARO untuk melihat efek perpanjangan otomatis pada akhir tenor dan dampaknya terhadap total keuntungan bersih."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
