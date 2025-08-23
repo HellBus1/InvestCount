@@ -138,7 +138,7 @@ const BudgetPlannerSection = () => {
       </motion.h1>
 
       <motion.p
-        className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mb-16'
+        className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mb-16 mx-12'
         variants={childVariants}
       >
         Rencanakan pengeluaran bulanan Anda dan lihat bagaimana hasil bunga deposito bisa membantu
@@ -146,12 +146,12 @@ const BudgetPlannerSection = () => {
       </motion.p>
 
       <motion.div
-        className='card shadow-xl border-s-8 border-charter-blue mx-4 md:mx-20 lg:mx-36'
+        className='card shadow-xl border-s-8 border-charter-blue mx-4 md:mx-20 lg:mx-36 mx-10'
         variants={childVariants}
       >
-        <div className='card-body'>
+        <div className='card-body bg-base-100 rounded-2xl shadow-lg p-6 md:p-10'>
           <motion.div
-            className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-10'
+            className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'
             variants={childVariants}
           >
             <InputField
@@ -175,14 +175,20 @@ const BudgetPlannerSection = () => {
             <div className='col-span-1 md:col-span-2'>
               <button
                 onClick={handleAddNeedWithValidation}
-                className='btn btn-primary w-full text-[#ffffff]'
+                className='btn btn-primary w-full text-[#ffffff] flex items-center gap-2 transition-all duration-150 hover:scale-105'
+                aria-label='Tambahkan kebutuhan'
               >
                 Tambahkan Kebutuhan
               </button>
             </div>
           </motion.div>
 
-          {needs.length > 0 && <NeedsSection needs={needs} onRemoveNeed={handleRemoveNeed} />}
+          {needs.length > 0 && (
+            <>
+              <div className='divider my-6' />
+              <NeedsSection needs={needs} onRemoveNeed={handleRemoveNeed} />
+            </>
+          )}
 
           {needs.length > 0 && (
             <div className='mt-8'>
@@ -190,7 +196,7 @@ const BudgetPlannerSection = () => {
                 Masukkan Jumlah Deposito
               </h3>
               <InputField
-                label='Deposit Amount'
+                label='Jumlah Deposito'
                 placeholder='Minimal 10.000.000'
                 type='text'
                 value={depositInput}
@@ -207,7 +213,12 @@ const BudgetPlannerSection = () => {
             />
           )}
 
-          {recommendation && <RecommendationSection recommendation={recommendation} />}
+          {recommendation && (
+            <>
+              <div className='divider my-6' />
+              <RecommendationSection recommendation={recommendation} />
+            </>
+          )}
         </div>
       </motion.div>
     </motion.div>

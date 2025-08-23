@@ -46,7 +46,7 @@ const LPSSection = () => {
         Perlindungan LPS (Lembaga Penjamin Simpanan)
       </motion.h2>
       <motion.p
-        className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mb-16'
+        className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mb-16 mx-12'
         variants={childVariants} // Animate the description
       >
         Dana deposito Anda dijamin oleh LPS hingga Rp2 miliar per nasabah per bank. Selama bunga

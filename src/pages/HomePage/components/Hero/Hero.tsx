@@ -30,7 +30,7 @@ const Hero = (props: HeroProps) => {
 
   return (
     <motion.div
-      className='relative hero bg-base-200 min-h-screen px-12 py-10'
+      className='relative hero bg-base-200 min-h-screen px-10 py-10'
       initial='hidden'
       animate='visible'
       variants={containerVariants}

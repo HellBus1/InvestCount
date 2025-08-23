@@ -43,21 +43,21 @@ const DepositSection = (props: DepositSectionProps) => {
         Hitung Pertumbuhan Deposito Kamu
       </motion.h1>
       <motion.p
-        className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36'
+        className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mx-12'
         variants={childVariants} // Animate the description
       >
         Pilih jenis deposito (Non-ARO, ARO, atau ARO+) dan lihat bagaimana tabungan Kamu berkembang
         dari waktu ke waktu.
       </motion.p>
       <motion.div className='flex flex-col mb-16' variants={childVariants}>
-        <motion.div className='mx-4 md:mx-20 lg:mx-36 mt-10' variants={childVariants}>
+        <motion.div className='mx-10 md:mx-20 lg:mx-36 mt-10' variants={childVariants}>
           <DepositTypeSelector
             selectedOption={selectedOption}
             setSelectedOption={(value) => setSelectedOption(value)}
           />
         </motion.div>
         <motion.div
-          className='mx-4 md:mx-20 lg:mx-36 mt-8'
+          className='mx-10 md:mx-20 lg:mx-36 mt-8'
           variants={childVariants} // Animate the DepositCalculation
         >
           <DepositCalculation selectedOption={selectedOption} />

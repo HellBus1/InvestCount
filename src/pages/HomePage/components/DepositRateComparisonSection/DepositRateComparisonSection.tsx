@@ -122,7 +122,7 @@ const DepositRateComparisonSection = () => {
               dy={4}
               textAnchor='end'
               fill={CHARTER_BLUE}
-              className='text-xs md:text-sm font-bold'
+              className='text-sm font-bold'
             >
               {payload.value}
             </text>
@@ -184,7 +184,7 @@ const DepositRateComparisonSection = () => {
         Perbandingan Suku Bunga Deposito Bank
       </motion.h1>
       <motion.p
-        className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mb-16'
+        className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mb-16 mx-12'
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
@@ -195,25 +195,25 @@ const DepositRateComparisonSection = () => {
         tersedia.
       </motion.p>
       <motion.div
-        className='mb-8 flex md:flex-row space-y-4 md:space-y-0 md:space-x-8 justify-center items-center'
+        className='mb-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 justify-center items-center mx-12'
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
         }}
       >
-        <div className='flex flex-col space-y-2 mb-4 md:mb-0'>
+        <div className='flex flex-col space-y-2 mb-4 md:mb-0 w-full md:w-auto'>
           <label
             htmlFor='tenure'
             className='mr-2 text-charter-blue text-base md:text-lg font-medium'
           >
-            Jangka Waktu (Tenor)
+            Jangka Waktu Deposito
           </label>
           <select
             id='tenure'
             value={tenure}
             onChange={handleTenureChange}
-            aria-label='Jangka Waktu (Tenor)'
-            className='select border border-charter-blue text-base md:text-lg'
+            aria-label='Jangka Waktu Deposito'
+            className='select border border-charter-blue text-base md:text-lg w-full md:w-auto'
           >
             <option value='1'>1 Bulan</option>
             <option value='3'>3 Bulan</option>
@@ -221,42 +221,42 @@ const DepositRateComparisonSection = () => {
             <option value='12'>12 Bulan</option>
           </select>
         </div>
-        <div className='flex flex-col space-y-2 mb-4 md:mb-0'>
+        <div className='flex flex-col space-y-2 mb-4 md:mb-0 w-full md:w-auto'>
           <label
             htmlFor='minBalance'
             className='mr-2 text-charter-blue text-base md:text-lg font-medium'
           >
-            Saldo Minimum
+            Saldo Minimum Deposito
           </label>
           <select
             id='minBalance'
             value={minBalance}
             onChange={handleMinBalanceChange}
-            aria-label='Saldo Minimum'
-            className='select border border-charter-blue text-base md:text-lg'
+            aria-label='Saldo Minimum Deposito'
+            className='select border border-charter-blue text-base md:text-lg w-full md:w-auto'
           >
-            <option value='0'>All</option>
-            <option value='10000000'>10jt</option>
-            <option value='100000000'>100jt</option>
-            <option value='250000000'>250jt</option>
-            <option value='1000000000'>1Mil</option>
-            <option value='2000000000'>2Mil</option>
-            <option value='5000000000'>5Mil</option>
+            <option value='0'>Semua</option>
+            <option value='10000000'>10 Juta</option>
+            <option value='100000000'>100 Juta</option>
+            <option value='250000000'>250 Juta</option>
+            <option value='1000000000'>1 Miliar</option>
+            <option value='2000000000'>2 Miliar</option>
+            <option value='5000000000'>5 Miliar</option>
           </select>
         </div>
-        <div className='flex flex-col space-y-2 mb-4 md:mb-0'>
+        <div className='flex flex-col space-y-2 mb-4 md:mb-0 w-full md:w-auto'>
           <label
             htmlFor='sortBy'
             className='mr-2 text-charter-blue text-base md:text-lg font-medium'
           >
-            Urutkan Berdasarkan
+            Urutkan Berdasarkan Kategori
           </label>
           <select
             id='sortBy'
             value={sortBy}
             onChange={handleSortChange}
-            aria-label='Urutkan Berdasarkan'
-            className='select border border-charter-blue text-base md:text-lg'
+            aria-label='Urutkan'
+            className='select border border-charter-blue text-base md:text-lg w-full md:w-auto'
           >
             <option value='name'>Nama Bank</option>
             <option value='rate'>Suku Bunga Tertinggi</option>
@@ -309,9 +309,9 @@ const DepositRateComparisonSection = () => {
           </ResponsiveContainer>
 
           <div className='flex justify-center mt-10'>
-            <span className='badge badge-outline badge-lg bg-base-100 text-charter-blue-600 font-semibold px-4 py-2 rounded-full shadow'>
-              Last updated:{' '}
-              {new Date(lastModified).toLocaleDateString('en-US', {
+            <span className='badge badge-outline badge-lg bg-base-100 text-charter-blue-600 font-semibold px-4 py-2 rounded-full shadow text-center'>
+              Data terakhir diperbarui:{' '}
+              {new Date(lastModified).toLocaleDateString('id-ID', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
