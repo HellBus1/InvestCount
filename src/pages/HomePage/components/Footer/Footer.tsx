@@ -7,33 +7,31 @@ const Footer = () => {
   const IC_LINKEDIN = '/assets/ic-linkedin.svg'
 
   return (
-    <footer className='bg-base-300 text-neutral-content p-8'>
-      <div className='max-w-7xl mx-auto'>
+    <footer className='bg-base-200 text-charter-blue pt-10 pb-6'>
+      <div className='max-w-7xl mx-auto px-10'>
         {/* Trust Badges */}
-        <div className='flex flex-wrap justify-center gap-4 mb-8 pb-8 border-b border-gray-300'>
-          <div className='flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm'>
-            <span className='text-2xl'>🆓</span>
-            <span className='text-charter-blue font-medium text-sm'>Gratis Selamanya</span>
-          </div>
-          <div className='flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm'>
-            <span className='text-2xl'>🚫</span>
-            <span className='text-charter-blue font-medium text-sm'>Tanpa Iklan</span>
-          </div>
-          <div className='flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm'>
-            <span className='text-2xl'>🔒</span>
-            <span className='text-charter-blue font-medium text-sm'>Tidak Menyimpan Data</span>
-          </div>
-          <div className='flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm'>
-            <span className='text-2xl'>🤝</span>
-            <span className='text-charter-blue font-medium text-sm'>Independen</span>
-          </div>
+        <div className='flex flex-wrap justify-center gap-4 mb-10 pb-8 border-b border-charter-blue-200'>
+          {[
+            { icon: '🆓', text: 'Gratis Selamanya' },
+            { icon: '🚫', text: 'Tanpa Iklan' },
+            { icon: '🔒', text: 'Tidak Menyimpan Data' },
+            { icon: '🤝', text: 'Independen' }
+          ].map((badge, index) => (
+            <div
+              key={index}
+              className='flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm border border-charter-blue'
+            >
+              <span className='text-2xl'>{badge.icon}</span>
+              <span className='text-charter-blue font-medium text-sm'>{badge.text}</span>
+            </div>
+          ))}
         </div>
 
         {/* Main Footer Content */}
         <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mb-8'>
           {/* About Section */}
           <div>
-            <h3 className='text-charter-blue font-bold text-lg mb-4'>InvestCount</h3>
+            <h3 className='text-charter-blue-600 font-bold text-lg mb-4'>InvestCount</h3>
             <p className='text-charter-blue text-sm mb-4'>
               Kalkulator deposito gratis yang membantu Anda memahami bunga deposito bersih dengan
               transparan.
@@ -43,12 +41,12 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className='text-charter-blue font-bold text-lg mb-4'>Tautan Cepat</h3>
+            <h3 className='text-charter-blue-600 font-bold text-lg mb-4'>Tautan Cepat</h3>
             <ul className='space-y-2'>
               <li>
                 <Link
                   to={RouteName.HOME}
-                  className='text-charter-blue hover:text-charter-blue-700 text-sm transition-colors'
+                  className='text-charter-blue hover:text-jess text-sm transition-colors'
                 >
                   Beranda
                 </Link>
@@ -56,7 +54,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={RouteName.BLOG}
-                  className='text-charter-blue hover:text-charter-blue-700 text-sm transition-colors'
+                  className='text-charter-blue hover:text-jess text-sm transition-colors'
                 >
                   Blog
                 </Link>
@@ -64,7 +62,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={RouteName.ABOUT}
-                  className='text-charter-blue hover:text-charter-blue-700 text-sm transition-colors'
+                  className='text-charter-blue hover:text-jess text-sm transition-colors'
                 >
                   Tentang Kami
                 </Link>
@@ -72,7 +70,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={RouteName.TRANSPARENCY}
-                  className='text-charter-blue hover:text-charter-blue-700 text-sm transition-colors'
+                  className='text-charter-blue hover:text-jess text-sm transition-colors'
                 >
                   Sumber Data & Metodologi
                 </Link>
@@ -80,7 +78,7 @@ const Footer = () => {
               <li>
                 <a
                   href='mailto:feedback@investcount.com?subject=Laporkan Data Tidak Akurat'
-                  className='text-charter-blue hover:text-charter-blue-700 text-sm transition-colors'
+                  className='text-charter-blue hover:text-jess text-sm transition-colors'
                 >
                   Laporkan Data Tidak Akurat
                 </a>
@@ -90,14 +88,14 @@ const Footer = () => {
 
           {/* Resources */}
           <div>
-            <h3 className='text-charter-blue font-bold text-lg mb-4'>Sumber Resmi</h3>
+            <h3 className='text-charter-blue-600 font-bold text-lg mb-4'>Sumber Resmi</h3>
             <ul className='space-y-2'>
               <li>
                 <a
                   href='https://www.ojk.go.id'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='text-charter-blue hover:text-charter-blue-700 text-sm transition-colors'
+                  className='text-charter-blue hover:text-jess text-sm transition-colors'
                 >
                   OJK (Otoritas Jasa Keuangan) →
                 </a>
@@ -107,7 +105,7 @@ const Footer = () => {
                   href='https://www.lps.go.id'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='text-charter-blue hover:text-charter-blue-700 text-sm transition-colors'
+                  className='text-charter-blue hover:text-jess text-sm transition-colors'
                 >
                   LPS (Lembaga Penjamin Simpanan) →
                 </a>
@@ -117,7 +115,7 @@ const Footer = () => {
                   href='https://www.bi.go.id'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='text-charter-blue hover:text-charter-blue-700 text-sm transition-colors'
+                  className='text-charter-blue hover:text-jess text-sm transition-colors'
                 >
                   Bank Indonesia →
                 </a>
@@ -127,7 +125,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className='flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-300'>
+        <div className='flex flex-col md:flex-row justify-between items-center pt-6 border-t border-charter-blue-200'>
           <p className='text-charter-blue font-medium text-sm mb-4 md:mb-0'>
             Copyright © {new Date().getFullYear()} InvestCount - All rights reserved
           </p>
