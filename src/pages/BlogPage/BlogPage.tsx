@@ -42,35 +42,46 @@ const BlogPage = () => {
   }
 
   return (
-    <div className='w-full min-h-screen flex flex-col'>
+    <>
+      {/* Hero Section */}
       <motion.div
-        className='flex-grow w-full py-16 px-6 md:px-12 lg:px-24'
+        className='w-full bg-base-200 pt-20 pb-10'
         initial='hidden'
         animate='visible'
         variants={containerVariants}
       >
-        {/* Header */}
-        <motion.div className='max-w-6xl mx-auto mb-12' variants={childVariants}>
-          <h1 className='text-4xl md:text-5xl font-bold text-charter-blue-600 mb-4'>
-            Belajar Finansial Ringan
-          </h1>
-          <div className='h-1 w-24 bg-gradient-to-r from-charter-blue-600 to-green-500 rounded-full mb-4'></div>
-          <p className='text-gray-600 text-lg'>
+        <div className='max-w-7xl mx-auto px-10'>
+          <motion.h1
+            className='text-4xl md:text-6xl font-semibold text-charter-blue-800 mb-4'
+            variants={childVariants}
+          >
+            Belajar <span className='text-jess'>Finansial Ringan</span>
+          </motion.h1>
+          <motion.p
+            className='text-base md:text-lg font-medium text-charter-blue mt-4 max-w-2xl'
+            variants={childVariants}
+          >
             Artikel edukasi tentang deposito, investasi, dan keuangan pribadi yang mudah dipahami.
-          </p>
-        </motion.div>
+            Tanpa jargon rumit, langsung ke intinya.
+          </motion.p>
+        </div>
+      </motion.div>
 
-        {/* Blog Posts Grid */}
-        <motion.div className='max-w-6xl mx-auto' variants={childVariants}>
+      {/* Blog Posts Grid */}
+      <motion.div
+        className='w-full bg-white pt-10 pb-20'
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ once: true, amount: 0.2 }}
+        variants={containerVariants}
+      >
+        <div className='max-w-7xl mx-auto px-10'>
           {blogPosts.length === 0 ? (
-            <div className='bg-gradient-to-br from-charter-blue-50 to-green-50 p-12 rounded-2xl border border-charter-blue-100 text-center'>
+            <div className='bg-base-200 p-12 rounded-2xl border border-charter-blue text-center'>
               <p className='text-charter-blue-600 text-lg mb-4'>
                 Artikel sedang dalam proses penulisan. Segera hadir!
               </p>
-              <Link
-                to='/'
-                className='inline-block bg-charter-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-charter-blue-700 transition-colors'
-              >
+              <Link to='/' className='btn btn-primary text-white'>
                 Kembali ke Kalkulator
               </Link>
             </div>
@@ -80,11 +91,11 @@ const BlogPage = () => {
                 <Link
                   key={post.slug}
                   to={`/blog/${post.slug}`}
-                  className='group bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300'
+                  className='group bg-white rounded-2xl shadow-sm border border-charter-blue overflow-hidden hover:shadow-md transition-all duration-300 flex flex-col h-full'
                 >
-                  {/* Image */}
-                  {post.image && (
-                    <div className='h-48 bg-gradient-to-br from-charter-blue-100 to-green-100 overflow-hidden'>
+                  {/* Image Placeholder if no image */}
+                  <div className='h-48 bg-base-200 flex items-center justify-center overflow-hidden relative'>
+                    {post.image ? (
                       <img
                         src={post.image}
                         alt={post.title}
@@ -93,62 +104,76 @@ const BlogPage = () => {
                           e.currentTarget.style.display = 'none'
                         }}
                       />
-                    </div>
-                  )}
-
-                  {/* Content */}
-                  <div className='p-6'>
-                    {/* Category & Read Time */}
-                    <div className='flex items-center gap-3 mb-3'>
-                      <span className='text-xs font-medium text-charter-blue-600 bg-charter-blue-50 px-3 py-1 rounded-full'>
+                    ) : (
+                      <span className='text-4xl'>📚</span>
+                    )}
+                    <div className='absolute top-4 left-4'>
+                      <span className='badge badge-primary text-white font-medium'>
                         {post.category}
                       </span>
-                      <span className='text-xs text-gray-500'>{post.readTime}</span>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className='p-6 flex flex-col flex-grow'>
+                    <div className='flex items-center gap-2 text-xs text-charter-blue-400 mb-3'>
+                      <span>
+                        {new Date(post.date).toLocaleDateString('id-ID', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
+                        })}
+                      </span>
+                      <span>•</span>
+                      <span>{post.readTime} baca</span>
                     </div>
 
-                    {/* Title */}
-                    <h2 className='text-xl font-bold text-charter-blue-600 mb-3 group-hover:text-charter-blue-700 transition-colors'>
+                    <h2 className='text-xl font-bold text-charter-blue-600 mb-3 group-hover:text-jess transition-colors line-clamp-2'>
                       {post.title}
                     </h2>
 
-                    {/* Description */}
-                    <p className='text-gray-600 text-sm mb-4 line-clamp-3'>{post.description}</p>
-
-                    {/* Date */}
-                    <p className='text-xs text-gray-400'>
-                      {new Date(post.date).toLocaleDateString('id-ID', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                      })}
+                    <p className='text-charter-blue text-sm mb-4 line-clamp-3 flex-grow'>
+                      {post.description}
                     </p>
+
+                    <div className='mt-auto pt-4 border-t border-gray-100 flex items-center text-jess font-medium text-sm group-hover:translate-x-1 transition-transform'>
+                      Baca Selengkapnya →
+                    </div>
                   </div>
                 </Link>
               ))}
             </div>
           )}
-        </motion.div>
 
-        {/* CTA Section */}
-        <motion.div className='max-w-6xl mx-auto mt-16' variants={childVariants}>
-          <div className='bg-gradient-to-br from-charter-blue-600 to-green-600 p-8 md:p-12 rounded-2xl text-white text-center'>
-            <h2 className='text-2xl md:text-3xl font-bold mb-4'>Siap Menghitung Deposito Anda?</h2>
-            <p className='text-lg mb-6 opacity-90'>
-              Gunakan kalkulator deposito gratis kami untuk mengetahui bunga bersih yang Anda
-              terima.
-            </p>
-            <Link
-              to='/'
-              className='inline-block bg-white text-charter-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors'
-            >
-              Coba Kalkulator Gratis
-            </Link>
-          </div>
-        </motion.div>
+          {/* CTA Section */}
+          <motion.div className='mt-20' variants={childVariants}>
+            <div className='bg-charter-blue-800 p-8 md:p-12 rounded-2xl text-white text-center relative overflow-hidden'>
+              {/* Decorative circle */}
+              <div className='absolute -top-24 -right-24 w-64 h-64 bg-white opacity-5 rounded-full'></div>
+              <div className='absolute -bottom-24 -left-24 w-64 h-64 bg-white opacity-5 rounded-full'></div>
+
+              <div className='relative z-10'>
+                <h2 className='text-2xl md:text-3xl font-bold mb-4'>
+                  Siap Menghitung Deposito Anda?
+                </h2>
+                <p className='text-lg mb-8 opacity-90 max-w-2xl mx-auto'>
+                  Gunakan kalkulator deposito gratis kami untuk mengetahui bunga bersih yang Anda
+                  terima. Akurat, cepat, dan mudah.
+                </p>
+                <Link
+                  to='/'
+                  className='btn btn-primary bg-white text-charter-blue-800 hover:bg-gray-100 border-none'
+                >
+                  Coba Kalkulator Gratis
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </motion.div>
 
       <Footer />
-    </div>
+    </>
   )
 }
 
