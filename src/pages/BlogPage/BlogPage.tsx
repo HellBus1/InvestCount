@@ -22,7 +22,30 @@ const blogPosts: BlogPost[] = [
     date: '2025-11-27',
     readTime: '5 menit',
     category: 'Dasar Deposito',
-    image: '/assets/blog/cara-hitung-deposito.jpg'
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Fmenghitung_bunga_deposito.jpg?alt=media&token=4597d989-2f19-4e83-972a-a45a31d9e82e'
+  },
+  {
+    slug: 'deposito-vs-tabungan',
+    title: 'Deposito vs Tabungan: Apa Bedanya?',
+    description:
+      'Panduan lengkap memahami perbedaan deposito dan tabungan, kelebihan dan kekurangan masing-masing, serta mana yang lebih cocok untuk kebutuhan finansial Anda.',
+    date: '2025-11-27',
+    readTime: '6 menit',
+    category: 'Dasar Deposito',
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Fdeposito_vs_tabungan.jpg?alt=media&token=e0682030-8083-4a11-a5d1-18c32a19c4fc'
+  },
+  {
+    slug: 'inflasi-dan-deposito',
+    title: 'Inflasi dan Dampaknya pada Deposito Anda',
+    description:
+      'Memahami bagaimana inflasi mempengaruhi nilai riil deposito Anda dan strategi untuk melindungi daya beli uang Anda dari erosi inflasi.',
+    date: '2025-11-27',
+    readTime: '7 menit',
+    category: 'Strategi Investasi',
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Finflasi_dan_deposito.jpg?alt=media&token=ff3ac48b-5308-48ed-ad2c-735c356bb9b1'
   }
 ]
 
@@ -45,24 +68,34 @@ const BlogPage = () => {
     <>
       {/* Hero Section */}
       <motion.div
-        className='w-full bg-base-200 pt-20 pb-10'
+        className='w-full bg-base-200 pt-20 pb-16 relative overflow-hidden'
         initial='hidden'
         animate='visible'
         variants={containerVariants}
       >
-        <div className='max-w-7xl mx-auto px-10'>
+        {/* Decorative Background Elements */}
+        <div className='absolute top-0 right-0 w-96 h-96 bg-jess opacity-5 rounded-full -mr-48 -mt-48'></div>
+        <div className='absolute bottom-0 left-0 w-80 h-80 bg-charter-blue-600 opacity-5 rounded-full -ml-40 -mb-40'></div>
+
+        <div className='max-w-7xl mx-auto px-10 relative z-10'>
+          <motion.div className='inline-block mb-4' variants={childVariants}>
+            <span className='px-4 py-2 bg-jess/10 text-jess-700 rounded-full text-sm font-medium border border-jess/20'>
+              📚 Edukasi Finansial
+            </span>
+          </motion.div>
+
           <motion.h1
-            className='text-4xl md:text-6xl font-semibold text-charter-blue-800 mb-4'
+            className='text-4xl md:text-6xl font-bold text-charter-blue-800 mb-6 leading-tight'
             variants={childVariants}
           >
             Belajar <span className='text-jess'>Finansial Ringan</span>
           </motion.h1>
           <motion.p
-            className='text-base md:text-lg font-medium text-charter-blue mt-4 max-w-2xl'
+            className='text-base md:text-lg font-medium text-charter-blue max-w-2xl mb-8'
             variants={childVariants}
           >
-            Artikel edukasi tentang deposito, investasi, dan keuangan pribadi yang mudah dipahami.
-            Tanpa jargon rumit, langsung ke intinya.
+            Artikel-artikel praktis untuk membantu Anda memahami deposito dan mengelola keuangan
+            dengan lebih baik. Gratis, tanpa jargon, langsung ke intinya.
           </motion.p>
         </div>
       </motion.div>

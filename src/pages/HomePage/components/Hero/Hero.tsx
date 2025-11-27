@@ -56,24 +56,25 @@ const Hero = (props: HeroProps) => {
             className='leading-[48px] md:leading-[72px] py-2 text-4xl md:text-6xl font-semibold text-charter-blue-800'
             variants={childVariants} // Animate each child
           >
-            Hitung <span className='text-jess'>Bunga Deposito Bank</span> di Indonesia dan
-            Maksimalkan <span className='text-jess'>Tabungan Kamu</span>
+            <span className='text-jess'>Kalkulator Deposito</span> Bank Indonesia - Hitung Bunga
+            Bersih Gratis
           </motion.h1>
           <motion.p
             className='py-2 mb-2 text-base md:text-lg font-medium text-charter-blue'
             variants={childVariants} // Animate each child
           >
-            Temukan bank dengan bunga terbaik dan rencanakan pertumbuhan finansial <br />
-            Kamu dengan mudah.
+            Hitung bunga deposito bersih setelah pajak 20% dari berbagai bank di Indonesia.
+            Bandingkan suku bunga, simulasi ARO, dan maksimalkan tabungan Anda dengan mudah dan
+            transparan.
           </motion.p>
           <motion.button
-            className='btn btn-primary max-w-[200px]'
+            className='btn btn-primary max-w-[240px]'
             onClick={onScrollToDepositClick}
             variants={childVariants} // Animate the button
             whileHover={{ scale: 1.05 }} // Add hover effect
             whileTap={{ scale: 0.95 }} // Add tap effect
           >
-            <p className='text-[#ffffff]'>Coba Sekarang Gratis</p>
+            <p className='text-[#ffffff]'>Hitung Deposito Sekarang</p>
           </motion.button>
         </motion.div>
       </div>
