@@ -1,4 +1,5 @@
 import MetaTagController from '@/components/MetaTagController/MetaTagController'
+import QuickNav from '@/components/QuickNav/QuickNav'
 import { Outlet } from 'react-router-dom'
 
 const Root = () => {
@@ -6,6 +7,7 @@ const Root = () => {
     <div className='min-h-screen flex flex-col justify-center items-center relative'>
       <MetaTagController />
       <Outlet />
+      <QuickNav />
     </div>
   )
 }

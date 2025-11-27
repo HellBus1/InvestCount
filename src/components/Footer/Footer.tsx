@@ -59,7 +59,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href='mailto:feedback@investcount.com?subject=Laporkan Data Tidak Akurat'
+                  href='mailto:mosmatter1@gmail.com?subject=Laporkan Data Tidak Akurat'
                   className='text-charter-blue hover:text-jess text-sm transition-colors'
                 >
                   Laporkan Data Tidak Akurat

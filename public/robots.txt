@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://investtcount.mattrmost.com/sitemap.xml
+
+# Block unnecessary paths (if any in future)
+# Disallow: /api/
