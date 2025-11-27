@@ -149,7 +149,7 @@ const BudgetPlannerSection = () => {
         className='card shadow-xl border-s-8 border-charter-blue mx-4 md:mx-20 lg:mx-36 mx-10'
         variants={childVariants}
       >
-        <div className='card-body bg-base-100 rounded-2xl shadow-lg p-6 md:p-10'>
+        <div className='card-body bg-base-100 rounded-2xl p-6 md:p-10'>
           <motion.div
             className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'
             variants={childVariants}

@@ -1,7 +1,9 @@
 const NavbarRouteName = {
   PROFILE: '/profile',
   HOME: '/',
-  ABOUT: '/about'
+  ABOUT: '/tentang',
+  TRANSPARENCY: '/sumber-data',
+  BLOG: '/blog'
 }
 
 const RouteName = {
