@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import Footer from '@/pages/HomePage/components/Footer/Footer'
+import Footer from '@/components/Footer/Footer'
 
 const TransparencyPage = () => {
   const containerVariants = {

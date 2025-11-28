@@ -7,28 +7,10 @@ const Footer = () => {
   const IC_LINKEDIN = '/assets/ic-linkedin.svg'
 
   return (
-    <footer className='bg-base-200 text-charter-blue pt-10 pb-6'>
+    <footer className='footer sm:footer-horizontal bg-base-300 text-neutral-content p-10'>
       <div className='max-w-7xl mx-auto px-10'>
-        {/* Trust Badges */}
-        <div className='flex flex-wrap justify-center gap-4 mb-10 pb-8 border-b border-charter-blue-200'>
-          {[
-            { icon: '🆓', text: 'Gratis Selamanya' },
-            { icon: '🚫', text: 'Tanpa Iklan' },
-            { icon: '🔒', text: 'Tidak Menyimpan Data' },
-            { icon: '🤝', text: 'Independen' }
-          ].map((badge, index) => (
-            <div
-              key={index}
-              className='flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm border border-charter-blue'
-            >
-              <span className='text-2xl'>{badge.icon}</span>
-              <span className='text-charter-blue font-medium text-sm'>{badge.text}</span>
-            </div>
-          ))}
-        </div>
-
         {/* Main Footer Content */}
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mb-8'>
+        <div className='grid grid-cols-1 md:grid-cols-[35%_32.5%_32.5%] gap-8 mb-8'>
           {/* About Section */}
           <div>
             <h3 className='text-charter-blue-600 font-bold text-lg mb-4'>InvestCount</h3>
@@ -40,9 +22,9 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <nav>
             <h3 className='text-charter-blue-600 font-bold text-lg mb-4'>Tautan Cepat</h3>
-            <ul className='space-y-2'>
+            <ul className='space-y-3'>
               <li>
                 <Link
                   to={RouteName.HOME}
@@ -84,12 +66,12 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Resources */}
-          <div>
+          <nav>
             <h3 className='text-charter-blue-600 font-bold text-lg mb-4'>Sumber Resmi</h3>
-            <ul className='space-y-2'>
+            <ul className='space-y-3'>
               <li>
                 <a
                   href='https://www.ojk.go.id'
@@ -121,12 +103,12 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </nav>
         </div>
 
         {/* Bottom Bar */}
-        <div className='flex flex-col md:flex-row justify-between items-center pt-6 border-t border-charter-blue-200'>
-          <p className='text-charter-blue font-medium text-sm mb-4 md:mb-0'>
+        <div className='flex flex-row items-center p-4 justify-between w-full'>
+          <p className='text-charter-blue font-medium text-sm'>
             Copyright © {new Date().getFullYear()} InvestCount - All rights reserved
           </p>
           <nav className='flex space-x-4'>

@@ -1,7 +1,7 @@
 import { motion } from 'motion/react'
 import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect, ComponentType } from 'react'
-import Footer from '@/pages/HomePage/components/Footer/Footer'
+import Footer from '@/components/Footer/Footer'
 
 interface BlogPostMeta {
   title: string

@@ -1,6 +1,6 @@
 import { motion } from 'motion/react'
 import { Link } from 'react-router-dom'
-import Footer from '@/pages/HomePage/components/Footer/Footer'
+import Footer from '@/components/Footer/Footer'
 
 interface BlogPost {
   slug: string
