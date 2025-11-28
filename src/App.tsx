@@ -5,7 +5,11 @@ import { routes } from './routes'
 const AppRouter = createBrowserRouter([...routes])
 
 function App() {
-  return <RouterProvider router={AppRouter} />
+  return (
+    <>
+      <RouterProvider router={AppRouter} />
+    </>
+  )
 }
 
 export default App
