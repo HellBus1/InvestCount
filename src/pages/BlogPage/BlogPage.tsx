@@ -23,6 +23,26 @@ const blogPosts: BlogPost[] = [
     readTime: '5 menit',
     category: 'Dasar Deposito',
     image: '/assets/blog/cara-hitung-deposito.jpg'
+  },
+  {
+    slug: 'deposito-vs-tabungan',
+    title: 'Deposito vs Tabungan: Apa Bedanya?',
+    description:
+      'Panduan lengkap memahami perbedaan deposito dan tabungan, kelebihan dan kekurangan masing-masing, serta mana yang lebih cocok untuk kebutuhan finansial Anda.',
+    date: '2025-11-27',
+    readTime: '6 menit',
+    category: 'Dasar Deposito',
+    image: '/assets/blog/deposito-vs-tabungan.jpg'
+  },
+  {
+    slug: 'inflasi-dan-deposito',
+    title: 'Inflasi dan Dampaknya pada Deposito Anda',
+    description:
+      'Memahami bagaimana inflasi mempengaruhi nilai riil deposito Anda dan strategi untuk melindungi daya beli uang Anda dari erosi inflasi.',
+    date: '2025-11-27',
+    readTime: '7 menit',
+    category: 'Strategi Investasi',
+    image: '/assets/blog/inflasi-deposito.jpg'
   }
 ]
 
