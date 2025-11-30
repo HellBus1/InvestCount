@@ -22,25 +22,57 @@ const TransparencyPage = () => {
     <>
       {/* Hero Section */}
       <motion.div
-        className='w-full bg-base-200 pt-20 pb-10'
+        className='w-full bg-base-200 pt-20 pb-16 relative overflow-hidden'
         initial='hidden'
         animate='visible'
         variants={containerVariants}
       >
-        <div className='max-w-7xl mx-auto px-10'>
+        {/* Decorative Background Elements */}
+        <div className='absolute top-0 right-0 w-96 h-96 bg-charter-blue-600 opacity-5 rounded-full -mr-48 -mt-48'></div>
+        <div className='absolute bottom-0 left-0 w-80 h-80 bg-jess opacity-5 rounded-full -ml-40 -mb-40'></div>
+
+        <div className='max-w-7xl mx-auto px-10 relative z-10'>
+          <motion.div className='inline-block mb-4' variants={childVariants}>
+            <span className='px-4 py-2 bg-charter-blue-100 text-charter-blue-700 rounded-full text-sm font-medium border border-charter-blue-200'>
+              🔍 Transparansi Data
+            </span>
+          </motion.div>
+
           <motion.h1
-            className='text-4xl md:text-6xl font-semibold text-charter-blue-800 mb-4'
+            className='text-4xl md:text-6xl font-bold text-charter-blue-800 mb-6 leading-tight'
             variants={childVariants}
           >
             Sumber Data & <span className='text-jess'>Metodologi</span>
           </motion.h1>
           <motion.p
-            className='text-base md:text-lg font-medium text-charter-blue mt-4'
+            className='text-base md:text-lg font-medium text-charter-blue max-w-2xl mb-6'
             variants={childVariants}
           >
-            Transparansi adalah nilai inti kami. Halaman ini menjelaskan dari mana data kami berasal
-            dan bagaimana kami menghitung bunga deposito.
+            Dari mana data kami berasal dan bagaimana kami menghitung bunga deposito.
           </motion.p>
+
+          <motion.div
+            className='inline-flex items-center gap-2 bg-white px-4 py-3 rounded-lg border border-charter-blue-200'
+            variants={childVariants}
+          >
+            <svg
+              className='w-5 h-5 text-jess'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+              />
+            </svg>
+            <span className='text-sm font-medium text-charter-blue'>
+              Terakhir diperbarui:{' '}
+              <span className='text-charter-blue-800 font-semibold'>{lastUpdated}</span>
+            </span>
+          </motion.div>
         </div>
       </motion.div>
 
@@ -314,10 +346,10 @@ const TransparencyPage = () => {
               <p className='text-sm text-charter-blue'>
                 <strong>Ingin bank lain ditambahkan?</strong> Kirim saran Anda ke{' '}
                 <a
-                  href='mailto:feedback@investcount.com?subject=Tambah Bank'
+                  href='mailto:mosmatter1@gmail.com?subject=Tambah Bank'
                   className='text-charter-blue-600 hover:text-jess font-medium transition-colors'
                 >
-                  feedback@investcount.com
+                  mosmatter1@gmail.com
                 </a>
               </p>
             </div>
@@ -400,7 +432,7 @@ const TransparencyPage = () => {
               Anda untuk menjaga akurasi InvestCount.
             </p>
             <a
-              href='mailto:feedback@investcount.com?subject=Data Tidak Akurat&body=Bank: %0D%0ATenor: %0D%0ASuku Bunga yang Benar: %0D%0ASumber: '
+              href='mailto:mosmatter1@gmail.com?subject=Data Tidak Akurat&body=Bank: %0D%0ATenor: %0D%0ASuku Bunga yang Benar: %0D%0ASumber: '
               className='btn btn-primary'
             >
               <p className='text-[#ffffff]'>Laporkan Data</p>
