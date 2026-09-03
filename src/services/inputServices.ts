@@ -7,7 +7,10 @@ const formatNumberWithCommas = (value: string) => {
 }
 
 const getImagePath = (basePath: string) => {
-  return `${window.location.origin}${basePath}`
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    return `${window.location.origin}${basePath}`
+  }
+  return basePath
 }
 
 const parseAmountInputFromCommas = (amount: string) => {

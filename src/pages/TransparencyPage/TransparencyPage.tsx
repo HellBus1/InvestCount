@@ -2,9 +2,23 @@ import { motion } from 'framer-motion'
 import Footer from '@/components/Footer/Footer'
 import { containerVariants, childVariants } from '@/constants/animations'
 import Icon from '@/components/Icon/Icon'
+import { useSEO } from '@/hooks/useSEO'
 
 const TransparencyPage = () => {
-  const lastUpdated = '27 November 2025'
+  const lastUpdated = '4 September 2026'
+
+  useSEO({
+    title: 'Sumber Data & Metodologi Perhitungan Bunga Deposito | InvestCount',
+    description:
+      'Transparansi formula perhitungan bunga deposito, rujukan suku bunga resmi perbankan, regulasi PPh 20%, dan batas penjaminan simpanan LPS (Lembaga Penjamin Simpanan).',
+    canonicalUrl: '/sumber-data',
+    keywords: [
+      'sumber data deposito',
+      'metodologi investcount',
+      'regulasi lps',
+      'pajak deposito ojk'
+    ]
+  })
 
   const sources = [
     {
