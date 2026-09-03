@@ -6,7 +6,7 @@
 
 **Hitung bunga deposito bersih dalam 5 detik. Gratis & tanpa iklan.**
 
-[![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)](https://github.com/HellBus1/InvestCount)
+[![Version](https://img.shields.io/badge/version-1.6.0-emerald.svg)](https://github.com/HellBus1/InvestCount)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
 [![Live Demo](https://img.shields.io/badge/demo-live-success.svg)](https://investtcount.mattrmost.com/)
 
@@ -18,7 +18,6 @@
 
 **InvestCount** is Indonesia's most transparent and independent deposit calculator platform. We help Indonesians—from young savers to retirees—understand how their money works through deposits with honesty and simplicity.
 
-Unlike other financial tools, InvestCount is:
 - 🔍 **Transparent** – No hidden agendas or bank affiliations
 - 📚 **Educational** – Learn while you calculate
 - 🆓 **Free Forever** – No subscriptions or paywalls
@@ -26,6 +25,55 @@ Unlike other financial tools, InvestCount is:
 - 🔒 **Privacy-First** – No login required, no data collection
 
 > **Mission**: *"Membantu setiap orang Indonesia memahami bagaimana uang mereka bekerja melalui deposito, dengan jujur dan sederhana."*
+
+---
+
+## 🎨 Design System & Theming Guidelines (v1.6.0 Overhaul)
+
+InvestCount uses a centralized, token-based design system that replaces generic template defaults with an intentional Indonesian fintech visual identity.
+
+### 1. Central Design Tokens (`src/theme.ts`)
+All colors, font families, shadows, and radii are managed in [`src/theme.ts`](file:///Users/syubbanfakhriya/Desktop/Repository/side-project/InvestCount/src/theme.ts) as a typed TypeScript contract and exposed via Tailwind CSS variables:
+
+- **Primary Brand Green**: `brand-50` through `brand-900` (Main: `brand-600` / `#059669`)
+- **Slate Neutrals**: `slate-50` through `slate-900` (Main text: `slate-900` / `#0F172A`, body: `slate-600`)
+- **State Colors**: `amber-*` (cautions/disclaimers) and `danger-*` (validation errors)
+
+### 2. Typography Hierarchy
+- **Display / Headings**: `Plus Jakarta Sans` (geometric, warm Indonesian-crafted display font)
+- **Interface Body**: `Inter` (high-readability sans-serif)
+- **Math & Data**: `JetBrains Mono` (used in formula blocks on the Transparency page)
+
+### 3. Vector Icon System (`src/components/Icon/Icon.tsx`)
+- All UI icons use crisp inline vector SVGs instead of raw emojis (e.g. `shield-check`, `gift`, `lock`, `handshake`, `bank`, `coins`, `calculator`).
+
+### 4. Shared Animation Constants (`src/constants/animations.ts`)
+- Replaces repetitive per-component Framer Motion variants with centralized `containerVariants`, `childVariants`, `imageVariants`, and `badgeVariants`.
+
+---
+
+## 🛡️ AI Agent Quality Guardrails (`SKILL.md`)
+
+To ensure that future AI coding sessions (using Google Antigravity, Cursor, Copilot, or Claude Code) maintain design consistency and avoid "AI slop", InvestCount employs directory-level `SKILL.md` guardrail files:
+
+| Guardrail File | Scope & Purpose |
+|---|---|
+| [`src/SKILL.md`](src/SKILL.md) | Global token usage, typography rules, SVG icon rules, and copy density standards |
+| [`src/components/SKILL.md`](src/components/SKILL.md) | Component architecture for Navbar, Footer, QuickNav, and InputField |
+| [`src/pages/HomePage/SKILL.md`](src/pages/HomePage/SKILL.md) | Alternating section backgrounds, calculator rules, and rate comparison charts |
+| [`src/pages/AboutPage/SKILL.md`](src/pages/AboutPage/SKILL.md) | Header eyebrow pattern, 2x2 values grid, and creator profile |
+| [`src/pages/BlogPage/SKILL.md`](src/pages/BlogPage/SKILL.md) | Article 3-column grid, thumbnail aspect ratios, and reader typography |
+| [`src/pages/TransparencyPage/SKILL.md`](src/pages/TransparencyPage/SKILL.md) | Monospace calculation formulas and regulatory data source citations |
+| [`src/constants/SKILL.md`](src/constants/SKILL.md) | Centralized routes (`RouteName.ts`) and animation standards |
+
+---
+
+## 🆕 What's New in v1.6.0
+
+- 🧭 **Sticky Glassmorphic Navbar**: Added [`Navbar.tsx`](src/components/Navbar/Navbar.tsx) with a one-tap mobile "Kalkulator" button and direct home navigation.
+- 📱 **Mobile-Optimized Footer**: Enhanced footer grid with dedicated bottom padding to avoid overlap with the floating QuickNav button on small viewports.
+- 🖼️ **Public Asset Relocation**: Moved static blog images outside `src/` to [`public/assets/blog/`](public/assets/blog/) for standard Vite static asset serving.
+- 📸 **Before & After Visual Audit**: Real screenshots comparing the legacy template vs. the new design system stored in `linkedin-posts/images/` (`before/` and `after/`).
 
 ---
 
