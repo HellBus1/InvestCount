@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import InputField from './InputField'
 import { calculateInterest } from '@/services/depositServices'
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import { formatNumberWithCommas, parseAmountInputFromCommas } from '@/services/inputServices'
+import { childVariants } from '@/constants/animations'
 
 interface DepositInputSectionProps {
   setInterest: (interest: number) => void
@@ -20,7 +21,6 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
   const EMPTY_STRING = ''
   const {
     setInterest,
-    taxRate,
     setTaxRate,
     holdingMonths,
     setHoldingMonths,
@@ -29,24 +29,18 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
     interestRate,
     setInterestRate
   } = props
+
   const [errors, setErrors] = useState({
     amount: EMPTY_STRING,
     interestRate: EMPTY_STRING,
     taxRate: EMPTY_STRING,
     holdingMonths: EMPTY_STRING
   })
-  const [, setIsFormValid] = useState(false)
 
-  // Set default tax rate to 20
+  // Default tax rate in Indonesia is 20%
   useEffect(() => {
     setTaxRate('20')
   }, [setTaxRate])
-
-  useEffect(() => {
-    setIsFormValid(
-      amount !== EMPTY_STRING && interestRate !== EMPTY_STRING && holdingMonths !== EMPTY_STRING
-    )
-  }, [amount, interestRate, holdingMonths])
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -61,7 +55,7 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
       setField(value)
     }
 
-    // Reset error on field change
+    // Clear error
     setErrors((prev) => ({ ...prev, [fieldName]: EMPTY_STRING }))
   }
 
@@ -75,31 +69,30 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
     let isValid = true
     const isNumberAndDecimalRegex = /^\d+(\.\d+)?$/
 
-    // Check if all fields are filled
     if (!amount) {
-      newErrors.amount = 'Jumlah Deposito Wajib Diisi'
+      newErrors.amount = 'Nominal deposito wajib diisi'
       isValid = false
     } else if (!isNumberAndDecimalRegex.test(parseAmountInputFromCommas(amount))) {
-      newErrors.amount = 'Jumlah Deposito Harus Berupa Angka'
+      newErrors.amount = 'Format angka tidak valid'
       isValid = false
     } else if (parseFloat(parseAmountInputFromCommas(amount)) < 1000000) {
-      newErrors.amount = 'Jumlah Deposito Minimal Rp1.000.000'
+      newErrors.amount = 'Minimal penempatan Rp1.000.000'
       isValid = false
     }
 
     if (!interestRate) {
-      newErrors.interestRate = 'Suku Bunga Wajib Diisi'
+      newErrors.interestRate = 'Suku bunga wajib diisi'
       isValid = false
     } else if (!isNumberAndDecimalRegex.test(interestRate)) {
-      newErrors.interestRate = 'Suku Bunga Harus Berupa Angka'
+      newErrors.interestRate = 'Format suku bunga harus angka'
       isValid = false
     }
 
     if (!holdingMonths) {
-      newErrors.holdingMonths = 'Total Bulan Wajib Diisi'
+      newErrors.holdingMonths = 'Tenor bulan wajib diisi'
       isValid = false
     } else if (parseFloat(holdingMonths) < 1) {
-      newErrors.holdingMonths = 'Total Bulan Harus Lebih Dari 0'
+      newErrors.holdingMonths = 'Tenor minimal 1 bulan'
       isValid = false
     }
 
@@ -117,14 +110,11 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
 
   const isInterestRateEnabled = amount.length !== 0 && !errors.amount
   const isTaxRateEnabled = interestRate.length !== 0 && !errors.interestRate
-  isInterestRateEnabled && isTaxRateEnabled && taxRate.length !== 0 && !errors.taxRate
   const isHoldingMonthsEnabled = holdingMonths.length !== 0 && !errors.holdingMonths
 
   useEffect(() => {
-    if (isHoldingMonthsEnabled) {
-      if (isInterestRateEnabled || isTaxRateEnabled) {
-        doCalculateInterest()
-      }
+    if (isHoldingMonthsEnabled && (isInterestRateEnabled || isTaxRateEnabled)) {
+      doCalculateInterest()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [holdingMonths, interestRate, amount])
@@ -132,7 +122,7 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
   const clearInput = () => {
     setAmount(EMPTY_STRING)
     setInterestRate(EMPTY_STRING)
-    setTaxRate('20') // Reset tax rate to default
+    setTaxRate('20')
     setHoldingMonths(EMPTY_STRING)
     setInterest(0)
     setErrors({
@@ -144,72 +134,72 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
   }
 
   return (
-    <div>
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        <InputField
-          label='Jumlah Deposito (Rp)'
-          value={amount}
-          onChange={(e) => handleInputChange(e, setAmount, 'amount')}
-          placeholder='Minimal Rp1.000.000'
-          error={errors.amount}
-          type='text'
-          required={true}
-        />
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        <InputField
-          label='Suku Bunga (%)'
-          value={interestRate}
-          onChange={(e) => handleInputChange(e, setInterestRate, 'interestRate')}
-          placeholder='Misal 5 atau 6.5'
-          error={errors.interestRate}
-          type='text'
-          required={true}
-        />
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        <InputField
-          label='Pajak Deposito (%)'
-          value='20'
-          onChange={(e) => handleInputChange(e, setTaxRate, 'taxRate')}
-          placeholder='Pajak bunga deposito umumnya 20% sesuai aturan di Indonesia'
-          error={errors.taxRate}
-          type='text'
-          disabled={true}
-          required={true}
-        />
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        <InputField
-          label='Lama Deposito (bulan)'
-          value={holdingMonths}
-          onChange={(e) => handleInputChange(e, setHoldingMonths, 'holdingMonths')}
-          placeholder='Minimal 1 bulan'
-          error={errors.holdingMonths}
-          type='number'
-          min={1}
-          required={true}
-        />
-      </motion.div>
-      <div className='card-actions justify-end'>
-        <button onClick={clearInput} className='btn btn-primary text-[#ffffff]'>
-          Atur Ulang
+    <div className='space-y-4'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+        <motion.div variants={childVariants}>
+          <InputField
+            label='Jumlah Deposito'
+            value={amount}
+            onChange={(e) => handleInputChange(e, setAmount, 'amount')}
+            placeholder='10.000.000'
+            error={errors.amount}
+            type='text'
+            prefix='Rp'
+            required={true}
+          />
+        </motion.div>
+
+        <motion.div variants={childVariants}>
+          <InputField
+            label='Suku Bunga / Tahun'
+            value={interestRate}
+            onChange={(e) => handleInputChange(e, setInterestRate, 'interestRate')}
+            placeholder='Contoh: 5.5'
+            error={errors.interestRate}
+            type='text'
+            suffix='%'
+            required={true}
+          />
+        </motion.div>
+      </div>
+
+      <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+        <motion.div variants={childVariants}>
+          <InputField
+            label='Lama Deposito (Tenor)'
+            value={holdingMonths}
+            onChange={(e) => handleInputChange(e, setHoldingMonths, 'holdingMonths')}
+            placeholder='12'
+            error={errors.holdingMonths}
+            type='number'
+            min={1}
+            suffix='Bulan'
+            required={true}
+          />
+        </motion.div>
+
+        <motion.div variants={childVariants}>
+          <InputField
+            label='Pajak Bunga Deposito'
+            value='20'
+            onChange={(e) => handleInputChange(e, setTaxRate, 'taxRate')}
+            placeholder='20%'
+            error={errors.taxRate}
+            type='text'
+            suffix='%'
+            disabled={true}
+            required={true}
+          />
+        </motion.div>
+      </div>
+
+      <div className='flex justify-end pt-1'>
+        <button
+          type='button'
+          onClick={clearInput}
+          className='text-xs font-semibold text-slate-500 hover:text-slate-800 hover:underline px-3 py-1.5 transition-colors'
+        >
+          Reset Perhitungan
         </button>
       </div>
     </div>

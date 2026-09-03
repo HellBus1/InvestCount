@@ -1,18 +1,11 @@
-import { motion } from 'framer-motion' // Import Framer Motion
+import { motion } from 'framer-motion'
 import React, { useState, useEffect, useCallback, useMemo } from 'react'
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  LabelList
-} from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LabelList } from 'recharts'
 import bankDepositoDatas from '../../../../data/bankDepositos.json'
 import { Bank, CustomYAxisProps, CustomTooltipProps } from './depositRateComparisonProps'
 import { getImagePath, getProductName } from '@/services/inputServices'
+import { containerVariants, childVariants } from '@/constants/animations'
+import Icon from '@/components/Icon/Icon'
 
 const processData = (banks: Bank[], tenure: string, minBalance: number, sortBy: string) => {
   const groupedBanks: { [key: string]: Bank[] } = {}
@@ -44,7 +37,6 @@ const processData = (banks: Bank[], tenure: string, minBalance: number, sortBy: 
     })
     .filter((item) => item !== null)
 
-  // Sort data based on sortBy
   if (sortBy === 'name') {
     data = data.sort((a, b) => a.bank.localeCompare(b.bank))
   } else if (sortBy === 'rate') {
@@ -57,12 +49,12 @@ const processData = (banks: Bank[], tenure: string, minBalance: number, sortBy: 
 const DepositRateComparisonSection = () => {
   const [tenure, setTenure] = useState('1')
   const [minBalance, setMinBalance] = useState(0)
-  const [sortBy, setSortBy] = useState('name') // Default sort by name
+  const [sortBy, setSortBy] = useState('rate') // Default to highest rate first for better UX
   const [loading, setLoading] = useState(true)
   const [isSmallScreen, setIsSmallScreen] = useState(false)
-  const EMPTY_STRING = ''
-  const CHARTER_BLUE = '#536E96'
-  const JESS = '#20B486'
+
+  const BRAND_COLOR = '#059669'
+  const SLATE_DARK = '#1E293B'
 
   const data = useMemo(
     () => processData(bankDepositoDatas, tenure, minBalance, sortBy),
@@ -75,15 +67,12 @@ const DepositRateComparisonSection = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 768) // Small screen if width is less than 768px
+      setIsSmallScreen(window.innerWidth < 768)
     }
 
-    handleResize() // Check on initial render
+    handleResize()
     window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   const handleTenureChange = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -103,26 +92,24 @@ const DepositRateComparisonSection = () => {
       const { payload, x, y } = props
       const bank = data.find((item) => item.bank === payload.value)
 
-      if (!bank) {
-        return <></>
-      }
+      if (!bank) return <></>
 
       return (
         <g transform={`translate(${x},${y})`}>
-          <image href={getImagePath(bank.logo)} x={-35} y={-18} width={30} height={32} />
+          <image href={getImagePath(bank.logo)} x={-32} y={-16} width={26} height={26} />
           <a
             href={bank.website}
             target='_blank'
             rel='noopener noreferrer'
-            className='link link-primary link-hover'
+            className='hover:underline'
           >
             <text
-              x={-45}
+              x={-40}
               y={0}
               dy={4}
               textAnchor='end'
-              fill={CHARTER_BLUE}
-              className='text-sm font-bold'
+              fill={SLATE_DARK}
+              className='text-xs font-semibold'
             >
               {payload.value}
             </text>
@@ -136,26 +123,26 @@ const DepositRateComparisonSection = () => {
   const renderCustomTooltip = useCallback((props: CustomTooltipProps) => {
     const { payload, active } = props
 
-    if (!active || !payload || payload.length === 0) {
-      return <></>
-    }
+    if (!active || !payload || payload.length === 0) return <></>
 
     const bank = payload[0].payload
 
     return (
-      <div className='card bg-base-100 shadow-lg'>
-        <div className='card-body'>
-          <div className='flex flex-row items-center space-x-4 mb-2'>
-            <img
-              src={getImagePath(bank.logo)}
-              alt={`${bank.bank} logo`}
-              height={32}
-              width={32}
-              className='object-contain'
-            />
-            <p className='font-bold text-lg text-charter-blue'>{`${bank.bank} (${bank.bankName})`}</p>
-          </div>
-          <p className='text-sm text-charter-blue-400'>Suku Bunga: {bank.interest}%</p>
+      <div className='bg-white p-3.5 rounded-xl shadow-elevated border border-slate-200 text-xs'>
+        <div className='flex items-center gap-2 mb-1.5'>
+          <img
+            src={getImagePath(bank.logo)}
+            alt={`${bank.bank} logo`}
+            height={22}
+            width={22}
+            className='object-contain'
+          />
+          <span className='font-bold text-slate-900'>
+            {bank.bank} ({bank.bankName})
+          </span>
+        </div>
+        <div className='text-slate-600'>
+          Suku Bunga: <strong className='text-brand-600 font-bold'>{bank.interest}%</strong>
         </div>
       </div>
     )
@@ -164,163 +151,142 @@ const DepositRateComparisonSection = () => {
   const lastModified = '2025-07-19'
 
   return (
-    <motion.div
-      className='py-10 bg-base-200 min-h-screen w-full'
+    <motion.section
+      className='py-16 md:py-24 bg-white border-t border-slate-200/80 w-full'
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true, amount: 0.2 }}
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.3, staggerChildren: 0.1 } }
-      }}
+      viewport={{ once: true, amount: 0.15 }}
+      variants={containerVariants}
     >
-      <motion.h1
-        className='text-center text-2xl md:text-3xl font-bold text-charter-blue-600 mt-8 mb-4'
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
-        }}
-      >
-        Perbandingan Suku Bunga Deposito Bank
-      </motion.h1>
-      <motion.p
-        className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mb-16 mx-12'
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
-        }}
-      >
-        Bandingkan suku bunga deposito dari berbagai bank di Indonesia sesuai tenor dan saldo
-        minimum pilihan Anda. Pilih jangka waktu dan nominal minimal untuk melihat bunga yang
-        tersedia.
-      </motion.p>
-      <motion.div
-        className='mb-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 justify-center items-center mx-12'
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
-        }}
-      >
-        <div className='flex flex-col space-y-2 mb-4 md:mb-0 w-full md:w-auto'>
-          <label
-            htmlFor='tenure'
-            className='mr-2 text-charter-blue text-base md:text-lg font-medium'
-          >
-            Jangka Waktu Deposito
-          </label>
-          <select
-            id='tenure'
-            value={tenure}
-            onChange={handleTenureChange}
-            aria-label='Jangka Waktu Deposito'
-            className='select border border-charter-blue text-base md:text-lg w-full md:w-auto'
-          >
-            <option value='1'>1 Bulan</option>
-            <option value='3'>3 Bulan</option>
-            <option value='6'>6 Bulan</option>
-            <option value='12'>12 Bulan</option>
-          </select>
-        </div>
-        <div className='flex flex-col space-y-2 mb-4 md:mb-0 w-full md:w-auto'>
-          <label
-            htmlFor='minBalance'
-            className='mr-2 text-charter-blue text-base md:text-lg font-medium'
-          >
-            Saldo Minimum Deposito
-          </label>
-          <select
-            id='minBalance'
-            value={minBalance}
-            onChange={handleMinBalanceChange}
-            aria-label='Saldo Minimum Deposito'
-            className='select border border-charter-blue text-base md:text-lg w-full md:w-auto'
-          >
-            <option value='0'>Semua</option>
-            <option value='10000000'>10 Juta</option>
-            <option value='100000000'>100 Juta</option>
-            <option value='250000000'>250 Juta</option>
-            <option value='1000000000'>1 Miliar</option>
-            <option value='2000000000'>2 Miliar</option>
-            <option value='5000000000'>5 Miliar</option>
-          </select>
-        </div>
-        <div className='flex flex-col space-y-2 mb-4 md:mb-0 w-full md:w-auto'>
-          <label
-            htmlFor='sortBy'
-            className='mr-2 text-charter-blue text-base md:text-lg font-medium'
-          >
-            Urutkan Berdasarkan Kategori
-          </label>
-          <select
-            id='sortBy'
-            value={sortBy}
-            onChange={handleSortChange}
-            aria-label='Urutkan'
-            className='select border border-charter-blue text-base md:text-lg w-full md:w-auto'
-          >
-            <option value='name'>Nama Bank</option>
-            <option value='rate'>Suku Bunga Tertinggi</option>
-          </select>
-        </div>
-      </motion.div>
-      {loading ? (
-        <motion.p
-          className='text-charter-blue'
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { duration: 0.3 } }
-          }}
-        >
-          Loading...
-        </motion.p>
-      ) : (
-        <motion.div
-          className='mx-4 md:mx-20 lg:mx-36 mb-10'
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
-          }}
-        >
-          <ResponsiveContainer width='100%' height={600}>
-            <BarChart
-              data={data}
-              layout='vertical'
-              margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-            >
-              <XAxis
-                type='number'
-                label={{ value: EMPTY_STRING }}
-                tick={{ fontSize: 14, fontWeight: 'bold', fill: CHARTER_BLUE, dy: 6 }}
-              />
-              <YAxis type='category' dataKey='bank' tick={renderCustomYAxisTick} width={125} />
-              {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-              {/* @ts-ignore */}
-              {!isSmallScreen && <Tooltip content={renderCustomTooltip} />}
-              <Legend />
-              <Bar dataKey='interest' fill={JESS}>
-                <LabelList
-                  dataKey='interest'
-                  position='right'
-                  fontSize={14}
-                  fontWeight={'medium'}
-                />
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
+      <div className='layout'>
+        {/* Section Header */}
+        <motion.div className='text-center max-w-2xl mx-auto mb-10' variants={childVariants}>
+          <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold font-display text-slate-900 mb-3'>
+            Perbandingan Bunga Deposito Bank
+          </h2>
+          <p className='text-slate-600 text-sm md:text-base leading-relaxed'>
+            Bandingkan rate bunga deposito dari bank digital dan konvensional sesuai tenor & saldo
+            minimal.
+          </p>
+        </motion.div>
 
-          <div className='flex justify-center mt-10'>
-            <span className='badge badge-outline badge-lg bg-base-100 text-charter-blue-600 font-semibold px-4 py-2 rounded-full shadow text-center'>
-              Data terakhir diperbarui:{' '}
-              {new Date(lastModified).toLocaleDateString('id-ID', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}
-            </span>
+        {/* Filter Controls */}
+        <motion.div
+          className='max-w-4xl mx-auto p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-card mb-8 grid grid-cols-1 sm:grid-cols-3 gap-4'
+          variants={childVariants}
+        >
+          <div>
+            <label
+              htmlFor='tenure'
+              className='block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5'
+            >
+              Tenor Simpanan
+            </label>
+            <select
+              id='tenure'
+              value={tenure}
+              onChange={handleTenureChange}
+              aria-label='Tenor Simpanan'
+              className='w-full py-2.5 px-3 rounded-xl border border-slate-200 bg-white text-slate-800 text-sm font-medium focus:ring-2 focus:ring-brand-100 focus:border-brand-500 outline-none'
+            >
+              <option value='1'>1 Bulan</option>
+              <option value='3'>3 Bulan</option>
+              <option value='6'>6 Bulan</option>
+              <option value='12'>12 Bulan</option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              htmlFor='minBalance'
+              className='block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5'
+            >
+              Saldo Minimum
+            </label>
+            <select
+              id='minBalance'
+              value={minBalance}
+              onChange={handleMinBalanceChange}
+              aria-label='Saldo Minimum'
+              className='w-full py-2.5 px-3 rounded-xl border border-slate-200 bg-white text-slate-800 text-sm font-medium focus:ring-2 focus:ring-brand-100 focus:border-brand-500 outline-none'
+            >
+              <option value='0'>Semua Nominal</option>
+              <option value='10000000'>Rp10 Juta</option>
+              <option value='100000000'>Rp100 Juta</option>
+              <option value='250000000'>Rp250 Juta</option>
+              <option value='1000000000'>Rp1 Miliar</option>
+              <option value='2000000000'>Rp2 Miliar</option>
+              <option value='5000000000'>Rp5 Miliar</option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              htmlFor='sortBy'
+              className='block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5'
+            >
+              Urutkan
+            </label>
+            <select
+              id='sortBy'
+              value={sortBy}
+              onChange={handleSortChange}
+              aria-label='Urutkan'
+              className='w-full py-2.5 px-3 rounded-xl border border-slate-200 bg-white text-slate-800 text-sm font-medium focus:ring-2 focus:ring-brand-100 focus:border-brand-500 outline-none'
+            >
+              <option value='rate'>Suku Bunga Tertinggi</option>
+              <option value='name'>Nama Bank (A-Z)</option>
+            </select>
           </div>
         </motion.div>
-      )}
-    </motion.div>
+
+        {/* Chart View */}
+        {loading ? (
+          <div className='py-16 text-center text-slate-500 text-sm'>Memuat data bank...</div>
+        ) : (
+          <motion.div className='max-w-4xl mx-auto' variants={childVariants}>
+            <div className='p-4 sm:p-6 rounded-2xl bg-slate-50/50 border border-slate-200/60 shadow-card'>
+              <ResponsiveContainer width='100%' height={560}>
+                <BarChart
+                  data={data}
+                  layout='vertical'
+                  margin={{ top: 10, right: 35, left: 20, bottom: 5 }}
+                >
+                  <XAxis type='number' tick={{ fontSize: 12, fill: '#64748B' }} unit='%' />
+                  <YAxis type='category' dataKey='bank' tick={renderCustomYAxisTick} width={130} />
+                  {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                  {/* @ts-ignore */}
+                  {!isSmallScreen && <Tooltip content={renderCustomTooltip} />}
+                  <Bar dataKey='interest' fill={BRAND_COLOR} radius={[0, 6, 6, 0]}>
+                    <LabelList
+                      dataKey='interest'
+                      position='right'
+                      formatter={(val: number) => `${val}%`}
+                      fontSize={12}
+                      fontWeight='600'
+                      fill='#0F172A'
+                    />
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+
+            {/* Timestamp Badge */}
+            <div className='flex items-center justify-center gap-2 mt-6 text-xs text-slate-500 font-medium'>
+              <Icon name='calendar' className='w-3.5 h-3.5 text-slate-400' />
+              <span>
+                Data rate terakhir disesuaikan:{' '}
+                {new Date(lastModified).toLocaleDateString('id-ID', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </span>
+            </div>
+          </motion.div>
+        )}
+      </div>
+    </motion.section>
   )
 }
 

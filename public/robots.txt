@@ -1,8 +1,24 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://investtcount.mattrmost.com/sitemap.xml
+# Explicit AI Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
 
-# Block unnecessary paths (if any in future)
-# Disallow: /api/
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Sitemap & AI Knowledge
+Sitemap: https://investtcount.mattrmost.com/sitemap.xml

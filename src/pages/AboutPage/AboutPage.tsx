@@ -1,317 +1,171 @@
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import Footer from '@/components/Footer/Footer'
+import { containerVariants, childVariants } from '@/constants/animations'
+import Icon, { IconName } from '@/components/Icon/Icon'
+import { useSEO } from '@/hooks/useSEO'
+
+interface ValueItem {
+  icon: IconName
+  title: string
+  desc: string
+}
 
 const AboutPage = () => {
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, ease: 'easeOut', staggerChildren: 0.1 }
-    }
-  }
+  useSEO({
+    title: 'Tentang InvestCount - Misi Literasi Deposito Jujur & Transparan',
+    description:
+      'Pelajari visi, prinsip independensi, dan profil pembuat InvestCount. Platform gratis tanpa iklan untuk menghitung bunga deposito bersih setelah pajak di Indonesia.',
+    canonicalUrl: '/tentang',
+    keywords: [
+      'tentang investcount',
+      'kalkulator deposito indonesia',
+      'syubban fakhriya',
+      'literasi keuangan'
+    ]
+  })
 
-  const childVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: 'easeOut' } }
-  }
+  const values: ValueItem[] = [
+    {
+      icon: 'shield-check',
+      title: 'Transparansi',
+      desc: 'Perhitungan terbuka, jelas sumber datanya, dan memperhitungkan potongan pajak 20% tanpa clickbait.'
+    },
+    {
+      icon: 'gift',
+      title: 'Gratis & Tanpa Iklan',
+      desc: 'Dapat diakses siapapun tanpa biaya, paywall, atau banner iklan yang mengganggu kenyamanan.'
+    },
+    {
+      icon: 'lock',
+      title: 'Privasi Terjaga',
+      desc: 'Semua simulasi berjalan di browser Anda. Kami tidak menyimpan atau menjual nominal keuangan Anda.'
+    },
+    {
+      icon: 'handshake',
+      title: 'Independen & Netral',
+      desc: 'Tidak berafiliasi dengan bank manapun. Rekomendasi berdasarkan suku bunga dan perbandingan objektif.'
+    }
+  ]
 
   return (
-    <>
+    <div className='w-full min-h-screen flex flex-col bg-slate-50'>
       {/* Hero Section */}
-      <motion.div
-        className='w-full bg-base-200 pt-20 pb-16 relative overflow-hidden'
+      <motion.section
+        className='w-full pt-20 pb-16 bg-gradient-to-b from-white via-brand-50/20 to-slate-50 border-b border-slate-200/80'
         initial='hidden'
         animate='visible'
         variants={containerVariants}
       >
-        {/* Decorative Background Elements */}
-        <div className='absolute top-0 right-0 w-96 h-96 bg-jess opacity-5 rounded-full -mr-48 -mt-48'></div>
-        <div className='absolute bottom-0 left-0 w-80 h-80 bg-charter-blue-600 opacity-5 rounded-full -ml-40 -mb-40'></div>
+        <div className='layout'>
+          <div className='max-w-3xl'>
+            <motion.div
+              className='inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-semibold mb-4'
+              variants={childVariants}
+            >
+              <Icon name='info' className='w-3.5 h-3.5' />
+              <span>Tentang InvestCount</span>
+            </motion.div>
 
-        <div className='max-w-7xl mx-auto px-10 relative z-10'>
-          <motion.div className='inline-block mb-4' variants={childVariants}>
-            <span className='px-4 py-2 bg-jess/10 text-jess-700 rounded-full text-sm font-medium border border-jess/20'>
-              ℹ️ Tentang Kami
-            </span>
-          </motion.div>
+            <motion.h1
+              className='text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-900 tracking-tight mb-4'
+              variants={childVariants}
+            >
+              Misi Sederhana: <span className='text-brand-600'>Literasi Deposito yang Jujur</span>
+            </motion.h1>
 
-          <motion.h1
-            className='text-4xl md:text-6xl font-bold text-charter-blue-800 mb-6 leading-tight'
-            variants={childVariants}
-          >
-            Tentang <span className='text-jess'>InvestCount</span>
-          </motion.h1>
-          <motion.p
-            className='text-base md:text-lg font-medium text-charter-blue max-w-2xl mb-8'
-            variants={childVariants}
-          >
-            Kalkulator deposito gratis yang membantu Anda memahami bunga deposito bersih dengan
-            transparan.
-          </motion.p>
-
-          {/* Key Values */}
-          <motion.div className='flex flex-wrap gap-4' variants={childVariants}>
-            {[
-              { icon: '🔍', text: 'Transparan' },
-              { icon: '🆓', text: 'Gratis Selamanya' },
-              { icon: '🚫', text: 'Tanpa Iklan' },
-              { icon: '🔒', text: 'Privasi Terjaga' }
-            ].map((item, index) => (
-              <div
-                key={index}
-                className='flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-charter-blue-200'
-              >
-                <span className='text-lg'>{item.icon}</span>
-                <span className='text-sm font-medium text-charter-blue-800'>{item.text}</span>
-              </div>
-            ))}
-          </motion.div>
+            <motion.p
+              className='text-base sm:text-lg text-slate-600 leading-relaxed'
+              variants={childVariants}
+            >
+              InvestCount dibuat untuk memudahkan masyarakat Indonesia menghitung return simpanan
+              deposito secara nyata — bersih setelah dipotong pajak 20% dan disimulasikan secara
+              transparan.
+            </motion.p>
+          </div>
         </div>
-      </motion.div>
+      </motion.section>
 
-      {/* Story Section */}
-      <motion.div
-        className='w-full bg-white pt-10 pb-10'
+      {/* Story & Values */}
+      <motion.section
+        className='py-16 layout'
         initial='hidden'
         whileInView='visible'
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.15 }}
         variants={containerVariants}
       >
-        <div className='max-w-7xl mx-auto px-10'>
+        {/* Core Values Grid */}
+        <div className='mb-16'>
           <motion.h2
-            className='text-2xl md:text-3xl font-bold text-charter-blue-600 mb-6'
+            className='text-2xl sm:text-3xl font-bold font-display text-slate-900 mb-8'
             variants={childVariants}
           >
-            Cerita Kami
+            Prinsip Utama Kami
           </motion.h2>
-          <motion.div className='space-y-4 text-charter-blue' variants={childVariants}>
-            <p className='text-base md:text-lg'>
-              InvestCount lahir dari pengalaman pribadi melihat banyak orang Indonesia yang rajin
-              menabung, tetapi tidak tahu berapa bunga bersih yang mereka terima setelah dipotong
-              pajak. Banyak yang terkejut ketika mengetahui bahwa deposito mereka dikenakan pajak
-              20%, dan return yang mereka bayangkan ternyata jauh lebih kecil.
-            </p>
-            <p className='text-base md:text-lg'>
-              Sebagai seorang pengembang yang percaya bahwa teknologi harus memberdayakan
-              masyarakat, saya membuat InvestCount sebagai alat edukasi finansial yang{' '}
-              <strong>gratis, transparan, dan tanpa agenda tersembunyi</strong>.
-            </p>
-            <p className='text-base md:text-lg'>
-              InvestCount bukan hanya kalkulator — ini adalah upaya untuk membantu setiap orang,
-              dari anak muda yang baru mulai menabung sampai pensiunan yang ingin mengoptimalkan
-              dana, memahami bagaimana uang mereka bekerja.
-            </p>
-          </motion.div>
-        </div>
-      </motion.div>
 
-      {/* Mission Section */}
-      <motion.div
-        className='w-full bg-base-200 pt-10 pb-10'
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true, amount: 0.2 }}
-        variants={containerVariants}
-      >
-        <div className='max-w-7xl mx-auto px-10'>
-          <motion.h2
-            className='text-2xl md:text-3xl font-bold text-charter-blue-600 mb-6'
-            variants={childVariants}
-          >
-            Misi Kami
-          </motion.h2>
-          <motion.div
-            className='bg-white p-8 rounded-2xl border border-charter-blue shadow-md'
-            variants={childVariants}
-          >
-            <p className='text-lg md:text-xl text-charter-blue font-medium leading-relaxed'>
-              Membantu setiap orang Indonesia memahami deposito dengan cara yang{' '}
-              <span className='font-bold text-jess'>jujur, sederhana, dan transparan</span> —
-              sehingga mereka dapat membuat keputusan finansial yang lebih baik.
-            </p>
-          </motion.div>
-        </div>
-      </motion.div>
-
-      {/* Values Section */}
-      <motion.div
-        className='w-full bg-white pt-10 pb-10'
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true, amount: 0.2 }}
-        variants={containerVariants}
-      >
-        <div className='max-w-7xl mx-auto px-10'>
-          <motion.h2
-            className='text-2xl md:text-3xl font-bold text-charter-blue-600 mb-8'
-            variants={childVariants}
-          >
-            Nilai-Nilai Kami
-          </motion.h2>
-          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {[
-              {
-                icon: '🔍',
-                title: 'Transparansi',
-                desc: 'Kami menjelaskan dari mana data berasal, bagaimana kami menghitung, dan apa keterbatasan kami.'
-              },
-              {
-                icon: '📚',
-                title: 'Edukasi',
-                desc: 'Kami tidak hanya memberikan angka, tetapi juga membantu Anda memahami konsep finansial dengan bahasa yang mudah dipahami.'
-              },
-              {
-                icon: '🆓',
-                title: 'Gratis Selamanya',
-                desc: 'InvestCount akan selalu gratis untuk semua orang. Tidak ada biaya tersembunyi, tidak ada paywall.'
-              },
-              {
-                icon: '🚫',
-                title: 'Tanpa Iklan',
-                desc: 'Kami tidak menampilkan iklan yang mengganggu. Fokus Anda adalah memahami deposito, bukan diklik-klik iklan.'
-              },
-              {
-                icon: '🔒',
-                title: 'Privasi Pengguna',
-                desc: 'Kami tidak menyimpan data pribadi Anda. Tidak ada login, tidak ada tracking, tidak ada cookies yang tidak perlu.'
-              },
-              {
-                icon: '🤝',
-                title: 'Independen',
-                desc: 'Kami tidak berafiliasi dengan bank manapun. Informasi yang kami berikan netral dan objektif.'
-              }
-            ].map((value, index) => (
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+            {values.map((v, i) => (
               <motion.div
-                key={index}
-                className='border rounded-lg p-6 shadow-md border-charter-blue bg-white hover:shadow-lg transition-shadow'
+                key={i}
+                className='p-6 rounded-2xl bg-white border border-slate-200 shadow-card hover:shadow-hover hover:border-brand-300 transition-all flex items-start gap-4'
                 variants={childVariants}
-                whileHover={{ scale: 1.02 }}
               >
-                <div className='text-4xl mb-4'>{value.icon}</div>
-                <h3 className='text-xl font-bold text-charter-blue mb-2'>{value.title}</h3>
-                <p className='text-charter-blue-400'>{value.desc}</p>
+                <div className='w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center flex-shrink-0 border border-brand-100'>
+                  <Icon name={v.icon} className='w-5 h-5' />
+                </div>
+                <div>
+                  <h3 className='text-base font-bold text-slate-900 mb-1.5'>{v.title}</h3>
+                  <p className='text-sm text-slate-600 leading-relaxed'>{v.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
-      </motion.div>
 
-      {/* Creator Section */}
-      <motion.div
-        className='w-full bg-base-200 pt-10 pb-10'
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true, amount: 0.2 }}
-        variants={containerVariants}
-      >
-        <div className='max-w-7xl mx-auto px-10'>
-          <motion.h2
-            className='text-2xl md:text-3xl font-bold text-charter-blue-600 mb-6'
-            variants={childVariants}
-          >
-            Pembuat InvestCount
-          </motion.h2>
-          <motion.div
-            className='bg-white p-8 rounded-2xl shadow-lg border border-charter-blue'
-            variants={childVariants}
-          >
-            <div className='flex flex-col md:flex-row gap-8 items-start'>
-              {/* Avatar */}
-              <div className='flex-shrink-0'>
-                <div className='w-32 h-32 rounded-full overflow-hidden border-4 border-jess shadow-lg hover:shadow-xl transition-shadow'>
-                  <img
-                    alt='Syubban Fakhriya'
-                    src={'/avatar.jpg'}
-                    className='w-full h-full object-cover transition-transform duration-300 hover:scale-110'
-                  />
-                </div>
-              </div>
-
-              {/* Profile Info */}
-              <div className='flex-grow'>
-                <h3 className='text-3xl font-bold text-charter-blue-800 mb-2'>Syubban Fakhriya</h3>
-                <p className='text-jess-600 font-medium mb-4 text-lg'>
-                  Software Engineer & Creator
-                </p>
-
-                <p className='text-charter-blue leading-relaxed mb-6 text-base'>
-                  Seorang software engineer yang passionate tentang financial literacy dan
-                  teknologi. Percaya bahwa setiap orang berhak memahami keuangan mereka tanpa harus
-                  menjadi ahli finansial.
-                </p>
-
-                {/* Social Links */}
-                <div className='flex flex-wrap gap-3'>
-                  <a
-                    href='https://www.linkedin.com/in/syubban-fakhriya/'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='inline-flex items-center gap-2 px-4 py-2 bg-charter-blue-600 text-white rounded-lg hover:bg-charter-blue-700 transition-colors font-medium shadow-sm hover:shadow-md'
-                  >
-                    <svg className='w-5 h-5' fill='currentColor' viewBox='0 0 24 24'>
-                      <path d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' />
-                    </svg>
-                    LinkedIn
-                  </a>
-
-                  <a
-                    href='https://github.com/HellBus1'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='inline-flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors font-medium shadow-sm hover:shadow-md'
-                  >
-                    <svg className='w-5 h-5' fill='currentColor' viewBox='0 0 24 24'>
-                      <path
-                        fillRule='evenodd'
-                        d='M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z'
-                        clipRule='evenodd'
-                      />
-                    </svg>
-                    GitHub
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </motion.div>
-
-      {/* Contact Section */}
-      <motion.div
-        className='w-full bg-white pt-10 pb-20'
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true, amount: 0.2 }}
-        variants={containerVariants}
-      >
-        <div className='max-w-7xl mx-auto px-10'>
-          <motion.h2
-            className='text-2xl md:text-3xl font-bold text-charter-blue-600 mb-6'
-            variants={childVariants}
-          >
-            Hubungi Kami
-          </motion.h2>
-          <motion.div
-            className='bg-base-200 p-8 rounded-2xl border border-charter-blue'
-            variants={childVariants}
-          >
-            <p className='text-charter-blue mb-6 text-base md:text-lg'>
-              Punya pertanyaan, saran, atau menemukan data yang tidak akurat? Kami senang mendengar
-              dari Anda!
+        {/* Creator Card */}
+        <motion.div
+          className='p-8 rounded-2xl bg-white border border-slate-200 shadow-card flex flex-col sm:flex-row items-center sm:items-start gap-6 max-w-3xl'
+          variants={childVariants}
+        >
+          <img
+            alt='Syubban Fakhriya'
+            src='/avatar.jpg'
+            className='w-24 h-24 rounded-2xl object-cover border-2 border-brand-500 shadow-md flex-shrink-0'
+          />
+          <div className='text-center sm:text-left'>
+            <h3 className='text-xl font-bold text-slate-900'>Syubban Fakhriya</h3>
+            <p className='text-xs font-semibold text-brand-600 uppercase tracking-wider mb-2'>
+              Creator & Software Engineer
             </p>
-            <a
-              href='mailto:feedback@investcount.com?subject=Feedback untuk InvestCount'
-              className='btn btn-primary'
-            >
-              <p className='text-[#ffffff]'>Kirim Feedback</p>
-            </a>
-          </motion.div>
-        </div>
-      </motion.div>
+            <p className='text-sm text-slate-600 leading-relaxed mb-4'>
+              Software engineer yang berdedikasi membangun alat bantu finansial yang bermanfaat,
+              cepat, dan mudah diakses oleh siapa saja.
+            </p>
+            <div className='flex items-center justify-center sm:justify-start gap-3'>
+              <a
+                href='https://www.linkedin.com/in/syubban-fakhriya/'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold transition-colors flex items-center gap-1.5'
+              >
+                <span>LinkedIn</span>
+                <Icon name='external-link' className='w-3 h-3 text-slate-400' />
+              </a>
+              <a
+                href='https://github.com/HellBus1'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors flex items-center gap-1.5'
+              >
+                <span>GitHub</span>
+                <Icon name='external-link' className='w-3 h-3 text-slate-500' />
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </motion.section>
 
       <Footer />
-    </>
+    </div>
   )
 }
 
