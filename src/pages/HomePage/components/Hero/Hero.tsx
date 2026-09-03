@@ -41,11 +41,7 @@ const Hero = (props: HeroProps) => {
               className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-slate-900 tracking-tight leading-[1.15]'
               variants={childVariants}
             >
-              Hitung{' '}
-              <span className='text-brand-600 underline decoration-brand-300 decoration-wavy underline-offset-8'>
-                Bunga Bersih
-              </span>{' '}
-              Deposito Tanpa Rahasia
+              Hitung <span className='text-brand-600'>Bunga Bersih</span> Deposito Tanpa Rahasia
             </motion.h1>
 
             {/* Subtitle */}
@@ -76,10 +72,10 @@ const Hero = (props: HeroProps) => {
 
           {/* Right Visual Image */}
           <motion.div
-            className='lg:col-span-5 flex justify-center lg:justify-end'
+            className='lg:col-span-5 flex justify-center items-center'
             variants={imageVariants}
           >
-            <div className='w-full max-w-md p-2 rounded-2xl bg-white/60 backdrop-blur-sm border border-slate-200/80 shadow-elevated'>
+            <div className='w-full max-w-md p-4 sm:p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-slate-200/80 shadow-elevated flex items-center justify-center overflow-hidden'>
               <HeroImage />
             </div>
           </motion.div>

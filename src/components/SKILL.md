@@ -5,7 +5,12 @@ description: Architecture and styling guidelines for shared components in Invest
 
 # Shared Components Guidelines
 
-## 1. Icon Component (`src/components/Icon/Icon.tsx`)
+## 1. Navbar (`src/components/Navbar/Navbar.tsx`)
+- Sticky top navigation bar (`sticky top-0 z-40 bg-white/90 backdrop-blur-md`).
+- Logo links directly to `/` (dashboard/home).
+- Includes mobile quick link button and collapsible hamburger menu for small screens.
+
+## 2. Icon Component (`src/components/Icon/Icon.tsx`)
 - All vector icons must be added to this component as clean SVGs.
 - Props: `name`, `className`, `size`.
 - Style defaults to strokeWidth=2 with rounded linecaps and linejoins.

@@ -23,8 +23,7 @@ const blogPosts: BlogPost[] = [
     date: '2025-11-27',
     readTime: '5 menit',
     category: 'Dasar Deposito',
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Fmenghitung_bunga_deposito.jpg?alt=media&token=4597d989-2f19-4e83-972a-a45a31d9e82e'
+    image: '/assets/blog/cara-hitung-deposito.jpg'
   },
   {
     slug: 'deposito-vs-tabungan',
@@ -34,8 +33,7 @@ const blogPosts: BlogPost[] = [
     date: '2025-11-27',
     readTime: '6 menit',
     category: 'Dasar Deposito',
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Fdeposito_vs_tabungan.jpg?alt=media&token=e0682030-8083-4a11-a5d1-18c32a19c4fc'
+    image: '/assets/blog/deposito-vs-tabungan.jpg'
   },
   {
     slug: 'inflasi-dan-deposito',
@@ -45,8 +43,7 @@ const blogPosts: BlogPost[] = [
     date: '2025-11-27',
     readTime: '7 menit',
     category: 'Strategi Investasi',
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Finflasi_dan_deposito.jpg?alt=media&token=ff3ac48b-5308-48ed-ad2c-735c356bb9b1'
+    image: '/assets/blog/inflasi-deposito.jpg'
   }
 ]
 

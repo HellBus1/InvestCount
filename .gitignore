@@ -23,3 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 /.agents
+
+# Documentation & Social Posts
+linkedin-posts/
+PRD_InvestCount_V2.md
+docs/PRD_InvestCount_V2.md
