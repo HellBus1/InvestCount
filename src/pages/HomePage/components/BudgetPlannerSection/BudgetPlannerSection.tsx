@@ -2,10 +2,12 @@ import { motion } from 'framer-motion'
 import useBudgetPlannerSection from './hooks/useBudgetPlannerSecion'
 import InputField from '../DepositSection/DepositCalculation/InputField'
 import { formatNumberWithCommas, parseAmountInputFromCommas } from '@/services/inputServices'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import NeedsSection from './NeedsSection/NeedsSection'
 import DepositDropdownSection from './DepositDropdownSection/DepositDropdownSection'
 import RecommendationSection from './RecommendationSection/RecommendationSection'
+import { containerVariants, childVariants } from '@/constants/animations'
+import Icon from '@/components/Icon/Icon'
 
 const BudgetPlannerSection = () => {
   const {
@@ -28,7 +30,6 @@ const BudgetPlannerSection = () => {
     priceInput: EMPTY_STRING,
     depositInput: EMPTY_STRING
   })
-  const [, setIsFormValid] = useState(false)
 
   const newErrors = {
     needInput: EMPTY_STRING,
@@ -38,36 +39,12 @@ const BudgetPlannerSection = () => {
 
   const isNumberAndDecimalRegex = /^\d+(\.\d+)?$/
 
-  useEffect(() => {
-    setIsFormValid(
-      needInput !== EMPTY_STRING && priceInput !== EMPTY_STRING && depositInput !== EMPTY_STRING
-    )
-  }, [needInput, priceInput, depositInput])
-
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, ease: 'easeOut', staggerChildren: 0.1 }
-    }
-  }
-
-  const childVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: 'easeOut' } }
-  }
-
   const validateDepositAmount = () => {
-    if (!depositInput.trim()) {
-      return 'Jumlah deposit tidak boleh kosong.'
-    }
-    if (isNaN(Number(depositInput.replace(/,/g, '')))) {
-      return 'Jumlah deposit harus berupa angka yang valid.'
-    }
-    if (Number(depositInput.replace(/,/g, '')) < 10000000) {
-      return 'Jumlah deposit minimal adalah 10.000.000 IDR.'
-    }
+    if (!depositInput.trim()) return 'Jumlah deposit tidak boleh kosong.'
+    if (isNaN(Number(depositInput.replace(/,/g, ''))))
+      return 'Jumlah deposit harus berupa angka valid.'
+    if (Number(depositInput.replace(/,/g, '')) < 10000000)
+      return 'Jumlah deposit minimal Rp10.000.000'
     return null
   }
 
@@ -77,15 +54,7 @@ const BudgetPlannerSection = () => {
     fieldName: string
   ) => {
     const value = e.target.value
-    if (fieldName === 'priceInput') {
-      const formattedValue = formatNumberWithCommas(value)
-      setField(formattedValue)
-    } else if (fieldName == 'depositInput') {
-      if (!depositInput) {
-        newErrors.depositInput = 'Jumlah deposit tidak boleh kosong.'
-      } else if (!isNumberAndDecimalRegex.test(parseAmountInputFromCommas(depositInput))) {
-        newErrors.depositInput = 'Jumlah deposit harus berupa angka yang valid.'
-      }
+    if (fieldName === 'priceInput' || fieldName === 'depositInput') {
       const formattedValue = formatNumberWithCommas(value)
       setField(formattedValue)
     } else {
@@ -99,15 +68,15 @@ const BudgetPlannerSection = () => {
     let isValid = true
 
     if (!needInput) {
-      newErrors.needInput = 'Kebutuhan tidak boleh kosong'
+      newErrors.needInput = 'Nama pengeluaran wajib diisi'
       isValid = false
     }
 
     if (!priceInput) {
-      newErrors.priceInput = 'Biaya tidak boleh kosong'
+      newErrors.priceInput = 'Biaya wajib diisi'
       isValid = false
     } else if (!isNumberAndDecimalRegex.test(parseAmountInputFromCommas(priceInput))) {
-      newErrors.priceInput = 'Biaya harus berupa angka yang valid'
+      newErrors.priceInput = 'Biaya harus berupa angka'
       isValid = false
     }
 
@@ -123,40 +92,38 @@ const BudgetPlannerSection = () => {
   }
 
   return (
-    <motion.div
-      className='pt-10 pb-20 w-full'
+    <motion.section
+      className='py-16 md:py-24 w-full bg-slate-50'
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.15 }}
       variants={containerVariants}
     >
-      <motion.h1
-        className='text-center text-2xl md:text-3xl font-bold text-charter-blue-600 mt-8 mb-4'
-        variants={childVariants}
-      >
-        Rencanakan Anggaran Bulanan
-      </motion.h1>
+      <div className='layout'>
+        {/* Section Header */}
+        <motion.div className='text-center max-w-2xl mx-auto mb-10' variants={childVariants}>
+          <div className='inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-semibold mb-3'>
+            <Icon name='calculator' className='w-3.5 h-3.5' />
+            <span>Passive Income Planner</span>
+          </div>
+          <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold font-display text-slate-900 mb-3'>
+            Rencana Anggaran Bulanan
+          </h2>
+          <p className='text-slate-600 text-sm md:text-base leading-relaxed'>
+            Hitung seberapa banyak biaya rutin bulanan yang bisa ditutup dari hasil bunga deposito
+            Anda.
+          </p>
+        </motion.div>
 
-      <motion.p
-        className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mb-16 mx-12'
-        variants={childVariants}
-      >
-        Rencanakan pengeluaran bulanan Anda dan lihat bagaimana hasil bunga deposito bisa membantu
-        menutup kebutuhan tersebut.
-      </motion.p>
-
-      <motion.div
-        className='card shadow-xl border-s-8 border-charter-blue mx-4 md:mx-20 lg:mx-36 mx-10'
-        variants={childVariants}
-      >
-        <div className='card-body bg-base-100 rounded-2xl p-6 md:p-10'>
-          <motion.div
-            className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'
-            variants={childVariants}
-          >
+        {/* Card Form */}
+        <motion.div
+          className='max-w-4xl mx-auto rounded-2xl bg-white border border-slate-200/90 shadow-card p-6 sm:p-8'
+          variants={childVariants}
+        >
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <InputField
-              label='Kebutuhan'
-              placeholder='Contoh: Sewa kos, Listrik, Netflix'
+              label='Nama Pengeluaran'
+              placeholder='Contoh: Sewa Wifi, Tagihan Listrik'
               type='text'
               value={needInput}
               onChange={(e) => handleInputChange(e, setNeedInput, 'needInput')}
@@ -164,41 +131,43 @@ const BudgetPlannerSection = () => {
             />
 
             <InputField
-              label='Biaya (Rp)'
-              placeholder='Contoh: 1.200.000'
+              label='Biaya Bulanan'
+              placeholder='1.500.000'
               type='text'
+              prefix='Rp'
               value={priceInput}
               onChange={(e) => handleInputChange(e, setPriceInput, 'priceInput')}
               error={errors.priceInput}
             />
+          </div>
 
-            <div className='col-span-1 md:col-span-2'>
-              <button
-                onClick={handleAddNeedWithValidation}
-                className='btn btn-primary w-full text-[#ffffff] flex items-center gap-2 transition-all duration-150 hover:scale-105'
-                aria-label='Tambahkan kebutuhan'
-              >
-                Tambahkan Kebutuhan
-              </button>
-            </div>
-          </motion.div>
+          <div className='mt-4'>
+            <button
+              type='button'
+              onClick={handleAddNeedWithValidation}
+              className='btn w-full py-3 h-auto bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-semibold text-sm border-0 shadow-sm transition-all flex items-center justify-center gap-2'
+            >
+              <span>Tambahkan ke Daftar Anggaran</span>
+              <Icon name='arrow-right' className='w-4 h-4' />
+            </button>
+          </div>
 
           {needs.length > 0 && (
-            <>
-              <div className='divider my-6' />
+            <div className='mt-8 pt-6 border-t border-slate-200'>
               <NeedsSection needs={needs} onRemoveNeed={handleRemoveNeed} />
-            </>
+            </div>
           )}
 
           {needs.length > 0 && (
-            <div className='mt-8'>
-              <h3 className='text-lg font-semibold text-charter-blue-600 mb-2'>
-                Masukkan Jumlah Deposito
+            <div className='mt-8 pt-6 border-t border-slate-200'>
+              <h3 className='text-base font-bold text-slate-900 mb-3'>
+                Masukkan Modal Deposito yang Direncanakan
               </h3>
               <InputField
-                label='Jumlah Deposito'
-                placeholder='Minimal 10.000.000'
+                label='Jumlah Deposito Pokok'
+                placeholder='100.000.000'
                 type='text'
+                prefix='Rp'
                 value={depositInput}
                 onChange={(e) => handleInputChange(e, setDepositInput, 'depositInput')}
                 error={errors.depositInput}
@@ -207,21 +176,22 @@ const BudgetPlannerSection = () => {
           )}
 
           {depositInput.trim() && !validateDepositAmount() && (
-            <DepositDropdownSection
-              filteredBanks={filteredBanks}
-              handleBankSelection={handleBankSelection}
-            />
+            <div className='mt-6'>
+              <DepositDropdownSection
+                filteredBanks={filteredBanks}
+                handleBankSelection={handleBankSelection}
+              />
+            </div>
           )}
 
           {recommendation && (
-            <>
-              <div className='divider my-6' />
+            <div className='mt-8 pt-6 border-t border-slate-200'>
               <RecommendationSection recommendation={recommendation} />
-            </>
+            </div>
           )}
-        </div>
-      </motion.div>
-    </motion.div>
+        </motion.div>
+      </div>
+    </motion.section>
   )
 }
 
