@@ -1,0 +1,3 @@
+# Cloudflare Pages Redirects
+/about          /tentang      301
+/transparency    /sumber-data  301

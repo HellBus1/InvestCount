@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import Footer from '@/components/Footer/Footer'
 import { containerVariants, childVariants } from '@/constants/animations'
 import Icon, { IconName } from '@/components/Icon/Icon'
+import { useSEO } from '@/hooks/useSEO'
 
 interface ValueItem {
   icon: IconName
@@ -10,6 +11,19 @@ interface ValueItem {
 }
 
 const AboutPage = () => {
+  useSEO({
+    title: 'Tentang InvestCount - Misi Literasi Deposito Jujur & Transparan',
+    description:
+      'Pelajari visi, prinsip independensi, dan profil pembuat InvestCount. Platform gratis tanpa iklan untuk menghitung bunga deposito bersih setelah pajak di Indonesia.',
+    canonicalUrl: '/tentang',
+    keywords: [
+      'tentang investcount',
+      'kalkulator deposito indonesia',
+      'syubban fakhriya',
+      'literasi keuangan'
+    ]
+  })
+
   const values: ValueItem[] = [
     {
       icon: 'shield-check',

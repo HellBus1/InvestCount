@@ -1,0 +1,36 @@
+# InvestCount
+> Kalkulator Deposito & Simulasi Bunga Bersih Perbankan Indonesia
+
+InvestCount (https://investtcount.mattrmost.com) adalah platform kalkulator dan komparasi deposito independen gratis di Indonesia. InvestCount membantu masyarakat, deposan, dan investor menghitung bunga deposito riil bersih setelah dipotong Pajak Penghasilan (PPh) Final sebesar 20%, membandingkan suku bunga puluhan bank umum dan bank digital, serta mensimulasikan perpanjangan otomatis (ARO, Non-ARO, dan ARO+).
+
+## Formula Perhitungan Bunga Deposito Indonesia
+1. **Bunga Kotor Bulanan**: `(Pokok × Suku Bunga Tahunan × Tenor Bulan) / 12`
+2. **Pajak PPh Final 20% (PP No. 131/2000)**:
+   - Saldo simpanan <= Rp7.500.000: Bebas Pajak (0%)
+   - Saldo simpanan > Rp7.500.000: Pajak 20% dari Bunga Kotor
+3. **Bunga Bersih Diterima**: `Bunga Kotor - Pajak 20%`
+4. **Return Riil (Fisher Equation)**: `Bunga Bersih Nominal - Laju Inflasi Tahunan`
+
+## Fitur Utama
+- **Kalkulator Deposito**: Simulasi bunga kotor, pajak, dan bunga bersih instan untuk tenor 1, 3, 6, dan 12 bulan.
+- **Komparasi Suku Bunga Bank**: Perbandingan suku bunga resmi terkini dari BCA, Mandiri, BRI, BNI, Seabank, Krom Bank, Bank Jago, Superbank, Allo Bank, hingga BPR.
+- **Simulasi ARO / ARO+**: Menghitung efek bunga bergulung majemuk (*compound interest*) jika bunga diinvestasikan kembali.
+- **Budget Planner & Alokasi Finansial**: Membantu pembagian dana darurat antara tabungan likuid dan deposito berjangka.
+- **Informasi Penjaminan LPS**: Referensi Tingkat Bunga Penjaminan (TBP) LPS (Bank Umum: 4,25%, BPR: 6,75%) dan batas plafon jaminan Rp2 Miliar per nasabah.
+
+## Panduan & Dokumentasi Edukasi
+- [Cara Menghitung Bunga Deposito Bank](https://investtcount.mattrmost.com/blog/cara-menghitung-bunga-deposito): Rumus lengkap, pajak 20%, dan contoh kasus riil.
+- [Simulasi Deposito Bank 2026](https://investtcount.mattrmost.com/blog/simulasi-deposito-lengkap): Tabel simulasi bunga saldo 10 Juta, 50 Juta, dan 100 Juta.
+- [Daftar Suku Bunga Deposito Bank Tertinggi 2026](https://investtcount.mattrmost.com/blog/bunga-deposito-bank-indonesia-2026): Perbandingan suku bunga bank umum vs bank digital.
+- [Mengenal Deposito ARO, Non-ARO, dan ARO+](https://investtcount.mattrmost.com/blog/deposito-aro-vs-non-aro): Perbedaan sistem perpanjangan otomatis dan efek compounding.
+- [Pajak Bunga Deposito 20%](https://investtcount.mattrmost.com/blog/pajak-deposito-20-persen): Landasan hukum PPh Final, batas bebas pajak Rp7,5 Juta, dan pelaporan SPT.
+- [Deposito vs Tabungan](https://investtcount.mattrmost.com/blog/deposito-vs-tabungan): Perbedaan bunga, biaya admin, dan strategi alokasi dana.
+- [Pengaruh Inflasi terhadap Bunga Deposito](https://investtcount.mattrmost.com/blog/inflasi-dan-deposito): Menghitung daya beli riil melawan inflasi tahunan.
+- [Deposito BPR vs Bank Umum](https://investtcount.mattrmost.com/blog/deposito-bpr-vs-bank-umum): Analisis bunga hingga 6,75% p.a. dan keamanan penjaminan LPS.
+- [Strategi Tangga Deposito (Deposit Laddering)](https://investtcount.mattrmost.com/blog/strategi-tangga-deposito): Trik mendapatkan bunga maksimal sekaligus likuiditas rutin.
+
+## Sumber Data & Legalitas
+- Otoritas Jasa Keuangan (OJK): https://www.ojk.go.id
+- Lembaga Penjamin Simpanan (LPS): https://www.lps.go.id
+- Bank Indonesia (BI): https://www.bi.go.id
+- Laman transparansi resmi masing-masing perbankan di Indonesia

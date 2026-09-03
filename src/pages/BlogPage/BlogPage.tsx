@@ -3,51 +3,30 @@ import { Link } from 'react-router-dom'
 import Footer from '@/components/Footer/Footer'
 import { containerVariants, childVariants } from '@/constants/animations'
 import Icon from '@/components/Icon/Icon'
-
-interface BlogPost {
-  slug: string
-  title: string
-  description: string
-  date: string
-  readTime: string
-  category: string
-  image?: string
-}
-
-const blogPosts: BlogPost[] = [
-  {
-    slug: 'cara-menghitung-bunga-deposito',
-    title: 'Bagaimana Cara Menghitung Bunga Deposito Bersih?',
-    description:
-      'Panduan praktis menghitung bunga deposito bank setelah dipotong pajak 20% beserta simulasi perhitungan lengkap.',
-    date: '2025-11-27',
-    readTime: '5 menit',
-    category: 'Dasar Deposito',
-    image: '/assets/blog/cara-hitung-deposito.jpg'
-  },
-  {
-    slug: 'deposito-vs-tabungan',
-    title: 'Deposito vs Tabungan Reguler: Mana yang Lebih Menguntungkan?',
-    description:
-      'Perbandingan komprehensif antara tabungan biasa dan deposito berjangka untuk alokasi dana darurat atau simpanan jangka menengah.',
-    date: '2025-11-27',
-    readTime: '6 menit',
-    category: 'Dasar Deposito',
-    image: '/assets/blog/deposito-vs-tabungan.jpg'
-  },
-  {
-    slug: 'inflasi-dan-deposito',
-    title: 'Dampak Inflasi terhadap Nilai Riil Bunga Deposito',
-    description:
-      'Memahami cara kerja inflasi terhadap daya beli imbal hasil deposito dan strategi mengoptimalkan return investasi Anda.',
-    date: '2025-11-27',
-    readTime: '7 menit',
-    category: 'Strategi Investasi',
-    image: '/assets/blog/inflasi-deposito.jpg'
-  }
-]
+import { blogPosts } from '@/data/blogPosts'
+import { useSEO } from '@/hooks/useSEO'
 
 const BlogPage = () => {
+  useSEO({
+    title: 'Blog & Panduan Finansial Deposito Indonesia | InvestCount',
+    description:
+      'Kumpulan artikel edukatif, panduan praktis menghitung bunga deposito bank, perbandingan suku bunga, regulasi pajak PPh 20%, dan tips investasi cerdas.',
+    canonicalUrl: '/blog',
+    keywords: [
+      'blog deposito',
+      'panduan deposito',
+      'edukasi perbankan',
+      'simulasi deposito',
+      'bunga deposito 2026'
+    ],
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'Blog Edukasi & Panduan Deposito InvestCount',
+      url: 'https://investtcount.mattrmost.com/blog',
+      description: 'Kumpulan artikel edukatif seputar deposito dan keuangan perbankan di Indonesia.'
+    }
+  })
   return (
     <div className='w-full min-h-screen flex flex-col bg-slate-50'>
       {/* Hero */}

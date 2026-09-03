@@ -14,7 +14,7 @@ const Footer = () => {
         {/* Main Grid */}
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-10'>
           {/* Brand Col */}
-          <div className='sm:col-span-2 space-y-3.5'>
+          <div className='sm:col-span-2 lg:col-span-1 space-y-3.5'>
             <div className='flex items-center gap-2.5'>
               <img
                 src={getImagePath(WEB_ICON)}
@@ -71,6 +71,55 @@ const Footer = () => {
                   className='text-slate-400 hover:text-brand-400 transition-colors inline-block py-0.5'
                 >
                   Sumber Data & Metode
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Popular Blog Guides */}
+          <div>
+            <h3 className='text-xs font-bold text-white tracking-wider uppercase mb-3.5'>
+              Panduan Populer
+            </h3>
+            <ul className='space-y-2 text-xs sm:text-sm'>
+              <li>
+                <Link
+                  to='/blog/cara-menghitung-bunga-deposito'
+                  className='text-slate-400 hover:text-brand-400 transition-colors inline-block py-0.5'
+                >
+                  Cara Hitung Bunga Deposito
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='/blog/simulasi-deposito-lengkap'
+                  className='text-slate-400 hover:text-brand-400 transition-colors inline-block py-0.5'
+                >
+                  Simulasi Deposito 10jt - 100jt
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='/blog/bunga-deposito-bank-indonesia-2026'
+                  className='text-slate-400 hover:text-brand-400 transition-colors inline-block py-0.5'
+                >
+                  Bunga Deposito Tertinggi 2026
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='/blog/pajak-deposito-20-persen'
+                  className='text-slate-400 hover:text-brand-400 transition-colors inline-block py-0.5'
+                >
+                  Pajak Bunga Deposito 20%
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='/blog/deposito-aro-vs-non-aro'
+                  className='text-slate-400 hover:text-brand-400 transition-colors inline-block py-0.5'
+                >
+                  Panduan Deposito ARO & ARO+
                 </Link>
               </li>
             </ul>

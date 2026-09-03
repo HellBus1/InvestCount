@@ -68,12 +68,16 @@ To ensure that future AI coding sessions (using Google Antigravity, Cursor, Copi
 
 ---
 
-## 🆕 What's New in v1.6.0
+## 🆕 What's New in v1.6.0 (SEO & Pre-rendering Engine Overhaul)
 
+- ⚡ **SSG Pre-rendering Engine**: Solved the client-side SPA crawlability bottleneck by implementing an automated static site generator (`scripts/prerender.js`). Generates 15 fully rendered static HTML pages at build time with progressive client hydration (`ReactDOM.hydrateRoot`).
+- 🎯 **Targeted On-Page SEO**: Upgraded the homepage with an exact-match `<h1>` (*"Kalkulator Deposito: Hitung Bunga Bersih & Bandingkan Semua Bank"*), a 3-pillar comparison guide, and an interactive FAQ accordion powered by `FAQPage` schema markup.
+- 📚 **Expanded Content Cluster (3 → 10 Articles)**: Scaled the educational blog to 10 comprehensive, 2,000+ word guides targeting high-impression queries from Google Search Console.
+- 🤖 **AI SEO Readiness (`public/llms.txt`)**: Implemented `llms.txt` adhering to Generative Engine Optimization (GEO/AEO) standards for citations in ChatGPT, Perplexity, and Claude.
+- 🗺️ **Automated Sitemap & 301 Redirects**: Automated XML sitemap generation on build with canonical URLs and Cloudflare Pages `_redirects` (`/about` → `/tentang`, `/transparency` → `/sumber-data`).
+- 🖼️ **Social Sharing Banner (Open Graph)**: Added a custom 1200x630 branded OG preview image (`public/og/og-image.jpg`) for rich previews on WhatsApp, Twitter, and LinkedIn.
 - 🧭 **Sticky Glassmorphic Navbar**: Added [`Navbar.tsx`](src/components/Navbar/Navbar.tsx) with a one-tap mobile "Kalkulator" button and direct home navigation.
-- 📱 **Mobile-Optimized Footer**: Enhanced footer grid with dedicated bottom padding to avoid overlap with the floating QuickNav button on small viewports.
-- 🖼️ **Public Asset Relocation**: Moved static blog images outside `src/` to [`public/assets/blog/`](public/assets/blog/) for standard Vite static asset serving.
-- 📸 **Before & After Visual Audit**: Real screenshots comparing the legacy template vs. the new design system stored in `linkedin-posts/images/` (`before/` and `after/`).
+- 📱 **Mobile-Optimized Footer**: Enhanced footer grid with popular guide deep-links and dedicated padding to avoid QuickNav overlap.
 
 ---
 
@@ -83,7 +87,7 @@ To ensure that future AI coding sessions (using Google Antigravity, Cursor, Copi
 - **Real-time Deposit Calculation** – Calculate interest, tax deductions (20%), and net returns instantly
 - **ARO Support** – Simulate Automatic Roll Over (ARO) and ARO+ with compounding effects
 - **Multiple Deposit Types** – Support for Non-ARO, ARO, and ARO+ calculations
-- **Tax Calculation** – Automatic 20% tax deduction as per Indonesian regulations
+- **Tax Calculation** – Automatic 20% tax deduction as per Indonesian regulations (PP No. 131/2000)
 - **Flexible Tenors** – Calculate for 1, 3, 6, or 12-month periods
 
 ### 📊 Bank Comparison
@@ -102,13 +106,20 @@ To ensure that future AI coding sessions (using Google Antigravity, Cursor, Copi
 - **Safety Guidelines** – Understand deposit safety limits (up to Rp 2 billion per bank)
 - **Educational Content** – Clear explanations of deposit protection
 
-### 📝 Financial Education Blog
-- **Expert Articles** – Learn about deposits, taxes, and financial planning
-- **SEO-Optimized Content** – Easy-to-find answers to common questions
+### 📝 Financial Education Blog (10 Complete Guides)
+- **Expert Articles** – In-depth guides without financial jargon
+- **SEO & Search-Intent Optimized** – Pre-rendered HTML with rich schema markup
 - **Current Topics**:
-  - Cara Menghitung Bunga Deposito
-  - Deposito vs Tabungan
-  - Inflasi dan Deposito
+  1. Cara Menghitung Bunga Deposito Bank (Rumus & Pajak 20%)
+  2. Simulasi Deposito Bank 2026 (Saldo 10 Juta, 50 Juta, 100 Juta)
+  3. Daftar Suku Bunga Deposito Bank Tertinggi 2026
+  4. Panduan Menggunakan Kalkulator Deposito Online
+  5. Mengenal Deposito ARO, Non-ARO, dan ARO+ (Compounding)
+  6. Pajak Bunga Deposito 20% (Aturan PPh Final Pasal 4 Ayat 2)
+  7. Deposito vs Tabungan Reguler
+  8. Pengaruh Inflasi terhadap Nilai Riil Bunga Deposito
+  9. Deposito BPR vs Bank Umum (Bunga & Jaminan LPS)
+  10. Strategi Tangga Deposito (Deposit Laddering)
 
 ### 🎨 User Experience
 - **Responsive Design** – Seamless experience on mobile, tablet, and desktop
@@ -179,10 +190,11 @@ npm run dev
 
 The app will be available at `http://localhost:5173`
 
-4. **Build for production**
+4. **Build for production (Full SSG & Prerendering)**
 ```bash
 npm run build
 ```
+*Executes client bundle, SSR compilation, and pre-renders static HTML for all 15 routes into `dist/`.*
 
 5. **Preview production build**
 ```bash
@@ -193,13 +205,16 @@ npm run preview
 
 | Script | Description |
 |--------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
-| `npm run lint` | Run ESLint |
-| `npm run lint:fix` | Fix ESLint errors |
+| `npm run dev` | Start local Vite development server |
+| `npm run build` | Full production build: client + SSR + SSG pre-rendering |
+| `npm run build:client` | Type-check (`tsc -b`) and bundle client assets to `dist/` |
+| `npm run build:ssr` | Bundle SSR server entry point (`src/entry-server.tsx`) |
+| `npm run build:prerender` | Generate static HTML for all routes & create fresh `sitemap.xml` |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint across codebase |
+| `npm run lint:fix` | Automatically fix ESLint errors |
 | `npm run format` | Format code with Prettier |
-| `npm test` | Run Jest tests |
+| `npm test` | Run Jest unit tests for deposit calculation formulas |
 
 ---
 

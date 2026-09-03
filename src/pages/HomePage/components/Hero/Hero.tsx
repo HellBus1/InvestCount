@@ -33,7 +33,7 @@ const Hero = (props: HeroProps) => {
               variants={childVariants}
             >
               <Icon name='sparkles' className='w-4 h-4 text-brand-600' />
-              <span>Kalkulator Deposito Indonesia 2025</span>
+              <span>Kalkulator Deposito Indonesia 2026</span>
             </motion.div>
 
             {/* Headline */}
@@ -41,7 +41,8 @@ const Hero = (props: HeroProps) => {
               className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-slate-900 tracking-tight leading-[1.15]'
               variants={childVariants}
             >
-              Hitung <span className='text-brand-600'>Bunga Bersih</span> Deposito Tanpa Rahasia
+              Kalkulator Deposito: Hitung <span className='text-brand-600'>Bunga Bersih</span> &
+              Bandingkan Semua Bank
             </motion.h1>
 
             {/* Subtitle */}
