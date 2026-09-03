@@ -1,8 +1,9 @@
-import { motion } from 'framer-motion' // Import Framer Motion
+import { motion } from 'framer-motion'
 import DepositCalculation from './DepositCalculation/DepositCalculation'
 import DepositTypeSelector from './DepositTypeSelector'
 import { useState } from 'react'
 import { DepositType } from '@/constants/DepositType'
+import { containerVariants, childVariants } from '@/constants/animations'
 
 interface DepositSectionProps {
   depositSectionRef: React.MutableRefObject<HTMLDivElement | null>
@@ -12,58 +13,41 @@ const DepositSection = (props: DepositSectionProps) => {
   const { depositSectionRef } = props
   const [selectedOption, setSelectedOption] = useState(DepositType.NONARO)
 
-  // Animation variants for the section
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, ease: 'easeOut', staggerChildren: 0.1 }
-    }
-  }
-
-  const childVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: 'easeOut' } }
-  }
-
   return (
-    <motion.div
-      className='w-full py-10'
+    <motion.section
+      className='w-full py-16 md:py-24 bg-slate-50'
       ref={depositSectionRef}
       initial='hidden'
-      whileInView='visible' // Trigger animation when in view
-      viewport={{ once: true, amount: 0.2 }} // Animate only once when 20% of the section is visible
+      whileInView='visible'
+      viewport={{ once: true, amount: 0.15 }}
       variants={containerVariants}
     >
-      <motion.h1
-        className='text-center text-2xl md:text-3xl font-bold text-charter-blue-600 mt-8 mb-4'
-        variants={childVariants} // Animate the title
-      >
-        Hitung Pertumbuhan Deposito Kamu
-      </motion.h1>
-      <motion.p
-        className='text-center text-charter-blue text-lg md:text-xl mx-4 md:mx-20 lg:mx-36 mx-12'
-        variants={childVariants} // Animate the description
-      >
-        Pilih jenis deposito (Non-ARO, ARO, atau ARO+) dan lihat bagaimana tabungan Kamu berkembang
-        dari waktu ke waktu.
-      </motion.p>
-      <motion.div className='flex flex-col mb-16' variants={childVariants}>
-        <motion.div className='mx-10 md:mx-20 lg:mx-36 mt-10' variants={childVariants}>
-          <DepositTypeSelector
-            selectedOption={selectedOption}
-            setSelectedOption={(value) => setSelectedOption(value)}
-          />
+      <div className='layout'>
+        {/* Section Header */}
+        <motion.div className='text-center max-w-2xl mx-auto mb-10' variants={childVariants}>
+          <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold font-display text-slate-900 mb-3'>
+            Kalkulator Simulasi Deposito
+          </h2>
+          <p className='text-slate-600 text-sm md:text-base leading-relaxed'>
+            Pilih jenis perpanjangan dan hitung pertumbuhan saldo Anda secara instan dan akurat.
+          </p>
         </motion.div>
-        <motion.div
-          className='mx-10 md:mx-20 lg:mx-36 mt-8'
-          variants={childVariants} // Animate the DepositCalculation
-        >
-          <DepositCalculation selectedOption={selectedOption} />
-        </motion.div>
-      </motion.div>
-    </motion.div>
+
+        {/* Calculator Wrapper */}
+        <div className='max-w-4xl mx-auto space-y-6'>
+          <motion.div variants={childVariants}>
+            <DepositTypeSelector
+              selectedOption={selectedOption}
+              setSelectedOption={(value) => setSelectedOption(value)}
+            />
+          </motion.div>
+
+          <motion.div variants={childVariants}>
+            <DepositCalculation selectedOption={selectedOption} />
+          </motion.div>
+        </div>
+      </div>
+    </motion.section>
   )
 }
 

@@ -7,7 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Theme Color for Mobile -->
-  <meta name="theme-color" content="#536E96" />
+  <meta name="theme-color" content="#059669" />
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- SEO Meta Tags -->
   <title>Kalkulator Deposito Indonesia - Hitung Bunga Bersih Gratis | InvestCount</title>
@@ -19,10 +24,10 @@
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph for Social Sharing -->
-  <meta property="og:title" content="Kalkulator Deposito Indonesia - Hitung Bunga Bersih Gratis" />
+  <meta property="og:title" content="Kalkulator Deposito Indonesia - Hitung Bunga Bersih & Bandingkan Semua Bank | InvestCount" />
   <meta property="og:description"
     content="Kalkulator deposito gratis untuk menghitung bunga bersih setelah pajak 20%. Bandingkan suku bunga dari berbagai bank Indonesia." />
-  <meta property="og:image" content="https://investtcount.mattrmost.com/assets/web_icon.svg" />
+  <meta property="og:image" content="https://investtcount.mattrmost.com/og/og-image.jpg" />
   <meta property="og:site_name" content="InvestCount" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="id_ID" />
@@ -30,13 +35,25 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kalkulator Deposito Indonesia - Hitung Bunga Bersih Gratis" />
+  <meta name="twitter:title" content="Kalkulator Deposito Indonesia - Hitung Bunga Bersih & Bandingkan Semua Bank | InvestCount" />
   <meta name="twitter:description"
     content="Kalkulator deposito gratis untuk menghitung bunga bersih setelah pajak 20%. Bandingkan suku bunga dari berbagai bank Indonesia." />
-  <meta name="twitter:image" content="https://investtcount.mattrmost.com/assets/web_icon.svg" />
+  <meta name="twitter:image" content="https://investtcount.mattrmost.com/og/og-image.jpg" />
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://investtcount.mattrmost.com/" />
+
+  <!-- Google tag (gtag.js) - Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Replace G-PLACEHOLDER with your actual GA4 Measurement ID in production
+    if (window.location.hostname !== 'localhost') {
+      gtag('config', 'G-PLACEHOLDER');
+    }
+  </script>
 
   <!-- Structured Data: WebSite -->
   <script type="application/ld+json">
@@ -46,11 +63,7 @@
       "name": "InvestCount",
       "url": "https://investtcount.mattrmost.com/",
       "inLanguage": "id-ID",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://investtcount.mattrmost.com/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "description": "Kalkulator deposito gratis untuk menghitung bunga bersih setelah pajak 20% dan pembanding suku bunga bank Indonesia."
     }
     </script>
 
