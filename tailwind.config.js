@@ -6,51 +6,92 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+      },
       colors: {
+        // Modern FinTech Brand Tokens
+        brand: {
+          50: "#F0FDF8",
+          100: "#DCFCE7",
+          200: "#BBF7D0",
+          300: "#86EFAC",
+          400: "#34D399",
+          500: "#10B981",
+          600: "#059669",
+          700: "#047857",
+          800: "#065F46",
+          900: "#064E3B",
+          DEFAULT: "#059669"
+        },
+        slate: {
+          50: "#F8FAFC",
+          100: "#F1F5F9",
+          200: "#E2E8F0",
+          300: "#CBD5E1",
+          400: "#94A3B8",
+          500: "#64748B",
+          600: "#475569",
+          700: "#334155",
+          800: "#1E293B",
+          900: "#0F172A",
+          DEFAULT: "#0F172A"
+        },
+        // Backward-compatibility aliasing for seamless refactoring
         'jess': {
-          "100": "#E1F4EC",
-          "200": "#B3E4D1",
-          "300": "#80D2B4",
-          "400": "#4CCF97",
-          "DEFAULT": "#20B486",
-          "600": "#1A946D",
-          "700": "#137653",
-          "800": "#0C573A",
-          "900": "#063924"
+          "100": "#DCFCE7",
+          "200": "#BBF7D0",
+          "300": "#86EFAC",
+          "400": "#34D399",
+          "DEFAULT": "#059669",
+          "600": "#047857",
+          "700": "#065F46",
+          "800": "#064E3B",
+          "900": "#022c22"
         },
         'charter-blue': {
-          "100": "#E0E6EF",
-          "200": "#BCC9DD",
-          "300": "#99ABCC",
-          "400": "#7F90B7",
-          "DEFAULT": "#536E96",
-          "600": "#4A6387",
-          "700": "#3F5574",
-          "800": "#364962",
-          "900": "#29374A"
+          "100": "#F1F5F9",
+          "200": "#E2E8F0",
+          "300": "#CBD5E1",
+          "400": "#94A3B8",
+          "DEFAULT": "#475569",
+          "600": "#334155",
+          "700": "#1E293B",
+          "800": "#0F172A",
+          "900": "#020617"
         },
         'red': {
-          "100": "#FDE4E4",
-          "200": "#FBB8B8",
-          "300": "#F88D8D",
-          "400": "#F46868",
-          "DEFAULT": "#F03737",
-          "600": "#D83232",
-          "700": "#B82C2C",
-          "800": "#972626",
-          "900": "#701D1D"
+          "100": "#FEE2E2",
+          "200": "#FECACA",
+          "300": "#FCA5A5",
+          "400": "#F87171",
+          "DEFAULT": "#EF4444",
+          "600": "#DC2626",
+          "700": "#B91C1C",
+          "800": "#991B1B",
+          "900": "#7F1D1D"
         },
         'green': {
-          "100": "#E6F9E6",
-          "200": "#C1F0C1",
-          "300": "#99E699",
-          "400": "#73DB73",
-          "DEFAULT": "#4CD24C",
-          "600": "#43BD43",
-          "700": "#389F38",
-          "800": "#2D802D",
-          "900": "#206020"
+          "100": "#DCFCE7",
+          "200": "#BBF7D0",
+          "300": "#86EFAC",
+          "400": "#34D399",
+          "DEFAULT": "#10B981",
+          "600": "#059669",
+          "700": "#047857",
+          "800": "#065F46",
+          "900": "#064E3B"
         }
+      },
+      boxShadow: {
+        'card': '0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.04)',
+        'hover': '0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04)',
+        'elevated': '0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04)',
+      },
+      borderRadius: {
+        'card': '1rem',
       }
     }
   },
@@ -58,8 +99,19 @@ export default {
   plugins: [require("daisyui"), require("@tailwindcss/typography")],
   daisyui: {
     themes: [
-      "nord"
+      {
+        nord: {
+          ...require("daisyui/src/theming/themes")["nord"],
+          "primary": "#059669",
+          "primary-content": "#ffffff",
+          "secondary": "#0F172A",
+          "accent": "#10B981",
+          "neutral": "#1E293B",
+          "base-100": "#ffffff",
+          "base-200": "#F8FAFC",
+          "base-300": "#F1F5F9",
+        }
+      }
     ]
   }
 }
-

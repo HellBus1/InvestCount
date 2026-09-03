@@ -1,6 +1,8 @@
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Footer from '@/components/Footer/Footer'
+import { containerVariants, childVariants } from '@/constants/animations'
+import Icon from '@/components/Icon/Icon'
 
 interface BlogPost {
   slug: string
@@ -12,201 +14,145 @@ interface BlogPost {
   image?: string
 }
 
-// Blog posts data - will be populated as we write articles
 const blogPosts: BlogPost[] = [
   {
     slug: 'cara-menghitung-bunga-deposito',
-    title: 'Bagaimana Cara Menghitung Bunga Deposito?',
+    title: 'Bagaimana Cara Menghitung Bunga Deposito Bersih?',
     description:
-      'Panduan lengkap menghitung bunga deposito dengan contoh praktis dan formula yang mudah dipahami.',
+      'Panduan praktis menghitung bunga deposito bank setelah dipotong pajak 20% beserta simulasi perhitungan lengkap.',
     date: '2025-11-27',
     readTime: '5 menit',
     category: 'Dasar Deposito',
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Fmenghitung_bunga_deposito.jpg?alt=media&token=4597d989-2f19-4e83-972a-a45a31d9e82e'
+    image: '/assets/blog/cara-hitung-deposito.jpg'
   },
   {
     slug: 'deposito-vs-tabungan',
-    title: 'Deposito vs Tabungan: Apa Bedanya?',
+    title: 'Deposito vs Tabungan Reguler: Mana yang Lebih Menguntungkan?',
     description:
-      'Panduan lengkap memahami perbedaan deposito dan tabungan, kelebihan dan kekurangan masing-masing, serta mana yang lebih cocok untuk kebutuhan finansial Anda.',
+      'Perbandingan komprehensif antara tabungan biasa dan deposito berjangka untuk alokasi dana darurat atau simpanan jangka menengah.',
     date: '2025-11-27',
     readTime: '6 menit',
     category: 'Dasar Deposito',
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Fdeposito_vs_tabungan.jpg?alt=media&token=e0682030-8083-4a11-a5d1-18c32a19c4fc'
+    image: '/assets/blog/deposito-vs-tabungan.jpg'
   },
   {
     slug: 'inflasi-dan-deposito',
-    title: 'Inflasi dan Dampaknya pada Deposito Anda',
+    title: 'Dampak Inflasi terhadap Nilai Riil Bunga Deposito',
     description:
-      'Memahami bagaimana inflasi mempengaruhi nilai riil deposito Anda dan strategi untuk melindungi daya beli uang Anda dari erosi inflasi.',
+      'Memahami cara kerja inflasi terhadap daya beli imbal hasil deposito dan strategi mengoptimalkan return investasi Anda.',
     date: '2025-11-27',
     readTime: '7 menit',
     category: 'Strategi Investasi',
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/personalwebsite-af6e7.appspot.com/o/projects%2Finflasi_dan_deposito.jpg?alt=media&token=ff3ac48b-5308-48ed-ad2c-735c356bb9b1'
+    image: '/assets/blog/inflasi-deposito.jpg'
   }
 ]
 
 const BlogPage = () => {
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: 'easeOut', staggerChildren: 0.1 }
-    }
-  }
-
-  const childVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: 'easeOut' } }
-  }
-
   return (
-    <>
-      {/* Hero Section */}
-      <motion.div
-        className='w-full bg-base-200 pt-20 pb-16 relative overflow-hidden'
+    <div className='w-full min-h-screen flex flex-col bg-slate-50'>
+      {/* Hero */}
+      <motion.section
+        className='w-full pt-20 pb-14 bg-gradient-to-b from-white via-brand-50/20 to-slate-50 border-b border-slate-200/80'
         initial='hidden'
         animate='visible'
         variants={containerVariants}
       >
-        {/* Decorative Background Elements */}
-        <div className='absolute top-0 right-0 w-96 h-96 bg-jess opacity-5 rounded-full -mr-48 -mt-48'></div>
-        <div className='absolute bottom-0 left-0 w-80 h-80 bg-charter-blue-600 opacity-5 rounded-full -ml-40 -mb-40'></div>
+        <div className='layout'>
+          <div className='max-w-3xl'>
+            <motion.div
+              className='inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-semibold mb-4'
+              variants={childVariants}
+            >
+              <Icon name='book-open' className='w-3.5 h-3.5' />
+              <span>Edukasi & Wawasan Finansial</span>
+            </motion.div>
 
-        <div className='max-w-7xl mx-auto px-10 relative z-10'>
-          <motion.div className='inline-block mb-4' variants={childVariants}>
-            <span className='px-4 py-2 bg-jess/10 text-jess-700 rounded-full text-sm font-medium border border-jess/20'>
-              📚 Edukasi Finansial
-            </span>
-          </motion.div>
+            <motion.h1
+              className='text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-900 tracking-tight mb-4'
+              variants={childVariants}
+            >
+              Panduan <span className='text-brand-600'>Deposito & Finansial</span> Ringan
+            </motion.h1>
 
-          <motion.h1
-            className='text-4xl md:text-6xl font-bold text-charter-blue-800 mb-6 leading-tight'
-            variants={childVariants}
-          >
-            Belajar <span className='text-jess'>Finansial Ringan</span>
-          </motion.h1>
-          <motion.p
-            className='text-base md:text-lg font-medium text-charter-blue max-w-2xl mb-8'
-            variants={childVariants}
-          >
-            Artikel-artikel praktis untuk membantu Anda memahami deposito dan mengelola keuangan
-            dengan lebih baik. Gratis, tanpa jargon, langsung ke intinya.
-          </motion.p>
+            <motion.p
+              className='text-base sm:text-lg text-slate-600 leading-relaxed'
+              variants={childVariants}
+            >
+              Artikel terkurasi tanpa jargon rumit untuk membantu Anda membuat keputusan penempatan
+              dana terbaik.
+            </motion.p>
+          </div>
         </div>
-      </motion.div>
+      </motion.section>
 
-      {/* Blog Posts Grid */}
-      <motion.div
-        className='w-full bg-white pt-10 pb-20'
+      {/* Grid */}
+      <motion.section
+        className='py-16 layout'
         initial='hidden'
         whileInView='visible'
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.15 }}
         variants={containerVariants}
       >
-        <div className='max-w-7xl mx-auto px-10'>
-          {blogPosts.length === 0 ? (
-            <div className='bg-base-200 p-12 rounded-2xl border border-charter-blue text-center'>
-              <p className='text-charter-blue-600 text-lg mb-4'>
-                Artikel sedang dalam proses penulisan. Segera hadir!
-              </p>
-              <Link to='/' className='btn btn-primary text-white'>
-                Kembali ke Kalkulator
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+          {blogPosts.map((post) => (
+            <motion.article key={post.slug} variants={childVariants}>
+              <Link
+                to={`/blog/${post.slug}`}
+                className='group block rounded-2xl bg-white border border-slate-200 shadow-card hover:shadow-hover hover:border-brand-300 transition-all overflow-hidden h-full flex flex-col'
+              >
+                {/* Thumbnail */}
+                <div className='aspect-video bg-slate-100 overflow-hidden relative'>
+                  {post.image ? (
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
+                      loading='lazy'
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none'
+                      }}
+                    />
+                  ) : null}
+                  <span className='absolute top-3 left-3 px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-semibold'>
+                    {post.category}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className='p-6 flex flex-col flex-grow'>
+                  <div className='flex items-center gap-2 text-xs text-slate-500 mb-2.5'>
+                    <span>
+                      {new Date(post.date).toLocaleDateString('id-ID', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}
+                    </span>
+                    <span>•</span>
+                    <span>{post.readTime} baca</span>
+                  </div>
+
+                  <h2 className='text-lg font-bold text-slate-900 group-hover:text-brand-600 transition-colors line-clamp-2 mb-2'>
+                    {post.title}
+                  </h2>
+
+                  <p className='text-xs sm:text-sm text-slate-600 line-clamp-2 mb-4 leading-relaxed flex-grow'>
+                    {post.description}
+                  </p>
+
+                  <div className='pt-3 border-t border-slate-100 flex items-center text-xs font-semibold text-brand-600 group-hover:translate-x-1 transition-transform gap-1'>
+                    <span>Baca Selengkapnya</span>
+                    <Icon name='arrow-right' className='w-3.5 h-3.5' />
+                  </div>
+                </div>
               </Link>
-            </div>
-          ) : (
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-              {blogPosts.map((post) => (
-                <Link
-                  key={post.slug}
-                  to={`/blog/${post.slug}`}
-                  className='group bg-white rounded-2xl shadow-sm border border-charter-blue overflow-hidden hover:shadow-md transition-all duration-300 flex flex-col h-full'
-                >
-                  {/* Image Placeholder if no image */}
-                  <div className='h-48 bg-base-200 flex items-center justify-center overflow-hidden relative'>
-                    {post.image ? (
-                      <img
-                        src={post.image}
-                        alt={post.title}
-                        className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none'
-                        }}
-                      />
-                    ) : (
-                      <span className='text-4xl'>📚</span>
-                    )}
-                    <div className='absolute top-4 left-4'>
-                      <span className='badge badge-primary text-white font-medium'>
-                        {post.category}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className='p-6 flex flex-col flex-grow'>
-                    <div className='flex items-center gap-2 text-xs text-charter-blue-400 mb-3'>
-                      <span>
-                        {new Date(post.date).toLocaleDateString('id-ID', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
-                      </span>
-                      <span>•</span>
-                      <span>{post.readTime} baca</span>
-                    </div>
-
-                    <h2 className='text-xl font-bold text-charter-blue-600 mb-3 group-hover:text-jess transition-colors line-clamp-2'>
-                      {post.title}
-                    </h2>
-
-                    <p className='text-charter-blue text-sm mb-4 line-clamp-3 flex-grow'>
-                      {post.description}
-                    </p>
-
-                    <div className='mt-auto pt-4 border-t border-gray-100 flex items-center text-jess font-medium text-sm group-hover:translate-x-1 transition-transform'>
-                      Baca Selengkapnya →
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
-
-          {/* CTA Section */}
-          <motion.div className='mt-20' variants={childVariants}>
-            <div className='bg-charter-blue-800 p-8 md:p-12 rounded-2xl text-white text-center relative overflow-hidden'>
-              {/* Decorative circle */}
-              <div className='absolute -top-24 -right-24 w-64 h-64 bg-white opacity-5 rounded-full'></div>
-              <div className='absolute -bottom-24 -left-24 w-64 h-64 bg-white opacity-5 rounded-full'></div>
-
-              <div className='relative z-10'>
-                <h2 className='text-2xl md:text-3xl font-bold mb-4'>
-                  Siap Menghitung Deposito Anda?
-                </h2>
-                <p className='text-lg mb-8 opacity-90 max-w-2xl mx-auto'>
-                  Gunakan kalkulator deposito gratis kami untuk mengetahui bunga bersih yang Anda
-                  terima. Akurat, cepat, dan mudah.
-                </p>
-                <Link
-                  to='/'
-                  className='btn btn-primary bg-white text-charter-blue-800 hover:bg-gray-100 border-none'
-                >
-                  Coba Kalkulator Gratis
-                </Link>
-              </div>
-            </div>
-          </motion.div>
+            </motion.article>
+          ))}
         </div>
-      </motion.div>
+      </motion.section>
 
       <Footer />
-    </>
+    </div>
   )
 }
 

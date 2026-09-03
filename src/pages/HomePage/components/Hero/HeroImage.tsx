@@ -5,15 +5,17 @@ const HeroImage = () => {
   const GROW_MONEY_IMAGE_BACK = '/assets/images/grow_money_back.jpg'
 
   return (
-    <div className='relative my-10'>
-      <img
-        src={getImagePath(GROW_MONEY_IMAGE)}
-        className='max-w-sm rounded-lg w-72'
-        alt='Grow Money'
-      />
+    <div className='relative flex items-center justify-center w-full py-4 sm:py-6'>
+      {/* Background Rotated Card */}
       <img
         src={getImagePath(GROW_MONEY_IMAGE_BACK)}
-        className='max-w-sm rounded-lg shadow-2xl w-74 absolute top-0 z-[-99] rotate-12 w-72'
+        className='w-56 sm:w-64 md:w-72 rounded-2xl shadow-xl absolute rotate-6 opacity-75 object-cover'
+        alt='Grow Money Background'
+      />
+      {/* Foreground Main Card */}
+      <img
+        src={getImagePath(GROW_MONEY_IMAGE)}
+        className='w-56 sm:w-64 md:w-72 rounded-2xl shadow-2xl relative z-10 border-2 border-white/90 object-cover'
         alt='Grow Money'
       />
     </div>
