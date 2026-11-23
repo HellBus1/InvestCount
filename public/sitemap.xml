@@ -6,91 +6,67 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://investtcount.mattrmost.com/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://investtcount.mattrmost.com/kalkulator-deposito</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://investtcount.mattrmost.com/blog</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://investtcount.mattrmost.com/tentang</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://investtcount.mattrmost.com/sumber-data</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://investtcount.mattrmost.com/blog/cara-menghitung-bunga-deposito</loc>
-    <lastmod>2026-09-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://investtcount.mattrmost.com/blog/simulasi-deposito-lengkap</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://investtcount.mattrmost.com/blog/bunga-deposito-bank-indonesia-2026</loc>
-    <lastmod>2026-09-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://investtcount.mattrmost.com/blog/kalkulator-deposito-panduan</loc>
-    <lastmod>2026-09-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://investtcount.mattrmost.com/blog/deposito-aro-vs-non-aro</loc>
-    <lastmod>2026-09-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://investtcount.mattrmost.com/blog/pajak-deposito-20-persen</loc>
-    <lastmod>2026-09-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://investtcount.mattrmost.com/blog/deposito-vs-tabungan</loc>
-    <lastmod>2026-09-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://investtcount.mattrmost.com/blog/inflasi-dan-deposito</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://investtcount.mattrmost.com/blog/deposito-bpr-vs-bank-umum</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://investtcount.mattrmost.com/blog/strategi-tangga-deposito</loc>
-    <lastmod>2026-09-04</lastmod>
+    <loc>https://investtcount.mattrmost.com/blog/deposito-aro-vs-non-aro</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://investtcount.mattrmost.com/blog/pajak-deposito-20-persen</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://investtcount.mattrmost.com/blog/inflasi-dan-deposito</loc>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

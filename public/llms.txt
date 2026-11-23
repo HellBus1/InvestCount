@@ -20,14 +20,11 @@ InvestCount (https://investtcount.mattrmost.com) adalah platform kalkulator dan 
 
 ## Panduan & Dokumentasi Edukasi
 - [Cara Menghitung Bunga Deposito Bank](https://investtcount.mattrmost.com/blog/cara-menghitung-bunga-deposito): Rumus lengkap, pajak 20%, dan contoh kasus riil.
-- [Simulasi Deposito Bank 2026](https://investtcount.mattrmost.com/blog/simulasi-deposito-lengkap): Tabel simulasi bunga saldo 10 Juta, 50 Juta, dan 100 Juta.
 - [Daftar Suku Bunga Deposito Bank Tertinggi 2026](https://investtcount.mattrmost.com/blog/bunga-deposito-bank-indonesia-2026): Perbandingan suku bunga bank umum vs bank digital.
 - [Mengenal Deposito ARO, Non-ARO, dan ARO+](https://investtcount.mattrmost.com/blog/deposito-aro-vs-non-aro): Perbedaan sistem perpanjangan otomatis dan efek compounding.
 - [Pajak Bunga Deposito 20%](https://investtcount.mattrmost.com/blog/pajak-deposito-20-persen): Landasan hukum PPh Final, batas bebas pajak Rp7,5 Juta, dan pelaporan SPT.
-- [Deposito vs Tabungan](https://investtcount.mattrmost.com/blog/deposito-vs-tabungan): Perbedaan bunga, biaya admin, dan strategi alokasi dana.
 - [Pengaruh Inflasi terhadap Bunga Deposito](https://investtcount.mattrmost.com/blog/inflasi-dan-deposito): Menghitung daya beli riil melawan inflasi tahunan.
 - [Deposito BPR vs Bank Umum](https://investtcount.mattrmost.com/blog/deposito-bpr-vs-bank-umum): Analisis bunga hingga 6,75% p.a. dan keamanan penjaminan LPS.
-- [Strategi Tangga Deposito (Deposit Laddering)](https://investtcount.mattrmost.com/blog/strategi-tangga-deposito): Trik mendapatkan bunga maksimal sekaligus likuiditas rutin.
 
 ## Sumber Data & Legalitas
 - Otoritas Jasa Keuangan (OJK): https://www.ojk.go.id

@@ -17,7 +17,7 @@ const HomePage = () => {
     title:
       'Kalkulator Deposito Indonesia - Hitung Bunga Bersih & Bandingkan Semua Bank | InvestCount',
     description:
-      'Kalkulator deposito gratis untuk menghitung bunga bersih setelah pajak 20%. Bandingkan suku bunga deposito BCA, Mandiri, BRI, BNI, bank digital (Seabank, Krom, Jago) dan BPR. Simulasi ARO & Non-ARO akurat.',
+      'Kalkulator deposito gratis untuk menghitung bunga bersih setelah pajak 20%, menyusun rencana anggaran bulanan, dan membandingkan 35 produk bank digital, konvensional, dan BPR beserta status penjaminan LPS.',
     canonicalUrl: '/',
     keywords: [
       'kalkulator deposito',
@@ -80,9 +80,9 @@ const HomePage = () => {
       <TrustBadgesSection />
       <DepositSection depositSectionRef={depositSectionRef} />
       <DepositRateComparisonSection />
-      <SEOContentSection />
       <BudgetPlannerSection />
       <LPSSection />
+      <SEOContentSection />
       <Footer />
     </>
   )

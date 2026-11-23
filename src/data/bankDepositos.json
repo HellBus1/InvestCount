@@ -1,718 +1,404 @@
 [
   {
-    "bankName": "Jenius by Bank SMBC Indonesia",
-    "logoUrl": "/assets/banks/jenius.svg",
-    "website": "https://www.jenius.com/app/save/maxi-saver",
-    "minBalance": 10000000,
-    "rates": { "1": 3.25, "3": 3.25, "6": 3.5, "12": 3.5 }
+    "bankName": "SuperBank by Bank Superbank",
+    "category": "digital",
+    "logoUrl": "/assets/banks/superbank.svg",
+    "website": "https://www.superbank.id/produk-layanan/tabungan/deposito",
+    "minBalance": 500000,
+    "rates": { "1": 7.5, "3": 7.5, "6": 7.5, "12": 7.5 }
   },
   {
-    "bankName": "Jenius by Bank SMBC Indonesia",
-    "logoUrl": "/assets/banks/jenius.svg",
-    "website": "https://www.jenius.com/app/save/maxi-saver",
+    "bankName": "SuperBank by Bank Superbank",
+    "category": "digital",
+    "logoUrl": "/assets/banks/superbank.svg",
+    "website": "https://www.superbank.id/produk-layanan/tabungan/deposito",
+    "minBalance": 1000000001,
+    "rates": { "1": 6.5, "3": 6.5, "6": 6.5, "12": 6.5 }
+  },
+  {
+    "bankName": "Krom by Krom Bank",
+    "category": "digital",
+    "logoUrl": "/assets/banks/krom.svg",
+    "website": "https://krom.id/#produk",
+    "minBalance": 100000,
+    "rates": { "1": 6.75, "3": 7.0, "6": 7.0, "12": 7.5 }
+  },
+  {
+    "bankName": "Amar Bank by Bank Amar Indonesia",
+    "category": "digital",
+    "logoUrl": "/assets/banks/amarbank.svg",
+    "website": "https://amarbank.co.id/deposito/",
+    "minBalance": 100000,
+    "rates": { "1": 6.0, "3": 6.5, "6": 7.0, "12": 7.5 }
+  },
+  {
+    "bankName": "NeoBank by Bank Neo Commerce",
+    "category": "digital",
+    "logoUrl": "/assets/banks/bnc.svg",
+    "website": "https://www.bankneocommerce.co.id/id/personal/savings/neo-wow-flexi#Fitur",
+    "minBalance": 100000,
+    "rates": { "1": 5.75, "3": 6.25, "6": 6.75, "12": 7.25 }
+  },
+  {
+    "bankName": "Hibank by BNI",
+    "category": "digital",
+    "logoUrl": "/assets/banks/hibank.svg",
+    "website": "https://www.hibank.co.id/fund-managements/saving?product=deposit",
+    "minBalance": 1000000,
+    "rates": { "1": 5.75, "3": 6.0, "6": 6.0, "12": 6.0 }
+  },
+  {
+    "bankName": "Line Bank by Hana Bank",
+    "category": "digital",
+    "logoUrl": "/assets/banks/line.svg",
+    "website": "https://linebank.co.id/id/time-deposit",
+    "minBalance": 1000000,
+    "rates": { "1": 5.25, "3": 5.5, "6": 6.0, "12": 6.5 }
+  },
+  {
+    "bankName": "Allo Bank by Allo Bank Indonesia",
+    "category": "digital",
+    "logoUrl": "/assets/banks/allobank.svg",
+    "website": "https://www.allobank.com/product/allo-deposito",
+    "minBalance": 1000000,
+    "rates": { "1": 5.0, "3": 6.0, "6": 6.0, "12": 6.0 }
+  },
+  {
+    "bankName": "Jago by Bank Jago",
+    "category": "digital",
+    "logoUrl": "/assets/banks/jago.svg",
+    "website": "https://www.jago.com/id/jago/support/faq/menggunakan-jago/deposito/pertanyaan-seputar-deposito",
+    "minBalance": 1000000,
+    "rates": { "1": 5.0, "3": 5.5, "6": 5.5, "12": 5.5 }
+  },
+  {
+    "bankName": "Jago by Bank Jago",
+    "category": "digital",
+    "logoUrl": "/assets/banks/jago.svg",
+    "website": "https://www.jago.com/id/jago/support/faq/menggunakan-jago/deposito/pertanyaan-seputar-deposito",
     "minBalance": 100000000,
-    "rates": { "1": 3.5, "3": 3.5, "6": 3.75, "12": 3.75 }
+    "rates": { "1": 5.5, "3": 5.75, "6": 5.75, "12": 5.75 }
   },
   {
-    "bankName": "Jenius by Bank SMBC Indonesia",
-    "logoUrl": "/assets/banks/jenius.svg",
-    "website": "https://www.jenius.com/app/save/maxi-saver",
-    "minBalance": 250000000,
-    "rates": { "1": 4.5, "3": 4.5, "6": 4.75, "12": 4.75 }
+    "bankName": "Jago by Bank Jago",
+    "category": "digital",
+    "logoUrl": "/assets/banks/jago.svg",
+    "website": "https://www.jago.com/id/jago/support/faq/menggunakan-jago/deposito/pertanyaan-seputar-deposito",
+    "minBalance": 500000000,
+    "rates": { "1": 5.75, "3": 6.0, "6": 6.0, "12": 6.0 }
   },
   {
-    "bankName": "Jenius by Bank SMBC Indonesia",
-    "logoUrl": "/assets/banks/jenius.svg",
-    "website": "https://www.jenius.com/app/save/maxi-saver",
+    "bankName": "Jago by Bank Jago",
+    "category": "digital",
+    "logoUrl": "/assets/banks/jago.svg",
+    "website": "https://www.jago.com/id/jago/support/faq/menggunakan-jago/deposito/pertanyaan-seputar-deposito",
     "minBalance": 1000000000,
-    "rates": { "1": 4.5, "3": 4.5, "6": 4.75, "12": 4.75 }
+    "rates": { "1": 6.25, "3": 6.25, "6": 6.25, "12": 6.25 }
   },
   {
-    "bankName": "Jenius by Bank SMBC Indonesia",
-    "logoUrl": "/assets/banks/jenius.svg",
-    "website": "https://www.jenius.com/app/save/maxi-saver",
-    "minBalance": 2000000000,
-    "rates": { "1": 4.5, "3": 4.5, "6": 4.75, "12": 4.75 }
+    "bankName": "SeaBank by SeaBank Indonesia",
+    "category": "digital",
+    "logoUrl": "/assets/banks/seabank.svg",
+    "website": "https://www.seabank.co.id/pusat-bantuan/artikel/10080-berapa-bunga-dan-tenor-deposito-yang-ditawarkan-oleh-seabank",
+    "minBalance": 1000000,
+    "rates": { "1": 4.75, "3": 5.25, "6": 5.75, "12": 6.0 }
   },
   {
-    "bankName": "Jenius by Bank SMBC Indonesia",
-    "logoUrl": "/assets/banks/jenius.svg",
-    "website": "https://www.jenius.com/app/save/maxi-saver",
-    "minBalance": 5000000000,
-    "rates": { "1": 4.5, "3": 4.5, "6": 4.75, "12": 4.75 }
+    "bankName": "M2U by Maybank Indonesia",
+    "category": "digital",
+    "logoUrl": "/assets/banks/maybank.svg",
+    "website": "https://www.maybank.co.id/id/individual/simpanan/deposito",
+    "minBalance": 10000000,
+    "rates": { "1": 4.75, "3": 6.0, "6": 6.25, "12": 6.25 }
   },
-  
+  {
+    "bankName": "Bank Saqu by Bank Jasa Jakarta",
+    "category": "digital",
+    "logoUrl": "/assets/banks/banksaqu.svg",
+    "website": "https://www.banksaqu.co.id/",
+    "minBalance": 1000000,
+    "rates": { "1": 4.25, "3": 4.75, "6": 5.25, "12": 5.25 }
+  },
+  {
+    "bankName": "Bank Saqu by Bank Jasa Jakarta",
+    "category": "digital",
+    "logoUrl": "/assets/banks/banksaqu.svg",
+    "website": "https://www.banksaqu.co.id/",
+    "minBalance": 500000000,
+    "rates": { "1": 4.5, "3": 5.75, "6": 6.0, "12": 6.0 }
+  },
+  {
+    "bankName": "Bank Raya by Bank Raya Indonesia",
+    "category": "digital",
+    "logoUrl": "/assets/banks/bankraya.svg",
+    "website": "https://bankraya.co.id/",
+    "minBalance": 1000000,
+    "rates": { "1": 4.0, "3": 4.25, "6": 4.5, "12": 5.0 }
+  },
+  {
+    "bankName": "PermataME by Bank Permata",
+    "category": "digital",
+    "logoUrl": "/assets/banks/permata.svg",
+    "website": "https://www.permatabank.com/id/deposito-consumer/permatadeposito-rupiah",
+    "minBalance": 10000000,
+    "rates": { "1": 4.0, "3": 4.25, "6": 4.5, "12": 4.5 }
+  },
+  {
+    "bankName": "PermataME by Bank Permata",
+    "category": "digital",
+    "logoUrl": "/assets/banks/permata.svg",
+    "website": "https://www.permatabank.com/id/deposito-consumer/permatadeposito-rupiah",
+    "minBalance": 1000000000,
+    "rates": { "1": 4.25, "3": 4.5, "6": 4.75, "12": 4.75 }
+  },
+  {
+    "bankName": "TMRW by UOB",
+    "category": "digital",
+    "logoUrl": "/assets/banks/uob.svg",
+    "website": "https://www.uob.co.id/personal/simpanan/deposito.page",
+    "minBalance": 10000000,
+    "rates": { "1": 3.75, "3": 4.0, "6": 4.25, "12": 4.0 }
+  },
+  {
+    "bankName": "TMRW by UOB",
+    "category": "digital",
+    "logoUrl": "/assets/banks/uob.svg",
+    "website": "https://www.uob.co.id/personal/simpanan/deposito.page",
+    "minBalance": 100000000,
+    "rates": { "1": 4.0, "3": 4.25, "6": 4.75, "12": 4.25 }
+  },
+  {
+    "bankName": "Octo by CIMB Niaga",
+    "category": "digital",
+    "logoUrl": "/assets/banks/octo.svg",
+    "website": "https://www.cimbniaga.co.id/id/personal/tabungan/deposito-berjangka",
+    "minBalance": 8000000,
+    "rates": { "1": 3.0, "3": 3.25, "6": 3.5, "12": 3.75 }
+  },
+  {
+    "bankName": "Octo by CIMB Niaga",
+    "category": "digital",
+    "logoUrl": "/assets/banks/octo.svg",
+    "website": "https://www.cimbniaga.co.id/id/personal/tabungan/deposito-berjangka",
+    "minBalance": 100000000,
+    "rates": { "1": 4.5, "3": 4.75, "6": 5.0, "12": 5.0 }
+  },
   {
     "bankName": "blu by BCA Digital",
+    "category": "digital",
     "logoUrl": "/assets/banks/blu.svg",
     "website": "https://blubybcadigital.id/fitur/tabungan/bludeposit",
-    "minBalance": 10000000,
+    "minBalance": 1000000,
     "rates": { "1": 3.75, "3": 3.5, "6": 3.5, "12": 3.5 }
   },
   {
     "bankName": "blu by BCA Digital",
+    "category": "digital",
     "logoUrl": "/assets/banks/blu.svg",
     "website": "https://blubybcadigital.id/fitur/tabungan/bludeposit",
     "minBalance": 100000000,
-    "rates": { "1": 4.25, "3": 4, "6": 4, "12": 4 }
+    "rates": { "1": 4.25, "3": 4.0, "6": 4.0, "12": 4.0 }
   },
   {
     "bankName": "blu by BCA Digital",
-    "logoUrl": "/assets/banks/blu.svg",
-    "website": "https://blubybcadigital.id/fitur/tabungan/bludeposit",
-    "minBalance": 250000000,
-    "rates": { "1": 4.25, "3": 4, "6": 4, "12": 4 }
-  },
-  {
-    "bankName": "blu by BCA Digital",
+    "category": "digital",
     "logoUrl": "/assets/banks/blu.svg",
     "website": "https://blubybcadigital.id/fitur/tabungan/bludeposit",
     "minBalance": 1000000000,
-    "rates": { "1": 4.75, "3": 4, "6": 4, "12": 4 }
+    "rates": { "1": 4.75, "3": 4.25, "6": 4.25, "12": 4.25 }
   },
   {
-    "bankName": "blu by BCA Digital",
-    "logoUrl": "/assets/banks/blu.svg",
-    "website": "https://blubybcadigital.id/fitur/tabungan/bludeposit",
-    "minBalance": 2000000000,
-    "rates": { "1": 4.75, "3": 4, "6": 4, "12": 4 }
-  },
-  {
-    "bankName": "blu by BCA Digital",
-    "logoUrl": "/assets/banks/blu.svg",
-    "website": "https://blubybcadigital.id/fitur/tabungan/bludeposit",
-    "minBalance": 5000000000,
-    "rates": { "1": 4.75, "3": 4, "6": 4, "12": 4 }
-  },
-
-  {
-    "bankName": "Line Bank by Hana Bank",
-    "logoUrl": "/assets/banks/line.svg",
-    "website": "https://linebank.co.id/en/time-deposit",
+    "bankName": "Jenius by Bank SMBC Indonesia",
+    "category": "digital",
+    "logoUrl": "/assets/banks/jenius.svg",
+    "website": "https://www.jenius.com/app/save/maxi-saver",
     "minBalance": 10000000,
-    "rates": { "1": 6, "3": 6, "6": 6.5, "12": 7.0 }
+    "rates": { "1": 3.5, "3": 3.5, "6": 3.75, "12": 3.75 }
   },
   {
-    "bankName": "Line Bank by Hana Bank",
-    "logoUrl": "/assets/banks/line.svg",
-    "website": "https://linebank.co.id/en/time-deposit",
-    "minBalance": 250000000,
-    "rates": { "1": 6, "3": 6, "6": 6.5, "12": 7.0 }
-  },
-  {
-    "bankName": "Line Bank by Hana Bank",
-    "logoUrl": "/assets/banks/line.svg",
-    "website": "https://linebank.co.id/en/time-deposit",
-    "minBalance": 1000000000,
-    "rates": { "1": 6, "3": 6, "6": 6.5, "12": 7.0 }
-  },
-
-  {
-    "bankName": "NeoBank by Bank Neo Commerce",
-    "logoUrl": "/assets/banks/bnc.svg",
-    "website": "https://www.bankneocommerce.co.id/id/personal/savings/neo-wow-flexi#Fitur",
-    "minBalance": 10000000,
-    "rates": { "1": 6.0, "3": 6.5, "6": 6.75, "12": 7.5 }
-  },
-  {
-    "bankName": "NeoBank by Bank Neo Commerce",
-    "logoUrl": "/assets/banks/bnc.svg",
-    "website": "https://www.bankneocommerce.co.id/id/personal/savings/neo-wow-flexi#Fitur",
+    "bankName": "Jenius by Bank SMBC Indonesia",
+    "category": "digital",
+    "logoUrl": "/assets/banks/jenius.svg",
+    "website": "https://www.jenius.com/app/save/maxi-saver",
     "minBalance": 100000000,
-    "rates": { "1": 6.0, "3": 6.5, "6": 6.75, "12": 7.5 }
+    "rates": { "1": 3.75, "3": 4.0, "6": 4.25, "12": 4.25 }
   },
   {
-    "bankName": "NeoBank by Bank Neo Commerce",
-    "logoUrl": "/assets/banks/bnc.svg",
-    "website": "https://www.bankneocommerce.co.id/id/personal/savings/neo-wow-flexi#Fitur",
+    "bankName": "Jenius by Bank SMBC Indonesia",
+    "category": "digital",
+    "logoUrl": "/assets/banks/jenius.svg",
+    "website": "https://www.jenius.com/app/save/maxi-saver",
     "minBalance": 250000000,
-    "rates": { "1": 6.0, "3": 6.5, "6": 6.75, "12": 7.5 }
+    "rates": { "1": 4.5, "3": 4.5, "6": 5.0, "12": 5.0 }
   },
   {
-    "bankName": "NeoBank by Bank Neo Commerce",
-    "logoUrl": "/assets/banks/bnc.svg",
-    "website": "https://www.bankneocommerce.co.id/id/personal/savings/neo-wow-flexi#Fitur",
-    "minBalance": 1000000000,
-    "rates": { "1": 6.0, "3": 6.5, "6": 6.75, "12": 7.5 }
-  },
-  {
-    "bankName": "NeoBank by Bank Neo Commerce",
-    "logoUrl": "/assets/banks/bnc.svg",
-    "website": "https://www.bankneocommerce.co.id/id/personal/savings/neo-wow-flexi#Fitur",
-    "minBalance": 2000000000,
-    "rates": { "1": 6.0, "3": 6.5, "6": 6.75, "12": 7.5 }
-  },
-  {
-    "bankName": "NeoBank by Bank Neo Commerce",
-    "logoUrl": "/assets/banks/bnc.svg",
-    "website": "https://www.bankneocommerce.co.id/id/personal/savings/neo-wow-flexi#Fitur",
-    "minBalance": 5000000000,
-    "rates": { "1": 6.0, "3": 6.5, "6": 6.75, "12": 7.5 }
-  },
-
-  {
-    "bankName": "Krom by Krom Bank",
-    "logoUrl": "/assets/banks/krom.svg",
-    "website": "https://krom.id/#produk",
+    "bankName": "D-Bank Pro by Danamon",
+    "category": "digital",
+    "logoUrl": "/assets/banks/danamon.svg",
+    "website": "https://www.danamon.co.id/id/Personal/Lainnya/Suku-Bunga",
     "minBalance": 10000000,
-    "rates": { "1": 7.25, "3": 8.5, "6": 8.75, "12": 8.75 }
+    "rates": { "1": 3.5, "3": 3.75, "6": 4.0, "12": 4.0 }
   },
   {
-    "bankName": "Krom by Krom Bank",
-    "logoUrl": "/assets/banks/krom.svg",
-    "website": "https://krom.id/#produk",
+    "bankName": "D-Bank Pro by Danamon",
+    "category": "digital",
+    "logoUrl": "/assets/banks/danamon.svg",
+    "website": "https://www.danamon.co.id/id/Personal/Lainnya/Suku-Bunga",
     "minBalance": 100000000,
-    "rates": { "1": 7.25, "3": 8.5, "6": 8.75, "12": 8.75 }
+    "rates": { "1": 3.75, "3": 4.0, "6": 4.25, "12": 4.25 }
   },
   {
-    "bankName": "Krom by Krom Bank",
-    "logoUrl": "/assets/banks/krom.svg",
-    "website": "https://krom.id/#produk",
-    "minBalance": 250000000,
-    "rates": { "1": 7.25, "3": 8.5, "6": 8.75, "12": 8.75 }
-  },
-  {
-    "bankName": "Krom by Krom Bank",
-    "logoUrl": "/assets/banks/krom.svg",
-    "website": "https://krom.id/#produk",
-    "minBalance": 1000000000,
-    "rates": { "1": 7.25, "3": 8.5, "6": 8.75, "12": 8.75 }
-  },
-  {
-    "bankName": "Krom by Krom Bank",
-    "logoUrl": "/assets/banks/krom.svg",
-    "website": "https://krom.id/#produk",
-    "minBalance": 2000000000,
-    "rates": { "1": 7.25, "3": 8.5, "6": 8.75, "12": 8.75 }
-  },
-  {
-    "bankName": "Krom by Krom Bank",
-    "logoUrl": "/assets/banks/krom.svg",
-    "website": "https://krom.id/#produk",
-    "minBalance": 5000000000,
-    "rates": { "1": 7.25, "3": 8.5, "6": 8.75, "12": 8.75 }
-  },
-
-  {
-    "bankName": "SeaBank by SeaBank Indonesia",
-    "logoUrl": "/assets/banks/seabank.svg",
-    "website": "https://www.seabank.co.id/pusat-bantuan/artikel/10080-berapa-bunga-dan-tenor-deposito-yang-ditawarkan-oleh-seabank",
-    "minBalance": 10000000,
-    "rates": { "1": 4.5, "3": 5.25, "6": 5.75, "12": 6.0 }
-  },
-  {
-    "bankName": "SeaBank by SeaBank Indonesia",
-    "logoUrl": "/assets/banks/seabank.svg",
-    "website": "https://www.seabank.co.id/pusat-bantuan/artikel/10080-berapa-bunga-dan-tenor-deposito-yang-ditawarkan-oleh-seabank",
-    "minBalance": 100000000,
-    "rates": { "1": 4.5, "3": 5.25, "6": 5.75, "12": 6.0 }
-  },
-  {
-    "bankName": "SeaBank by SeaBank Indonesia",
-    "logoUrl": "/assets/banks/seabank.svg",
-    "website": "https://www.seabank.co.id/pusat-bantuan/artikel/10080-berapa-bunga-dan-tenor-deposito-yang-ditawarkan-oleh-seabank",
-    "minBalance": 250000000,
-    "rates": { "1": 4.5, "3": 5.25, "6": 5.75, "12": 6.0 }
-  },
-  {
-    "bankName": "SeaBank by SeaBank Indonesia",
-    "logoUrl": "/assets/banks/seabank.svg",
-    "website": "https://www.seabank.co.id/pusat-bantuan/artikel/10080-berapa-bunga-dan-tenor-deposito-yang-ditawarkan-oleh-seabank",
-    "minBalance": 1000000000,
-    "rates": { "1": 4.5, "3": 5.25, "6": 5.75, "12": 6.0 }
-  },
-  {
-    "bankName": "SeaBank by SeaBank Indonesia",
-    "logoUrl": "/assets/banks/seabank.svg",
-    "website": "https://www.seabank.co.id/pusat-bantuan/artikel/10080-berapa-bunga-dan-tenor-deposito-yang-ditawarkan-oleh-seabank",
-    "minBalance": 2000000000,
-    "rates": { "1": 4.5, "3": 5.25, "6": 5.75, "12": 6.0 }
-  },
-  {
-    "bankName": "SeaBank by SeaBank Indonesia",
-    "logoUrl": "/assets/banks/seabank.svg",
-    "website": "https://www.seabank.co.id/pusat-bantuan/artikel/10080-berapa-bunga-dan-tenor-deposito-yang-ditawarkan-oleh-seabank",
-    "minBalance": 5000000000,
-    "rates": { "1": 4.5, "3": 5.25, "6": 5.75, "12": 6.0 }
-  },
-
-  {
-    "bankName": "Jago by Bank Artos",
-    "logoUrl": "/assets/banks/jago.svg",
-    "website": "https://www.jago.com/id/jago/support/faq/menggunakan-jago/deposito/pertanyaan-seputar-deposito",
-    "minBalance": 10000000,
-    "rates": { "1": 5.0, "3": 5.5, "6": 5.5, "12": 5.5 }
-  },
-  {
-    "bankName": "Jago by Bank Artos",
-    "logoUrl": "/assets/banks/jago.svg",
-    "website": "https://www.jago.com/id/jago/support/faq/menggunakan-jago/deposito/pertanyaan-seputar-deposito",
-    "minBalance": 100000000,
-    "rates": { "1": 5.0, "3": 5.5, "6": 5.75, "12": 5.75 }
-  },
-  {
-    "bankName": "Jago by Bank Artos",
-    "logoUrl": "/assets/banks/jago.svg",
-    "website": "https://www.jago.com/id/jago/support/faq/menggunakan-jago/deposito/pertanyaan-seputar-deposito",
-    "minBalance": 250000000,
-    "rates": { "1": 5.0, "3": 5.5, "6": 5.75, "12": 5.75 }
-  },
-  {
-    "bankName": "Jago by Bank Artos",
-    "logoUrl": "/assets/banks/jago.svg",
-    "website": "https://www.jago.com/id/jago/support/faq/menggunakan-jago/deposito/pertanyaan-seputar-deposito",
-    "minBalance": 1000000000,
-    "rates": { "1": 5.75, "3": 6, "6": 6, "12": 6 }
-  },
-  {
-    "bankName": "Jago by Bank Artos",
-    "logoUrl": "/assets/banks/jago.svg",
-    "website": "https://www.jago.com/id/jago/support/faq/menggunakan-jago/deposito/pertanyaan-seputar-deposito",
-    "minBalance": 2000000000,
-    "rates": { "1": 6.25, "3": 6.5, "6": 6.5, "12": 6.5 }
-  },
-  {
-    "bankName": "Jago by Bank Artos",
-    "logoUrl": "/assets/banks/jago.svg",
-    "website": "https://www.jago.com/id/jago/support/faq/menggunakan-jago/deposito/pertanyaan-seputar-deposito",
-    "minBalance": 5000000000,
-    "rates": { "1": 6.25, "3": 6.5, "6": 6.5, "12": 6.5 }
-  },
-
-  {
-    "bankName": "SuperBank by Bank SuperBank",
-    "logoUrl": "/assets/banks/superbank.svg",
-    "website": "https://www.superbank.id/produk-layanan/tabungan/deposito",
-    "minBalance": 10000000,
-    "rates": { "1": 7.5, "3": 7.5, "6": 7.5, "12": 7.5 }
-  },
-  {
-    "bankName": "SuperBank by Bank SuperBank",
-    "logoUrl": "/assets/banks/superbank.svg",
-    "website": "https://www.superbank.id/produk-layanan/tabungan/deposito",
-    "minBalance": 100000000,
-    "rates": { "1": 7.5, "3": 7.5, "6": 7.5, "12": 7.5 }
-  },
-  {
-    "bankName": "SuperBank by Bank SuperBank",
-    "logoUrl": "/assets/banks/superbank.svg",
-    "website": "https://www.superbank.id/produk-layanan/tabungan/deposito",
-    "minBalance": 250000000,
-    "rates": { "1": 7.5, "3": 7.5, "6": 7.5, "12": 7.5 }
-  },
-  {
-    "bankName": "SuperBank by Bank SuperBank",
-    "logoUrl": "/assets/banks/superbank.svg",
-    "website": "https://www.superbank.id/produk-layanan/tabungan/deposito",
-    "minBalance": 1000000000,
-    "rates": { "1": 6.5, "3": 6.5, "6": 6.5, "12": 6.5 }
-  },
-  {
-    "bankName": "SuperBank by Bank SuperBank",
-    "logoUrl": "/assets/banks/superbank.svg",
-    "website": "https://www.superbank.id/produk-layanan/tabungan/deposito",
-    "minBalance": 2000000000,
-    "rates": { "1": 6.5, "3": 6.5, "6": 6.5, "12": 6.5 }
-  },
-  {
-    "bankName": "SuperBank by Bank SuperBank",
-    "logoUrl": "/assets/banks/superbank.svg",
-    "website": "https://www.superbank.id/produk-layanan/tabungan/deposito",
-    "minBalance": 5000000000,
-    "rates": { "1": 6.5, "3": 6.5, "6": 6.5, "12": 6.5 }
-  },
-
-  {
-    "bankName": "OctoBank by CIMB Niaga",
-    "logoUrl": "/assets/banks/octo.svg",
-    "website": "https://branchlessbanking.cimbniaga.co.id/deposito-berjangka/",
-    "minBalance": 10000000,
-    "rates": { "1": 2.5, "3": 2.8, "6": 3.1, "12": 3.3 }
-  },
-  {
-    "bankName": "OctoBank by CIMB Niaga",
-    "logoUrl": "/assets/banks/octo.svg",
-    "website": "https://branchlessbanking.cimbniaga.co.id/deposito-berjangka/",
-    "minBalance": 100000000,
-    "rates": { "1": 2.75, "3": 3.25, "6": 3.5, "12": 3.75 }
-  },
-  {
-    "bankName": "OctoBank by CIMB Niaga",
-    "logoUrl": "/assets/banks/octo.svg",
-    "website": "https://branchlessbanking.cimbniaga.co.id/deposito-berjangka/",
-    "minBalance": 250000000,
-    "rates": { "1": 2.75, "3": 3.25, "6": 3.5, "12": 3.75 }
-  },
-  {
-    "bankName": "OctoBank by CIMB Niaga",
-    "logoUrl": "/assets/banks/octo.svg",
-    "website": "https://branchlessbanking.cimbniaga.co.id/deposito-berjangka/",
-    "minBalance": 1000000000,
-    "rates": { "1": 2.75, "3": 3.25, "6": 3.5, "12": 3.75 }
-  },
-  {
-    "bankName": "OctoBank by CIMB Niaga",
-    "logoUrl": "/assets/banks/octo.svg",
-    "website": "https://branchlessbanking.cimbniaga.co.id/deposito-berjangka/",
-    "minBalance": 2000000000,
-    "rates": { "1": 2.75, "3": 3.25, "6": 3.5, "12": 3.75 }
-  },
-  {
-    "bankName": "OctoBank by CIMB Niaga",
-    "logoUrl": "/assets/banks/octo.svg",
-    "website": "https://branchlessbanking.cimbniaga.co.id/deposito-berjangka/",
-    "minBalance": 5000000000,
-    "rates": { "1": 2.75, "3": 3.25, "6": 3.5, "12": 3.75 }
-  },
-
-  {
-    "bankName": "TMRW by UOB",
-    "logoUrl": "/assets/banks/uob.svg",
-    "website": "https://www.tmrwbyuob.com/id/id/products/tmrw-powersaver.html",
-    "minBalance": 10000000,
-    "rates": { "1": 4.0, "3": 4.0, "6": 5, "12": 4.0 }
-  },
-  {
-    "bankName": "TMRW by UOB",
-    "logoUrl": "/assets/banks/uob.svg",
-    "website": "https://www.tmrwbyuob.com/id/id/products/tmrw-powersaver.html",
-    "minBalance": 100000000,
-    "rates": { "1": 4.0, "3": 4.25, "6": 5.5, "12": 4.0 }
-  },
-  {
-    "bankName": "TMRW by UOB",
-    "logoUrl": "/assets/banks/uob.svg",
-    "website": "https://www.tmrwbyuob.com/id/id/products/tmrw-powersaver.html",
-    "minBalance": 250000000,
-    "rates": { "1": 4.0, "3": 4.25, "6": 5.5, "12": 4.0 }
-  },
-  {
-    "bankName": "TMRW by UOB",
-    "logoUrl": "/assets/banks/uob.svg",
-    "website": "https://www.tmrwbyuob.com/id/id/products/tmrw-powersaver.html",
-    "minBalance": 1000000000,
-    "rates": { "1": 4.0, "3": 4.25, "6": 5.5, "12": 4.0 }
-  },
-  {
-    "bankName": "TMRW by UOB",
-    "logoUrl": "/assets/banks/uob.svg",
-    "website": "https://www.tmrwbyuob.com/id/id/products/tmrw-powersaver.html",
-    "minBalance": 2000000000,
-    "rates": { "1": 4.0, "3": 4.25, "6": 5.5, "12": 4.0 }
-  },
-  {
-    "bankName": "TMRW by UOB",
-    "logoUrl": "/assets/banks/uob.svg",
-    "website": "https://www.tmrwbyuob.com/id/id/products/tmrw-powersaver.html",
-    "minBalance": 5000000000,
-    "rates": { "1": 4.0, "3": 4.25, "6": 5.5, "12": 4.0 }
-  },
-
-  {
-    "bankName": "Wondr by BNI",
-    "logoUrl": "/assets/banks/wondr.svg",
-    "website": "https://wondr.bni.co.id/",
-    "minBalance": 10000000,
-    "rates": { "1": 2.25, "3": 2.5, "6": 2.75, "12": 3.0 }
-  },
-  {
-    "bankName": "Wondr by BNI",
-    "logoUrl": "/assets/banks/wondr.svg",
-    "website": "https://wondr.bni.co.id/",
-    "minBalance": 10000000,
-    "rates": { "1": 2.25, "3": 2.5, "6": 2.75, "12": 3.0 }
-  },
-  {
-    "bankName": "Wondr by BNI",
-    "logoUrl": "/assets/banks/wondr.svg",
-    "website": "https://wondr.bni.co.id/",
-    "minBalance": 100000000,
-    "rates": { "1": 2.25, "3": 2.5, "6": 2.75, "12": 3.0 }
-  },
-  {
-    "bankName": "Wondr by BNI",
-    "logoUrl": "/assets/banks/wondr.svg",
-    "website": "https://wondr.bni.co.id/",
-    "minBalance": 250000000,
-    "rates": { "1": 2.25, "3": 2.5, "6": 2.75, "12": 3.0 }
-  },
-  {
-    "bankName": "Wondr by BNI",
-    "logoUrl": "/assets/banks/wondr.svg",
-    "website": "https://wondr.bni.co.id/",
-    "minBalance": 1000000000,
-    "rates": { "1": 2.25, "3": 2.5, "6": 2.75, "12": 3.0 }
-  },
-  {
-    "bankName": "Wondr by BNI",
-    "logoUrl": "/assets/banks/wondr.svg",
-    "website": "https://wondr.bni.co.id/",
-    "minBalance": 2000000000,
-    "rates": { "1": 2.25, "3": 2.5, "6": 2.75, "12": 3.0 }
-  },
-  {
-    "bankName": "Wondr by BNI",
-    "logoUrl": "/assets/banks/wondr.svg",
-    "website": "https://wondr.bni.co.id/",
-    "minBalance": 5000000000,
-    "rates": { "1": 2.25, "3": 2.5, "6": 2.75, "12": 3.0 }
-  },
-
-  {
-    "bankName": "BRIMo by BRI",
+    "bankName": "BRImo by BRI",
+    "category": "digital",
     "logoUrl": "/assets/banks/brimo.svg",
-    "website": "https://bri.co.id/brimo",
-    "minBalance": 10000000,
-    "rates": { "1": 3.35, "3": 3.5, "6": 3.0, "12": 3.0 }
+    "website": "https://bri.co.id/riplay",
+    "minBalance": 5000000,
+    "rates": { "1": 3.0, "3": 3.0, "6": 3.0, "12": 2.5 }
   },
   {
-    "bankName": "BRIMo by BRI",
-    "logoUrl": "/assets/banks/brimo.svg",
-    "website": "https://bri.co.id/brimo",
-    "minBalance": 100000000,
-    "rates": { "1": 3.35, "3": 3.5, "6": 3.0, "12": 3.0 }
+    "bankName": "Wondr by BNI",
+    "category": "digital",
+    "logoUrl": "/assets/banks/wondr.svg",
+    "website": "https://www.bni.co.id/en-us/home/cx-protection/riplay-umum",
+    "minBalance": 5000000,
+    "rates": { "1": 2.25, "3": 2.5, "6": 2.75, "12": 2.5 }
   },
   {
-    "bankName": "BRIMo by BRI",
-    "logoUrl": "/assets/banks/brimo.svg",
-    "website": "https://bri.co.id/brimo",
-    "minBalance": 250000000,
-    "rates": { "1": 3.35, "3": 3.5, "6": 3.0, "12": 3.0 }
-  },
-  {
-    "bankName": "BRIMo by BRI",
-    "logoUrl": "/assets/banks/brimo.svg",
-    "website": "https://bri.co.id/brimo",
-    "minBalance": 1000000000,
-    "rates": { "1": 3.35, "3": 3.5, "6": 3.0, "12": 3.0 }
-  },
-  {
-    "bankName": "BRIMo by BRI",
-    "logoUrl": "/assets/banks/brimo.svg",
-    "website": "https://bri.co.id/brimo",
-    "minBalance": 2000000000,
-    "rates": { "1": 3.35, "3": 3.5, "6": 3.0, "12": 3.0 }
-  },
-  {
-    "bankName": "BRIMo by BRI",
-    "logoUrl": "/assets/banks/brimo.svg",
-    "website": "https://bri.co.id/brimo",
-    "minBalance": 5000000000,
-    "rates": { "1": 3.35, "3": 3.5, "6": 3.0, "12": 3.0 }
-  },
-
-  {
-    "bankName": "Permata ME by Bank Permata",
-    "logoUrl": "/assets/banks/permata.svg",
-    "website": "https://www.permatabank.com//en/deposito-consumer/permatadeposito-rupiah?cid=dpru",
-    "minBalance": 10000000,
-    "rates": { "1": 4.0, "3": 4.0, "6": 4.0, "12": 4.0 }
-  },
-  {
-    "bankName": "Permata ME by Bank Permata",
-    "logoUrl": "/assets/banks/permata.svg",
-    "website": "https://www.permatabank.com//en/deposito-consumer/permatadeposito-rupiah?cid=dpru",
-    "minBalance": 100000000,
-    "rates": { "1": 4.0, "3": 4.0, "6": 4.0, "12": 4.0 }
-  },
-  {
-    "bankName": "Permata ME by Bank Permata",
-    "logoUrl": "/assets/banks/permata.svg",
-    "website": "https://www.permatabank.com//en/deposito-consumer/permatadeposito-rupiah?cid=dpru",
-    "minBalance": 250000000,
-    "rates": { "1": 4.0, "3": 4.0, "6": 4.0, "12": 4.0 }
-  },
-  {
-    "bankName": "Permata ME by Bank Permata",
-    "logoUrl": "/assets/banks/permata.svg",
-    "website": "https://www.permatabank.com//en/deposito-consumer/permatadeposito-rupiah?cid=dpru",
-    "minBalance": 1000000000,
-    "rates": { "1": 4.25, "3": 4.25, "6": 4.0, "12": 4.0 }
-  },
-  {
-    "bankName": "Permata ME by Bank Permata",
-    "logoUrl": "/assets/banks/permata.svg",
-    "website": "https://www.permatabank.com//en/deposito-consumer/permatadeposito-rupiah?cid=dpru",
-    "minBalance": 2000000000,
-    "rates": { "1": 5, "3": 5, "6": 4.75, "12": 4.75 }
-  },
-  {
-    "bankName": "Permata ME by Bank Permata",
-    "logoUrl": "/assets/banks/permata.svg",
-    "website": "https://www.permatabank.com//en/deposito-consumer/permatadeposito-rupiah?cid=dpru",
-    "minBalance": 5000000000,
-    "rates": { "1": 5, "3": 5, "6": 4.75, "12": 4.75 }
-  },
-
-  {
-    "bankName": "Livin by Mandiri",
+    "bankName": "Livin by Bank Mandiri",
+    "category": "digital",
     "logoUrl": "/assets/banks/mandirilivin.svg",
     "website": "https://www.bankmandiri.co.id/web/guest/suku-bunga-dana#deposito",
-    "minBalance": 10000000,
-    "rates": { "1": 2.25, "3": 2.25, "6": 2.5, "12": 2.5 }
-  },
-  {
-    "bankName": "Livin by Mandiri",
-    "logoUrl": "/assets/banks/mandirilivin.svg",
-    "website": "https://www.bankmandiri.co.id/web/guest/suku-bunga-dana#deposito",
-    "minBalance": 100000000,
-    "rates": { "1": 2.25, "3": 2.25, "6": 2.5, "12": 2.5 }
-  },
-  {
-    "bankName": "Livin by Mandiri",
-    "logoUrl": "/assets/banks/mandirilivin.svg",
-    "website": "https://www.bankmandiri.co.id/web/guest/suku-bunga-dana#deposito",
-    "minBalance": 250000000,
-    "rates": { "1": 2.25, "3": 2.25, "6": 2.5, "12": 2.5 }
-  },
-  {
-    "bankName": "Livin by Mandiri",
-    "logoUrl": "/assets/banks/mandirilivin.svg",
-    "website": "https://www.bankmandiri.co.id/web/guest/suku-bunga-dana#deposito",
-    "minBalance": 1000000000,
-    "rates": { "1": 2.25, "3": 2.25, "6": 2.5, "12": 2.5 }
-  },
-  {
-    "bankName": "Livin by Mandiri",
-    "logoUrl": "/assets/banks/mandirilivin.svg",
-    "website": "https://www.bankmandiri.co.id/web/guest/suku-bunga-dana#deposito",
-    "minBalance": 2000000000,
-    "rates": { "1": 2.25, "3": 2.25, "6": 2.5, "12": 2.5 }
-  },
-  {
-    "bankName": "Livin by Mandiri",
-    "logoUrl": "/assets/banks/mandirilivin.svg",
-    "website": "https://www.bankmandiri.co.id/web/guest/suku-bunga-dana#deposito",
-    "minBalance": 5000000000,
+    "minBalance": 1000000,
     "rates": { "1": 2.25, "3": 2.25, "6": 2.5, "12": 2.5 }
   },
 
   {
-    "bankName": "BCA",
-    "logoUrl": "/assets/banks/bca.svg",
-    "website": "https://www.bca.co.id/id/Individu/produk/simpanan/e-Deposito#",
+    "bankName": "Deposito Berjangka by OCBC",
+    "category": "konvensional",
+    "logoUrl": "/assets/banks/ocbc.svg",
+    "website": "https://www.ocbc.id/id/individu/simpanan/deposito",
+    "minBalance": 8000000,
+    "rates": { "1": 3.25, "3": 3.5, "6": 3.75, "12": 3.75 }
+  },
+  {
+    "bankName": "Mega Depo by Bank Mega",
+    "category": "konvensional",
+    "logoUrl": "/assets/banks/mega.svg",
+    "website": "https://bankmega.com/id/individu/simpanan/mega-depo/",
+    "minBalance": 8000000,
+    "rates": { "1": 3.25, "3": 3.5, "6": 3.5, "12": 3.25 }
+  },
+  {
+    "bankName": "Mega Depo by Bank Mega",
+    "category": "konvensional",
+    "logoUrl": "/assets/banks/mega.svg",
+    "website": "https://bankmega.com/id/individu/simpanan/mega-depo/",
+    "minBalance": 500000000,
+    "rates": { "1": 4.25, "3": 4.5, "6": 4.75, "12": 4.25 }
+  },
+  {
+    "bankName": "Deposito Rupiah by Bank BRI",
+    "category": "konvensional",
+    "logoUrl": "/assets/banks/bri.svg",
+    "website": "https://bri.co.id/riplay",
     "minBalance": 10000000,
-    "rates": { "1": 2.75, "3": 2.75, "6": 2.75, "12": 2.5 }
+    "rates": { "1": 3.0, "3": 3.0, "6": 3.0, "12": 2.5 }
   },
   {
-    "bankName": "BCA",
+    "bankName": "Deposito Berjangka by BCA",
+    "category": "konvensional",
     "logoUrl": "/assets/banks/bca.svg",
-    "website": "https://www.bca.co.id/id/Individu/produk/simpanan/e-Deposito#",
-    "minBalance": 100000000,
-    "rates": { "1": 2.75, "3": 2.75, "6": 2.75, "12": 2.5 }
+    "website": "https://www.bca.co.id/id/Individu/produk/simpanan/Deposito-Berjangka",
+    "minBalance": 8000000,
+    "rates": { "1": 2.75, "3": 2.75, "6": 3.0, "12": 2.5 }
   },
   {
-    "bankName": "BCA",
+    "bankName": "Deposito Berjangka by BCA",
+    "category": "konvensional",
     "logoUrl": "/assets/banks/bca.svg",
-    "website": "https://www.bca.co.id/id/Individu/produk/simpanan/e-Deposito#",
-    "minBalance": 250000000,
-    "rates": { "1": 2.75, "3": 2.75, "6": 2.75, "12": 2.5 }
-  },
-  {
-    "bankName": "BCA",
-    "logoUrl": "/assets/banks/bca.svg",
-    "website": "https://www.bca.co.id/id/Individu/produk/simpanan/e-Deposito#",
-    "minBalance": 1000000000,
-    "rates": { "1": 2.75, "3": 2.75, "6": 2.75, "12": 2.5 }
-  },
-  {
-    "bankName": "BCA",
-    "logoUrl": "/assets/banks/bca.svg",
-    "website": "https://www.bca.co.id/id/Individu/produk/simpanan/e-Deposito#",
+    "website": "https://www.bca.co.id/id/Individu/produk/simpanan/Deposito-Berjangka",
     "minBalance": 2000000000,
-    "rates": { "1": 3.15, "3": 3.0, "6": 2.75, "12": 2.5 }
+    "rates": { "1": 3.1, "3": 3.1, "6": 3.1, "12": 2.5 }
   },
   {
-    "bankName": "BCA",
-    "logoUrl": "/assets/banks/bca.svg",
-    "website": "https://www.bca.co.id/id/Individu/produk/simpanan/e-Deposito#",
-    "minBalance": 5000000000,
-    "rates": { "1": 3.25, "3": 3.0, "6": 2.75, "12": 2.5 }
+    "bankName": "Deposito BTN by Bank BTN",
+    "category": "konvensional",
+    "logoUrl": "/assets/banks/btn.svg",
+    "website": "https://www.btn.co.id/id/Conventional/Product-Links/Produk-BTN/Dana/Deposito/Deposito-BTN-Rupiah",
+    "minBalance": 10000000,
+    "rates": { "1": 2.5, "3": 2.75, "6": 2.75, "12": 2.75 }
+  },
+  {
+    "bankName": "Deposito Rupiah by Bank BNI",
+    "category": "konvensional",
+    "logoUrl": "/assets/banks/bni.svg",
+    "website": "https://www.bni.co.id/en-us/home/cx-protection/riplay-umum",
+    "minBalance": 10000000,
+    "rates": { "1": 2.25, "3": 2.5, "6": 2.75, "12": 2.5 }
+  },
+  {
+    "bankName": "Deposito Rupiah by Bank Mandiri",
+    "category": "konvensional",
+    "logoUrl": "/assets/banks/mandiri.svg",
+    "website": "https://www.bankmandiri.co.id/web/guest/suku-bunga-dana#deposito",
+    "minBalance": 10000000,
+    "rates": { "1": 2.25, "3": 2.25, "6": 2.5, "12": 2.5 }
   },
 
   {
-    "bankName": "Hibank by BNI",
-    "logoUrl": "/assets/banks/hibank.svg",
-    "website": "https://www.hibank.co.id/fund-managements/saving?product=deposit",
-    "minBalance": 10000000,
-    "rates": { "1": 3.75, "3": 3.75, "6": 3.75, "12": 3.75 }
+    "bankName": "Deposito Supra by BPR Supra",
+    "category": "bpr",
+    "logoUrl": "/assets/banks/bpr-supra.svg",
+    "website": "https://bprsupra.com/",
+    "minBalance": 1000000,
+    "rates": { "1": 5.75, "3": 6.0, "6": 6.25, "12": 6.25 }
   },
   {
-    "bankName": "Hibank by BNI",
-    "logoUrl": "/assets/banks/hibank.svg",
-    "website": "https://www.hibank.co.id/fund-managements/saving?product=deposit",
-    "minBalance": 100000000,
-    "rates": { "1": 3.75, "3": 3.75, "6": 3.75, "12": 3.75 }
+    "bankName": "Deposito Universal by Universal BPR",
+    "category": "bpr",
+    "logoUrl": "/assets/banks/bpr-universal.svg",
+    "website": "https://universalbpr.co.id/deposito/",
+    "minBalance": 5000000,
+    "rates": { "1": 5.5, "3": 5.75, "6": 6.0, "12": 6.25 }
   },
   {
-    "bankName": "Hibank by BNI",
-    "logoUrl": "/assets/banks/hibank.svg",
-    "website": "https://www.hibank.co.id/fund-managements/saving?product=deposit",
-    "minBalance": 250000000,
-    "rates": { "1": 3.75, "3": 3.75, "6": 3.75, "12": 3.75 }
+    "bankName": "Deposito Reguler by BPR KS",
+    "category": "bpr",
+    "logoUrl": "/assets/banks/bpr-ks.svg",
+    "website": "https://www.bprks.co.id/",
+    "minBalance": 1000000,
+    "rates": { "1": 5.5, "3": 5.75, "6": 6.25, "12": 6.25 }
   },
   {
-    "bankName": "Hibank by BNI",
-    "logoUrl": "/assets/banks/hibank.svg",
-    "website": "https://www.hibank.co.id/fund-managements/saving?product=deposit",
-    "minBalance": 1000000000,
-    "rates": { "1": 3.75, "3": 3.75, "6": 3.75, "12": 3.75 }
+    "bankName": "Deposito Berjangka by BPR Kredit Mandiri",
+    "category": "bpr",
+    "logoUrl": "/assets/banks/bpr-kmi.svg",
+    "website": "https://kreditmandiri.co.id/",
+    "minBalance": 5000000,
+    "rates": { "1": 5.5, "3": 5.75, "6": 6.0, "12": 6.25 }
   },
   {
-    "bankName": "Hibank by BNI",
-    "logoUrl": "/assets/banks/hibank.svg",
-    "website": "https://www.hibank.co.id/fund-managements/saving?product=deposit",
-    "minBalance": 2000000000,
-    "rates": { "1": 3.75, "3": 3.75, "6": 3.75, "12": 3.75 }
+    "bankName": "Deposito Si Deka by BPR Hasamitra",
+    "category": "bpr",
+    "logoUrl": "/assets/banks/bpr-hasamitra.svg",
+    "website": "https://hasamitra.com/",
+    "minBalance": 1000000,
+    "rates": { "1": 5.5, "3": 5.75, "6": 6.25, "12": 6.25 }
   },
   {
-    "bankName": "Hibank by BNI",
-    "logoUrl": "/assets/banks/hibank.svg",
-    "website": "https://www.hibank.co.id/fund-managements/saving?product=deposit",
-    "minBalance": 5000000000,
-    "rates": { "1": 3.75, "3": 3.75, "6": 3.75, "12": 3.75 }
-  },
-
-  {
-    "bankName": "D-Bank Pro by Danamon (MUFG)",
-    "logoUrl": "/assets/banks/danamon.svg",
-    "website": "https://www.danamon.co.id/id/Personal/Lainnya/Suku-Bunga",
-    "minBalance": 10000000,
-    "rates": { "1": 3.25, "3": 3.5, "6": 4, "12": 4.25 }
+    "bankName": "DepositoGo by BPR Lestari",
+    "category": "bpr",
+    "logoUrl": "/assets/banks/bpr-lestari.svg",
+    "website": "https://www.bprlestari.com/",
+    "minBalance": 8000000,
+    "rates": { "1": 5.5, "3": 5.75, "6": 6.0, "12": 6.0 }
   },
   {
-    "bankName": "D-Bank Pro by Danamon (MUFG)",
-    "logoUrl": "/assets/banks/danamon.svg",
-    "website": "https://www.danamon.co.id/id/Personal/Lainnya/Suku-Bunga",
-    "minBalance": 100000000,
-    "rates": { "1": 4, "3": 5, "6": 5, "12": 4.75 }
-  },
-  {
-    "bankName": "D-Bank Pro by Danamon (MUFG)",
-    "logoUrl": "/assets/banks/danamon.svg",
-    "website": "https://www.danamon.co.id/id/Personal/Lainnya/Suku-Bunga",
-    "minBalance": 250000000,
-    "rates": { "1": 4.25, "3": 5, "6": 5, "12": 5 }
-  },
-  {
-    "bankName": "D-Bank Pro by Danamon (MUFG)",
-    "logoUrl": "/assets/banks/danamon.svg",
-    "website": "https://www.danamon.co.id/id/Personal/Lainnya/Suku-Bunga",
-    "minBalance": 1000000000,
-    "rates": { "1": 4.25, "3": 5, "6": 5, "12": 5 }
-  },
-  {
-    "bankName": "D-Bank Pro by Danamon (MUFG)",
-    "logoUrl": "/assets/banks/danamon.svg",
-    "website": "https://www.danamon.co.id/id/Personal/Lainnya/Suku-Bunga",
-    "minBalance": 2000000000,
-    "rates": { "1": 4.25, "3": 5, "6": 5, "12": 5 }
-  },
-  {
-    "bankName": "D-Bank Pro by Danamon (MUFG)",
-    "logoUrl": "/assets/banks/danamon.svg",
-    "website": "https://www.danamon.co.id/id/Personal/Lainnya/Suku-Bunga",
-    "minBalance": 5000000000,
-    "rates": { "1": 4.25, "3": 5, "6": 5, "12": 5 }
+    "bankName": "Deposito Berjangka by Bank Eka (BPR)",
+    "category": "bpr",
+    "logoUrl": "/assets/banks/bpr-eka.svg",
+    "website": "https://www.bankeka.co.id/",
+    "minBalance": 1000000,
+    "rates": { "1": 5.0, "3": 5.0, "6": 5.25, "12": 5.25 }
   }
 ]

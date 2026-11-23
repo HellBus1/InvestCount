@@ -1,11 +1,12 @@
+import { useState, useEffect, ComponentType } from 'react'
 import { motion } from 'framer-motion'
 import { useParams, Link } from 'react-router-dom'
-import { ComponentType } from 'react'
 import Footer from '@/components/Footer/Footer'
 import { containerVariants } from '@/constants/animations'
 import Icon from '@/components/Icon/Icon'
 import { blogPosts, getBlogPost, BlogPostMeta } from '@/data/blogPosts'
 import { useSEO } from '@/hooks/useSEO'
+import { getImagePath } from '@/services/inputServices'
 
 const blogModules = import.meta.glob<{ default: ComponentType; meta: BlogPostMeta }>(
   '/src/content/blog/*.mdx',
@@ -14,17 +15,24 @@ const blogModules = import.meta.glob<{ default: ComponentType; meta: BlogPostMet
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>()
+  const [imageFailed, setImageFailed] = useState(false)
+
+  useEffect(() => {
+    setImageFailed(false)
+  }, [slug])
+
   const registryMeta = slug ? getBlogPost(slug) : undefined
   const module = slug ? blogModules[`/src/content/blog/${slug}.mdx`] : undefined
   const Content = module?.default
   const meta = module?.meta || registryMeta
+  const coverImage = meta?.image || registryMeta?.image
 
   useSEO({
     title: meta ? `${meta.title} | InvestCount` : 'Artikel Deposito | InvestCount',
     description:
       meta?.description || 'Panduan edukasi seputar simpanan deposito dan perbankan di Indonesia.',
     canonicalUrl: `/blog/${slug}`,
-    ogImage: meta?.image || '/assets/web_icon.svg',
+    ogImage: coverImage || '/og/og-image.jpg',
     ogType: 'article',
     keywords: meta?.keywords || ['kalkulator deposito', 'bunga deposito'],
     publishedDate: meta?.date,
@@ -34,7 +42,7 @@ const BlogPost = () => {
           '@type': 'BlogPosting',
           headline: meta.title,
           description: meta.description,
-          image: meta.image ? `https://investtcount.mattrmost.com${meta.image}` : undefined,
+          image: coverImage ? `https://investtcount.mattrmost.com${coverImage}` : undefined,
           datePublished: meta.date,
           dateModified: meta.date,
           author: {
@@ -105,33 +113,61 @@ const BlogPost = () => {
             <span className='text-slate-800 font-semibold truncate'>{meta.category}</span>
           </nav>
 
-          {/* Article Header */}
-          <div className='bg-white rounded-t-2xl p-6 sm:p-10 border border-slate-200 border-b-0 shadow-card'>
-            <div className='flex items-center gap-2.5 mb-4'>
-              <span className='px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-semibold'>
-                {meta.category}
-              </span>
-              <span className='text-xs text-slate-500'>{meta.readTime} baca</span>
+          {/* Article Container */}
+          <div className='bg-white rounded-2xl border border-slate-200 shadow-card overflow-hidden mb-10'>
+            {/* Article Header */}
+            <div className='p-6 sm:p-10 pb-6 sm:pb-8'>
+              <div className='flex items-center gap-2.5 mb-4'>
+                <span className='px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-semibold'>
+                  {meta.category}
+                </span>
+                <span className='text-xs text-slate-500'>{meta.readTime} baca</span>
+              </div>
+
+              <h1 className='text-2xl sm:text-3xl md:text-4xl font-extrabold font-display text-slate-900 leading-tight mb-4'>
+                {meta.title}
+              </h1>
+
+              <div className='text-xs text-slate-500 font-medium'>
+                Diterbitkan pada{' '}
+                {new Date(meta.date).toLocaleDateString('id-ID', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </div>
             </div>
 
-            <h1 className='text-2xl sm:text-3xl md:text-4xl font-extrabold font-display text-slate-900 leading-tight mb-4'>
-              {meta.title}
-            </h1>
+            {/* Cover Image Attachment */}
+            {coverImage && (
+              <figure className='px-6 sm:px-10 pb-2'>
+                <div className='aspect-video w-full rounded-xl overflow-hidden bg-slate-100 border border-slate-200/80'>
+                  {!imageFailed ? (
+                    <img
+                      src={getImagePath(coverImage)}
+                      alt={meta.title}
+                      width={1200}
+                      height={675}
+                      loading='eager'
+                      decoding='async'
+                      className='w-full h-full object-cover'
+                      onError={() => setImageFailed(true)}
+                    />
+                  ) : (
+                    <div className='w-full h-full bg-gradient-to-br from-slate-800 via-slate-900 to-brand-900 flex flex-col items-center justify-center p-6 text-center'>
+                      <Icon name='book-open' className='w-10 h-10 text-brand-400 mb-2' />
+                      <span className='text-xs font-semibold text-slate-200'>{meta.category}</span>
+                    </div>
+                  )}
+                </div>
+              </figure>
+            )}
 
-            <div className='text-xs text-slate-500 font-medium'>
-              Diterbitkan pada{' '}
-              {new Date(meta.date).toLocaleDateString('id-ID', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}
-            </div>
-          </div>
-
-          {/* Article Content Body */}
-          <div className='bg-white rounded-b-2xl p-6 sm:p-10 border border-slate-200 border-t-0 shadow-card mb-10'>
-            <div className='prose prose-slate max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline prose-pre:bg-slate-900 prose-pre:rounded-xl'>
-              <Content />
+            {/* Article Content Body */}
+            <div className='p-6 sm:p-10 pt-6 sm:pt-8'>
+              <div className='prose prose-slate max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline prose-pre:bg-slate-900 prose-pre:rounded-xl'>
+                <Content />
+              </div>
             </div>
           </div>
 
@@ -178,8 +214,8 @@ const BlogPost = () => {
                 Hitung Bunga Deposito Anda Sekarang
               </h2>
               <p className='text-sm text-slate-300 mb-6'>
-                Kalkulator gratis, akurat setelah pajak 20%, dan bandingkan suku bunga dari berbagai
-                bank terkemuka.
+                Kalkulator gratis, akurat setelah pajak 20%, dan bandingkan suku bunga dari 35
+                produk bank serta BPR.
               </p>
               <Link
                 to='/'
