@@ -1,9 +1,6 @@
 import { useState, useMemo, useCallback } from 'react'
 import bankDepositoDatas from '../../../../../data/bankDepositos.json'
-import {
-  formatNumberWithCommas,
-  parseAmountInputFromCommas
-} from '@/services/inputServices'
+import { formatNumberWithCommas, parseAmountInputFromCommas } from '@/services/inputServices'
 import { Bank } from '../../DepositRateComparisonSection/depositRateComparisonProps'
 import {
   BudgetCalculationSummary,
