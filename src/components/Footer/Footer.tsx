@@ -92,10 +92,10 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to='/blog/simulasi-deposito-lengkap'
+                  to='/blog/deposito-bpr-vs-bank-umum'
                   className='text-slate-400 hover:text-brand-400 transition-colors inline-block py-0.5'
                 >
-                  Simulasi Deposito 10jt - 100jt
+                  Deposito BPR vs Bank Umum
                 </Link>
               </li>
               <li>
