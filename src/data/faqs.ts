@@ -22,8 +22,8 @@ export const homeFAQs: FAQItem[] = [
     answer:
       'Dengan asumsi bunga 5,0% p.a. dan potongan PPh Final 20%: saldo Rp10 juta menghasilkan sekitar Rp33.334 per bulan, sedangkan Rp100 juta menghasilkan sekitar Rp333.333 per bulan. Pada bunga 6,0% p.a., hasilnya naik menjadi sekitar Rp40.000 dan Rp400.000 per bulan.',
     link: {
-      url: '/blog/simulasi-deposito-lengkap',
-      text: 'Lihat simulasi 10 jt, 50 jt, dan 100 jt'
+      url: '/blog/cara-menghitung-bunga-deposito',
+      text: 'Lihat contoh hitungan 10 jt hingga 100 jt'
     }
   },
   {
