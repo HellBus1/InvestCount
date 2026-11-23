@@ -1,126 +1,73 @@
 export const meta = {
   title: 'Cara Menghitung Bunga Deposito Bank (Rumus, Pajak 20% & Contoh Kasus)',
-  description: 'Panduan lengkap dan praktis cara menghitung bunga deposito bank di Indonesia setelah dipotong pajak 20%. Disertai formula, tabel simulasi, dan contoh perhitungan riil.',
-  date: '2026-09-04',
-  readTime: '8 menit',
+  description:
+    'Panduan praktis menghitung bunga deposito bank di Indonesia setelah potongan PPh Final 20%, lengkap dengan rumus bulanan, harian, dan simulasi nominal.',
+  date: '2026-11-23',
+  readTime: '6 menit',
   category: 'Dasar Deposito',
   image: '/assets/blog/cara-menghitung-bunga-deposito.webp'
 }
 
-# Cara Menghitung Bunga Deposito Bank (Rumus, Pajak 20% & Contoh Kasus)
+Banyak nasabah kaget ketika bunga deposito yang masuk ke rekening lebih kecil dari perkiraan awal. Penyebabnya sederhana: **suku bunga yang dipajang bank selalu berupa bunga kotor tahunan (*per annum* / p.a.)**, dan **simpanan di atas Rp7.500.000 otomatis dipotong PPh Final sebesar 20%**.
 
-Deposito berjangka merupakan salah satu instrumen simpanan dan investasi rendah risiko terpopuler di Indonesia. Dijamin oleh Lembaga Penjamin Simpanan (LPS) hingga Rp2 Miliar per nasabah per bank, instrumen ini menjadi pilihan utama untuk memarkir dana darurat maupun modal jangka pendek.
+Dengan memahami rumus dasar dan potongan pajaknya, Anda bisa memperkirakan hasil bersih deposito hingga ke angka rupiah sebelum membuka bilyet.
 
-Namun, banyak nasabah yang keliru saat memperkirakan keuntungan yang akan diterima. Seringkali bunga yang masuk ke rekening ternyata lebih kecil dari perkiraan awal. Mengapa? Karena **suku bunga yang dipublikasikan bank adalah bunga kotor tahunan (p.a. / per annum)** dan **bunga simpanan di atas Rp7.500.000 dikenakan pajak penghasilan (PPh) final sebesar 20%**.
+## 1. Dua Rumus Perhitungan Bunga Deposito
 
-Artikel ini menyajikan panduan lengkap mengenai cara menghitung bunga deposito bank secara manual, formula bulanan vs harian, simulasi riil, hingga trik memaksimalkan imbal hasil.
+Bank di Indonesia umumnya menggunakan salah satu dari dua metode berikut:
 
----
+### Metode Bulanan (Standar Tenor 1, 3, 6, dan 12 Bulan)
 
-## 1. Rumus dan Formula Dasar Bunga Deposito
-
-Dalam industri perbankan Indonesia, ada dua metode umum yang digunakan bank untuk menghitung bunga deposito:
-
-### Metode 1: Rumus Berdasarkan Tenor Bulan (Standar Perbankan Umum)
-
-Metode ini paling umum digunakan untuk tenor standar (1, 3, 6, atau 12 bulan):
-
-```
-Bunga Kotor = (Pokok Simpanan × Suku Bunga Per Tahun × Jumlah Bulan) / 12
+```text
+Bunga Kotor    = (Pokok Simpanan × Suku Bunga p.a. × Jumlah Bulan) / 12
 Potongan Pajak = Bunga Kotor × 20%
-Bunga Bersih = Bunga Kotor - Potongan Pajak
+Bunga Bersih   = Bunga Kotor - Potongan Pajak
 ```
 
-*Catatan: Suku bunga per tahun dimasukkan dalam bentuk desimal (misal 5% = 0,05).*
+*Masukkan suku bunga dalam bentuk desimal (contoh: 5% ditulis 0,05).*
 
-### Metode 2: Rumus Berdasarkan Jumlah Hari Aktual (Exact Day Count)
+### Metode Hari Aktual (*Exact Day Count*)
 
-Beberapa bank modern dan bank digital menggunakan jumlah hari aktual dalam setahun (365 hari):
+Beberapa bank digital dan deposito fleksibel (tenor 7 hari, 14 hari, atau 30 hari) menghitung berdasarkan jumlah hari aktual dalam setahun (365 hari):
 
-```
-Bunga Kotor = (Pokok Simpanan × Suku Bunga Per Tahun × Jumlah Hari Tenor) / 365
+```text
+Bunga Kotor    = (Pokok Simpanan × Suku Bunga p.a. × Jumlah Hari Tenor) / 365
 Potongan Pajak = Bunga Kotor × 20%
-Bunga Bersih = Bunga Kotor - Potongan Pajak
+Bunga Bersih   = Bunga Kotor - Potongan Pajak
 ```
 
-Metode ini lazim dipakai pada deposito fleksibel dengan tenor harian (misal 7 hari, 14 hari, atau 30 hari).
+## 2. Aturan Pajak PPh Final 20%
 
----
+Berdasarkan PP No. 131 Tahun 2000 dan KMK No. 51/KMK.04/2001:
 
-## 2. Aturan Pajak Deposito 20% (PPh Final Pasal 4 Ayat 2)
+- **Total saldo simpanan s.d. Rp7.500.000**: Bebas pajak (**0%**).
+- **Total saldo simpanan di atas Rp7.500.000**: Dikenakan **PPh Final 20%** dari bunga kotor.
 
-Berdasarkan Peraturan Pemerintah (PP) No. 131 Tahun 2000 dan Keputusan Menteri Keuangan No. 51/KMK.04/2001:
+Pajak dipotong otomatis oleh bank saat bunga cair, sehingga angka yang masuk ke rekening Anda sudah bersih. Detail aturan dan pelaporan SPT dibahas di [Pajak Bunga Deposito 20%: Aturan PPh Final & Cara Hitungnya](/blog/pajak-deposito-20-persen).
 
-1. **Deposito dengan saldo sampai dengan Rp7.500.000**: Dikenakan tarif pajak **0%** (bebas pajak).
-2. **Deposito dengan saldo di atas Rp7.500.000**: Dikenakan PPh Final sebesar **20%** dari total bunga kotor yang diperoleh.
+## 3. Contoh Perhitungan Riil
 
-Pajak ini bersifat **final** dan dipotong secara otomatis oleh sistem perbankan saat bunga dibayarkan, sehingga nasabah menerima nominal bersih tanpa perlu menyetor pajak sendiri ke kantor pajak.
+### Kasus A: Modal Rp10.000.000, Tenor 1 Bulan, Bunga 6,0% p.a.
 
----
+- **Bunga Kotor**: `(Rp10.000.000 × 6% × 1) / 12 = Rp50.000`
+- **Pajak 20%**: `Rp50.000 × 20% = Rp10.000`
+- **Bunga Bersih**: `Rp50.000 - Rp10.000 = Rp40.000`
 
-## 3. Contoh Kasus & Simulasi Perhitungan Riil
+Saat jatuh tempo 1 bulan, total dana Anda menjadi **Rp10.040.000**. *(Catatan: jika deposito 6,0% ini ditempatkan di bank umum/digital, statusnya tidak dijamin LPS karena melewati TBP Bank Umum 3,75% p.a.; berbeda dengan BPR yang batas TBP-nya 6,25% p.a.)*
 
-Mari kita bedah beberapa studi kasus nyata agar Anda memahami perhitungannya secara transparan.
+### Kasus B: Modal Rp50.000.000, Tenor 12 Bulan, Bunga 5,0% p.a.
 
-### Kasus A: Modal Rp10.000.000 Tenor 1 Bulan (Suku Bunga 6% p.a.)
+- **Bunga Kotor**: `(Rp50.000.000 × 5% × 12) / 12 = Rp2.500.000`
+- **Pajak 20%**: `Rp2.500.000 × 20% = Rp500.000`
+- **Bunga Bersih**: **Rp2.000.000 per tahun** (atau sekitar **Rp166.667 per bulan** jika dibayarkan bulanan).
 
-Banyak nasabah bertanya: *"Jika saya menaruh deposito Rp10 juta di bank digital dengan bunga 6% selama 1 bulan, berapa rupiah yang saya dapatkan?"*
+### Kasus C: Modal Rp100.000.000, Tenor 3 Bulan, Bunga 5,5% p.a.
 
-- **Pokok Simpanan**: Rp10.000.000
-- **Suku Bunga**: 6% per tahun
-- **Tenor**: 1 bulan
-- **Pajak**: 20% (karena saldo > Rp7,5 juta)
+- **Bunga Kotor**: `(Rp100.000.000 × 5,5% × 3) / 12 = Rp1.375.000`
+- **Pajak 20%**: `Rp1.375.000 × 20% = Rp275.000`
+- **Bunga Bersih**: **Rp1.100.000** untuk periode 3 bulan.
 
-**Langkah Perhitungan:**
-1. **Bunga Kotor Bulanan**:
-   `(Rp10.000.000 × 6% × 1) / 12 = Rp50.000`
-2. **Potongan Pajak 20%**:
-   `Rp50.000 × 20% = Rp10.000`
-3. **Bunga Bersih Diterima**:
-   `Rp50.000 - Rp10.000 = Rp40.000 per bulan`
-
-*Hasil akhir: Pada saat jatuh tempo 1 bulan, total uang Anda menjadi **Rp10.040.000**.*
-
----
-
-### Kasus B: Modal Rp50.000.000 Tenor 12 Bulan (Suku Bunga 5% p.a.)
-
-- **Pokok Simpanan**: Rp50.000.000
-- **Suku Bunga**: 5% per tahun
-- **Tenor**: 12 bulan (1 tahun)
-
-**Langkah Perhitungan:**
-1. **Bunga Kotor Tahunan**:
-   `(Rp50.000.000 × 5% × 12) / 12 = Rp2.500.000`
-2. **Pajak 20%**:
-   `Rp2.500.000 × 20% = Rp500.000`
-3. **Bunga Bersih**:
-   `Rp2.500.000 - Rp500.000 = Rp2.000.000 per tahun`
-
-Jika bunga dicairkan bulanan ke rekening tabungan, maka per bulan Anda menerima:
-`Rp2.000.000 / 12 = Rp166.666 per bulan (bersih)`.
-
----
-
-### Kasus C: Modal Rp100.000.000 Tenor 3 Bulan (Suku Bunga 5.5% p.a.)
-
-- **Pokok Simpanan**: Rp100.000.000
-- **Suku Bunga**: 5,5% per tahun
-- **Tenor**: 3 bulan
-
-**Langkah Perhitungan:**
-1. **Bunga Kotor (3 bulan)**:
-   `(Rp100.000.000 × 5,5% × 3) / 12 = Rp1.375.000`
-2. **Pajak 20%**:
-   `Rp1.375.000 × 20% = Rp275.000`
-3. **Bunga Bersih**:
-   `Rp1.375.000 - Rp275.000 = Rp1.100.000 (bersih untuk 3 bulan)`
-
----
-
-## 4. Tabel Perbandingan Bunga Bersih Berbagai Nominal & Tenor
-
-Berikut ringkasan simulasi bunga bersih deposito dengan asumsi suku bunga **5% per tahun**:
+## 4. Tabel Simulasi Bunga Bersih (Asumsi Bunga 5,0% p.a.)
 
 | Nominal Pokok | Tenor | Bunga Kotor | Pajak (20%) | Bunga Bersih | Total Akhir |
 |---|---|---|---|---|---|
@@ -132,53 +79,35 @@ Berikut ringkasan simulasi bunga bersih deposito dengan asumsi suku bunga **5% p
 | Rp100.000.000 | 6 Bulan | Rp2.500.000 | Rp500.000 | **Rp2.000.000** | Rp102.000.000 |
 | Rp100.000.000 | 12 Bulan | Rp5.000.000 | Rp1.000.000 | **Rp4.000.000** | Rp104.000.000 |
 
-*Gunakan [Kalkulator Deposito InvestCount](/) untuk melakukan simulasi dengan nominal kustom secara langsung.*
+Untuk nominal, tenor, dan suku bunga lain, hitung langsung di [Kalkulator Deposito InvestCount](/).
 
----
+## 5. Pengaruh Instruksi Jatuh Tempo (Non-ARO, ARO, ARO+)
 
-## 5. Tiga Model Perpanjangan Deposito: Non-ARO, ARO, dan ARO+
+Saat membuka deposito, bank menyediakan tiga instruksi jatuh tempo yang menentukan apakah bunga ikut digulung:
 
-Saat membuka deposito, bank akan menanyakan instruksi jatuh tempo (*maturity instruction*). Pilihan ini menentukan seberapa besar efek pelipatan bunga (*compounding interest*) yang bisa Anda raih:
+1. **Non-ARO**: Pokok dan bunga bersih langsung dicairkan ke rekening saat jatuh tempo. Cocok untuk dana dengan jadwal pakai yang sudah pasti.
+2. **ARO Pokok**: Hanya pokok yang diperpanjang otomatis; bunga bersih masuk ke rekening setiap periode sebagai arus kas rutin.
+3. **ARO+ (Pokok + Bunga)**: Bunga bersih digabungkan ke pokok untuk tenor berikutnya sehingga menghasilkan efek bunga berbunga (*compounding*).
 
-### 1. Non-ARO (Non-Automatic Roll Over)
-Deposito otomatis berakhir saat jatuh tempo. Pokok dan bunga bersih langsung ditransfer ke rekening tabungan induk Anda. Cocok jika dana akan segera digunakan untuk kebutuhan tertentu.
+Simulasi selisih ketiganya bisa Anda lihat di [Mengenal Deposito ARO, Non-ARO, dan ARO+](/blog/deposito-aro-vs-non-aro).
 
-### 2. ARO Pokok (Automatic Roll Over Pokok)
-Hanya modal pokok yang diperpanjang secara otomatis untuk tenor berikutnya. Bunga bersih ditransfer ke rekening tabungan setiap periode perpanjangan.
+## 6. Hal Penting Sebelum Menempatkan Dana
 
-### 3. ARO+ / ARO Bunga (Pokok + Bunga Diperpanjang)
-Pokok simpanan **ditambah bunga bersih** digabungkan menjadi pokok baru untuk tenor berikutnya. Ini menciptakan efek bunga bergulung (*compound interest*) yang menghasilkan imbal hasil lebih tinggi secara geometris.
+- **Cek batas TBP LPS**: Periode **1 Oktober 2026 – 31 Januari 2027**, batas bunga yang dijamin LPS adalah **3,75% p.a.** untuk Bank Umum/Digital dan **6,25% p.a.** untuk BPR (maksimal Rp2 Miliar per nasabah per bank).
+- **Perhitungkan penalti cair awal**: Mencairkan deposito sebelum jatuh tempo umumnya dikenai penalti atau penghapusan bunga berjalan. Jika butuh likuiditas berkala, bagi dana ke beberapa tenor berbeda (*laddering*).
+- **Bandingkan dengan inflasi**: Kurangkan bunga bersih Anda dengan laju inflasi tahunan untuk melihat pertumbuhan daya beli yang sebenarnya. Baca [Pengaruh Inflasi terhadap Bunga Deposito](/blog/inflasi-dan-deposito).
 
-Pelajari ulasan lengkapnya di artikel kami: [Mengenal Deposito ARO, Non-ARO, dan ARO+: Mana yang Paling Menguntungkan?](/blog/deposito-aro-vs-non-aro).
+## Pertanyaan Umum
 
----
-
-## 6. Tips Memaksimalkan Keuntungan Deposito
-
-1. **Bandingkan Suku Bunga Antar Bank**: Jangan hanya terpaku pada bank tempat rekening tabungan utama Anda berada. Bank digital dan BPR seringkali menawarkan suku bunga yang jauh lebih kompetitif daripada bank konvensional besar.
-2. **Perhatikan Tingkat Bunga Penjaminan (TBP) LPS**: Pastikan suku bunga yang Anda pilih tidak melebihi batas penjaminan LPS agar simpanan Anda 100% dijamin pemerintah jika sewaktu-waktu bank mengalami gagal bayar.
-3. **Terapkan Strategi Tangga Deposito (*Laddering*)**: Bagi simpanan Anda ke dalam beberapa bilyet dengan tenor berbeda (misal 1, 3, 6, dan 12 bulan) agar Anda tetap memiliki likuiditas rutin setiap bulan tanpa terkena penalti pencairan dini.
-4. **Hitung Return Riil Melawan Inflasi**: Selalu kurangkan bunga bersih dengan tingkat inflasi tahunan berjalan. Baca panduan kami tentang [Pengaruh Inflasi terhadap Bunga Deposito](/blog/inflasi-dan-deposito).
-
----
-
-## 7. Pertanyaan Umum (FAQ) Seputar Perhitungan Deposito
-
-### Berapa bunga deposito per bulan untuk saldo 100 juta?
-Tergantung suku bunga bank. Jika suku bunga 5% p.a., bunga kotor per bulan adalah Rp416.666. Setelah dipotong pajak 20% (Rp83.333), bunga bersih yang diterima nasabah adalah **Rp333.333 per bulan**.
+### Berapa bunga bersih deposito Rp100 juta per bulan?
+Dengan asumsi bunga 5,0% p.a., bunga kotor per bulan adalah Rp416.667. Setelah dipotong PPh Final 20% (Rp83.333), bunga bersih yang diterima adalah **Rp333.333 per bulan**.
 
 ### Kapan bunga deposito dibayarkan?
-Pada deposito Non-ARO, bunga dibayarkan saat jatuh tempo tenor berakhir. Pada beberapa bank, bunga dapat disetel untuk dibayarkan setiap tanggal pembukaan bulanan langsung ke rekening tabungan induk.
+Pada deposito Non-ARO, bunga dibayarkan saat jatuh tempo. Untuk tenor 3–12 bulan, sebagian bank menyediakan opsi pembayaran bunga setiap bulan langsung ke rekening tabungan induk.
 
-### Mengapa deposito saya dipotong pajak 20% padahal saya belum punya NPWP?
-Pajak bunga deposito adalah PPh Final yang otomatis dipotong oleh sistem bank sesuai regulasi perpajakan Indonesia, tidak bergantung pada pelaporan SPT tahunan pemilik rekening.
+### Apakah pemilik rekening tanpa NPWP tetap dipotong 20%?
+Ya. Tarif PPh Final bunga deposito tetap 20% bagi wajib pajak dalam negeri, baik yang sudah memiliki NPWP maupun belum, dan dipotong otomatis oleh bank.
 
----
-
-## Hitung Bunga Bersih Anda Sekarang di InvestCount
-
-Tidak perlu menghitung manual dengan kalkulator fisik. Gunakan **[Kalkulator Deposito InvestCount](/)** untuk menghitung bunga kotor, pajak PPh 20%, bunga bersih, serta membandingkan suku bunga resmi dari berbagai bank terkemuka di Indonesia secara instan dan akurat.
-
-**Artikel Terkait yang Wajib Anda Baca:**
+**Baca juga:**
 - [Daftar Suku Bunga Deposito Bank Tertinggi 2026](/blog/bunga-deposito-bank-indonesia-2026)
 - [Pajak Bunga Deposito 20%: Aturan & Ketentuan Lengkap](/blog/pajak-deposito-20-persen)
