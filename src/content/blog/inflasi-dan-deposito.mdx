@@ -1,148 +1,87 @@
 export const meta = {
   title: 'Pengaruh Inflasi terhadap Bunga Deposito: Cara Hitung Return Riil',
-  description: 'Pelajari bagaimana inflasi menggerus nilai riil bunga deposito Anda dan strategi cerdas mengamankan daya beli uang dengan compounding ARO dan bank digital.',
-  date: '2026-09-04',
-  readTime: '8 menit',
+  description:
+    'Cara menghitung return riil deposito setelah pajak 20% dan inflasi tahunan, plus strategi menjaga daya beli dana simpanan Anda.',
+  date: '2026-11-23',
+  readTime: '6 menit',
   category: 'Strategi Investasi',
-  image: '/assets/blog/inflasi-deposito.jpg'
+  image: '/assets/blog/inflasi-dan-deposito.webp'
 }
 
-# Pengaruh Inflasi terhadap Bunga Deposito: Cara Hitung Return Riil
+Saldo deposito bisa terus bertambah setiap bulan, tetapi daya beli uang di dalamnya belum tentu ikut naik. Jika bunga bersih setelah pajak lebih kecil daripada laju inflasi tahunan, nilai riil simpanan Anda sebenarnya sedang menyusut.
 
-Banyak deposan merasa tenang dan aman ketika melihat saldo deposito mereka bertambah bunga setiap bulan. Namun, ada satu pertanyaan mendasar yang jarang disadari: **Apakah uang Anda benar-benar bertambah kaya, ataukah daya beli Anda justru tergerus secara diam-diam?**
+Untuk menilai apakah sebuah deposito benar-benar melindungi nilai uang Anda, ukur **return riil** — bukan sekadar bunga yang tertera di aplikasi bank.
 
-Musuh tersembunyi tersebut bernama **inflasi**. Di era suku bunga perbankan dinamis saat ini, memahami kaitan antara suku bunga deposito, potongan pajak, dan laju inflasi adalah kunci utama menjaga kekayaan riil Anda.
+## 1. Return Nominal vs Return Riil
 
-Artikel ini membahas formula perhitungan *real rate of return* (imbal hasil riil), data historis inflasi di Indonesia, hingga strategi jitu agar bunga deposito Anda tetap mampu mengalahkan inflasi.
+- **Return Nominal**: Suku bunga tahunan yang diumumkan bank sebelum pajak dan inflasi (misalnya 3,00% atau 6,00% p.a.).
+- **Return Riil (*Real Rate of Return*)**: Pertumbuhan daya beli bersih setelah bunga dipotong PPh Final 20% dan dikurangi tingkat inflasi tahunan.
 
----
+### Rumus Return Riil
 
-## 1. Memahami Perbedaan Return Nominal vs Return Riil
+Pendekatan praktis:
 
-Untuk mengevaluasi kinerja investasi apapun, termasuk deposito, Anda harus membedakan dua istilah penting ini:
-
-### Return Nominal
-Return nominal adalah persentase keuntungan yang tertera pada bilyet deposito atau aplikasi perbankan Anda sebelum memperhitungkan kenaikan harga barang. Contoh: Suku bunga deposito 5,0% p.a.
-
-### Return Riil (*Real Rate of Return*)
-Return riil adalah daya beli nyata yang Anda peroleh setelah dikurangi potongan pajak dan tingkat inflasi umum. Inilah angka yang menentukan apakah Anda bertambah kaya atau miskin secara riil.
-
-### Formula Fisher (Menghitung Return Riil):
-
-Secara sederhana, return riil dapat dihitung dengan:
-
-```
-Return Bersih Nominal = Suku Bunga Kotor × 80% (setelah pajak 20%)
-Return Riil ≈ Return Bersih Nominal - Tingkat Inflasi Tahunan
+```text
+Bunga Bersih = Suku Bunga Kotor × 80%
+Return Riil  ≈ Bunga Bersih - Tingkat Inflasi Tahunan
 ```
 
-Atau menggunakan persamaan eksak Fisher:
+Untuk hasil eksak (persamaan Fisher):
 
-```
-(1 + Return Riil) = (1 + Return Bersih Nominal) / (1 + Tingkat Inflasi)
-```
-
----
-
-## 2. Studi Kasus: Ketika Bunga Deposito Justru Merugi Secara Riil
-
-Mari kita simulasikan dua skenario dengan nominal simpanan **Rp100.000.000**.
-
-### Skenario A: Bunga Deposito 4,5% di Bank Umum dengan Inflasi 3,0%
-- Pokok: Rp100.000.000
-- Suku Bunga Kotor: 4,5% per tahun
-- Bunga Kotor: Rp4.500.000
-- Pajak PPh 20%: Rp900.000
-- Bunga Bersih: Rp3.600.000 (**Return Nominal Bersih = 3,6%**)
-- Laju Inflasi: 3,0% per tahun
-
-**Perhitungan Return Riil:**
-`3,6% - 3,0% = +0,6% per tahun`
-
-*Nilai uang Anda secara riil bertambah sebesar Rp600.000. Meski tipis, deposito Anda masih berhasil mempertahankan daya beli.*
-
----
-
-### Skenario B: Bunga Deposito 3,0% di Bank Rendah Bunga dengan Inflasi 3,5%
-- Pokok: Rp100.000.000
-- Suku Bunga Kotor: 3,0% per tahun
-- Bunga Kotor: Rp3.000.000
-- Pajak PPh 20%: Rp600.000
-- Bunga Bersih: Rp2.400.000 (**Return Nominal Bersih = 2,4%**)
-- Laju Inflasi: 3,5% per tahun
-
-**Perhitungan Return Riil:**
-`2,4% - 3,5% = -1,1% per tahun (Negatif!)`
-
-*Secara nominal angka di rekening Anda bertambah Rp2.400.000, namun secara daya beli Anda mengalami kerugian riil sebesar 1,1%. Keranjang belanjaan yang bisa Anda beli tahun ini justru lebih sedikit daripada tahun lalu!*
-
----
-
-## 3. Data Tren Inflasi Indonesia (2020 - 2026)
-
-Bank Indonesia (BI) menargetkan sasaran inflasi nasional berada pada kisaran **2,5% ± 1%** (antara 1,5% hingga 3,5%).
-
-| Periode Tahun | Tingkat Inflasi Tahunan | Suku Bunga Deposito Rata-rata | Status Return Riil |
-|---|---|---|---|
-| 2020 | 1,68% | 4,5% - 5,5% | Positif kuat (+2,5%) |
-| 2021 | 1,87% | 3,5% - 4,0% | Positif (+1,2%) |
-| 2022 | 5,51% (Kenaikan BBM) | 3,0% - 4,5% | **Negatif (-2,0%)** |
-| 2023 | 2,61% | 3,5% - 5,0% | Positif (+0,8%) |
-| 2024 | 2,84% | 4,0% - 6,0% | Positif (+1,0%) |
-| 2025 - 2026 (Proyeksi) | 2,5% - 3,0% | 3,5% - 6,5% | Tergantung pilihan bank |
-
----
-
-## 4. Berapa Bunga Deposito Minimum untuk Mengalahkan Inflasi?
-
-Karena adanya potongan pajak 20%, suku bunga kotor yang Anda butuhkan selalu lebih tinggi dari tingkat inflasi:
-
-```
-Bunga Kotor Minimum = Inflasi / 0,8
+```text
+Return Riil = ((1 + Bunga Bersih) / (1 + Inflasi)) - 1
 ```
 
-| Tingkat Inflasi | Suku Bunga Kotor Minimum yang Harus Dipilih |
-|---|---|
-| 2,0% | **2,50% per tahun** |
-| 2,5% | **3,13% per tahun** |
-| 3,0% | **3,75% per tahun** |
-| 3,5% | **4,38% per tahun** |
-| 4,0% | **5,00% per tahun** |
+## 2. Simulasi: Kapan Deposito Untung dan Kapan Tergerus Inflasi?
 
-*Jika inflasi berada di angka 3,0%, Anda harus menempatkan deposito pada bank yang memberikan suku bunga di atas **3,75% p.a.** agar uang Anda tidak tergerus.*
+Asumsi: modal **Rp100.000.000**, tenor **12 bulan**, laju inflasi tahunan **3,0%** (dalam rentang sasaran Bank Indonesia `2,5% ± 1%`).
 
----
+### Skenario A: Deposito Bank Konvensional 2,75% p.a. (Dijamin LPS)
 
-## 5. 4 Strategi Mengalahkan Inflasi dengan Deposito
+- **Bunga Kotor**: Rp2.750.000
+- **PPh Final 20%**: Rp550.000
+- **Bunga Bersih**: Rp2.200.000 (**2,20%**)
+- **Return Riil**: `2,20% - 3,00% = -0,80% per tahun`
 
-### 1. Manfaatkan Bank Digital & BPR Berizin OJK
-Bank digital (seperti Seabank, Bank Jago, Krom Bank) dan Bank Perekonomian Rakyat (BPR) berizin resmi seringkali menawarkan suku bunga antara 5,0% hingga 6,75% p.a. Angka ini memberikan bantalan yang sangat aman di atas inflasi 3%.
+Secara angka, saldo memang naik Rp2,2 juta. Namun dengan inflasi 3,0%, daya beli uang Anda turun sekitar Rp800.000 dalam setahun.
 
-Selalu pastikan suku bunga masih berada dalam Tingkat Bunga Penjaminan (TBP) LPS. Baca ulasan: [Deposito BPR vs Bank Umum](/blog/deposito-bpr-vs-bank-umum).
+### Skenario B: Deposito BPR 6,00% p.a. (Dijamin LPS ≤ 6,25%)
 
-### 2. Terapkan Opsi ARO+ (Compounding Interest)
-Jangan biarkan bunga deposito Anda mengendap di tabungan dengan bunga mendekati nol. Aktifkan fitur **ARO+ (Automatic Roll Over Pokok + Bunga)** sehingga bunga yang Anda peroleh setiap bulan digulung kembali menjadi modal baru untuk menghasilkan bunga berikutnya.
+- **Bunga Kotor**: Rp6.000.000
+- **PPh Final 20%**: Rp1.200.000
+- **Bunga Bersih**: Rp4.800.000 (**4,80%**)
+- **Return Riil**: `4,80% - 3,00% = +1,80% per tahun`
 
-Pelajari detail mekanisme ini di panduan: [Mengenal Deposito ARO, Non-ARO, dan ARO+](/blog/deposito-aro-vs-non-aro).
+Setelah pajak dan inflasi, daya beli simpanan Anda masih tumbuh bersih sekitar **1,80%** per tahun dengan perlindungan LPS.
 
-### 3. Gunakan Metode Tangga Deposito (*Deposit Laddering*)
-Bagi modal Anda ke dalam beberapa bilyet deposito dengan tenor berjenjang (3, 6, 9, dan 12 bulan). Saat ada kenaikan suku bunga acuan BI-Rate, Anda bisa segera mereinvestasikan deposito yang jatuh tempo ke suku bunga yang lebih tinggi tanpa perlu menunggu lama.
+## 3. Suku Bunga Kotor Minimum untuk Menyamai Inflasi
 
-Baca panduannya di: [Strategi Tangga Deposito (Deposit Laddering)](/blog/strategi-tangga-deposito).
+Karena bunga deposito (saldo > Rp7,5 juta) dipotong PPh Final 20%, titik impas (*break-even*) bunga kotor terhadap inflasi dihitung dengan rumus:
 
-### 4. Diversifikasi Portofolio
-Ingat aturan dasar: deposito didesain untuk **keamanan modal dan likuiditas terukur**, bukan untuk melipatgandakan kekayaan secara agresif. Untuk mengalahkan inflasi dalam jangka panjang (>3-5 tahun), kombinasikan deposito dengan instrumen lain seperti Surat Berharga Negara (SBN), Reksa Dana, atau Emas.
+```text
+Bunga Kotor Minimum = Tingkat Inflasi / 0,8
+```
 
----
+| Tingkat Inflasi Tahunan | Bunga Kotor Minimum (Break-Even) | Status vs TBP LPS Bank Umum (3,75%) |
+|---|---|---|
+| 2,0% | **2,50% p.a.** | Masih di bawah TBP Bank Umum |
+| 2,5% | **3,13% p.a.** | Masih di bawah TBP Bank Umum |
+| 3,0% | **3,75% p.a.** | Tepat di batas TBP Bank Umum |
+| 3,5% | **4,38% p.a.** | Melebihi TBP Bank Umum (dijamin di BPR) |
+| 4,0% | **5,00% p.a.** | Melebihi TBP Bank Umum (dijamin di BPR) |
 
-## Kesimpulan
+Tabel di atas menunjukkan hal menarik: ketika inflasi menyentuh **3,0%**, bunga deposito minimal agar tidak rugi riil adalah **3,75% p.a.** — tepat di batas atas TBP LPS Bank Umum periode **1 Oktober 2026 – 31 Januari 2027**. Jika inflasi naik di atas 3,0%, bank umum yang dijamin LPS sulit mengejar inflasi.
 
-Deposito tetap merupakan instrumen fondasi keuangan yang sangat aman dan wajib dimiliki oleh setiap individu untuk pos dana darurat dan tujuan jangka pendek. Namun, jangan puas hanya dengan bunga nominal. Pastikan Anda selalu memilih bank dengan suku bunga kompetitif di atas 4% p.a. agar imbal hasil bersih Anda mampu mengungguli inflasi.
+## 4. Empat Cara Menjaga Daya Beli Dana Deposito
 
-Cek dan bandingkan suku bunga deposito terkini dari berbagai bank di Indonesia menggunakan **[Kalkulator Deposito InvestCount](/)**.
+1. **Pertimbangkan BPR berizin OJK untuk dana di luar kebutuhan mendadak**: BPR menawarkan bunga **5,50% – 6,25% p.a.** yang masih masuk batas penjaminan LPS (6,25%), memberi selisih positif di atas inflasi tanpa melepas perlindungan negara. Jika memilih bank digital berbunga 5,00% – 7,50% p.a., sadari bahwa rate tersebut melampaui TBP Bank Umum (3,75%) sehingga tidak dijamin LPS.
+2. **Aktifkan ARO+ untuk dana yang belum dipakai**: Menggulung bunga bersih ke pokok membantu imbal hasil efektif naik secara bertahap. Lihat simulasinya di [Mengenal Deposito ARO, Non-ARO, dan ARO+](/blog/deposito-aro-vs-non-aro).
+3. **Terapkan tangga deposito (*laddering*)**: Pecah simpanan ke tenor 1, 3, 6, dan 12 bulan. Jika suku bunga pasar naik mengikuti inflasi, sebagian dana segera jatuh tempo dan bisa dipindahkan ke bunga yang lebih tinggi.
+4. **Jangan taruh seluruh aset jangka panjang di deposito**: Deposito paling tepat untuk dana darurat dan target 1–2 tahun. Untuk tujuan di atas 3 tahun, pertimbangkan instrumen dengan pajak lebih rendah seperti SBN Ritel (pajak 10%) atau kombinasi reksa dana sesuai profil risiko Anda.
 
-**Artikel Terkait:**
+Bandingkan bunga bersih setelah pajak dari 35 produk bank dan BPR di [Kalkulator Deposito InvestCount](/).
+
+**Baca juga:**
 - [Cara Menghitung Bunga Deposito Bank](/blog/cara-menghitung-bunga-deposito)
 - [Daftar Suku Bunga Deposito Bank Tertinggi 2026](/blog/bunga-deposito-bank-indonesia-2026)
-- [Simulasi Deposito Bank 2026 Lengkap](/blog/simulasi-deposito-lengkap)
 - [Pajak Bunga Deposito 20%: Aturan Lengkap PPh Final](/blog/pajak-deposito-20-persen)
