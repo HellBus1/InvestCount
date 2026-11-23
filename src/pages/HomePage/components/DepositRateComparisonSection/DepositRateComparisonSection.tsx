@@ -296,7 +296,7 @@ const DepositRateComparisonSection = () => {
   return (
     <motion.section
       id='perbandingan-deposito'
-      className='py-16 md:py-24 bg-slate-50 border-t border-slate-200/80 w-full'
+      className='py-16 md:py-24 bg-white border-t border-slate-200/80 w-full'
       initial='hidden'
       whileInView='visible'
       viewport={{ once: true, amount: 0.1 }}

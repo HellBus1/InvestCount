@@ -81,12 +81,12 @@ const RecommendationSection = ({ summary }: RecommendationSectionProps) => {
               className='w-7 h-7 object-contain'
             />
           </a>
-          <div className='min-w-0'>
+          <div className='min-w-0 flex-1'>
             <a
               href={selectedBank.website}
               target='_blank'
               rel='noopener noreferrer'
-              className='text-sm font-bold text-white hover:text-brand-300 transition-colors inline-flex items-center gap-1'
+              className='text-sm font-bold text-white hover:text-brand-300 transition-colors flex items-center gap-1 max-w-full'
             >
               <span className='truncate'>{selectedBank.displayName}</span>
               <Icon name='external-link' className='w-3 h-3 text-slate-400 flex-shrink-0' />
@@ -189,11 +189,11 @@ const RecommendationSection = ({ summary }: RecommendationSectionProps) => {
       {!selectedBank.lps.isGuaranteed && selectedBank.lps.reason && (
         <div
           role='alert'
-          className='p-3.5 rounded-xl bg-rose-950/60 border border-rose-400/40 text-xs text-rose-100 flex items-start gap-2'
+          className='p-3.5 rounded-xl bg-rose-500/15 border border-rose-400/40 text-xs text-white flex items-start gap-2'
         >
           <Icon name='alert-triangle' className='w-4 h-4 text-rose-300 flex-shrink-0 mt-0.5' />
-          <p className='leading-relaxed'>
-            <strong>Tidak Dijamin LPS:</strong> {selectedBank.lps.reason}.
+          <p className='leading-relaxed text-slate-100'>
+            <strong className='text-rose-200'>Tidak Dijamin LPS:</strong> {selectedBank.lps.reason}.
           </p>
         </div>
       )}

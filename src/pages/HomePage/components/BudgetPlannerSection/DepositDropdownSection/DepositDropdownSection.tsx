@@ -1,11 +1,7 @@
 import { useState, useMemo } from 'react'
 import { getImagePath } from '@/services/inputServices'
 import { EligibleBankOption } from '../hooks/useBudgetPlannerSecion'
-import {
-  BANK_CATEGORY_LABELS,
-  BankCategoryFilter,
-  formatPercentId
-} from '@/constants/lpsRates'
+import { BANK_CATEGORY_LABELS, BankCategoryFilter, formatPercentId } from '@/constants/lpsRates'
 import Icon from '@/components/Icon/Icon'
 
 interface DepositDropdownSectionProps {

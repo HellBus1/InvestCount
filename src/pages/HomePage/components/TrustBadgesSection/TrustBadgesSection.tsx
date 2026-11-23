@@ -10,10 +10,10 @@ interface TrustBadge {
 
 const TrustBadgesSection = () => {
   const trustBadges: TrustBadge[] = [
-    { icon: 'gift', text: 'Gratis Selamanya', subtitle: 'Tanpa biaya tersembunyi' },
-    { icon: 'shield-check', text: 'Tanpa Iklan', subtitle: 'Fokus perhitungan bersih' },
-    { icon: 'lock', text: 'Privasi Terjamin', subtitle: 'Tanpa simpan data pribadi' },
-    { icon: 'handshake', text: 'Netral & Independen', subtitle: 'Bukan afiliasi bank' }
+    { icon: 'gift', text: 'Gratis & Tanpa Login', subtitle: 'Langsung pakai di browser' },
+    { icon: 'shield-check', text: 'Bebas Iklan', subtitle: 'Tanpa banner atau pop-up' },
+    { icon: 'lock', text: 'Privasi Terjaga', subtitle: 'Nominal tidak dikirim ke server' },
+    { icon: 'handshake', text: 'Independen', subtitle: 'Bukan afiliasi bank mana pun' }
   ]
 
   return (

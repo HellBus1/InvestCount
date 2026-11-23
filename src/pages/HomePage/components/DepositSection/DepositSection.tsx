@@ -15,6 +15,7 @@ const DepositSection = (props: DepositSectionProps) => {
 
   return (
     <motion.section
+      id='kalkulator-deposito'
       className='w-full py-16 md:py-24 bg-slate-50'
       ref={depositSectionRef}
       initial='hidden'
@@ -29,7 +30,8 @@ const DepositSection = (props: DepositSectionProps) => {
             Kalkulator Simulasi Deposito
           </h2>
           <p className='text-slate-600 text-sm md:text-base leading-relaxed'>
-            Pilih jenis perpanjangan dan hitung pertumbuhan saldo Anda secara instan dan akurat.
+            Pilih skema perpanjangan, masukkan nominal simpanan, dan lihat estimasi bunga bersih
+            setelah potongan PPh Final 20%.
           </p>
         </motion.div>
 
