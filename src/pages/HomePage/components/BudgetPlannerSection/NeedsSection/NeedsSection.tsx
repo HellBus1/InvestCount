@@ -1,48 +1,47 @@
-interface Need {
-  need: string
-  price: string
-}
+import Icon from '@/components/Icon/Icon'
+import { Need } from '../hooks/useBudgetPlannerSecion'
 
 interface NeedsSectionProps {
   needs: Need[]
-  onRemoveNeed: (index: number) => void // Callback to remove a need
+  totalNeeds: number
+  onRemoveNeed: (id: string) => void
 }
 
-const NeedsSection = (props: NeedsSectionProps) => {
-  const { needs, onRemoveNeed } = props
-
+const NeedsSection = ({ needs, totalNeeds, onRemoveNeed }: NeedsSectionProps) => {
   return (
-    <div className='mt-8'>
-      <h3 className='text-lg font-semibold text-charter-blue-600 mb-2'>Daftar Kebutuhan Anda</h3>
-      <div className='flex flex-wrap gap-2'>
-        {needs.map((item, index) => (
-          <div
-            key={index}
-            className='badge badge-outline badge-lg flex items-center gap-2 px-4 py-2'
-          >
-            <span>{item.need}</span>
-            <span className='text-charter-blue font-bold'>
-              {Number(item.price).toLocaleString()} IDR
-            </span>
-            <button
-              onClick={() => onRemoveNeed(index)}
-              className='text-red-500 hover:text-red-700'
-              aria-label='Remove need'
-            >
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                strokeWidth={2}
-                stroke='currentColor'
-                className='w-4 h-4'
-              >
-                <path strokeLinecap='round' strokeLinejoin='round' d='M6 18L18 6M6 6l12 12' />
-              </svg>
-            </button>
-          </div>
-        ))}
+    <div>
+      <div className='flex items-center justify-between gap-2 mb-3'>
+        <h3 className='text-sm font-bold text-slate-900'>
+          Daftar Pengeluaran Rutin ({needs.length})
+        </h3>
+        <span className='text-xs sm:text-sm font-bold font-mono tabular-nums text-slate-900'>
+          Total: Rp{totalNeeds.toLocaleString('id-ID')}/bln
+        </span>
       </div>
+
+      <ul className='space-y-2' aria-label='Daftar pengeluaran bulanan'>
+        {needs.map((item) => (
+          <li
+            key={item.id}
+            className='flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-sm'
+          >
+            <span className='font-medium text-slate-800 truncate'>{item.need}</span>
+            <div className='flex items-center gap-3 flex-shrink-0'>
+              <span className='font-mono font-semibold tabular-nums text-slate-900'>
+                Rp{item.price.toLocaleString('id-ID')}
+              </span>
+              <button
+                type='button'
+                onClick={() => onRemoveNeed(item.id)}
+                className='p-1 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-400'
+                aria-label={`Hapus pengeluaran ${item.need}`}
+              >
+                <Icon name='close' className='w-4 h-4' />
+              </button>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
