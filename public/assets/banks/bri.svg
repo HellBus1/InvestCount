@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <rect width="48" height="48" rx="12" fill="#00529C"/>
+  <text x="24" y="29" text-anchor="middle" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="14" letter-spacing="0.5">BRI</text>
+  <rect x="13" y="34" width="22" height="2.5" rx="1.25" fill="#F37021"/>
+</svg>
