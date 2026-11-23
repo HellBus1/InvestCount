@@ -12,9 +12,9 @@ interface ValueItem {
 
 const AboutPage = () => {
   useSEO({
-    title: 'Tentang InvestCount - Misi Literasi Deposito Jujur & Transparan',
+    title: 'Tentang InvestCount - Kalkulator Deposito Independen Indonesia',
     description:
-      'Pelajari visi, prinsip independensi, dan profil pembuat InvestCount. Platform gratis tanpa iklan untuk menghitung bunga deposito bersih setelah pajak di Indonesia.',
+      'Mengenal prinsip dan pembuat InvestCount. Alat gratis tanpa iklan untuk menghitung bunga deposito bersih setelah pajak 20% dan membandingkan rate bank serta BPR.',
     canonicalUrl: '/tentang',
     keywords: [
       'tentang investcount',
@@ -27,23 +27,23 @@ const AboutPage = () => {
   const values: ValueItem[] = [
     {
       icon: 'shield-check',
-      title: 'Transparansi',
-      desc: 'Perhitungan terbuka, jelas sumber datanya, dan memperhitungkan potongan pajak 20% tanpa clickbait.'
+      title: 'Angka Terbuka',
+      desc: 'Rumus perhitungan, potongan PPh Final 20%, status penjaminan LPS, dan sumber data ditampilkan apa adanya.'
     },
     {
       icon: 'gift',
       title: 'Gratis & Tanpa Iklan',
-      desc: 'Dapat diakses siapapun tanpa biaya, paywall, atau banner iklan yang mengganggu kenyamanan.'
+      desc: 'Seluruh fitur dapat dipakai tanpa registrasi, paywall, ataupun banner iklan.'
     },
     {
       icon: 'lock',
-      title: 'Privasi Terjaga',
-      desc: 'Semua simulasi berjalan di browser Anda. Kami tidak menyimpan atau menjual nominal keuangan Anda.'
+      title: 'Diproses di Browser',
+      desc: 'Angka yang Anda masukkan dihitung langsung di perangkat Anda dan tidak disimpan di server mana pun.'
     },
     {
       icon: 'handshake',
-      title: 'Independen & Netral',
-      desc: 'Tidak berafiliasi dengan bank manapun. Rekomendasi berdasarkan suku bunga dan perbandingan objektif.'
+      title: 'Independen',
+      desc: 'Tidak berafiliasi dengan bank atau BPR mana pun. Perbandingan disusun murni dari publikasi resmi tiap institusi.'
     }
   ]
 
@@ -58,14 +58,6 @@ const AboutPage = () => {
       >
         <div className='layout'>
           <div className='max-w-3xl'>
-            <motion.div
-              className='inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-semibold mb-4'
-              variants={childVariants}
-            >
-              <Icon name='info' className='w-3.5 h-3.5' />
-              <span>Tentang InvestCount</span>
-            </motion.div>
-
             <motion.h1
               className='text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-900 tracking-tight mb-4'
               variants={childVariants}
@@ -77,9 +69,9 @@ const AboutPage = () => {
               className='text-base sm:text-lg text-slate-600 leading-relaxed'
               variants={childVariants}
             >
-              InvestCount dibuat untuk memudahkan masyarakat Indonesia menghitung return simpanan
-              deposito secara nyata — bersih setelah dipotong pajak 20% dan disimulasikan secara
-              transparan.
+              InvestCount dibangun agar siapa pun di Indonesia bisa menghitung hasil bersih deposito
+              setelah pajak 20%, membandingkan rate bank dan BPR, serta mengecek status penjaminan
+              LPS tanpa perlu membuka puluhan tab berbeda.
             </motion.p>
           </div>
         </div>
@@ -99,7 +91,7 @@ const AboutPage = () => {
             className='text-2xl sm:text-3xl font-bold font-display text-slate-900 mb-8'
             variants={childVariants}
           >
-            Prinsip Utama Kami
+            Prinsip Dasar
           </motion.h2>
 
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
@@ -129,16 +121,18 @@ const AboutPage = () => {
           <img
             alt='Syubban Fakhriya'
             src='/avatar.jpg'
+            width={96}
+            height={96}
             className='w-24 h-24 rounded-2xl object-cover border-2 border-brand-500 shadow-md flex-shrink-0'
           />
           <div className='text-center sm:text-left'>
             <h3 className='text-xl font-bold text-slate-900'>Syubban Fakhriya</h3>
-            <p className='text-xs font-semibold text-brand-600 uppercase tracking-wider mb-2'>
-              Creator & Software Engineer
+            <p className='text-xs font-semibold text-brand-600 mb-2'>
+              Creator &amp; Software Engineer
             </p>
             <p className='text-sm text-slate-600 leading-relaxed mb-4'>
-              Software engineer yang berdedikasi membangun alat bantu finansial yang bermanfaat,
-              cepat, dan mudah diakses oleh siapa saja.
+              Membangun InvestCount sebagai proyek independen karena butuh satu tempat yang cepat
+              dan transparan untuk membandingkan bunga deposito bersih lintas bank dan BPR.
             </p>
             <div className='flex items-center justify-center sm:justify-start gap-3'>
               <a
