@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { containerVariants, childVariants } from '@/constants/animations'
 import Icon, { IconName } from '@/components/Icon/Icon'
+import { LPS_RATES, formatPercentId } from '@/constants/lpsRates'
 
 interface LPSRate {
   rate: string
@@ -12,22 +13,22 @@ interface LPSRate {
 const LPSSection = () => {
   const rates: LPSRate[] = [
     {
-      rate: '4.25%',
-      label: 'Bank Umum (Rupiah)',
+      rate: `${formatPercentId(LPS_RATES.bankUmumIdr)}%`,
+      label: 'Bank Umum & Digital (Rupiah)',
       icon: 'bank',
-      description: 'Maksimal suku bunga simpanan rupiah di bank umum'
+      description: 'Batas maksimal bunga simpanan rupiah di bank umum konvensional maupun digital'
     },
     {
-      rate: '6.75%',
+      rate: `${formatPercentId(LPS_RATES.bprIdr)}%`,
       label: 'BPR (Rupiah)',
       icon: 'scale',
-      description: 'Maksimal suku bunga di Bank Perekonomian Rakyat'
+      description: 'Batas maksimal bunga simpanan di Bank Perekonomian Rakyat'
     },
     {
-      rate: '2.25%',
+      rate: `${formatPercentId(LPS_RATES.bankUmumValas)}%`,
       label: 'Bank Umum (Valas)',
       icon: 'coins',
-      description: 'Maksimal suku bunga untuk simpanan valuta asing'
+      description: 'Batas maksimal bunga untuk simpanan valuta asing'
     }
   ]
 
@@ -44,15 +45,15 @@ const LPSSection = () => {
         <motion.div className='text-center max-w-2xl mx-auto mb-12' variants={childVariants}>
           <div className='inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-semibold mb-3'>
             <Icon name='shield-check' className='w-3.5 h-3.5' />
-            <span>Jaminan Keamanan Simpanan</span>
+            <span>Tingkat Bunga Penjaminan LPS</span>
           </div>
           <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold font-display text-slate-900 mb-3'>
-            Batas Penjaminan LPS
+            Batas Penjaminan LPS Terbaru
           </h2>
           <p className='text-slate-600 text-sm md:text-base leading-relaxed'>
             Simpanan Anda dijamin Lembaga Penjamin Simpanan (LPS) hingga{' '}
-            <strong className='text-slate-900'>Rp2 Miliar per nasabah per bank</strong>, selama suku
-            bunga tidak melebihi batas tingkat bunga penjaminan berikut:
+            <strong className='text-slate-900'>Rp2 Miliar per nasabah per bank</strong> selama suku
+            bunga tidak melampaui batas berikut:
           </p>
         </motion.div>
 
@@ -71,7 +72,7 @@ const LPSSection = () => {
                 <Icon name={item.icon} className='w-6 h-6' />
               </div>
 
-              <div className='text-3xl sm:text-4xl font-extrabold font-display text-brand-600 mb-1'>
+              <div className='text-3xl sm:text-4xl font-extrabold font-display text-brand-600 tabular-nums mb-1'>
                 {item.rate}
               </div>
 
@@ -83,11 +84,17 @@ const LPSSection = () => {
         </motion.div>
 
         {/* Notice Footnote */}
-        <motion.p
-          className='mt-8 text-center text-xs text-slate-400 italic'
-          variants={childVariants}
-        >
-          * Tingkat bunga penjaminan LPS diperbarui secara berkala sesuai kebijakan moneter resmi.
+        <motion.p className='mt-8 text-center text-xs text-slate-500' variants={childVariants}>
+          Berlaku untuk periode <strong>{LPS_RATES.effectivePeriod}</strong> sesuai pengumuman resmi{' '}
+          <a
+            href={LPS_RATES.sourceUrl}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-brand-700 font-semibold hover:underline'
+          >
+            LPS (lps.go.id)
+          </a>
+          . Bunga di atas batas ini tidak dijamin oleh LPS.
         </motion.p>
       </div>
     </motion.section>

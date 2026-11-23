@@ -1,9 +1,11 @@
 import { YAxisProps } from 'recharts'
 import { NameType, ValueType } from 'recharts/types/component/DefaultTooltipContent'
 import { TooltipProps } from 'recharts/types/component/Tooltip'
+import { BankCategory, LpsEvaluation } from '@/constants/lpsRates'
 
 interface Bank {
   bankName: string
+  category: BankCategory
   logoUrl: string
   website: string
   minBalance: number
@@ -12,10 +14,14 @@ interface Bank {
 
 interface FilteredBank {
   bank: string
+  bankName: string
+  displayName: string
+  category: BankCategory
   interest: number
   logo: string
   website: string
-  bankName: string
+  minBalance: number
+  lps: LpsEvaluation
 }
 
 interface CustomYAxisProps extends YAxisProps {
