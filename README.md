@@ -218,6 +218,13 @@ npm run preview
 
 ---
 
+## 📚 Documentation & Architecture Guides
+
+- 🏗️ [**SEO & Pre-rendering Architecture**](docs/SEO_AND_PRERENDERING_ARCHITECTURE.md) – Detailed technical breakdown of the zero-dependency Vite SSG engine, dynamic meta hooks, schema injection, and route redirects.
+- 🚀 [**Universal SEO Fixing Playbook for AI Agents**](docs/SEO_FIXING_PROMPT_PLAYBOOK.md) – Reusable, battle-tested prompt template and 5-phase execution guide to audit and fix SEO/crawlability issues on other web projects.
+
+---
+
 ## 🤝 Contributing
 
 Contributions are welcome! Here's how you can help:
