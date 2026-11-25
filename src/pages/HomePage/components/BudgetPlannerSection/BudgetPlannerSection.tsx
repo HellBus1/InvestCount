@@ -160,7 +160,7 @@ const BudgetPlannerSection = () => {
 
         {/* Main 2-Column Planner Card */}
         <motion.div
-          className='max-w-5xl mx-auto rounded-2xl bg-white border border-slate-200/90 shadow-card p-5 sm:p-8'
+          className='max-w-5xl mx-auto rounded-2xl bg-white border border-slate-200/90 shadow-card p-4 sm:p-8'
           variants={childVariants}
         >
           <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 items-start'>

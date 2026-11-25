@@ -9,7 +9,7 @@ const Footer = () => {
   const IC_LINKEDIN = '/assets/ic-linkedin.svg'
 
   return (
-    <footer className='w-full bg-slate-900 text-slate-300 border-t border-slate-800 pt-12 pb-28 sm:py-16'>
+    <footer className='w-full bg-slate-900 text-slate-300 border-t border-slate-800 py-12 sm:py-16'>
       <div className='layout'>
         {/* Main Grid */}
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-10'>
@@ -197,7 +197,7 @@ const Footer = () => {
               />
             </a>
             <a
-              href='https://www.linkedin.com/in/syubban/'
+              href='https://www.linkedin.com/in/syubban-fakhriya/'
               target='_blank'
               rel='noopener noreferrer'
               className='w-9 h-9 rounded-lg bg-slate-800 hover:bg-slate-700 flex items-center justify-center transition-colors'
