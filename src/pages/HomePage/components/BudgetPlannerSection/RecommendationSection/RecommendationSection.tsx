@@ -61,9 +61,9 @@ const RecommendationSection = ({ summary }: RecommendationSectionProps) => {
   }
 
   return (
-    <div className='rounded-2xl bg-slate-900 text-white p-6 shadow-elevated space-y-5'>
+    <div className='rounded-2xl bg-slate-900 text-white p-4 sm:p-6 shadow-elevated space-y-5'>
       {/* Selected Bank Header with Clickable RIPLAY Icon */}
-      <div className='flex items-start justify-between gap-3 pb-4 border-b border-slate-800'>
+      <div className='flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 pb-4 border-b border-slate-800'>
         <div className='flex items-center gap-3 min-w-0'>
           <a
             href={selectedBank.website}
@@ -86,32 +86,35 @@ const RecommendationSection = ({ summary }: RecommendationSectionProps) => {
               href={selectedBank.website}
               target='_blank'
               rel='noopener noreferrer'
-              className='text-sm font-bold text-white hover:text-brand-300 transition-colors flex items-center gap-1 max-w-full'
+              className='text-sm font-bold text-white hover:text-brand-300 transition-colors inline-flex items-center gap-1 max-w-full'
             >
               <span className='truncate'>{selectedBank.displayName}</span>
               <Icon name='external-link' className='w-3 h-3 text-slate-400 flex-shrink-0' />
             </a>
-            <div className='text-xs text-slate-400'>
-              {BANK_CATEGORY_LABELS[selectedBank.category]} •{' '}
-              <span className='font-mono font-semibold text-slate-200'>
+            <div className='text-xs text-slate-400 mt-0.5 flex flex-wrap items-center gap-x-1.5 gap-y-0.5'>
+              <span>{BANK_CATEGORY_LABELS[selectedBank.category]}</span>
+              <span aria-hidden='true'>•</span>
+              <span className='font-mono font-semibold text-slate-200 whitespace-nowrap'>
                 {formatPercentId(selectedBank.rate)}% p.a.
-              </span>{' '}
-              (1 bln)
+              </span>
+              <span className='whitespace-nowrap'>(1 bln)</span>
             </div>
           </div>
         </div>
 
-        {selectedBank.lps.isGuaranteed ? (
-          <span className='inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-brand-500/20 border border-brand-400/40 text-brand-300 text-[11px] font-semibold flex-shrink-0'>
-            <Icon name='shield-check' className='w-3 h-3' />
-            <span>Dijamin LPS</span>
-          </span>
-        ) : (
-          <span className='inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-rose-500/20 border border-rose-400/40 text-rose-200 text-[11px] font-semibold flex-shrink-0'>
-            <Icon name='alert-triangle' className='w-3 h-3 text-rose-300' />
-            <span>Non-LPS</span>
-          </span>
-        )}
+        <div className='self-start sm:self-auto flex-shrink-0'>
+          {selectedBank.lps.isGuaranteed ? (
+            <span className='inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-brand-500/20 border border-brand-400/40 text-brand-300 text-[11px] font-semibold whitespace-nowrap'>
+              <Icon name='shield-check' className='w-3 h-3 flex-shrink-0' />
+              <span>Dijamin LPS</span>
+            </span>
+          ) : (
+            <span className='inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-rose-500/20 border border-rose-400/40 text-rose-200 text-[11px] font-semibold whitespace-nowrap'>
+              <Icon name='alert-triangle' className='w-3 h-3 text-rose-300 flex-shrink-0' />
+              <span>Non-LPS</span>
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Coverage Progress Bar */}
@@ -144,31 +147,30 @@ const RecommendationSection = ({ summary }: RecommendationSectionProps) => {
 
       {/* Key Financial Breakdown */}
       <div className='space-y-2.5 text-xs sm:text-sm'>
-        <div className='flex items-center justify-between gap-2'>
+        <div className='flex items-center justify-between gap-3'>
           <span className='text-slate-400'>Bunga bersih / bulan (PPh {taxRatePercent}%)</span>
-          <span className='font-mono font-bold tabular-nums text-brand-300'>
+          <span className='font-mono font-bold tabular-nums text-brand-300 whitespace-nowrap flex-shrink-0'>
             {getRupiahFormat(monthlyNetInterest)}
           </span>
         </div>
 
-        <div className='flex items-center justify-between gap-2'>
+        <div className='flex items-center justify-between gap-3'>
           <span className='text-slate-400'>Total pengeluaran / bulan</span>
-          <span className='font-mono font-semibold tabular-nums text-slate-200'>
+          <span className='font-mono font-semibold tabular-nums text-slate-200 whitespace-nowrap flex-shrink-0'>
             {getRupiahFormat(totalNeeds)}
           </span>
         </div>
 
-        <div className='pt-2.5 border-t border-slate-800 flex items-center justify-between gap-2'>
+        <div className='pt-2.5 border-t border-slate-800 flex items-center justify-between gap-3'>
           <span className='font-semibold text-slate-200'>
             {isCovered ? 'Surplus bulanan' : 'Sisa yang belum tertutup'}
           </span>
           <span
-            className={`font-mono font-extrabold tabular-nums ${
+            className={`font-mono font-extrabold tabular-nums whitespace-nowrap flex-shrink-0 ${
               isCovered ? 'text-brand-400' : 'text-slate-100'
             }`}
           >
-            {isCovered ? '+' : '-'}
-            {getRupiahFormat(Math.abs(difference))}
+            {`${isCovered ? '+' : '-'}${getRupiahFormat(Math.abs(difference))}`}
           </span>
         </div>
       </div>
@@ -203,18 +205,21 @@ const RecommendationSection = ({ summary }: RecommendationSectionProps) => {
         <button
           type='button'
           onClick={handleCopy}
-          className='py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 text-xs font-semibold transition-colors inline-flex items-center justify-center gap-1.5'
+          className='py-2.5 px-2.5 sm:px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 text-xs font-semibold transition-colors inline-flex items-center justify-center gap-1.5 whitespace-nowrap'
         >
-          <Icon name={copied ? 'check' : 'copy'} className='w-3.5 h-3.5 text-brand-400' />
+          <Icon
+            name={copied ? 'check' : 'copy'}
+            className='w-3.5 h-3.5 text-brand-400 flex-shrink-0'
+          />
           <span>{copied ? 'Tersalin' : 'Salin Hasil'}</span>
         </button>
 
         <button
           type='button'
           onClick={handleExportToTxt}
-          className='py-2.5 px-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold transition-colors inline-flex items-center justify-center gap-1.5'
+          className='py-2.5 px-2.5 sm:px-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold transition-colors inline-flex items-center justify-center gap-1.5 whitespace-nowrap'
         >
-          <Icon name='download' className='w-3.5 h-3.5' />
+          <Icon name='download' className='w-3.5 h-3.5 flex-shrink-0' />
           <span>Unduh (.txt)</span>
         </button>
       </div>

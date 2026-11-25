@@ -22,7 +22,7 @@ const QuickNav = () => {
   return (
     <nav
       aria-label='Navigasi Cepat'
-      className='fixed bottom-6 right-6 z-50 flex flex-col-reverse items-end gap-3'
+      className='fixed bottom-6 right-6 z-50 hidden md:flex flex-col-reverse items-end gap-3'
     >
       {/* Expanded Menu */}
       {isOpen && (
