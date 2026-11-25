@@ -63,17 +63,18 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'deposito-aro-vs-non-aro',
-    title: 'Mengenal Deposito ARO, Non-ARO, dan ARO+: Mana yang Paling Menguntungkan?',
+    title: 'Perbedaan Deposito ARO, Non-ARO & ARO+ (Simulasi 2026)',
     description:
-      'Penjelasan sistem perpanjangan otomatis Automatic Roll Over (ARO) pada deposito, perbedaannya dengan ARO+ dan Non-ARO, serta efek bunga berbunga.',
-    date: '2026-11-23',
+      'Bingung pilih ARO, Non-ARO, atau ARO+? Lihat tabel simulasi 3 tahun (selisih Rp700 rb+) dan cara ubah ke Non-ARO tanpa penalti. Cek hitungannya di sini.',
+    date: '2026-11-25',
     readTime: '5 menit',
     category: 'Dasar Deposito',
     image: '/assets/blog/deposito-aro-vs-non-aro.webp',
     keywords: [
+      'perbedaan aro dan non aro',
+      'perbedaan aro dan aro plus',
+      'non aro deposito adalah',
       'ARO deposito',
-      'perpanjangan otomatis deposito',
-      'deposito ARO non ARO',
       'compounding deposito'
     ]
   },

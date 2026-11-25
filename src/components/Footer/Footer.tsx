@@ -84,7 +84,7 @@ const Footer = () => {
             <ul className='space-y-2 text-xs sm:text-sm'>
               <li>
                 <Link
-                  to='/blog/cara-menghitung-bunga-deposito'
+                  to='/blog/cara-menghitung-bunga-deposito/'
                   className='text-slate-400 hover:text-brand-400 transition-colors inline-block py-0.5'
                 >
                   Cara Hitung Bunga Deposito
@@ -92,7 +92,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to='/blog/deposito-bpr-vs-bank-umum'
+                  to='/blog/deposito-bpr-vs-bank-umum/'
                   className='text-slate-400 hover:text-brand-400 transition-colors inline-block py-0.5'
                 >
                   Deposito BPR vs Bank Umum
@@ -100,7 +100,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to='/blog/bunga-deposito-bank-indonesia-2026'
+                  to='/blog/bunga-deposito-bank-indonesia-2026/'
                   className='text-slate-400 hover:text-brand-400 transition-colors inline-block py-0.5'
                 >
                   Bunga Deposito Tertinggi 2026
@@ -108,7 +108,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to='/blog/pajak-deposito-20-persen'
+                  to='/blog/pajak-deposito-20-persen/'
                   className='text-slate-400 hover:text-brand-400 transition-colors inline-block py-0.5'
                 >
                   Pajak Bunga Deposito 20%
@@ -116,10 +116,18 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to='/blog/deposito-aro-vs-non-aro'
+                  to='/blog/deposito-aro-vs-non-aro/'
                   className='text-slate-400 hover:text-brand-400 transition-colors inline-block py-0.5'
                 >
                   Panduan Deposito ARO & ARO+
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='/kalkulator-deposito/bpr/'
+                  className='text-slate-400 hover:text-brand-400 transition-colors inline-block py-0.5'
+                >
+                  Kalkulator Deposito BPR (6,25%)
                 </Link>
               </li>
             </ul>

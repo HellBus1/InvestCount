@@ -75,7 +75,7 @@ const BlogPage = () => {
             return (
               <motion.article key={post.slug} variants={childVariants}>
                 <Link
-                  to={`/blog/${post.slug}`}
+                  to={`/blog/${post.slug}/`}
                   className='group block rounded-2xl bg-white border border-slate-200 shadow-card hover:shadow-hover hover:border-brand-300 transition-all overflow-hidden h-full flex flex-col'
                 >
                   {/* Thumbnail */}

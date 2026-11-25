@@ -1,8 +1,11 @@
 User-agent: *
 Allow: /
 
-# Explicit AI Search Engine Crawlers
+# Search & AI Answer Engine Crawlers
 User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
 Allow: /
 
 User-agent: Bingbot
@@ -20,5 +23,5 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-# Sitemap & AI Knowledge
+# Sitemap
 Sitemap: https://investtcount.mattrmost.com/sitemap.xml

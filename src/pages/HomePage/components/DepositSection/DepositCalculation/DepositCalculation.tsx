@@ -55,6 +55,7 @@ const DepositCalculation = (props: DepositCalculationProps) => {
           <DepositRateResult
             interest={interest}
             month={getZeroFromEmptyNumberString(holdingMonths)}
+            taxRate={taxRate}
           />
 
           <button

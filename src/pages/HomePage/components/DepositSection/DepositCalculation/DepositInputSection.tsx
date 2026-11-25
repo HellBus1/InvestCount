@@ -37,10 +37,13 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
     holdingMonths: EMPTY_STRING
   })
 
-  // Default tax rate in Indonesia is 20%
+  // Automatic Indonesian PPh Final rule (PP No. 131/2000): 0% for <= Rp7.500.000, 20% above
+  const parsedNumericAmount = parseFloat(parseAmountInputFromCommas(amount)) || 0
+  const effectiveTaxRate = parsedNumericAmount > 0 && parsedNumericAmount <= 7_500_000 ? '0' : '20'
+
   useEffect(() => {
-    setTaxRate('20')
-  }, [setTaxRate])
+    setTaxRate(effectiveTaxRate)
+  }, [effectiveTaxRate, setTaxRate])
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -51,6 +54,8 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
     if (fieldName === 'amount') {
       const formattedValue = formatNumberWithCommas(value)
       setField(formattedValue)
+    } else if (fieldName === 'interestRate') {
+      setField(value.replace(',', '.'))
     } else {
       setField(value)
     }
@@ -103,7 +108,13 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
   const doCalculateInterest = () => {
     if (validateFields()) {
       const stringAmount = amount.replace(/,/g, '')
-      const interest = calculateInterest(stringAmount, '20', interestRate, holdingMonths)
+      const normalizedRate = interestRate.replace(',', '.')
+      const interest = calculateInterest(
+        stringAmount,
+        effectiveTaxRate,
+        normalizedRate,
+        holdingMonths
+      )
       setInterest(parseFloat(interest))
     }
   }
@@ -181,10 +192,15 @@ const DepositInputSection = (props: DepositInputSectionProps) => {
         <motion.div variants={childVariants}>
           <InputField
             label='Pajak Bunga Deposito'
-            value='20'
+            value={effectiveTaxRate}
             onChange={(e) => handleInputChange(e, setTaxRate, 'taxRate')}
             placeholder='20%'
             error={errors.taxRate}
+            helperText={
+              effectiveTaxRate === '0'
+                ? 'Bebas PPh Final (saldo ≤ Rp7,5 juta sesuai PP 131/2000)'
+                : undefined
+            }
             type='text'
             suffix='%'
             disabled={true}

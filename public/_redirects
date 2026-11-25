@@ -1,3 +1,15 @@
-# Cloudflare Pages Redirects
-/about          /tentang      301
-/transparency    /sumber-data  301
+# Cloudflare Pages 301 Redirects
+/about                             /tentang/                             301
+/about/                            /tentang/                             301
+/transparency                      /sumber-data/                         301
+/transparency/                     /sumber-data/                         301
+/kalkulator-deposito               /                                     301
+/kalkulator-deposito/              /                                     301
+/blog/simulasi-deposito-lengkap    /                                     301
+/blog/simulasi-deposito-lengkap/   /                                     301
+/blog/kalkulator-deposito-panduan  /                                     301
+/blog/kalkulator-deposito-panduan/ /                                     301
+/blog/deposito-vs-tabungan         /blog/cara-menghitung-bunga-deposito/ 301
+/blog/deposito-vs-tabungan/        /blog/cara-menghitung-bunga-deposito/ 301
+/blog/strategi-tangga-deposito     /blog/deposito-aro-vs-non-aro/        301
+/blog/strategi-tangga-deposito/    /blog/deposito-aro-vs-non-aro/        301
