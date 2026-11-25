@@ -1,255 +1,136 @@
-# InvestCount – Indonesia's Independent Deposit Calculator
+# InvestCount
 
 <div align="center">
 
-![InvestCount Banner](https://github.com/user-attachments/assets/1e5077fb-da81-4e49-84cc-e8bc40a5639d)
+![InvestCount v1.7.1 Preview](docs/images/investcount-preview.png)
 
-**Hitung bunga deposito bersih dalam 5 detik. Gratis & tanpa iklan.**
+**Independent Indonesian deposit calculator, bank & BPR rate comparison, and monthly budget planner.**
 
-[![Version](https://img.shields.io/badge/version-1.6.0-emerald.svg)](https://github.com/HellBus1/InvestCount)
-[![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
-[![Live Demo](https://img.shields.io/badge/demo-live-success.svg)](https://investtcount.mattrmost.com/)
+*Hitung bunga deposito bersih dalam 5 detik. Gratis, tanpa login, dan tanpa iklan.*
+
+[![Version](https://img.shields.io/badge/version-1.7.1-059669.svg)](https://github.com/HellBus1/InvestCount)
+[![License](https://img.shields.io/badge/license-Apache%202.0-0f172a.svg)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/demo-live-10b981.svg)](https://investtcount.mattrmost.com/)
+
+[Live App](https://investtcount.mattrmost.com/) • [Features](#features) • [Release Highlights](#release-highlights) • [Getting Started](#getting-started) • [Contributing](#contributing)
 
 </div>
 
 ---
 
-## 📖 About
+## Overview
 
-**InvestCount** is Indonesia's most transparent and independent deposit calculator platform. We help Indonesians—from young savers to retirees—understand how their money works through deposits with honesty and simplicity.
+Most Indonesian savers look at headline deposit interest rates without seeing what actually lands in their account after 20% final tax (PPh Final) or whether the rate stays within the LPS deposit insurance ceiling.
 
-- 🔍 **Transparent** – No hidden agendas or bank affiliations
-- 📚 **Educational** – Learn while you calculate
-- 🆓 **Free Forever** – No subscriptions or paywalls
-- 🚫 **Ad-Free** – Clean, distraction-free experience
-- 🔒 **Privacy-First** – No login required, no data collection
+**InvestCount** solves this in one open-source, privacy-first web app:
 
-> **Mission**: *"Membantu setiap orang Indonesia memahami bagaimana uang mereka bekerja melalui deposito, dengan jujur dan sederhana."*
+- **Transparent math** — Displays exact 30/365 interest formulas, 20% PPh Final deductions, and official regulatory citations.
+- **Audited bank & BPR data** — Covers **35 deposit products** (21 digital banks, 7 conventional banks, 7 BPRs) with direct links to each institution's official product page or RIPLAY.
+- **Privacy-first** — Every calculation runs locally in the browser with no accounts, no paywalls, and no ads.
 
----
-
-## 🎨 Design System & Theming Guidelines (v1.6.0 Overhaul)
-
-InvestCount uses a centralized, token-based design system that replaces generic template defaults with an intentional Indonesian fintech visual identity.
-
-### 1. Central Design Tokens (`src/theme.ts`)
-All colors, font families, shadows, and radii are managed in [`src/theme.ts`](file:///Users/syubbanfakhriya/Desktop/Repository/side-project/InvestCount/src/theme.ts) as a typed TypeScript contract and exposed via Tailwind CSS variables:
-
-- **Primary Brand Green**: `brand-50` through `brand-900` (Main: `brand-600` / `#059669`)
-- **Slate Neutrals**: `slate-50` through `slate-900` (Main text: `slate-900` / `#0F172A`, body: `slate-600`)
-- **State Colors**: `amber-*` (cautions/disclaimers) and `danger-*` (validation errors)
-
-### 2. Typography Hierarchy
-- **Display / Headings**: `Plus Jakarta Sans` (geometric, warm Indonesian-crafted display font)
-- **Interface Body**: `Inter` (high-readability sans-serif)
-- **Math & Data**: `JetBrains Mono` (used in formula blocks on the Transparency page)
-
-### 3. Vector Icon System (`src/components/Icon/Icon.tsx`)
-- All UI icons use crisp inline vector SVGs instead of raw emojis (e.g. `shield-check`, `gift`, `lock`, `handshake`, `bank`, `coins`, `calculator`).
-
-### 4. Shared Animation Constants (`src/constants/animations.ts`)
-- Replaces repetitive per-component Framer Motion variants with centralized `containerVariants`, `childVariants`, `imageVariants`, and `badgeVariants`.
+> *"Membantu setiap orang Indonesia memahami bagaimana uang mereka bekerja melalui deposito, dengan jujur dan sederhana."*
 
 ---
 
-## 🛡️ AI Agent Quality Guardrails (`SKILL.md`)
+## Features
 
-To ensure that future AI coding sessions (using Google Antigravity, Cursor, Copilot, or Claude Code) maintain design consistency and avoid "AI slop", InvestCount employs directory-level `SKILL.md` guardrail files:
-
-| Guardrail File | Scope & Purpose |
+| Area | What It Does |
 |---|---|
-| [`src/SKILL.md`](src/SKILL.md) | Global token usage, typography rules, SVG icon rules, and copy density standards |
-| [`src/components/SKILL.md`](src/components/SKILL.md) | Component architecture for Navbar, Footer, QuickNav, and InputField |
-| [`src/pages/HomePage/SKILL.md`](src/pages/HomePage/SKILL.md) | Alternating section backgrounds, calculator rules, and rate comparison charts |
-| [`src/pages/AboutPage/SKILL.md`](src/pages/AboutPage/SKILL.md) | Header eyebrow pattern, 2x2 values grid, and creator profile |
-| [`src/pages/BlogPage/SKILL.md`](src/pages/BlogPage/SKILL.md) | Article 3-column grid, thumbnail aspect ratios, and reader typography |
-| [`src/pages/TransparencyPage/SKILL.md`](src/pages/TransparencyPage/SKILL.md) | Monospace calculation formulas and regulatory data source citations |
-| [`src/constants/SKILL.md`](src/constants/SKILL.md) | Centralized routes (`RouteName.ts`) and animation standards |
+| **Deposit Calculator** | Real-time net return calculation for **Non-ARO**, **ARO**, and **ARO+** deposits after 20% PPh Final, plus an accessible native `<dialog>` simulator for 1–10 year ARO+ compounding. |
+| **Bank & BPR Rate Comparison** | Searchable, filterable horizontal bar chart (Recharts) and expandable details table across 35 products (`Semua`, `Bank Digital`, `Bank Konvensional`, `BPR`), tenor & balance-tier filters, sorting, and live LPS guarantee indicators. |
+| **LPS Guarantee Boundaries** | Visualizes official **TBP LPS** thresholds (`3,75%` Bank Umum & Digital IDR, `6,25%` BPR IDR, `2,00%` Valas; Rp2B balance cap) directly on the comparison chart and flags unguaranteed products. |
+| **Monthly Budget Planner** | Maps net monthly deposit interest against routine household bills with 1-click scenario presets, quick-add expense chips, automatic 0% vs. 20% PPh threshold logic (≤ Rp7,5 jt vs. > Rp7,5 jt), searchable bank/BPR picker, 100% coverage capital estimator, and plain-text copy / `.txt` export. |
+| **Education Blog (6 Guides)** | Concise MDX guides with WebP cover art covering deposit math, 2026 rates, BPR vs. conventional banks, ARO vs. Non-ARO, 20% PPh Final rules, and inflation impact. |
+| **SSG Pre-rendering & SEO** | Zero-dependency Vite SSR + pre-rendering pipeline (`scripts/prerender.js`) generating 11 static HTML routes, structured JSON-LD (`WebSite`, `SoftwareApplication`, `FAQPage`, `BlogPosting`), `sitemap.xml`, `llms.txt`, and Cloudflare Pages `_redirects`. |
 
 ---
 
-## 🆕 What's New in v1.6.0 (SEO & Pre-rendering Engine Overhaul)
+## Release Highlights
 
-- ⚡ **SSG Pre-rendering Engine**: Solved the client-side SPA crawlability bottleneck by implementing an automated static site generator (`scripts/prerender.js`). Generates 15 fully rendered static HTML pages at build time with progressive client hydration (`ReactDOM.hydrateRoot`).
-- 🎯 **Targeted On-Page SEO**: Upgraded the homepage with an exact-match `<h1>` (*"Kalkulator Deposito: Hitung Bunga Bersih & Bandingkan Semua Bank"*), a 3-pillar comparison guide, and an interactive FAQ accordion powered by `FAQPage` schema markup.
-- 📚 **Expanded Content Cluster (3 → 10 Articles)**: Scaled the educational blog to 10 comprehensive, 2,000+ word guides targeting high-impression queries from Google Search Console.
-- 🤖 **AI SEO Readiness (`public/llms.txt`)**: Implemented `llms.txt` adhering to Generative Engine Optimization (GEO/AEO) standards for citations in ChatGPT, Perplexity, and Claude.
-- 🗺️ **Automated Sitemap & 301 Redirects**: Automated XML sitemap generation on build with canonical URLs and Cloudflare Pages `_redirects` (`/about` → `/tentang`, `/transparency` → `/sumber-data`).
-- 🖼️ **Social Sharing Banner (Open Graph)**: Added a custom 1200x630 branded OG preview image (`public/og/og-image.jpg`) for rich previews on WhatsApp, Twitter, and LinkedIn.
-- 🧭 **Sticky Glassmorphic Navbar**: Added [`Navbar.tsx`](src/components/Navbar/Navbar.tsx) with a one-tap mobile "Kalkulator" button and direct home navigation.
-- 📱 **Mobile-Optimized Footer**: Enhanced footer grid with popular guide deep-links and dedicated padding to avoid QuickNav overlap.
+### v1.7.1 (Current)
+- **Mobile & small-screen responsiveness** — Reclaimed horizontal mobile gutter in `.layout`, tuned the mobile Recharts chart with visible LPS reference lines and non-overlapping aligned labels, fixed badge/header wrapping in the rate details list, stabilized the Budget Planner dark summary card on narrow phones, and limited floating `QuickNav` to desktop (`md+`) so mobile controls never overlap.
+- **Searchable bank & BPR lists** — Added real-time search inputs with clear actions and empty states to both **Rencana Anggaran Bulanan** and **Perbandingan Bunga Deposito Bank**.
+- **ARO+ simulation modal modernization** — Rebuilt `NetWorthSimulationModal` on the v1.7 design system using a native `<dialog>` (`showModal()`, light-dismiss with Safari fallback, `overscroll-behavior: contain`), responsive grids, Indonesian copy, and `NaN%` guards.
 
----
+### v1.7.0
+- **Audited 35-product dataset & 2026 LPS rules** — Added digital, conventional, and BPR deposit rates with clickable RIPLAY links and live TBP LPS evaluation (`3,75%` / `6,25%` / `2,00%`, period `1 Oktober 2026 – 31 Januari 2027`).
+- **Budget Planner onboarding** — Added 3-step quick guide, 1-click scenario presets, quick-add expense chips, live coverage progress card, and copy / `.txt` export.
+- **Curated content & homepage refresh** — Streamlined the blog to 6 focused guides with WebP cover imagery and tightened homepage structure and copy.
 
-## ✨ Features
-
-### 🧮 Core Calculator
-- **Real-time Deposit Calculation** – Calculate interest, tax deductions (20%), and net returns instantly
-- **ARO Support** – Simulate Automatic Roll Over (ARO) and ARO+ with compounding effects
-- **Multiple Deposit Types** – Support for Non-ARO, ARO, and ARO+ calculations
-- **Tax Calculation** – Automatic 20% tax deduction as per Indonesian regulations (PP No. 131/2000)
-- **Flexible Tenors** – Calculate for 1, 3, 6, or 12-month periods
-
-### 📊 Bank Comparison
-- **Comprehensive Rate Comparison** – Compare deposit rates from major Indonesian banks
-- **Digital & Traditional Banks** – Coverage of both conventional and digital banks
-- **Visual Charts** – Interactive charts powered by Recharts for easy comparison
-- **Up-to-date Information** – Regular updates with last-updated timestamps
-
-### 💰 Budget Planner
-- **Financial Planning Tool** – Plan your deposit strategy with our budget planner
-- **Goal Setting** – Set financial goals and track progress
-- **Smart Recommendations** – Get personalized deposit recommendations
-
-### 🛡️ LPS Information
-- **Deposit Insurance** – Learn about LPS (Lembaga Penjamin Simpanan) coverage
-- **Safety Guidelines** – Understand deposit safety limits (up to Rp 2 billion per bank)
-- **Educational Content** – Clear explanations of deposit protection
-
-### 📝 Financial Education Blog (10 Complete Guides)
-- **Expert Articles** – In-depth guides without financial jargon
-- **SEO & Search-Intent Optimized** – Pre-rendered HTML with rich schema markup
-- **Current Topics**:
-  1. Cara Menghitung Bunga Deposito Bank (Rumus & Pajak 20%)
-  2. Simulasi Deposito Bank 2026 (Saldo 10 Juta, 50 Juta, 100 Juta)
-  3. Daftar Suku Bunga Deposito Bank Tertinggi 2026
-  4. Panduan Menggunakan Kalkulator Deposito Online
-  5. Mengenal Deposito ARO, Non-ARO, dan ARO+ (Compounding)
-  6. Pajak Bunga Deposito 20% (Aturan PPh Final Pasal 4 Ayat 2)
-  7. Deposito vs Tabungan Reguler
-  8. Pengaruh Inflasi terhadap Nilai Riil Bunga Deposito
-  9. Deposito BPR vs Bank Umum (Bunga & Jaminan LPS)
-  10. Strategi Tangga Deposito (Deposit Laddering)
-
-### 🎨 User Experience
-- **Responsive Design** – Seamless experience on mobile, tablet, and desktop
-- **Modern UI/UX** – Clean, intuitive interface with smooth animations
-- **Accessibility** – WCAG 2.1 AA compliant
-- **Dark Mode Ready** – Comfortable viewing in any lighting condition
-- **Quick Navigation** – Floating action button for easy site navigation
+### v1.6.0
+- **Design system & SSG foundation** — Introduced centralized design tokens (`src/theme.ts`), `Plus Jakarta Sans` + `Inter` + `JetBrains Mono` typography, inline SVG icons (`src/components/Icon/Icon.tsx`), sticky navbar, automated Vite SSG pre-rendering, and `public/llms.txt`.
 
 ---
 
-## 🛠️ Technology Stack
+## Tech Stack
 
-### Frontend Framework
-- **React 18.3.1** – Modern React with hooks and concurrent features
-- **TypeScript 5.2.2** – Type-safe development
-- **Vite 6.2.2** – Lightning-fast build tool and dev server
-
-### Styling & UI
-- **Tailwind CSS 3.4.7** – Utility-first CSS framework
-- **DaisyUI 5.5.5** – Beautiful component library
-- **Motion 12.6.2** – Smooth animations and transitions
-
-### Content & Documentation
-- **MDX 3.1.1** – Write JSX in Markdown for rich blog content
-- **Remark GFM 4.0.1** – GitHub Flavored Markdown support
-- **Rehype Plugins** – Auto-linking headings and slug generation
-- **Gray Matter 4.0.3** – Front matter parsing for blog posts
-- **Reading Time 1.5.0** – Estimated reading time for articles
-
-### Data Visualization
-- **Recharts 2.15.1** – Composable charting library for React
-
-### Routing
-- **React Router DOM 6.26.2** – Declarative routing for React
-
-### Development Tools
-- **ESLint** – Code linting and quality checks
-- **Prettier 3.3.3** – Code formatting
-- **Husky 8.0.0** – Git hooks for pre-commit checks
-- **Lint-Staged 15.2.9** – Run linters on staged files
-- **Jest 29.7.0** – Testing framework
+| Layer | Technologies |
+|---|---|
+| **Core** | React 18, TypeScript 5, Vite 6, React Router 6 |
+| **Styling & Motion** | Tailwind CSS 3, typed tokens (`src/theme.ts`), DaisyUI 4, Motion |
+| **Charts & Content** | Recharts 2.15, MDX 3 (`remark-gfm`, `rehype-slug`, `rehype-autolink-headings`, `gray-matter`, `reading-time`) |
+| **Quality & Testing** | Jest 29 (`ts-jest`), ESLint 8, Prettier 3, Husky + lint-staged |
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
-- Node.js 16+ and npm/yarn installed
-- Git for version control
+- Node.js 18+ and npm
 
-### Installation
+### Local Setup
 
-1. **Clone the repository**
 ```bash
 git clone git@github.com:HellBus1/InvestCount.git
 cd InvestCount
-```
-
-2. **Install dependencies**
-```bash
 npm install
-```
-
-3. **Run the development server**
-```bash
 npm run dev
 ```
 
-The app will be available at `http://localhost:5173`
-
-4. **Build for production (Full SSG & Prerendering)**
-```bash
-npm run build
-```
-*Executes client bundle, SSR compilation, and pre-renders static HTML for all 15 routes into `dist/`.*
-
-5. **Preview production build**
-```bash
-npm run preview
-```
+Open `http://localhost:5173` in your browser.
 
 ### Available Scripts
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start local Vite development server |
-| `npm run build` | Full production build: client + SSR + SSG pre-rendering |
-| `npm run build:client` | Type-check (`tsc -b`) and bundle client assets to `dist/` |
-| `npm run build:ssr` | Bundle SSR server entry point (`src/entry-server.tsx`) |
-| `npm run build:prerender` | Generate static HTML for all routes & create fresh `sitemap.xml` |
+| Command | Purpose |
+|---|---|
+| `npm run dev` | Start the local Vite development server |
+| `npm run build` | Run full production build: TypeScript check, client bundle, SSR bundle, and SSG pre-render (11 routes + `sitemap.xml`) |
+| `npm run build:client` | Type-check (`tsc -b`) and build the client bundle into `dist/` |
+| `npm run build:ssr` | Build the SSR server entry (`src/entry-server.tsx`) into `dist-ssr/` |
+| `npm run build:prerender` | Pre-render static HTML routes into `dist/` and refresh `public/sitemap.xml` |
 | `npm run preview` | Preview the production build locally |
-| `npm run lint` | Run ESLint across codebase |
-| `npm run lint:fix` | Automatically fix ESLint errors |
-| `npm run format` | Format code with Prettier |
-| `npm test` | Run Jest unit tests for deposit calculation formulas |
+| `npm test` | Run Jest unit tests (deposit calculations, LPS status rules, and budget planner services) |
+| `npm run lint` | Run ESLint with `--max-warnings 0` |
+| `npm run lint:fix` | Auto-fix lint issues across `src/` |
+| `npm run format` | Format TypeScript, TSX, and CSS files with Prettier |
 
 ---
 
-## 📚 Documentation & Architecture Guides
+## Documentation
 
-- 🏗️ [**SEO & Pre-rendering Architecture**](docs/SEO_AND_PRERENDERING_ARCHITECTURE.md) – Detailed technical breakdown of the zero-dependency Vite SSG engine, dynamic meta hooks, schema injection, and route redirects.
-- 🚀 [**Universal SEO Fixing Playbook for AI Agents**](docs/SEO_FIXING_PROMPT_PLAYBOOK.md) – Reusable, battle-tested prompt template and 5-phase execution guide to audit and fix SEO/crawlability issues on other web projects.
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-Please ensure your code:
-- Follows the existing code style
-- Passes all linting checks (`npm run lint`)
-- Is properly formatted (`npm run format`)
-- Includes appropriate tests
+- **Design Tokens**: [`src/theme.ts`](src/theme.ts) — Typed color, typography, shadow, and radius contract shared with Tailwind CSS.
+- **Directory Guidelines**: `SKILL.md` files in [`src/`](src/SKILL.md), [`src/components/`](src/components/SKILL.md), [`src/pages/HomePage/`](src/pages/HomePage/SKILL.md), and [`src/constants/`](src/constants/SKILL.md) — Concise UI and architecture standards used during development.
 
 ---
 
-## 📄 License
+## Contributing
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+Contributions, rate corrections, and bug reports are welcome:
+
+1. Fork the repository and create a branch from `master` (`git checkout -b fix/your-change`).
+2. Make your changes while keeping code style consistent with `src/SKILL.md`.
+3. Verify locally with `npm test`, `npm run lint`, and `npm run build`.
+4. Open a Pull Request describing the change and how you verified it.
 
 ---
 
-## 👨‍💻 Author
+## License
+
+Licensed under the Apache License 2.0. See [LICENSE](LICENSE) for details.
+
+---
+
+## Author
 
 **Syubban Fakhriya**
 
@@ -258,29 +139,26 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ---
 
-## 💖 Support
+## Support
 
-If you find InvestCount helpful, consider supporting the project:
+If InvestCount helps you plan your deposits, you can support ongoing maintenance and rate audits:
 
 [![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/syubban)
 
-Your support helps keep InvestCount free, ad-free, and continuously improving!
-
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
-- **React JS Template**: [ts-react-tailwind-starter](https://github.com/HellBus1/ts-react-tailwind-starter)
-- **AI Tools**: ChatGPT and other generative AI tools for development assistance
-- **Data Sources**: Bank Indonesia, OJK (Otoritas Jasa Keuangan), LPS (Lembaga Penjamin Simpanan)
-- **Community**: All contributors and users who provide feedback
+- **Starter Template**: [ts-react-tailwind-starter](https://github.com/HellBus1/ts-react-tailwind-starter)
+- **Regulatory & Data References**: [LPS](https://www.lps.go.id), [OJK](https://www.ojk.go.id), [Bank Indonesia](https://www.bi.go.id), and official bank/BPR RIPLAY publications
+- **Contributors & Users**: Everyone sharing rate updates and product feedback
 
 ---
 
 <div align="center">
 
-**Made with ❤️ for Indonesia's financial literacy**
+**Built for clearer financial decisions in Indonesia**
 
-[Live Demo](https://investtcount.mattrmost.com/) • [Report Bug](https://github.com/HellBus1/InvestCount/issues) • [Request Feature](https://github.com/HellBus1/InvestCount/issues)
+[Live App](https://investtcount.mattrmost.com/) • [Report Issue](https://github.com/HellBus1/InvestCount/issues) • [Request Feature](https://github.com/HellBus1/InvestCount/issues)
 
 </div>
