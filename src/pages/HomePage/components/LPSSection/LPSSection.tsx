@@ -34,7 +34,7 @@ const LPSSection = () => {
 
   return (
     <motion.section
-      className='py-16 md:py-24 w-full bg-slate-100/60 border-t border-slate-200/80'
+      className='below-fold-section py-16 md:py-24 w-full bg-slate-100/60 border-t border-slate-200/80'
       initial='hidden'
       whileInView='visible'
       viewport={{ once: true, amount: 0.2 }}

@@ -4,11 +4,13 @@ import Icon from '@/components/Icon/Icon'
 interface DepositRateResultProps {
   interest: number
   month: number
+  taxRate?: string
 }
 
 const DepositRateResult = (props: DepositRateResultProps) => {
-  const { interest, month } = props
+  const { interest, month, taxRate = '20' } = props
   const hasResult = interest > 0
+  const isTaxExempt = taxRate === '0'
 
   return (
     <div className='w-full p-6 rounded-2xl bg-gradient-to-br from-brand-50/90 via-white to-slate-50 border border-brand-200/80 shadow-card relative overflow-hidden'>
@@ -33,7 +35,11 @@ const DepositRateResult = (props: DepositRateResultProps) => {
 
       <div className='pt-3 border-t border-slate-200/60 flex items-center gap-1.5 text-[11px] text-slate-500'>
         <Icon name='shield-check' className='w-3.5 h-3.5 text-brand-600 flex-shrink-0' />
-        <span>Sudah memperhitungkan potongan PPh Final 20%</span>
+        <span>
+          {isTaxExempt
+            ? 'Bebas PPh Final 0% (simpanan ≤ Rp7,5 juta sesuai PP 131/2000)'
+            : 'Sudah memperhitungkan potongan PPh Final 20%'}
+        </span>
       </div>
     </div>
   )

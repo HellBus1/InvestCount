@@ -184,7 +184,7 @@ const BlogPost = () => {
                 .map((related) => (
                   <Link
                     key={related.slug}
-                    to={`/blog/${related.slug}`}
+                    to={`/blog/${related.slug}/`}
                     className='p-4 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-card hover:border-brand-300 transition-all flex flex-col justify-between group'
                   >
                     <div>

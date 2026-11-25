@@ -14,38 +14,54 @@ const HomePage = () => {
   const depositSectionRef = useRef<HTMLDivElement | null>(null)
 
   useSEO({
-    title:
-      'Kalkulator Deposito Indonesia - Hitung Bunga Bersih & Bandingkan Semua Bank | InvestCount',
+    title: 'Kalkulator Deposito 2026: Hitung Bunga Bersih & 35 Bank',
     description:
-      'Kalkulator deposito gratis untuk menghitung bunga bersih setelah pajak 20%, menyusun rencana anggaran bulanan, dan membandingkan 35 produk bank digital, konvensional, dan BPR beserta status penjaminan LPS.',
+      'Hitung bunga deposito bersih setelah PPh 20% dan cek status LPS dari 35 bank & BPR (BCA, Mandiri, SeaBank, Krom). Gratis tanpa iklan — coba sekarang.',
     canonicalUrl: '/',
+    exactTitle: true,
     keywords: [
       'kalkulator deposito',
-      'hitung bunga deposito',
       'simulasi deposito',
-      'deposito bank',
-      'bunga deposito',
-      'pajak deposito 20%',
-      'deposito indonesia',
+      'hitung bunga deposito',
       'kalkulator bunga deposito',
-      'deposito online',
+      'bunga deposito 2026',
+      'pajak deposito 20%',
+      'kalkulator deposito bpr',
+      'deposito bank digital',
       'ARO deposito'
     ],
     schema: [
       {
-        '@context': 'https://schema.org',
         '@type': 'WebSite',
+        '@id': 'https://investtcount.mattrmost.com/#website',
         name: 'InvestCount',
         url: 'https://investtcount.mattrmost.com/',
         inLanguage: 'id-ID',
-        description: 'Kalkulator deposito gratis dan pembanding suku bunga bank Indonesia.'
+        description:
+          'Kalkulator deposito independen untuk menghitung bunga bersih setelah pajak 20% dan membandingkan 35 produk bank serta BPR di Indonesia.'
       },
       {
-        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        '@id': 'https://investtcount.mattrmost.com/#organization',
+        name: 'InvestCount',
+        url: 'https://investtcount.mattrmost.com/',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://investtcount.mattrmost.com/assets/web_icon.svg'
+        },
+        founder: {
+          '@type': 'Person',
+          name: 'Syubban Fakhriya',
+          url: 'https://www.linkedin.com/in/syubban-fakhriya/'
+        },
+        sameAs: ['https://github.com/HellBus1', 'https://www.linkedin.com/in/syubban-fakhriya/']
+      },
+      {
         '@type': 'SoftwareApplication',
         name: 'Kalkulator Deposito InvestCount',
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Web',
+        inLanguage: 'id-ID',
         url: 'https://investtcount.mattrmost.com/',
         offers: {
           '@type': 'Offer',
@@ -54,7 +70,30 @@ const HomePage = () => {
         }
       },
       {
-        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'Cara Menghitung Bunga Deposito Setelah Pajak 20%',
+        step: [
+          {
+            '@type': 'HowToStep',
+            position: 1,
+            name: 'Pilih tipe perpanjangan deposito',
+            text: 'Pilih Non-ARO, ARO, atau ARO+ (bunga berbunga majemuk).'
+          },
+          {
+            '@type': 'HowToStep',
+            position: 2,
+            name: 'Masukkan nominal pokok, suku bunga, dan tenor',
+            text: 'Isi jumlah simpanan, suku bunga tahunan (% p.a.), dan tenor bulan.'
+          },
+          {
+            '@type': 'HowToStep',
+            position: 3,
+            name: 'Lihat hasil bunga bersih & cek status LPS',
+            text: 'Sistem menghitung potongan PPh Final 20% (atau 0% untuk saldo ≤ Rp7,5 juta) dan membandingkannya dengan TBP LPS.'
+          }
+        ]
+      },
+      {
         '@type': 'FAQPage',
         mainEntity: homeFAQs.map((faq) => ({
           '@type': 'Question',

@@ -1,10 +1,5 @@
 import { Navigate, RouteObject } from 'react-router-dom'
 import HomePage from '@/pages/HomePage/HomePage'
-import AboutPage from '@/pages/AboutPage/AboutPage'
-import TransparencyPage from '@/pages/TransparencyPage/TransparencyPage'
-import BlogPage from '@/pages/BlogPage/BlogPage'
-import BlogPost from '@/pages/BlogPage/BlogPost'
-import NotFoundPage from '@/pages/NotFoundPage'
 import Root from '@/pages/Root'
 import { RouteName } from './constants/RouteName'
 
@@ -14,40 +9,62 @@ export const routes: RouteObject[] = [
     element: <Root />,
     children: [
       {
-        path: RouteName.HOME,
+        index: true,
         element: <HomePage />
       },
       {
-        path: '/kalkulator-deposito',
-        element: <HomePage />
+        path: 'kalkulator-deposito',
+        element: <Navigate to={RouteName.HOME} replace />
       },
       {
-        path: RouteName.ABOUT,
-        element: <AboutPage />
+        path: 'kalkulator-deposito/:bankSlug',
+        lazy: async () => {
+          const mod = await import('@/pages/BankCalculatorPage/BankCalculatorPage')
+          return { Component: mod.default }
+        }
       },
       {
-        path: '/about',
+        path: 'tentang',
+        lazy: async () => {
+          const mod = await import('@/pages/AboutPage/AboutPage')
+          return { Component: mod.default }
+        }
+      },
+      {
+        path: 'about',
         element: <Navigate to={RouteName.ABOUT} replace />
       },
       {
-        path: RouteName.TRANSPARENCY,
-        element: <TransparencyPage />
+        path: 'sumber-data',
+        lazy: async () => {
+          const mod = await import('@/pages/TransparencyPage/TransparencyPage')
+          return { Component: mod.default }
+        }
       },
       {
-        path: '/transparency',
+        path: 'transparency',
         element: <Navigate to={RouteName.TRANSPARENCY} replace />
       },
       {
-        path: RouteName.BLOG,
-        element: <BlogPage />
+        path: 'blog',
+        lazy: async () => {
+          const mod = await import('@/pages/BlogPage/BlogPage')
+          return { Component: mod.default }
+        }
       },
       {
-        path: `${RouteName.BLOG}/:slug`,
-        element: <BlogPost />
+        path: 'blog/:slug',
+        lazy: async () => {
+          const mod = await import('@/pages/BlogPage/BlogPost')
+          return { Component: mod.default }
+        }
       },
       {
         path: '*',
-        element: <NotFoundPage />
+        lazy: async () => {
+          const mod = await import('@/pages/NotFoundPage')
+          return { Component: mod.default }
+        }
       }
     ]
   }
