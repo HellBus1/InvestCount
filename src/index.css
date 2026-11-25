@@ -65,11 +65,22 @@
 
   .layout {
     max-width: 72rem;
-    @apply mx-auto w-11/12 md:w-full px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full px-4 sm:px-6 lg:px-8;
   }
 
   .min-h-main {
     @apply min-h-[calc(100vh-56px)];
+  }
+
+  dialog:modal {
+    overscroll-behavior: contain;
+  }
+
+  dialog::backdrop {
+    background-color: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(2px);
+    overflow: hidden;
+    overscroll-behavior: contain;
   }
 }
 
