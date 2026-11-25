@@ -7,10 +7,11 @@ const formatNumberWithCommas = (value: string) => {
 }
 
 const getImagePath = (basePath: string) => {
-  if (typeof window !== 'undefined' && window.location?.origin) {
-    return `${window.location.origin}${basePath}`
+  if (!basePath) return basePath
+  if (basePath.startsWith('http') || basePath.startsWith('/')) {
+    return basePath
   }
-  return basePath
+  return `/${basePath}`
 }
 
 const parseAmountInputFromCommas = (amount: string) => {
@@ -27,7 +28,9 @@ const getProductName = (bankNameAndProduct: string) => {
 const getRupiahFormat = (amount: number) => {
   return new Intl.NumberFormat('id-ID', {
     style: 'currency',
-    currency: 'IDR'
+    currency: 'IDR',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
   }).format(amount)
 }
 

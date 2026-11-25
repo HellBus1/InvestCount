@@ -13,7 +13,7 @@ const Hero = (props: HeroProps) => {
   return (
     <motion.section
       className='relative w-full overflow-hidden bg-gradient-to-b from-slate-50 via-brand-50/20 to-slate-50 pt-16 pb-20 md:pt-24 md:pb-28'
-      initial='hidden'
+      initial={false}
       animate='visible'
       variants={containerVariants}
     >
