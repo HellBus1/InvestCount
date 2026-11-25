@@ -333,8 +333,10 @@ async function prerender() {
   ]
 
   for (const route of routes) {
-    console.log(`  → Pre-rendering: ${route.url}`)
-    const { html } = render(route.url)
+    const normalizedRoutePath =
+      route.url === '/' ? '/' : `/${route.url.replace(/^\/+|\/+$/g, '')}/`
+    console.log(`  → Pre-rendering: ${normalizedRoutePath}`)
+    const { html } = render(normalizedRoutePath)
     const fullCanonical = toCanonicalUrl(route.url)
     const fullOgImage = route.ogImage.startsWith('http')
       ? route.ogImage

@@ -1,3 +1,4 @@
+import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import { createMemoryRouter, RouterProvider } from 'react-router-dom'
 import { ssrRoutes } from './routes.ssr'
@@ -10,7 +11,11 @@ export function render(url: string) {
     initialEntries: [url]
   })
 
-  const html = ReactDOMServer.renderToString(<RouterProvider router={router} />)
+  const html = ReactDOMServer.renderToString(
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  )
 
   return { html }
 }
